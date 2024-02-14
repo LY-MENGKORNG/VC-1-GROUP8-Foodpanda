@@ -11,13 +11,9 @@ $routes = [
     '/search' => 'controllers/search/search.controller.php',
 ];
 
-if (array_key_exists($uri, $routes)) {
-    $page = $routes[$uri];
-} else {
-   http_response_code(404);
-   $page = 'views/errors/404.php';
-}
-require "layouts/header.php";
-require "layouts/navbar.php";
+$page = array_key_exists($uri, $routes) ? $routes[$uri] : "views/errors/404.php";
+
+require "layouts/customer/header.php";
+require "layouts/customer/navbar.php";
 require $page;
-require "layouts/footer.php";
+require "layouts/customer/footer.php";
