@@ -1,12 +1,11 @@
 <?php
 require 'utils/url.php';
 require 'database/database.php';
+
 if (urlIs("/admin")) { 
-    require "admin_router.php";
+    require "routers/admin.router.php";
 } else if (urlIs('/signin') || urlIs('/signup')) {
-    require "authentication_router.php";
+    require "routers/customer_authen.router.php";
 }else{
-    require 'router.php';
+    require 'routers/customer.router.php';
 }
-
-
