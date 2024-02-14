@@ -357,13 +357,13 @@ div,a {
 }
 
 ::-webkit-scrollbar {
-    width: 4px;
+    width: 6px;
     background-color: #fff
 }
 
 ::-webkit-scrollbar-thumb {
     height: 50px;
-    background: hsla(0,0%,53.3%,.4)
+    background: hsla(339, 90%, 59%, 0.669)
 }
 
 .btn-facebook {
