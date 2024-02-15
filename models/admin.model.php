@@ -1,52 +1,18 @@
-<?php
+<?php 
+require "database/database.php"; 
 
-function createPost(string $title, string $description) : bool
-{
+function createAdmin(string $admin_name, string $email, string $password, string $phone, string $image = "") : bool {
     global $connection;
-    $statement = $connection->prepare("INSERT INTO posts (title, description) VALUES (:title, :description)");
-    $statement->execute([
-        ':title' => $title,
-        ':description' => $description
-
+    $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone, image) VALUES 
+                                    (:admin_name, :email, :password, :phone, :image);");
+    $stmt->execute([
+        'admin_name' => $admin_name,
+        'email' => $email,
+        'password' => $password,
+        'phone' => $phone,
+        'image' => $image
     ]);
-
-    return $statement->rowCount() > 0;
+    return $stmt->rowCount() > 0;
 }
 
-function getPost(int $id) : array
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT * FROM posts WHERE id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->fetch();
-}
-
-function getPosts() : array
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT * FROM posts");
-    $statement->execute();
-    return $statement->fetchAll();
-}
-
-function updatePost(string $title, string $description, int $id) : bool
-{
-    global $connection;
-    $statement = $connection->prepare("UPDATE posts set title = :title, description = :description where id = :id");
-    $statement->execute([
-        ':title' => $title,
-        ':description' => $description,
-        ':id' => $id
-
-    ]);
-
-    return $statement->rowCount() > 0;
-}
-
-function deletePost(int $id) : bool
-{
-    global $connection;
-    $statement = $connection->prepare("delete from posts where id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->rowCount() > 0;
-}
+?>
