@@ -7,6 +7,12 @@ $routes = [
     '/admin' => 'controllers/admin/admin.controller.php',
 ];
 
+if (array_key_exists($uri, $routes)) {
+    $page = $routes[$uri];
+}else {
+    
+}
+
 $page = array_key_exists($uri, $routes) ? $routes[$uri] : "views/errors/404.php";
 
 require "layouts/admin/header.php";
