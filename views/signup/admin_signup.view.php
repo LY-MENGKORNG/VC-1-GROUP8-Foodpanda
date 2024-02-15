@@ -1,7 +1,7 @@
 <?php require "layouts/admin/header.php"; ?>
 <div class="container mt-5 col-6">
-    <form action="/" method="post" class="form darkmode">
-        <h2 class="text-info">Signup</h2>
+    <form action="/admin" method="post" class="form darkmode">
+        <h2 class="text-info">Admin Register</h2>
         <div class="row d-flex justify-content-between mt-4">
             <div class="group-form col-6">
                 <label class="form-label" for="f-name">First name</label>
@@ -31,4 +31,3 @@
         <button type="submit" class="btn btn-info mt-4 col-12">Submit</button>
     </form>
 </div>
-<?php require "layouts/admin/footer.php"; ?>

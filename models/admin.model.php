@@ -2,10 +2,12 @@
 require "database/database.php"; 
 
 function toString(...$variable) {
-    return $variable;
+    return htmlspecialchars($variable);
 }
 
 function createAdmin($admin_name, $email, $password, $phone, $image = "") : bool {
+    toString($admin_name, $email, $password, $phone, $image);
+    
     global $connection;
     $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone, image) VALUES 
                                     (:admin_name, :email, :password, :phone, :image);");
