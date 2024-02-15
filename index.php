@@ -1,17 +1,7 @@
 <?php
 require 'utils/url.php';
-require 'database/database.php';
-require 'models/get_login.model.php';
+require 'routers/admin.router.php';
 
 if (urlIs("/")) {
-    $is_signup = !getAdminLogin();
-    require 'admin-signup';
+    echo "hei";
 }
-
-if (urlIs(('/admin-signup'))) {
-    require "routers/admin_signup.router.php";
-}
-else if (urlIs("/admin")) { 
-    require "routers/admin.router.php";
-}
-    
