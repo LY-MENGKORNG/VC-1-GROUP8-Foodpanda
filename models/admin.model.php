@@ -1,52 +1,36 @@
-<?php
+<?php 
+require "database/database.php"; 
 
-function createPost(string $title, string $description) : bool
-{
+function toString($param) {
+    return htmlspecialchars($param, ENT_QUOTES);
+}
+
+function createAdmin($admin_name, $email, $password, $phone,) : bool {
     global $connection;
-    $statement = $connection->prepare("INSERT INTO posts (title, description) VALUES (:title, :description)");
-    $statement->execute([
-        ':title' => $title,
-        ':description' => $description
 
+    $admin_name = toString($admin_name);
+    $email = toString($email);
+    $password = toString($password);
+    $phone = toString($phone);
+
+    $password = password_hash($password, PASSWORD_BCRYPT);
+    
+    $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone) VALUES 
+                                    (:admin_name, :email, :password, :phone);");
+    $stmt->execute([
+        'admin_name' => $admin_name,
+        'email' => $email,
+        'password' => $password,
+        'phone' => $phone
     ]);
-
-    return $statement->rowCount() > 0;
+    return $stmt->rowCount() > 0;
 }
 
-function getPost(int $id) : array
-{
+function getAdmin() : array {
     global $connection;
-    $statement = $connection->prepare("SELECT * FROM posts WHERE id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->fetch();
+    $stmt = $connection->prepare("SELECT * FROM Admin");
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
 
-function getPosts() : array
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT * FROM posts");
-    $statement->execute();
-    return $statement->fetchAll();
-}
-
-function updatePost(string $title, string $description, int $id) : bool
-{
-    global $connection;
-    $statement = $connection->prepare("UPDATE posts set title = :title, description = :description where id = :id");
-    $statement->execute([
-        ':title' => $title,
-        ':description' => $description,
-        ':id' => $id
-
-    ]);
-
-    return $statement->rowCount() > 0;
-}
-
-function deletePost(int $id) : bool
-{
-    global $connection;
-    $statement = $connection->prepare("delete from posts where id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->rowCount() > 0;
-}
+?>
