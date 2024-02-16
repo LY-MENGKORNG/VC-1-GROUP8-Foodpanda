@@ -1,8 +1,8 @@
 <?php 
 require "database/database.php"; 
 
-function toString($param) {
-    return htmlspecialchars($param, ENT_QUOTES);
+function toString($variable) {
+    return htmlspecialchars($variable, ENT_QUOTES);
 }
 
 function createAdmin($admin_name, $email, $password, $phone,) : bool {
