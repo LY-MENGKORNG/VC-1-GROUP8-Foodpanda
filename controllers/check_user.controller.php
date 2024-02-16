@@ -1,8 +1,10 @@
 <?php 
 require "./models/users.model.php";
+
 if (count(checkUser("Admin")) == 0) {
-    require "views/signup/admin_signup_form.view.php";
+    require "./routers/admin.router.php";
+    header("Location: /admin-signup");
 }else if (count(checkUser("restaurants")) == 0) {
-    echo "Please select one of the following users";
+    require "views/restaurant/restaurant.view.php";
 }
 ?>

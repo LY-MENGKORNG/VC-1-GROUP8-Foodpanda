@@ -8,4 +8,12 @@ function checkUser($user) {
     return $stmt->fetchAll();
 }
 
+function getUser(string $email): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM Admin where email = :email");
+    $statement->execute([':email' => $email]);
+    return $statement->fetchAll();
+}
+
 ?>

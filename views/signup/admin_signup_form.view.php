@@ -1,8 +1,7 @@
 <?php require "layouts/admin/header.php"; ?>
-<div class="container mt-5 px-5">
-    <form action="/ad-admin" method="post" class="form shadow-sm darkmode row p-0" style="background-image: url(../../assets/images/test.jpg); background-position: 0; background-size: cover;">
-        <div class="col-6"></div>
-        <div class="col-6 p-5" style="border-radius: 0px 5px 5px 0px; background:linear-gradient(90deg, rgba(38,5,12,0.9640231092436975) 27%, rgba(42,5,33,0.927608543417367) 71%);">
+<div class="container-fluid p-0">
+    <form action="/create-admin" method="post" class="shadow-sm darkmode row m-0" style="background-image: url(../../assets/images/test.jpg); background-position: 0; background-size: cover; height: 100vh;">
+        <div class="p-5 m-0 ml-auto" style="background:linear-gradient(90deg, rgba(38,5,12,0.9640231092436975) 27%, rgba(42,5,33,0.927608543417367) 71%); min-width: 400px; max-width: 800px;">
             <h2 class="text-success">Admin Register</h2>
             <div class="row d-flex justify-content-between mt-4">
                 <div class="group-form col-6">
