@@ -16,7 +16,7 @@ function createAdmin($admin_name, $email, $password, $phone,) : bool {
     $password = password_hash($password, PASSWORD_BCRYPT);
     
     $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone) VALUES 
-                                    (:admin_name, :email, :password, :phone);");
+    (:admin_name, :email, :password, :phone);");
     $stmt->execute([
         'admin_name' => $admin_name,
         'email' => $email,
@@ -33,21 +33,13 @@ function getAdmin() : array {
     return $stmt->fetchAll();
 }
 
-function verify_email( string $email, string $password ){
-    $admin = getAdmin();
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $email = htmlspecialchars($_POST['email']);
-        $password = htmlspecialchars($_POST['password']);
-        $verify_token_email = password_hash($password, PASSWORD_BCRYPT);
-    
-        $verify_result = verify_email( $email, $verify_token_email);
-        echo $verify_result;
-    }
-    if ($verify_result){
-        header('Location: /admin');
-    }else {
-        echo 'Incorrect success';
-    }
+function secureData($data)
+{
+    $data = trim($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
 
-
+function regexData($regex, $data) : bool {
+    return preg_match($regex, $data);
+}
