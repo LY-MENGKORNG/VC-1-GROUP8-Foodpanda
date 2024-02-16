@@ -1,22 +1,27 @@
 <?php 
 require "database/database.php"; 
 
-function toString(...$variable) {
-    return htmlspecialchars($variable);
+function toString($param) {
+    return htmlspecialchars($param, ENT_QUOTES);
 }
 
-function createAdmin($admin_name, $email, $password, $phone, $image = "") : bool {
-    toString($admin_name, $email, $password, $phone, $image);
-    
+function createAdmin($admin_name, $email, $password, $phone,) : bool {
     global $connection;
-    $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone, image) VALUES 
-                                    (:admin_name, :email, :password, :phone, :image);");
+
+    $admin_name = toString($admin_name);
+    $email = toString($email);
+    $password = toString($password);
+    $phone = toString($phone);
+
+    $password = password_hash($password, PASSWORD_BCRYPT);
+    
+    $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone) VALUES 
+                                    (:admin_name, :email, :password, :phone);");
     $stmt->execute([
         'admin_name' => $admin_name,
         'email' => $email,
         'password' => $password,
-        'phone' => $phone,
-        'image' => $image
+        'phone' => $phone
     ]);
     return $stmt->rowCount() > 0;
 }

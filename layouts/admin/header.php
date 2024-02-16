@@ -5,18 +5,17 @@
   <title>Admin Dashboard</title>
   <!-- Favicon -->
   <link rel="shortcut icon" href="./img/svg/logo.svg" type="image/x-icon">
+  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Custom styles -->
-  <link rel="stylesheet" href="vendor/css/style.min.css">
-  <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
-  <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
+  <link rel="stylesheet" href="../../vendor/css/style.min.css">
+  <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick.min.css" />
+  <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick-theme.min.css" />
 
-  <link href="vendor/icons/feather.css" rel="stylesheet" type="text/css" />
+  <link href="../../vendor/icons/feather.css" rel="stylesheet" type="text/css" />
 
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../../vendor/css/style.css" rel="stylesheet" />
 
-  <link href="vendor/css/style.css" rel="stylesheet" />
-
-  <link href="vendor/sidebar/demo.css" rel="stylesheet" />
+  <link href="../../vendor/sidebar/demo.css" rel="stylesheet" />
 </head>
 
 <body>
