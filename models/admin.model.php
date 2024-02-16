@@ -16,7 +16,7 @@ function createAdmin($admin_name, $email, $password, $phone,) : bool {
     $password = password_hash($password, PASSWORD_BCRYPT);
     
     $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone) VALUES 
-                                    (:admin_name, :email, :password, :phone);");
+    (:admin_name, :email, :password, :phone);");
     $stmt->execute([
         'admin_name' => $admin_name,
         'email' => $email,
@@ -33,4 +33,13 @@ function getAdmin() : array {
     return $stmt->fetchAll();
 }
 
-?>
+function secureData($data)
+{
+    $data = trim($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+function regexData($regex, $data) : bool {
+    return preg_match($regex, $data);
+}
