@@ -10,5 +10,3 @@ if (count(getAdmin()) == 0) {
     }
 }
 header("Location: /admin");
-
-?>

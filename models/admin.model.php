@@ -25,7 +25,6 @@ function createAdmin($admin_name, $email, $password, $phone,) : bool {
     ]);
     return $stmt->rowCount() > 0;
 }
-
 function getAdmin() : array {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM Admin");
