@@ -1,7 +1,7 @@
 CREATE TABLE `Admin` (
   `admin_id` int UNIQUE PRIMARY KEY,
   `admin_name` varchar(20),
-  `email` varchar(100),
+  `email` varchar(100) UNIQUE,
   `password` varchar(50),
   `phone` varchar(20),
   `image` varchar(255)
@@ -11,7 +11,7 @@ CREATE TABLE `Customers` (
   `customer_id` int PRIMARY KEY AUTO_INCREMENT,
   `first_name` varchar(50),
   `last_name` varchar(50),
-  `email` varchar(255),
+  `email` varchar(255) UNIQUE,
   `password` varchar(255),
   `phone` varchar(20),
   `registration_date` datetime
@@ -22,6 +22,8 @@ CREATE TABLE `Restaurants` (
   `admin_id` int,
   `restaurant_name` varchar(100),
   `owner_name` varchar(100) UNIQUE,
+  `email` varchar(255) UNIQUE,
+  `password` varchar(255),
   `location` varchar(255),
   `rating` int(1),
   `opening_hours` timestamp,
@@ -33,9 +35,11 @@ CREATE TABLE `Restaurants` (
 CREATE TABLE `Deliveries` (
   `delivery_id` int PRIMARY KEY AUTO_INCREMENT,
   `delivery_name` varchar(50),
+  `email` varchar(255) UNIQUE,
+  `password` varchar(255),
   `phone` varchar(20),
   `delivery_fee` int,
-  `status` bool DEFAULT true
+  `status` bool
 );
 
 CREATE TABLE `Orders` (
@@ -57,7 +61,7 @@ CREATE TABLE `MenuItems` (
   `item_id` int PRIMARY KEY AUTO_INCREMENT,
   `restaurant_id` int,
   `cuisine` varchar(100),
-  `available_status` bool 
+  `available_status` bool DEFAULT true
 );
 
 CREATE TABLE `Foods` (

@@ -1,4 +1,2 @@
-<?php
-require "../../database/database.php";
-require "./models/admin.model.php";
-?>
+<?php 
+require "./views/signout/admin_signout.view.php";
