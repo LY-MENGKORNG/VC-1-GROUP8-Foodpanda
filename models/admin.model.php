@@ -42,3 +42,5 @@ function secureData($data)
 function regexData($regex, $data) : bool {
     return preg_match($regex, $data);
 }
+
+
