@@ -1,9 +1,9 @@
 <?php
-require "./models/admin.model.php";
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $email = secureData($_POST['email']);
-    $password = secureData($_POST['password']);
+session_start();
+if (count(getAdmin()) == 1 && isset($_SESSION["admin"])) {
     header("Location: /admin");
+    die();
+}else {
+    require "./views/signin/admin_signin.view.php";
 }
-
 ?>

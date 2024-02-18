@@ -1,20 +1,12 @@
-<?php 
-require "database/database.php"; 
+<?php
 
-function toString($variable) {
-    return htmlspecialchars($variable, ENT_QUOTES);
-}
-
-function createAdmin($admin_name, $email, $password, $phone,) : bool {
+function createAdmin($admin_name, $email, $password, $phone,): bool
+{
+    if (count(getAdmin()) == 1) {
+        return false;
+    }
     global $connection;
 
-    $admin_name = toString($admin_name);
-    $email = toString($email);
-    $password = toString($password);
-    $phone = toString($phone);
-
-    $password = password_hash($password, PASSWORD_BCRYPT);
-    
     $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone) VALUES 
                                 (:admin_name, :email, :password, :phone);");
     $stmt->execute([
@@ -26,20 +18,25 @@ function createAdmin($admin_name, $email, $password, $phone,) : bool {
     return $stmt->rowCount() > 0;
 }
 
-function getAdmin() : array {
+function getAdmin(): array
+{
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM Admin");
     $stmt->execute();
     return $stmt->fetchAll();
 }
 
-function secureData($data)
-{
-    $data = trim($data);
-    $data = htmlspecialchars($data);
-    return $data;
+function accountExist(string $email) {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM Admin WHERE email = :email");
+    $stmt->execute([':email' => $email]);
+    
+    return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
 }
 
-function regexData($regex, $data) : bool {
-    return preg_match($regex, $data);
+function adminSignout($email) : bool {
+    global $connection;
+    $stmt = $connection->prepare("DELETE FROM Admin WHERE email = :email");
+    $stmt->execute([':email' => $email]);
+    return $stmt->rowCount() > 0;
 }
