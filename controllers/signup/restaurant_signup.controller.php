@@ -1,5 +1,6 @@
 <?php
 require "models/restaurant.model.php";
+// require "database/database.php";
 echo $_POST["f-name"];
 
 if (count(getAdmin()) == 0) {
