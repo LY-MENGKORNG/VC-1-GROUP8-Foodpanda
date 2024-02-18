@@ -7,7 +7,6 @@ function admin_edit($name,$menu,$hours,$contact) {
     $hours = toString($hours);
     $contact =toString($contact);
 
-    // Update restaurant details in the database
     $sql = $connection-> prepare ("UPDATE restaurant SET menu='$menu', hours='$hours', contact='$contact' WHERE name='$name'");
     $sql->execute();
 
@@ -20,5 +19,4 @@ function admin_edit($name,$menu,$hours,$contact) {
     
 }
 
-// Example usage
 admin_edit($_POST['name'], $_POST['menu'], $_POST['hours'], $_POST['contact']);
