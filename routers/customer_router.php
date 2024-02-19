@@ -1,9 +1,15 @@
 <?php
-
+require "./models/customer.model.php";
+// require "./database/database.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
+if (urlIs("/customer")) {
+    require "./controllers/users/check_user.controller.php";
+}
+
 $page = "";
 $routes = [
-    '/' => 'controllers/home/home.controller.php',
+    '/customer' => 'controllers/home/home.controller.php',
     '/checkout' => 'controllers/checkout/checkout.controller.php',
     '/favorite' => 'controllers/favorites/favorite.controller.php',
     '/order' => 'controllers/orders/order.controller.php',
