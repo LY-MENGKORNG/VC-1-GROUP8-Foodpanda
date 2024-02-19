@@ -39,3 +39,15 @@ function adminSignout($email) : bool {
     $stmt->execute([':email' => $email]);
     return $stmt->rowCount() > 0;
 }
+
+// Retrieve order status from the database
+function getOrderStatus($orderId) {
+    // Replace this with your actual implementation to fetch the order status from the database
+    
+    $orders = array(
+        'order1' => 'new',
+        'order2' => 'in-progress',
+        'order3' => 'completed'
+    );
+    return $orders[$orderId] ?? 'unknown';
+}

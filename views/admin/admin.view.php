@@ -192,8 +192,8 @@
                       <input type="checkbox" class="check-all">Thumbnail
                     </label>
                   </th>
-                  <th>Title</th>
-                  <th>Author</th>
+                  <th>Food</th>
+                  <th>Customer</th>
                   <th>Status</th>
                   <th>Date</th>
                   <th>Action</th>
@@ -531,3 +531,5 @@
       </div>
     </div>
   </main>
+
+  
