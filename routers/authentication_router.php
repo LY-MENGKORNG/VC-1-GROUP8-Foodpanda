@@ -9,6 +9,13 @@ $routes = [
     '/admin/check-signin' => 'controllers/signin/admin_check_signin.controller.php',
     '/admin/signout' => 'controllers/signout/admin_signout.controller.php',
     '/admin/check-signout' => 'controllers/signout/admin_check_signout.controller.php',
+    
+    '/restaurant/signup' => 'controllers/signup/restaurant_signup.controller.php',
+    '/restaurant/check-signup' => 'controllers/signup/restaurant_check_signup.controller.php',
+    '/restaurant/signin' => 'controllers/signin/restaurant_signin.controller.php',
+    '/restaurant/check-signin' => 'controllers/signin/restaurant_check_signin.controller.php',
+    '/restaurant/signout' => 'controllers/signout/restaurant_signout.controller.php',
+    '/admin/check-signout' => 'controllers/signout/admin_check_signout.controller.php'
 ];
 
 if (array_key_exists($uri, $routes)) {
