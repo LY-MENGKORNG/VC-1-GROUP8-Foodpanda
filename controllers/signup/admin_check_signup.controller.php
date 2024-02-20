@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = htmlspecialchars($_POST['password']);
         $phone = htmlspecialchars($_POST['phone']);
 
-        $pass_encrypt = password_hash($password, PASSWORD_DEFAULT);
+        $pass_encrypt = password_hash($password, PASSWORD_BCRYPT);
 
         if(createAdmin($name, $email, $pass_encrypt, $phone)) {
             header("Location: /admin/signin");

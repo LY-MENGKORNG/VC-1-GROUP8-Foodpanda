@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         if(adminSignout($email)) {
             session_destroy();
-            header('Location: /');
+            header('Location: /foodpanda');
         }else {
             header('Location: /admin/signout');
         }
