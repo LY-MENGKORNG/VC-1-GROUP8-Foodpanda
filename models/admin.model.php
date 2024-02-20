@@ -33,7 +33,7 @@ function accountExist(string $email) {
 }
 
 
-function adminSignout($email) : bool {
+function adminSignout(string $email) : bool {
     global $connection;
     $stmt = $connection->prepare("DELETE FROM Admin WHERE email = :email");
     $stmt->execute([':email' => $email]);
