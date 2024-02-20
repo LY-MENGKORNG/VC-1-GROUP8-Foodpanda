@@ -1,6 +1,7 @@
 <?php
-require "models/restaurant.model.php";
-// require "database/database.php";
+// require "models/restaurant.model.php";
+require "views/signup/restaurant_signup.view.php";
+//  require "database/database.php";
 echo $_POST["f-name"];
 
 if (count(getAdmin()) == 0) {

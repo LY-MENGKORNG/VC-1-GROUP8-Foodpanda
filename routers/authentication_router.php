@@ -15,7 +15,7 @@ $routes = [
     '/restaurant/signin' => 'controllers/signin/restaurant_signin.controller.php',
     '/restaurant/check-signin' => 'controllers/signin/restaurant_check_signin.controller.php',
     '/restaurant/signout' => 'controllers/signout/restaurant_signout.controller.php',
-    '/admin/check-signout' => 'controllers/signout/admin_check_signout.controller.php'
+    '/restaurant/check-signout' => 'controllers/signout/admin_check_signout.controller.php'
 ];
 
 if (array_key_exists($uri, $routes)) {
