@@ -1,3 +1,5 @@
+<?php  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,17 +52,19 @@
             color: #DDDDDD;
         }
 
-        .start, .signin {
+        .start,
+        .signin {
             font-weight: bold;
-            padding: 10px 25px;
+            padding: 8px 25px;
             border-radius: 20px;
             transition: 0.3s;
             background: #FF2B85;
             color: white;
         }
 
-        .start:hover {
-            padding: 10px 35px;
+        .start:hover,
+        .signin:hover {
+            padding: 8px 35px;
             color: white;
         }
 
@@ -69,7 +73,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             animation: slideInDown 0.5s ease;
-            background:  rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.8);
         }
 
         @keyframes slideInDown {
@@ -128,17 +132,39 @@
             <button class="btn start">Get Started</button>
         </div>
         <div class="container mt-5" style="display: none;">
-            <form action="/customer/check-signin" class="bg-light p-5 rounded-lg m-auto" style="max-width: 800px;">
-                <h2 style="color: #FF2B85;">Sign up to register</h2>
-                <div class="form-group mt-4">
-                    <label for="email">Email Adress</label>
-                    <input type="email" class="form-control" placeholder="Enter your email" id="email" required>
+            <form action="/customer/check-signup" method="post" enctype="multipart/form-data" class="bg-light px-5 py-4 rounded-lg m-auto" style="max-width: 800px;">
+                <h2 class="text-warning" style="color: #FF2B85; font-size: 2.5rem;">Sign up to register</h2>
+                <div class="form-group row">
+                    <div class="form-group mt-4 col-6">
+                        <label for="f-name">Firstname</label>
+                        <input type="text" name="f-name" class="form-control" placeholder="First name" id="f-name" required>
+                    </div>
+                    <div class="form-group mt-4 col-6">
+                        <label for="l-name">Lastname</label>
+                        <input type="text" name="l-name" class="form-control" placeholder="Last name" id="l-name" required>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" placeholder="Enter your password" id="password" required>
+                <div class="form-group row">
+                    <div class="form-group col-6">
+                        <label for="email">Email Adress</label>
+                        <input type="email" name="email" class="form-control" placeholder="Enter your email" id="email" required>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Enter your password" id="password" required>
+                    </div>
                 </div>
-                <button type="submit" class="btn signin">Sign in</button>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
+                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn mt-3 signin">Sign up</button>
+                <p class="text-secondary mt-2">Already have the account <a href="/customer/signin">Sign in</a></p>
             </form>
 
         </div>

@@ -7,8 +7,10 @@ if (
     urlIs("/") || urlIs("/admin/signup") || urlIs("/admin/signin") || 
     urlIs("/admin/check-signin") || urlIs("/admin/check-signup") ||
     urlIs("/admin/signout") || urlIs("/admin/check-signout") ||
+    
     urlIs("/customer/check-signup") || urlIs("/customer/signin") || 
-    urlIs("/customer/check-signin") || urlIs("/foodpanda")) {
+    urlIs("/customer/check-signin") || urlIs("/customer/signout") || 
+    urlIs("/foodpanda")) {
     require "./routers/authentication_router.php";
 }
 
