@@ -1,4 +1,9 @@
-<?php require "layouts/admin/header.php"; ?>
+<?php 
+require "layouts/admin/header.php";
+if (isset($_SESSION['admin'])) {
+    # code...
+} 
+?>
 <div class="container mt-5 px-5">
     <form action="/admin/check-signin" method="post" class="form darkmode m-auto" style="max-width: 600px;">
         <h2 class="text-success mb-4">Admin Singin</h2>

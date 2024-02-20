@@ -20,7 +20,8 @@ $routes = [
 
     '/customer/check-signup' => 'controllers/signup/customer_signup/check_signup.controller.php',
     '/customer/signin' => 'controllers/signup/customer_signup/customer-signin.controller.php',
-    '/customer/check-signin' => 'controllers/signin/customer_signin/check_signin.controller.php',
+    '/customer/check-signin' => 'controllers/signin/customer/customer_check_signin.controller.php',
+    '/customer/signout' => 'controllers/signout/customer_signout/customer_check_signout.controller.php'
 ];
 
 if (array_key_exists($uri, $routes)) {
