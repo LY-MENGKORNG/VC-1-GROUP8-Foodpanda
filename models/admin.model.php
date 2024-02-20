@@ -24,7 +24,6 @@ function getAdmin() : array {
     $stmt->execute();
     return $stmt->fetchAll();
 }
-
 function accountExist(string $email) {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM Admin WHERE email = :email");
@@ -32,6 +31,7 @@ function accountExist(string $email) {
     
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
 }
+
 
 function adminSignout($email) : bool {
     global $connection;
@@ -41,13 +41,13 @@ function adminSignout($email) : bool {
 }
 
 // Retrieve order status from the database
-function getOrderStatus($orderId) {
-    // Replace this with your actual implementation to fetch the order status from the database
-    
-    $orders = array(
-        'order1' => 'new',
-        'order2' => 'in-progress',
-        'order3' => 'completed'
-    );
-    return $orders[$orderId] ?? 'unknown';
+function getStatus($restaurant_name, $owner_name,$opening_hour ){
+    global $connection;
+    $stmt = $connection->prepare("SELECT FROM Restaurants WHERE restaurant_name = :restaurant_name, owner_name= : onwner_name, opening_hour = :opening_hour");
+    $stmt -> execute ([
+        ':restaurant_name' => $restaurant_name,
+        ':owner_name' => $owner_name,
+        ':opening_hour' => $opening_hour
+    ]);
+    return $stmt->rowCount() > 0;
 }

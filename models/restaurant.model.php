@@ -29,14 +29,18 @@ function getPosts() : array
     return $statement->fetchAll();
 }
 
-function updatePost(string $title, string $description, int $id) : bool
+function updateRestaurant(string $restaurant_name, string $owner_name, int $restaurant_id, string $email, string $password, int $rating ) : bool
 {
     global $connection;
-    $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
+    $statement = $connection->prepare("update Restaurants set restaurant_name = :restaurant_name, owner_name = :owner_name where restaurant_id = :restaurant_id,
+    email = :email, password = :password, location = :location, rating = : rating");
     $statement->execute([
-        ':title' => $title,
-        ':description' => $description,
-        ':id' => $id
+        ':restaurant_name' => $restaurant_name,
+        ':owner_name' => $owner_name,
+        ':restaurant_id' => $restaurant_id,
+        ':email' => $email,
+        'password' => $password,
+        ':rating' => $rating
 
     ]);
 
