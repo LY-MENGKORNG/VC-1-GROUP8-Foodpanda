@@ -41,7 +41,7 @@ function adminSignout(string $email) : bool {
 }
 
 // Retrieve order status from the database
-function getStatus($restaurant_name, $owner_name,$opening_hour ){
+function getOrderStatus($restaurant_name, $owner_name,$opening_hour){
     global $connection;
     $stmt = $connection->prepare("SELECT FROM Restaurants WHERE restaurant_name = :restaurant_name, owner_name= : onwner_name, opening_hour = :opening_hour");
     $stmt -> execute ([
