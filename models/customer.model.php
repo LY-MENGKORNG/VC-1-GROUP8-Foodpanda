@@ -30,7 +30,7 @@ function getAllCustomer(): array
 function checkCustomerImage($image): bool
 {
     // File upload directory
-    $target_dir = "assets/uploads/customer_profile/";
+    $target_dir = "assets/images/uploads/customer_profile/";
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
     $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
@@ -48,7 +48,7 @@ function checkCustomerImage($image): bool
 function addImageToFolder($image)
 {
     // File upload directory
-    $target_dir = "assets/uploads/customer_profile/";
+    $target_dir = "assets/images/uploads/customer_profile/";
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
     $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
@@ -71,9 +71,10 @@ function customerExist(string $email): array
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
 }
 
-function customerSginout($email) {
+function customerSignout(string $email) : bool {
     global $connection;
-    $stmt = $connection->prepare("DELETE FROM customer WHERE email = :email");
+    $stmt = $connection->prepare("DELETE FROM customers WHERE email = :email");
     $stmt->execute([':email' => $email]);
     return $stmt->rowCount() > 0;
 }
+

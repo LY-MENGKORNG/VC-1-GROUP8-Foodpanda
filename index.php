@@ -10,7 +10,9 @@ if (
     
     urlIs("/customer/check-signup") || urlIs("/customer/signin") || 
     urlIs("/customer/check-signin") || urlIs("/customer/signout") || 
-    urlIs("/foodpanda")) {
+    urlIs("/customer/check-signout") || urlIs("/foodpanda")
+    ) 
+{
     require "./routers/authentication_router.php";
 }
 
