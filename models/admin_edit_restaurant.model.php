@@ -1,5 +1,4 @@
 <?php
-
 function admin_edit(string $name,string $menu, string $hours,string $contact) {
     global $connection;
     $name = htmlspecialchars($name);
@@ -7,7 +6,7 @@ function admin_edit(string $name,string $menu, string $hours,string $contact) {
     $hours = htmlspecialchars($hours);
     $contact =htmlspecialchars($contact);
 
-    $sql = $connection-> prepare ("UPDATE restaurant SET menu='$menu', hours='$hours', contact='$contact' WHERE name='$name'");
+    $sql = $connection-> prepare ("UPDATE restaurants SET menu='$menu', hours='$hours', contact='$contact' WHERE name='$name'");
     $sql->execute([
 
         ":name" => $name,

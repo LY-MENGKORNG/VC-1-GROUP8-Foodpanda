@@ -42,25 +42,3 @@ function adminSignout(string $email) : bool {
 }
 
 
-
-function rejectEmail($email, $password): bool {
-
-    $emailPattern = '/^\w+(\.\w+)*@[\w-]+(\.[\w-]+)+$/';
-    $passwordPattern = '/^[\w@&!]+$/';    //$@&!
-
-    $emailValid = preg_match($emailPattern, $email);
-    $passwordValid = preg_match($passwordPattern, $password);
-
-    if (!$emailValid || !$passwordValid) {
-        if (rejectEmail($email,$password)){
-            echo "You got wrong ";
-        }
-        return false;
-    } else {
-        echo "You got right";
-    }
-
-    return true;
-    
-}
-
