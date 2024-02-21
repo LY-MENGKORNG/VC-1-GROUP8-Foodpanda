@@ -60,6 +60,7 @@ function getOrderStatus($image, $food_name, $customer_name, $status, $date){
 $customerId = 123;
 $isAdmin = true;
 function disableAccount($customerId, $isAdmin){
+    
     if ($isAdmin){
         echo "Account with ID $customerId has been disabled successfully.";
     }
@@ -69,4 +70,8 @@ function disableAccount($customerId, $isAdmin){
     
 }
  
-disableAccount($cuatomerId, $isAdmin);
+// Function to check if the user is an admin
+function isAdmin() {
+    // Check if the user is logged in and if they have the 'admin' role in the session
+    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
+}
