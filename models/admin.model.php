@@ -41,16 +41,21 @@ function adminSignout(string $email) : bool {
 }
 
 // Retrieve order status from the database
-function getStatus($restaurant_name, $owner_name,$opening_hour ){
+function getOrderStatus($image, $food_name, $customer_name, $status, $date){
     global $connection;
-    $stmt = $connection->prepare("SELECT FROM Restaurants WHERE restaurant_name = :restaurant_name, owner_name= : onwner_name, opening_hour = :opening_hour");
+    $stmt = $connection->prepare("SELECT f.image, f.food_name, c.first_name,p.status, o.order_date FROM Orders o
+    INNER JOIN Customers c ON o.customer_id = c.customer_id, 
+    LEFT JOIN Payments p ON o.order_id = p.order_id");
     $stmt -> execute ([
-        ':restaurant_name' => $restaurant_name,
-        ':owner_name' => $owner_name,
-        ':opening_hour' => $opening_hour
+        ':image' => $image,
+        ':food_name' => $food_name,
+        ':first_name' => $customer_name,
+        ':status' => $status,
+        ':date' => $date
     ]);
     return $stmt->rowCount() > 0;
 }
+
 
 $customerId = 123;
 $isAdmin = true;
