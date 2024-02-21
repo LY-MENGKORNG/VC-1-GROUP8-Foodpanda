@@ -29,7 +29,23 @@ function getPosts() : array
     return $statement->fetchAll();
 }
 
+function updateRestaurant(string $restaurant_name, string $owner_name, int $restaurant_id, string $email, string $password, int $rating ) : bool
+{
+    global $connection;
+    $statement = $connection->prepare("update Restaurants set restaurant_name = :restaurant_name, owner_name = :owner_name where restaurant_id = :restaurant_id,
+    email = :email, password = :password, location = :location, rating = : rating");
+    $statement->execute([
+        ':restaurant_name' => $restaurant_name,
+        ':owner_name' => $owner_name,
+        ':restaurant_id' => $restaurant_id,
+        ':email' => $email,
+        'password' => $password,
+        ':rating' => $rating
 
+    ]);
+
+    return $statement->rowCount() > 0;
+}
 
 function deletePost(int $id) : bool
 {
