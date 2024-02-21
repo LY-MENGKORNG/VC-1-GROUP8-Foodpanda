@@ -52,3 +52,16 @@ function getStatus($restaurant_name, $owner_name,$opening_hour ){
     return $stmt->rowCount() > 0;
 }
 
+$customerId = 123;
+$isAdmin = true;
+function disableAccount($customerId, $isAdmin){
+    if ($isAdmin){
+        echo "Account with ID $customerId has been disabled successfully.";
+    }
+    else{
+        echo "You do not have sufficient privileges to disable accounts.";
+    }
+    
+}
+ 
+disableAccount($cuatomerId, $isAdmin);
