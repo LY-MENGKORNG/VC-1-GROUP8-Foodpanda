@@ -56,22 +56,29 @@ function getOrderStatus($image, $food_name, $customer_name, $status, $date){
     return $stmt->rowCount() > 0;
 }
 
+// Function to disable or delete fraudulent accounts
+function disableFraudulentAccount(){
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM Customers WHERE registration_date < DATE_SUB(NOW(), INTERVAL 30 DAY)");
+    if ($stmt-> rowCount() > 0) {
+        while($row = $stmt->fetch()) {
+            // For demonstration purposes, let's assume we're deleting the fraudulent account
+            $customerId = $row["customer_id"];
+            $sql = "DELETE FROM Customers WHERE customer_id=$customerId";
+            if ($connection->query($sql) === TRUE) {
+                echo "Fraudulent account with ID $customerId has been deleted successfully.<br>";
+            } else {
+                echo "Error deleting record: " . $connection;
+            }
+        }
 
-$customerId = 123;
-$isAdmin = true;
-function disableAccount($customerId, $isAdmin){
-    
-    if ($isAdmin){
-        echo "Account with ID $customerId has been disabled successfully.";
     }
-    else{
-        echo "You do not have sufficient privileges to disable accounts.";
+    else {
+        echo "No fraudulent accounts found.";
     }
     
+    
+   
 }
  
-// Function to check if the user is an admin
-function isAdmin() {
-    // Check if the user is logged in and if they have the 'admin' role in the session
-    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
-}
+
