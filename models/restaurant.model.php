@@ -32,7 +32,7 @@ function getPosts() : array
 function updateRestaurant(string $restaurant_name, string $owner_name, int $restaurant_id, string $email, string $password, int $rating ) : bool
 {
     global $connection;
-    $statement = $connection->prepare("update Restaurants set restaurant_name = :restaurant_name, owner_name = :owner_name where restaurant_id = :restaurant_id,
+    $statement = $connection->prepare("UPDATE Restaurants SET restaurant_name = :restaurant_name, owner_name = :owner_name where restaurant_id = :restaurant_id,
     email = :email, password = :password, location = :location, rating = : rating");
     $statement->execute([
         ':restaurant_name' => $restaurant_name,
