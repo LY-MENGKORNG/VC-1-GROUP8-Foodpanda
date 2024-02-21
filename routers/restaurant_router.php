@@ -1,6 +1,6 @@
 <?php
 require "./models/restaurant.model.php";
-require "./database/database.php";
+
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 if ($uri === "/restaurant") {

@@ -1,5 +1,6 @@
 <?php
 require "./models/admin.model.php";
+require "./models/restaurant.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [

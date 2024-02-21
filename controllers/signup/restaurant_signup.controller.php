@@ -1,16 +1,10 @@
 <?php
-// require "models/restaurant.model.php";
-require "views/signup/restaurant_signup.view.php";
-//  require "database/database.php";
-echo $_POST["f-name"];
+require "./views/signup/restaurant_signup.view.php";
 
-if (count(getAdmin()) == 0) {
-    if (!empty($_POST["f-name"]) && !empty($_POST["l-name"]) && !empty($_POST["phone"]) &&
-        !empty($_POST["email"]) && !empty($_POST["password"])) {
-        
-        createAdmin($_POST['f-name'] . " " . $_POST['l-name'], $_POST['email'], $_POST['password'], $_POST['phone']);
-    }
+session_start();
+if (count(getRestaurant()) == 1 || isset($_SESSION["restaurant"])) {
+    header("Location: /restaurant");
+    die();
 }
-header("Location: /restaurant");
 
 ?>

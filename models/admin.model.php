@@ -1,5 +1,5 @@
 <?php
-
+require "controllers/signup/restaurant_signup.controller.php";
 function createAdmin($admin_name, $email, $password, $phone,): bool
 {
     if (count(getAdmin()) == 1) {

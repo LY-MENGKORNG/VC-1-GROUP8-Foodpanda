@@ -1,5 +1,5 @@
 <?php
-
+require "controllers/signup/restaurant_signup.controller.php";
 function createPost(string $title, string $description) : bool
 {
     global $connection;

@@ -1,7 +1,7 @@
 <?php require "layouts/restaurant/header.php"; ?>
 <div class="container mt-5 px-5">
     <form action="/restaurant/check-signin" method="post" class="form darkmode m-auto" style="max-width: 600px;">
-        <h2 class="text-success mb-4">Restaurant Singin</h2>
+        <h2 class="text-success mb-4">Restaurant Signin</h2>
         <div class="mb-4">
             <label for="email" class="form-label">Email address</label>
             <input type="email" name="email" class="form-control bg-light" id="email" aria-describedby="email" required>

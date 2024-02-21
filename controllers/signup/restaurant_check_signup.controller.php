@@ -1,5 +1,5 @@
 <?php
-require "./models/admin.model.php";
+require "./models/restaurant.model.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['f-name']) && !empty($_POST['l-name']) && !empty($_POST['email']) && 
@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $pass_encrypt = password_hash($password, PASSWORD_DEFAULT);
 
-        if(createAdmin($name, $email, $pass_encrypt, $phone)) {
-            header("Location: /admin/signin");
+        if(createRestaurant($name, $email, $pass_encrypt, $phone)) {
+            header("Location: /restaurant/signin");
         }else {
-            header("Location: /admin/signup");
+            header("Location: /restaurant/signup");
         }
     }
 }
