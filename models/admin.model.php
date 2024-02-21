@@ -51,3 +51,4 @@ function getStatus($restaurant_name, $owner_name,$opening_hour ){
     ]);
     return $stmt->rowCount() > 0;
 }
+
