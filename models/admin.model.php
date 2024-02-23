@@ -56,15 +56,16 @@ function getOrderStatus($image, $food_name, $customer_name, $status, $date){
     return $stmt->rowCount() > 0;
 }
 
+
 // Function to disable or delete fraudulent accounts
 function disableFraudulentAccount(){
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Customers WHERE registration_date < DATE_SUB(NOW(), INTERVAL 30 DAY)");
+    $stmt = $connection->prepare("SELECT * FROM customers WHERE registration_date < DATE_SUB(NOW(), INTERVAL 30 DAY)");
     if ($stmt-> rowCount() > 0) {
-        while($row = $stmt->fetch()) {
+        while($row = $stmt->fetch(PDO:: FETCH_ASSOC)) {
             // For demonstration purposes, let's assume we're deleting the fraudulent account
             $customerId = $row["customer_id"];
-            $sql = "DELETE FROM Customers WHERE customer_id=$customerId";
+            $sql = "DELETE FROM customers WHERE customer_id=$customerId";
             if ($connection->query($sql) === TRUE) {
                 echo "Fraudulent account with ID $customerId has been deleted successfully.<br>";
             } else {
@@ -75,10 +76,6 @@ function disableFraudulentAccount(){
     }
     else {
         echo "No fraudulent accounts found.";
-    }
-    
-    
-   
+    } 
 }
- 
 
