@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (count($admin) > 0) {
             if (password_verify($password, $admin['password'])) {
                 echo 'successfully logged in';
-                $_SESSION['admin'] = "signin";
+                $_SESSION['admin'] = "admin";
                 header("Location: /admin");
             }else {
                 header("Location: /admin/signin");
