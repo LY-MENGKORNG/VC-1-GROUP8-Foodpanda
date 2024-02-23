@@ -1,6 +1,3 @@
-<?php
-var_dump($_SESSION["restaurants"]["restaurant_name"]);
- ?>
 <div class="d-none">
         <div class="bg-primary p-3 d-flex align-items-center">
             <a class="toggle togglew toggle-2" href="#"><span></span></a>
