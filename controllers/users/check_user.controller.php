@@ -1,7 +1,6 @@
 <?php
 require "./models/users.model.php";
-var_dump($_SESSION["admin"]);
-if (count(getUser("Admin")) == 0 || !isset($_SESSION['admin'])) {
+if (count(getUser("Admin")) == 0 && !isset($_SESSION['admin'])) {
     header("Location: /admin/signup");
     die();
 }else if(isset($_SESSION['admin']) && $uri == "/admin") {
