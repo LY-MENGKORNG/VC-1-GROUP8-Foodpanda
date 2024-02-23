@@ -81,12 +81,12 @@
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <picture>
-                <source srcset="assets/images/uploads/admin_profile/<?= $admin['image'] ?>"><img src="assets/images/uploads/admin_profile/<?= $admin['image'] ?>" alt="User name">
+                <source srcset="../../assets/images/uploads/admin_profile/<?= $admin['image'] ?>"><img src="../../assets/images/uploads/admin_profile/<?= $admin['image'] ?>" alt="User name">
               </picture>
             </span>
           </button>
           <ul class="users-item-dropdown nav-user-dropdown dropdown">
-            <li><a href="##">
+            <li><a href="/admin/profile">
                 <i data-feather="user" aria-hidden="true"></i>
                 <span>Profile</span>
               </a></li>

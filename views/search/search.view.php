@@ -10,7 +10,7 @@
             <div class="search py-5">
                 <div class="input-group mb-4">
                     <input type="text" class="form-control form-control-lg input_search border-right-0"
-                        id="inlineFormInputGroup" value="Osahan eats...">
+                        id="inlineFormInputGroup" placeholder="Search...">
                     <div class="input-group-prepend">
                         <div class="btn input-group-text bg-white border_search border-left-0 text-primary"><i
                                 class="feather-search"></i></div>

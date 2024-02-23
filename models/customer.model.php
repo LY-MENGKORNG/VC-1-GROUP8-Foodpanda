@@ -38,10 +38,10 @@ function checkCustomerImage($image): bool
     $file_size = $image['size'];
 
     return (
-            $file_size < 500000 &&
-            !file_exists($target_file_path) &&
-            in_array($file_type, $file_allow_type)
-        );
+        $file_size < 500000 &&
+        !file_exists($target_file_path) &&
+        in_array($file_type, $file_allow_type)
+    );
 }
 
 function addImageToFolder($image)
@@ -61,12 +61,4 @@ function customerExist(string $email): array
     $stmt->execute([':email' => $email]);
 
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
-}
-
-function customerSignout(string $email): bool
-{
-    global $connection;
-    $stmt = $connection->prepare("DELETE FROM customers WHERE email = :email");
-    $stmt->execute([':email' => $email]);
-    return $stmt->rowCount() > 0;
 }

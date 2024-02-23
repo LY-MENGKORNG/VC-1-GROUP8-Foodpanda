@@ -3,12 +3,10 @@ require "./models/admin.model.php";
 require "./models/customer.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-if ($uri == "/") {
-    require "./controllers/users/check_user.controller.php";
-}
 
 $page = "";
 $routes = [
+    "/" => "foodpanda.php",
     '/foodpanda' => 'foodpanda.php',
 
     '/admin/signup' => 'controllers/signup/admin_signup.controller.php',

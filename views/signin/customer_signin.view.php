@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Gurdeep Osahan" />
     <meta name="author" content="Gurdeep Osahan" />
-    <link rel="shortcut icon" href="../../assets/images/logo_web_red.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/logo/panda-logo.png" type="image/x-icon">
     <title>Foodride - Online Food Ordering Website Template</title>
 
     <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick.min.css" />

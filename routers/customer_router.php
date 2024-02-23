@@ -1,15 +1,12 @@
 <?php
 session_start();
+require "./models/customer.model.php";
+
 if (isset($_SESSION["customer"])) {
   $customer = $_SESSION["customer"];
 }
 
-require "./models/customer.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-if ($uri == '/customer') {
-    require "./controllers/users/check_user.controller.php";
-}
 
 $page = "";
 $routes = [

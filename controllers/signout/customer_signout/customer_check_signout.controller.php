@@ -4,12 +4,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['email']) && !empty($_POST['password'])) {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
-        
-        echo $_POST['email'], $_POST['password'];   
-        if(customerSignout($email)) {
-            // deleteImagefile($email);
+         
+        if(password_verify($password, accountExist($email)['password'])) {
 
-            session_destroy();
+            unset($_SESSION["customer"]);
+
             header('Location: /foodpanda');
         }else {
             header("Location: /customer/signout");

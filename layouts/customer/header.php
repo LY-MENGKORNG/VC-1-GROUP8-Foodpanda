@@ -27,6 +27,7 @@
     .main_bg {
       background-color: #FF2B85;
     }
+
   </style>
 </head>
 
