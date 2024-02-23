@@ -6,7 +6,7 @@
           <aside class="col-md-4 footer-about">
             <article class="d-flex pb-3">
               <div>
-                <img alt="#" src="assets/images/logo_web_red.png" class="logo-footer mr-3" />
+                <img alt="#" src="../../assets/images/logo/panda-logo.png" class="logo-footer mr-3" />
               </div>
               <div>
                 <h6 class="title text-white">About Us</h6>
@@ -45,16 +45,16 @@
             <h6 class="title">Services</h6>
             <ul class="list-unstyled hov_footer">
               <li>
-                <a href="faq.html" class="text-muted">Delivery Support</a>
+                <a href="/customer/delivery" class="text-muted">Delivery Support</a>
               </li>
               <li>
-                <a href="contact-us.html" class="text-muted">Contact Us</a>
+                <a href="/customer/contact" class="text-muted">Contact Us</a>
               </li>
               <li>
-                <a href="terms.html" class="text-muted">Terms of use</a>
+                <a href="/customer/terms" class="text-muted">Terms of use</a>
               </li>
               <li>
-                <a href="privacy.html" class="text-muted">Privacy policy</a>
+                <a href="/customer/privacy" class="text-muted">Privacy policy</a>
               </li>
             </ul>
           </aside>
@@ -62,18 +62,18 @@
             <h6 class="title">For users</h6>
             <ul class="list-unstyled hov_footer">
               <li>
-                <a href="/signin" class="text-muted"> User Login </a>
+                <a href="/customer/signin" class="text-muted"> User Login </a>
               </li>
               <li>
-                <a href="signup.html" class="text-muted"> User register </a>
+                <a href="/customer/signup" class="text-muted"> User register </a>
               </li>
               <li>
-                <a href="forgot_password.html" class="text-muted">
+                <a href="/customer/forgot_password" class="text-muted">
                   Forgot Password
                 </a>
               </li>
               <li>
-                <a href="profile.html" class="text-muted">
+                <a href="/customer/profile" class="text-muted">
                   Account Setting
                 </a>
               </li>
@@ -83,20 +83,20 @@
             <h6 class="title">More Pages</h6>
             <ul class="list-unstyled hov_footer">
               <li>
-                <a href="trending.html" class="text-muted"> Trending </a>
+                <a href="/customer/trending" class="text-muted"> Trending </a>
               </li>
               <li>
-                <a href="most_popular.html" class="text-muted">
+                <a href="/customer/most_popular" class="text-muted">
                   Most popular
                 </a>
               </li>
               <li>
-                <a href="restaurant.html" class="text-muted">
+                <a href="/customer/restaurant" class="text-muted">
                   Restaurant Details
                 </a>
               </li>
               <li>
-                <a href="/favorite" class="text-muted"> Favorites </a>
+                <a href="/customer/favorite" class="text-muted"> Favorites </a>
               </li>
             </ul>
           </aside>
@@ -176,50 +176,50 @@
   <nav id="main-nav">
     <ul class="second-nav">
       <li>
-        <a href="/"><i class="feather-home mr-2"></i> Homepage</a>
+        <a href="/customer"><i class="feather-home mr-2"></i> Homepage</a>
       </li>
       <li>
-        <a href="/order"><i class="feather-list mr-2"></i> My Orders</a>
+        <a href="/customer/order"><i class="feather-list mr-2"></i> My Orders</a>
       </li>
       <li>
         <a href="#"><i class="feather-edit-2 mr-2"></i> Authentication</a>
         <ul>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">Register</a></li>
-          <li><a href="forgot_password.html">Forgot Password</a></li>
-          <li><a href="verification.html">Verification</a></li>
-          <li><a href="location.html">Location</a></li>
+          <li><a href="/customer/signin">Login</a></li>
+          <li><a href="/foodpanda">Register</a></li>
+          <li><a href="/customer/forgot_password">Forgot Password</a></li>
+          <li><a href="/customer/verifycation">Verification</a></li>
+          <li><a href="/customer/location">Location</a></li>
         </ul>
       </li>
       <li>
-        <a href="/favorite"><i class="feather-heart mr-2"></i> Favorites</a>
+        <a href="/customer/favorite"><i class="feather-heart mr-2"></i> Favorites</a>
       </li>
       <li>
-        <a href="trending.html"><i class="feather-trending-up mr-2"></i> Trending</a>
+        <a href="/customer/trending"><i class="feather-trending-up mr-2"></i> Trending</a>
       </li>
       <li>
-        <a href="most_popular.html"><i class="feather-award mr-2"></i> Most Popular</a>
+        <a href="/customer/most_popular"><i class="feather-award mr-2"></i> Most Popular</a>
       </li>
       <li>
-        <a href="restaurant.html"><i class="feather-paperclip mr-2"></i> Restaurant Detail</a>
+        <a href="/customer/restaurant"><i class="feather-paperclip mr-2"></i> Restaurant Detail</a>
       </li>
       <li>
-        <a href="/checkout"><i class="feather-list mr-2"></i> Checkout</a>
+        <a href="/customer/checkout"><i class="feather-list mr-2"></i> Checkout</a>
       </li>
       <li>
-        <a href="successful.html"><i class="feather-check-circle mr-2"></i> Successful</a>
+        <a href="/customer/successful"><i class="feather-check-circle mr-2"></i> Successful</a>
       </li>
       <li>
-        <a href="map.html"><i class="feather-map-pin mr-2"></i> Live Map</a>
+        <a href="/customer/map"><i class="feather-map-pin mr-2"></i> Live Map</a>
       </li>
       <li>
         <a href="#"><i class="feather-user mr-2"></i> Profile</a>
         <ul>
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="favorites.html">Delivery support</a></li>
-          <li><a href="contact-us.html">Contact Us</a></li>
-          <li><a href="terms.html">Terms of use</a></li>
-          <li><a href="privacy.html">Privacy & Policy</a></li>
+          <li><a href="/customer/profile">Profile</a></li>
+          <li><a href="/customer/delivery">Delivery support</a></li>
+          <li><a href="/customer/contact">Contact Us</a></li>
+          <li><a href="/customer/term">Terms of use</a></li>
+          <li><a href="/customer/privacy">Privacy & Policy</a></li>
         </ul>
       </li>
       <li>

@@ -7,22 +7,51 @@
     <title>Customer Sign Out</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Additional custom styles */
+        body {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(12, 3, 51, 0.3), rgba(12, 3, 51, 0.3));
+            position: relative;
+            display: flex;
+        }
+        .video-background {
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: -1;
+            width: 100%;
+        }
+        .card {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
-
+    <video autoplay loop muted class="video-background">
+        <source src="../../../assets/images/background/video (2160p) (1).mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Sign Out</div>
+                    <h3 class="card-header bg-danger text-white">Sign Out</h3>
                     <div class="card-body">
-                        <form method="post" action="signout.php">
-                            <div class="form-group">
-                                <label for="confirm">Are you sure you want to sign out?</label>
+                        <form action="/customer/check-signout" method="post">
+                            <div class="form-group mb-4">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                            </div>
+                            <div class="form-group mb-5">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-danger" name="signout" value="Sign Out">
+                                <button type="submit" class="btn btn-danger col-12">Sign Out</button>
                             </div>
                         </form>
                     </div>
