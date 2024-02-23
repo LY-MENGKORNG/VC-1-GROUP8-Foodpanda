@@ -15,7 +15,6 @@ if (
 {
     require "./routers/authentication_router.php";
 }
-
 // Admin routes
 else if (urlIs("/admin")) { 
     require "routers/admin_router.php";
@@ -27,6 +26,8 @@ else if (urlIs("/restaurant") || urlIs("/restaurant-signup") || urlIs("/restaura
 }
 
 // Customer routes
-else if (urlIs("/customer")){  
+else if(urlIs("/customer") || urlIs("/customer/checkout") || 
+        urlIs("/customer/search") || urlIs("/customer/offers") ||
+        urlIs("/customer/profile") || urlIs("/customer/order")) {  
     require './routers/customer_router.php';
 }

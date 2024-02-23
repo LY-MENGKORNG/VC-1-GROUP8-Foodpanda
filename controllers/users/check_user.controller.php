@@ -1,9 +1,11 @@
 <?php
-session_start();
 require "./models/users.model.php";
-if (count(getUser("Admin")) == 0 && !isset($_SESSION['admin'])) {
+var_dump($_SESSION["admin"]);
+if (count(getUser("Admin")) == 0 || !isset($_SESSION['admin'])) {
     header("Location: /admin/signup");
     die();
+}else if(isset($_SESSION['admin']) && $uri == "/admin") {
+    header("Location: /admin");
 }
 
 else if (parse_url($_SERVER['REQUEST_URI'])['path'] == '/') {
@@ -14,6 +16,5 @@ else if (isset($_SESSION['customer']) && $uri == "/customer") {
 
 }else if (!isset($_SESSION['customer']) && !isset($_SESSION['admin'])){
     header("Location: /foodpanda");
-}else if (isset($_SESSION['admin']) && $uri == "/admin") {
-    $uri = "/admin";
 }
+

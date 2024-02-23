@@ -37,12 +37,11 @@ function checkCustomerImage($image): bool
     $file_allow_type = array("jpg", "png", "jpeg");
     $file_size = $image['size'];
 
-    return 
-    (
-        $file_size < 500000 && 
-        !file_exists($target_file_path) && 
-        in_array($file_type, $file_allow_type)
-    );
+    return (
+            $file_size < 500000 &&
+            !file_exists($target_file_path) &&
+            in_array($file_type, $file_allow_type)
+        );
 }
 
 function addImageToFolder($image)
@@ -51,15 +50,8 @@ function addImageToFolder($image)
     $target_dir = "assets/images/uploads/customer_profile/";
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
-    $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
 
-    // Allow certain file formats
-    $allowTypes = array('jpg', 'jpeg', 'png');
-    if (in_array($file_type, $allowTypes) && $image["size"] < 5000000) {
-        if (!file_exists($target_file_path)) {
-            move_uploaded_file($image['tmp_name'], $target_file_path);
-        }
-    }
+    move_uploaded_file($image['tmp_name'], $target_file_path);
 }
 
 function customerExist(string $email): array
@@ -71,10 +63,10 @@ function customerExist(string $email): array
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
 }
 
-function customerSignout(string $email) : bool {
+function customerSignout(string $email): bool
+{
     global $connection;
     $stmt = $connection->prepare("DELETE FROM customers WHERE email = :email");
     $stmt->execute([':email' => $email]);
     return $stmt->rowCount() > 0;
 }
-

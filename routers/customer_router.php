@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (isset($_SESSION["customer"])) {
+  $customer = $_SESSION["customer"];
+}
+
 require "./models/customer.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
@@ -16,8 +21,8 @@ $routes = [
     '/customer/profile' => 'controllers/profiles/profile.controller.php',
     '/customer/restaurant' => 'controllers/restaurant/restaurant.controller.php',
     '/customer/search' => 'controllers/search/search.controller.php',
+    '/customer/offers' => 'controllers/offer/customer_offer.controller.php',
 ];
-error_log($uri);
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
 } else {

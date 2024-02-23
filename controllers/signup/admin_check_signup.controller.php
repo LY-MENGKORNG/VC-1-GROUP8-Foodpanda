@@ -10,11 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $image = $_FILES["image"];
 
         $pass_encrypt = password_hash($password, PASSWORD_BCRYPT);
-
-        if(createAdmin($name, $email, $pass_encrypt, $phone)) {
-            header("Location: /admin/signin");
-        }else {
-            header("Location: /admin/signup");
+        
+        if (checkAdminImage($image)) {
+            if(createAdmin($name, $email, $pass_encrypt, $phone, $image["name"])) {
+                addAdminImageToFolder($image);
+                header("Location: /admin/signin");
+            }else {
+                header("Location: /admin/signup");
+            }
         }
     }
 }

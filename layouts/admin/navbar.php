@@ -1,8 +1,4 @@
-<?php 
-if (isset($_SESSION["admin"])) {
-  $admin = $_SESSION["admin"];
-}
-?>
+
 <!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
