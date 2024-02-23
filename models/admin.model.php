@@ -67,7 +67,7 @@ function addAdminImageToFolder($image)
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
     $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-
+    
     // Allow certain file formats
     $allowTypes = array('jpg', 'jpeg', 'png');
     if (in_array($file_type, $allowTypes) && $image["size"] < 5000000) {
