@@ -45,7 +45,7 @@ function getOrderStatus($image, $food_name, $customer_name, $status, $date){
     global $connection;
     $stmt = $connection->prepare("SELECT f.image, f.food_name, c.first_name,p.status, o.order_date FROM Orders o
     INNER JOIN Customers c ON o.customer_id = c.customer_id, 
-    LEFT JOIN Payments p ON o.order_id = p.order_id");
+    INNER JOIN Payments p ON o.order_id = p.payment_id");
     $stmt -> execute ([
         ':image' => $image,
         ':food_name' => $food_name,
@@ -57,21 +57,3 @@ function getOrderStatus($image, $food_name, $customer_name, $status, $date){
 }
 
 
-$customerId = 123;
-$isAdmin = true;
-function disableAccount($customerId, $isAdmin){
-    
-    if ($isAdmin){
-        echo "Account with ID $customerId has been disabled successfully.";
-    }
-    else{
-        echo "You do not have sufficient privileges to disable accounts.";
-    }
-    
-}
- 
-// Function to check if the user is an admin
-function isAdmin() {
-    // Check if the user is logged in and if they have the 'admin' role in the session
-    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
-}
