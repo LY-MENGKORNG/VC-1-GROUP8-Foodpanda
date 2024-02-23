@@ -1,4 +1,3 @@
-<?php  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -118,7 +117,7 @@
     <div class="hero">
         <!-- Background Video -->
         <video autoplay loop muted class="video-background">
-            <source src="./assets/images/background/video (2160p) (1).mp4" type="video/mp4">
+            <source src="./assets/videos/video (2160p) (1).mp4" type="video/mp4">
             Your browser does not support HTML5 video.
         </video>
 
