@@ -56,7 +56,6 @@ function getOrderStatus($image, $food_name, $customer_name, $status, $date){
     return $stmt->rowCount() > 0;
 }
 
-
 // Function to disable or delete fraudulent accounts
 function disableFraudulentAccount(){
     global $connection;
