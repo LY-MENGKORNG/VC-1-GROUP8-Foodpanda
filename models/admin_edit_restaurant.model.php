@@ -1,4 +1,5 @@
 <?php
+
 function admin_edit(string $name,string $menu, string $hours,string $contact) {
     global $connection;
     $name = htmlspecialchars($name);
