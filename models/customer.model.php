@@ -70,3 +70,4 @@ function customerSignout(string $email): bool
     $stmt->execute([':email' => $email]);
     return $stmt->rowCount() > 0;
 }
+
