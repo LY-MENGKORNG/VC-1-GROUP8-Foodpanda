@@ -4,5 +4,5 @@ if (count(getRestaurant()) == 1 || isset($_SESSION["restaurant"])) {
     header("Location: /restuarant");
     die();
 }else {
-require "views/signin/restaurant_signin.view.php";}
+require "./views/restaurant/restaurant.view.php";}
 ?>

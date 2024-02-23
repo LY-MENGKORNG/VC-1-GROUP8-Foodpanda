@@ -1,6 +1,6 @@
 <?php require "layouts/restaurant/header.php"; ?>
 <div class="container mt-5 px-5">
-    <form action="/restaurant/check-signup" method="post" class="form shadow-sm darkmode row p-0" style="background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.23853291316526615) 35%), url(../../assets/images/test.jpg); background-position: 0; background-size: cover;">
+    <form action="../../controllers/signin/resturant_signin.controller.php" method="post" class="form shadow-sm darkmode row p-0" style="background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,0.23853291316526615) 35%), url(../../assets/images/test.jpg); background-position: 0; background-size: cover;">
         <div class="col-6"></div>
         <div class="col-6 p-5 bg-dark" style=" border-radius: 0px 5px 5px 0px;">
             <h2 class="text-info">Restaurant Register</h2>

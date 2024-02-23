@@ -7,4 +7,4 @@ if (count(getRestaurant()) == 1 || isset($_SESSION["restaurant"])) {
     die();
 }
 
-?>
+?>-
