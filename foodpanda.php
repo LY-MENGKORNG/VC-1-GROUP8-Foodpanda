@@ -124,8 +124,8 @@
         <!-- Content -->
         <div class="content">
             <h1 class="text-white">Welcome to <span class="text-warning">Foodpanda</span></h1>
-            <p class="text">We’re here to help you live life the panda way.
-                Spend more time doing what you love – we’ll take
+            <p class="text">We're here to help you live life the panda way.
+                Spend more time doing what you love - we'll take
                 care of tasty meals, fresh groceries and new flavours.
             </p>
             <button class="btn start">Get Started</button>

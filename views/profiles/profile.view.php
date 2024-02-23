@@ -31,7 +31,6 @@ $customer = $_SESSION["customer"];
                             <p class="m-0">Accounts Credits</p>
                             <h5 class="m-0 ml-auto text-primary">$52.25</h5>
                         </div>
-
                         <div class="bg-white profile-details">
                             <a data-toggle="modal" data-target="#paycard"
                                 class="d-flex w-100 align-items-center border-bottom p-3">
