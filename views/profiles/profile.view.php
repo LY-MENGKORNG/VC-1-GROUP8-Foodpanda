@@ -21,10 +21,10 @@ $customer = $_SESSION['customer'];
                                     <img alt="#" src="../../assets/images/uploads/customer_profile/<?= $customer["image"] ?>" class="rounded-circle" style="width: 70px;">
                                 </div>
                                 <div class="right">
-                                    <h6 class="mb-1 font-weight-bold">Gurdeep Singh <i
+                                    <h6 class="mb-1 font-weight-bold"><?php  echo $customer["first_name"] . " " . $customer["last_name"]; ?> <i
                                             class="feather-check-circle text-success"></i></h6>
                                     <p class="text-muted m-0 small"><span class="__cf_email__"
-                                            data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[email&#160;protected]</span>
+                                            data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[This is my&#160;bio]</span>
                                     </p>
                                 </div>
                             </div>
