@@ -70,3 +70,22 @@ function customerSignout(string $email): bool
     $stmt->execute([':email' => $email]);
     return $stmt->rowCount() > 0;
 }
+
+function changePassword(string $email, string $password): bool
+{
+    global $connection;
+    $stmt = $connection->prepare("UPDATE customers SET password = :password WHERE email = :email");
+    $stmt -> execute([
+        ':email' => $email,
+        ':password' => $password
+    ]);
+    return $stmt->rowCount() > 0;
+}
+$email = "";
+$newPassword = "";
+
+if (changePassword($email, $newPassword)) {
+    echo "Password changed successfully.";
+} else {
+    echo "Failed to change password.";
+}
