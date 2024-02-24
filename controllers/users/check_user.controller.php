@@ -1,7 +1,5 @@
 <?php
 require "./models/users.model.php";
-<<<<<<< HEAD
-=======
 
 if (count(getUser("Admin")) == 0 && !isset($_SESSION['admin'])) {
     header("Location: /admin/signup");
@@ -9,7 +7,6 @@ if (count(getUser("Admin")) == 0 && !isset($_SESSION['admin'])) {
 }else if(isset($_SESSION['admin']) && $uri == "/admin") {
     header("Location: /admin");
 }
->>>>>>> update_restaurant_details
 
 if (count(getUser("Admin")) == 0 || $uri == "/admin") {
     $uri = "/admin";
