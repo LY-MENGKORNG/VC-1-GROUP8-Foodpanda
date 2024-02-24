@@ -5,4 +5,3 @@ if (count(getAdmin()) == 1 || isset($_SESSION["admin"])) {
     die();
 }
 require "./views/signup/admin_signup.view.php";
-?>
