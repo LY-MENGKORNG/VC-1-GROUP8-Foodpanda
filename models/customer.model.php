@@ -76,7 +76,7 @@ function customerSignout($email) {
 }
 
 // sava data that updated to database (PD8-69 > PD8-100)
-function customerSava($email) {
+function customerSave($email) {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM customer WHERE email = :email");
     $stmt->execute([':email' => $email]);
