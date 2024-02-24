@@ -22,6 +22,7 @@ $routes = [
     '/customer/restaurant' => 'controllers/restaurant/restaurant.controller.php',
     '/customer/search' => 'controllers/search/search.controller.php',
     '/customer/offers' => 'controllers/offer/customer_offer.controller.php',
+    
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];

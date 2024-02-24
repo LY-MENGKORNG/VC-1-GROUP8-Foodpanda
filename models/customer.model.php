@@ -71,38 +71,10 @@ function customerSignout(string $email): bool
     return $stmt->rowCount() > 0;
 }
 
-function changePassword(string $email, string $oldPassword, string $newPassword)
-{
+function getCategories(): array{
     global $connection;
-    $oldPasswordHash = hash('sha256', $oldPassword);
-
-    // Check if the old password matches the stored password for the given email
-    $stmt = $connection->prepare("SELECT * FROM customers WHERE email = :email AND password = :password");
-    $stmt->execute([':email' => $email, ':password' => $oldPasswordHash]);
-
-    if ($stmt->rowCount() > 0) {
-        // Old password is correct, update the password
-        $newPasswordHash = hash('sha256', $newPassword);
-        $updateStmt = $connection->prepare("UPDATE customers SET password = :newPassword WHERE email = :email");
-        $updateStmt->execute([':newPassword' => $newPasswordHash, ':email' => $email]);
-
-        if ($updateStmt->rowCount() > 0) {
-            return true; // Password changed successfully
-        } else {
-            return false; // Error updating password
-        }
-    } else {
-        return false; // Incorrect old password
-    }
-}
-
-$email = "user@example.com";
-$oldPassword = "oldPassword123";
-$newPassword = "newPassword456";
-
-if (changePassword($email, $oldPassword, $newPassword)) {
-    echo "Password changed successfully.";
-} else {
-    echo "Failed to change password. Please check your old password.";
+    $stmt = $connection->prepare("SELECT * FROM menuitems");
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
 

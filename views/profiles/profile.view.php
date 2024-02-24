@@ -18,7 +18,7 @@ $customer = $_SESSION['customer'];
                         <a href="profile.html" class>
                             <div class="d-flex align-items-center p-3">
                                 <div class="left mr-3">
-                                    <img alt="#" src="../../assets/images/uploads/customer_profile/<?= $customer["image"] ?>" class="rounded-circle" style="width: 70px;">
+                                    <img alt="#" src="../../assets/images/uploads/customer_profile/<?= $customer["image"] ?>" class="rounded-circle" style="width: 70px; height: 70px;">
                                 </div>
                                 <div class="right">
                                     <h6 class="mb-1 font-weight-bold"><?php  echo $customer["first_name"] . " " . $customer["last_name"]; ?> <i
