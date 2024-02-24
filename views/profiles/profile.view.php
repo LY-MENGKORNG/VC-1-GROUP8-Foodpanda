@@ -9,7 +9,6 @@ $customer = $_SESSION["customer"];
         </div>
     </div>
 
-<<<<<<< HEAD
     <div class="container position-relative">
         <div class="py-5 osahan-profile row">
             <div class="col-md-4 mb-3">
@@ -46,6 +45,8 @@ $customer = $_SESSION["customer"];
                                 <h6 class="font-weight-bold mb-1 text-dark">Address</h6>
                                 <p class="small text-muted m-0">Add or remove a delivery address</p>
 =======
+=======
+>>>>>>> origin/DEVELOP
         <div class="container position-relative">
             <div class="py-5 osahan-profile row">
                 <div class="col-md-4 mb-3">
@@ -170,7 +171,10 @@ $customer = $_SESSION["customer"];
                                         <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
                                     </div>
                                 </form>
+<<<<<<< HEAD
 >>>>>>> update_restaurant_details
+=======
+>>>>>>> origin/DEVELOP
                             </div>
                             <div class="right ml-auto">
                                 <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>

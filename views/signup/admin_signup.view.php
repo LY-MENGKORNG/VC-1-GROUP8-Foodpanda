@@ -43,7 +43,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form action="/admin/check-signup" method="POST" enctype="multipart/form-data" class="bg-light p-4 rounded-sm">
-                    <h2 class="mb-4">Register</h2>
+                    <h2 class="mb-4">Register</h2> 
                     <div class="row">
                         <div class="form-group col-6">
                             <label for="firstName">First Name</label>
