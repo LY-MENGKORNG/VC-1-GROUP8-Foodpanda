@@ -1,7 +1,11 @@
 <?php
+session_start();
 require "./models/admin.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
+if (isset($_SESSION["admin"])) {
+    $admin = $_SESSION["admin"];
+}
 
 $page = "";
 $routes = [

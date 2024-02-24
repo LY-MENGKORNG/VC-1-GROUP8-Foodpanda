@@ -1,5 +1,6 @@
 <?php
 
+// Create a new customer
 function createCustomer(string $first_name, string $last_name, string $email, string $password, string $image)
 {
     date_default_timezone_get();
@@ -19,6 +20,7 @@ function createCustomer(string $first_name, string $last_name, string $email, st
     return $stmt->rowCount() > 0;
 }
 
+// Get all data of all customer accounts
 function getAllCustomer(): array
 {
     global $connection;
@@ -27,6 +29,7 @@ function getAllCustomer(): array
     return $stmt->fetchAll();
 }
 
+// Check if the customer's image profile is available in the database or in the directory
 function checkCustomerImage($image): bool
 {
     // File upload directory
@@ -44,6 +47,7 @@ function checkCustomerImage($image): bool
     );
 }
 
+// customer's image profile to folder
 function addImageToFolder($image)
 {
     // File upload directory
@@ -54,6 +58,7 @@ function addImageToFolder($image)
     move_uploaded_file($image['tmp_name'], $target_file_path);
 }
 
+// chech if the customer's email is already existed
 function customerExist(string $email): array
 {
     global $connection;
@@ -61,4 +66,12 @@ function customerExist(string $email): array
     $stmt->execute([':email' => $email]);
 
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
+}
+
+// get all categories
+function getCategories() {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM menuitems");
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
