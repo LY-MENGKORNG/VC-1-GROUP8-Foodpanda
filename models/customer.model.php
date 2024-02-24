@@ -62,3 +62,18 @@ function customerExist(string $email): array
 
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
 }
+
+function customerSginout($email) {
+    global $connection;
+    $stmt = $connection->prepare("DELETE FROM customer WHERE email = :email");
+    $stmt->execute([':email' => $email]);
+    return $stmt->rowCount() > 0;
+}
+
+// sava data that updated to database (PD8-69 > PD8-100)
+function customerSava($email) {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM customer WHERE email = :email");
+    $stmt->execute([':email' => $email]);
+    return $stmt->rowCount() > 0;
+}
