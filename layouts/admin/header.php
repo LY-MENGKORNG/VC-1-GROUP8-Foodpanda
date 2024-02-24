@@ -1,8 +1,4 @@
-<?php 
-if (isset($_SESSION["admin"])) {
-  $admin = $_SESSION["admin"];
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
