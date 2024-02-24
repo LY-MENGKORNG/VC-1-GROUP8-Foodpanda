@@ -4,18 +4,19 @@ require 'database/database.php';
 
 // Authentication routes
 if (
-    urlIs("/") || urlIs("/admin/signup") || urlIs("/admin/signin") || 
+    urlIs("/") || urlIs("/admin/signup") || urlIs("/admin/signin") ||
     urlIs("/admin/check-signin") || urlIs("/admin/check-signup") ||
     urlIs("/admin/signout") || urlIs("/admin/check-signout") ||
-    
-    urlIs("/customer/check-signup") || urlIs("/customer/signin") || 
-    urlIs("/customer/check-signin") || urlIs("/customer/signout") || 
-    urlIs("/foodpanda")) {
+
+    urlIs("/customer/check-signup") || urlIs("/customer/signin") ||
+    urlIs("/customer/check-signin") || urlIs("/customer/signout") ||
+    urlIs("/foodpanda")
+) {
     require "./routers/authentication_router.php";
 }
 
 // Admin routes
-else if (urlIs("/admin")) { 
+else if (urlIs("/admin")) {
     require "routers/admin_router.php";
 }
 
@@ -25,6 +26,6 @@ else if (urlIs("/restaurant") || urlIs("/restaurant-signup") || urlIs("/restaura
 }
 
 // Customer routes
-else if (urlIs("/customer")){  
+else if (urlIs("/customer")) {
     require './routers/customer_router.php';
 }
