@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header("Location: /admin/signup");
             }
         }else {
-            header("Location: /admin/signup");
+            header("Location: /admin/signin");
         }
     }
 }
