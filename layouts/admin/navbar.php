@@ -26,6 +26,9 @@
                         <a class="active" href="/admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
                     <li>
+                        <a class="show-cat-btn" href="/admin/mange-restaurant"><span class="icon home" aria-hidden="true"></span>Restaurants</a>
+                    </li>
+                    <li>
                         <a class="show-cat-btn" href="##">
                             <span class="icon document" aria-hidden="true"></span>Posts
                             <span class="category__btn transparent-btn" title="Open list">
