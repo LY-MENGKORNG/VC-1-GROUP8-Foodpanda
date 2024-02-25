@@ -42,7 +42,6 @@ function adminSignout(string $email) : bool {
     return $stmt->rowCount() > 0;
 }
 
-
 function checkAdminImage($image): bool
 {
     // File upload directory
