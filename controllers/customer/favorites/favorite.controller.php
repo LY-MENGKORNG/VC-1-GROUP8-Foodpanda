@@ -1,3 +1,3 @@
 <?php
 
-require "views/favorites/favorite.view.php";
+require "./views/customer/favorites/favorite.view.php";

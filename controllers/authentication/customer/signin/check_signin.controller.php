@@ -12,8 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['customer'] = $customer;
                 header("Location: /customer");
             }else {
-                header("Location: /customer/signin");
+                $_SESSION['is_customer_password'] = "Invalid password";
             }
+        }else {
+            $_SESSION['is_customer_email'] = "Invalid email";
+            header("Location: /customer/signin");
         }
     }
 }
