@@ -5,16 +5,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
-        $admin = accountExist($email);
+        $admin = adminExist($email);
+        $admin_confirm = password_verify($password, $admin['password']);
         
         if (count($admin) > 0) {
-            if (password_verify($password, $admin['password'])) {
-                echo 'successfully logged in';
+            if ($admin_confirm) {
                 $_SESSION['admin'] = $admin;
                 header("Location: /admin");
             }else {
-                header("Location: /admin/signin");
-                echo 'wrong password';
+                // header("Location: /admin/signin");
             }
         }
     }

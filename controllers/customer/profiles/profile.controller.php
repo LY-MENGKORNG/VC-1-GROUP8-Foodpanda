@@ -1,3 +1,3 @@
 <?php
 
-require "views/profiles/profile.view.php";
+require "./views/customer/profiles/profile.view.php";

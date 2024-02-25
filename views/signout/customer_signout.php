@@ -46,10 +46,12 @@
                             <div class="form-group mb-4">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                                <span class='text-danger'><?= $is_customer_email ?></span>
                             </div>
                             <div class="form-group mb-5">
                                 <label for="password">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                <span class='text-danger'><?= $is_customer_password ?></span>
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-danger col-12">Sign Out</button>
