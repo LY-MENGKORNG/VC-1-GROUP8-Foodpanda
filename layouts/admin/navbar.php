@@ -123,7 +123,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a class="show-cat-btn" href="/controllers/users/new_user_registration.users.php">
+                        <a class="show-cat-btn" href="controllers/users/new_user.registration.user.php">
                             <span class="icon user-3" aria-hidden="true"></span>Users
                             <span class="category__btn transparent-btn" title="Open list">
                                 <span class="sr-only">Open list</span>
@@ -132,7 +132,7 @@
                         </a>
                         <ul class="cat-sub-menu">
                             <li>
-                                <a href="/views/users/new_user_registration.user.php">Users-01</a> 
+                                <a href="views/users/new_user_registration.users.php">Users-01</a> 
                                 <!-- users-01.html -->
                             </li>
                             <li>
