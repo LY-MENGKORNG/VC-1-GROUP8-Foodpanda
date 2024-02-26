@@ -22,4 +22,6 @@ if (isset($_SESSION["restaurant"])) {
     require "./layouts/restaurant/navbar.php";
     require $page;
     require "./layouts/restaurant/footer.php";
+}else {
+    header("Location: /restaurant/signin");
 }
