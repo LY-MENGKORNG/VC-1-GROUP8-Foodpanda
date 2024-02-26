@@ -1,6 +1,8 @@
 <?php 
-$customer = $_SESSION["customer"];
+$customer = $_SESSION['customer']; 
+// echo $customer["first_name"];
 ?>
+
 <div class="osahan-profile">
     <div class="d-none">
         <div class="bg-primary border-bottom p-3 d-flex align-items-center">
@@ -16,13 +18,13 @@ $customer = $_SESSION["customer"];
                         <a href="profile.html" class>
                             <div class="d-flex align-items-center p-3">
                                 <div class="left mr-3">
-                                    <img alt="#" src="../../assets/images/uploads/customer_profile/<?= $customer["image"] ?>" class="rounded-circle" style="height: 75px;">
+                                    <img alt="#" src="../../assets/images/uploads/customer_profile/<?= $customer["image"] ?>" class="rounded-circle" style="width: 70px; height: 70px;">
                                 </div>
                                 <div class="right">
-                                    <h6 class="mb-1 font-weight-bold"><?= $customer["first_name"] ?><i
+                                    <h6 class="mb-1 font-weight-bold"><?php  echo $customer["first_name"] . " " . $customer["last_name"]; ?> <i
                                             class="feather-check-circle text-success"></i></h6>
                                     <p class="text-muted m-0 small"><span class="__cf_email__"
-                                            data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[email&#160;protected]</span>
+                                            data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[This is my&#160;bio]</span>
                                     </p>
                                 </div>
                             </div>
@@ -114,11 +116,11 @@ $customer = $_SESSION["customer"];
                                 <form action="my_account.html">
                                     <div class="form-group">
                                         <label for="exampleInputName1">First Name</label>
-                                        <input type="text" class="form-control" id="exampleInputName1d" value="<?= $customer["first_name"] ?>">
+                                        <input type="text" class="form-control" id="exampleInputName1d" value="<?php echo $customer["first_name"] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName1">Last Name</label>
-                                        <input type="text" class="form-control" id="exampleInputName1" value="<?= $customer["last_name"] ?>">
+                                        <input type="text" class="form-control" id="exampleInputName1" value="<?php echo $customer["last_name"] ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputNumber1">Mobile Number</label>
@@ -128,7 +130,7 @@ $customer = $_SESSION["customer"];
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1"
-                                            value="<?= $customer["email"]?>">
+                                            value="<?php echo $customer["email"] ?>">
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
