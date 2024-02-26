@@ -1,10 +1,9 @@
-<?php 
+<?php
 
-function createRestaurant(int $admin_id, string $restaurant_name, string $owner_name, string $email, string $password, string $location, int $rating, string $opening_hour, string $contect_info, string $description, bool $is_open) : bool
+function createPost(string $title, string $description) : bool
 {
     global $connection;
-    $statement = $connection->prepare("INSERT INTO restaurants (restaurant_name, owner_name, email, password, location, rating, opening_hour, contect_info, description, is_open)
-    VALUES (:restaurant_name, :owner_name, :email, :password, :location, :rating, :opening_hour, :contect_info, :description, :is_open)");
+    $statement = $connection->prepare("insert into posts (title, description) values (:title, :description)");
     $statement->execute([
         ':title' => $title,
         ':description' => $description
@@ -30,39 +29,33 @@ function getPosts() : array
     return $statement->fetchAll();
 }
 
-
-
-function getAllRestaurants(): array{
+function updateRestaurant(string $restaurant_name, string $owner_name,string $email,string $password, string $location, int $rating, $opening_hours, string $contact_info, string $description, $is_open, int $id) : bool
+{
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM rastaurants");
-    $stmt->execute();
-    return $stmt->fetchAll();
-}
-function getRestaurant(int $id): array{
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM rastaurants WHERE restaurant_id = :id");
-    $stmt->execute([":id" => $id]);
-    return $stmt->fetch();
-}
+    $statement = $connection->prepare("UPDATE Restaurants SET restaurant_name = :restaurant_name, owner_name = :owner_name, email = :email, password = :password, location = :location,
+    rating = :rating, opening_hours = :opening_hours, contect_ifo = :contect_info, description = :description, is_open = :is_open WHERE restaurant_id = :restaurant_id");
+    $statement->execute([
+        ':restaurant_name' => $restaurant_name,
+        ':owner_name' => $owner_name,
+        ':email' => $email,
+        ':password' => $password,
+        ':location' => $location,
+        ':rating' => $rating,
+        ':opening_hours' => $opening_hours,
+        ':contact_info' => $contact_info,
+        ':description' => $description,
+        ':is_open' => $is_open,
+        ':restaurant_id' => $id
 
-function updateRestaurant($restaurant_id, $admin_id, $restaurant_name, $owner_name, $email, $password, $location, $rating, $opening_hour, $contect_info, $description,$is_open){
-    global $connection;
-    $stmt = $connection->prepare("UPDATE restaurants SET admin_id = :admin_id, restaurant_name = :restaurant_name, owner_name = :owner_name, email = :email, password = :password, location = :location, rating = :rating, 
-    opening_hour = :opening_hour, contect_info = :contect_info, description = :description, is_open = :is_open WHERE restaurant_id = :restaurant_id");
-    $stmt->execute([
-        ":admin_id" => $admin_id,
-        ":restaurant_name" => $restaurant_name,
-        ":owner_name" => $owner_name,
-        ":email" => $email,
-        ":password" => $password,
-        ":location" => $location,
-        ":rating" => $rating,
-        ":opening_hour" => $opening_hour,
-        ":contect_info" => $contect_info,
-        ":description" => $description,
-        ":is_open" => $is_open,
-        ":restaurant_id" => $restaurant_id
     ]);
-    return $stmt-> rowCount() > 0;
+
+    return $statement->rowCount() > 0;
 }
 
+function deletePost(int $id) : bool
+{
+    global $connection;
+    $statement = $connection->prepare("delete from posts where id = :id");
+    $statement->execute([':id' => $id]);
+    return $statement->rowCount() > 0;
+}
