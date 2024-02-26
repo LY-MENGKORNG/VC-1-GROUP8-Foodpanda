@@ -3,19 +3,23 @@ require 'utils/url.php';
 require 'database/database.php';
 
 // Admin routes
-if (urlIs("/admin")) { 
+if (urlIs("/admin") || urlIs("/admin/manage_restaurant") || 
+    urlIs("/admin/check_add_restaurant")) 
+{ 
     require "routers/admin_router.php";
 }
 
 // Restaurant routes
-else if (urlIs("/restaurant")) {
+else if (urlIs("/restaurant")) 
+{
     require "./routers/resturant_router.php";
 }
 
 // Customer routes
 else if(urlIs("/customer") || urlIs("/customer/checkout") || 
         urlIs("/customer/search") || urlIs("/customer/offers") ||
-        urlIs("/customer/profile") || urlIs("/customer/order")) {  
+        urlIs("/customer/profile") || urlIs("/customer/order")) 
+{  
     require './routers/customer_router.php';
 }
 
@@ -29,8 +33,7 @@ else if (
     urlIs("/customer/check-signin") || urlIs("/customer/signout") || 
     urlIs("/customer/check-signout") || urlIs("/foodpanda")  ||
 
-    urlIs("/restaurant/signin") || urlIs("/restaurant/check_signin")
-    ) 
+    urlIs("/restaurant/signin") || urlIs("/restaurant/check_signin")) 
 {
     require "./routers/authentication_router.php";
 }

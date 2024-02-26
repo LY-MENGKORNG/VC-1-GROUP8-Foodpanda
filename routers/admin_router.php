@@ -11,7 +11,8 @@ if (isset($_SESSION["admin"])) {
         '/admin' => 'controllers/admin/home/home.controller.php',
         '/admin/dashboard' => 'controllers/admin/dashboard.controller.',
         '/admin/profile' => 'controllers/admin/profile/profile.controller.php',
-        '/admin/mange-restaurant' => 'controllers/manage_restaurant/manage_restaurant.controller.php',
+        '/admin/manage_restaurant' => 'controllers/admin/restaurant/manage_restaurant.controller.php',
+        '/admin/check_add_restaurant' => 'controllers/admin/restaurant/check_add_restaurant.controller.php',
         '/admin/category' => 'controllers/category/category.controller.php',
     ];
 

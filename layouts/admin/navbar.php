@@ -1,4 +1,3 @@
-
 <!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
@@ -26,7 +25,8 @@
                         <a class="active" href="/admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
                     <li>
-                        <a class="show-cat-btn" href="/admin/mange-restaurant"><span class="icon home" aria-hidden="true"></span>Restaurants</a>
+                        <a href="/admin/manage_restaurant"><span class="icon home" aria-hidden="true"></span>Restaurant</a>
+
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">

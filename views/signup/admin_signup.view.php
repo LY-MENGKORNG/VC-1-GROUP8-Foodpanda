@@ -77,6 +77,7 @@
                             <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                         </div>
                     </div>
+                    <span>Already have the account?<a href="/admin/signin">Sign in</a></span>
                     <button type="submit" class="btn btn-primary btn-block">Register</button>
                 </form>
             </div>

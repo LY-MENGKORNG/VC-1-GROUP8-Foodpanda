@@ -1,7 +1,3 @@
-<?php 
-$customer = $_SESSION['customer']; 
-// echo $customer["first_name"];
-?>
 
 <div class="osahan-profile">
     <div class="d-none">
@@ -18,7 +14,7 @@ $customer = $_SESSION['customer'];
                         <a href="profile.html" class>
                             <div class="d-flex align-items-center p-3">
                                 <div class="left mr-3">
-                                    <img alt="#" src="../../assets/images/uploads/customer_profile/<?= $customer["image"] ?>" class="rounded-circle" style="width: 70px; height: 70px;">
+                                    <img alt="#" src="../../assets/images/uploads/customer_profile/<?= file_exists($customer["image"]) ? $customer["image"] : 'avatar.png' ?>" class="rounded-circle" style="width: 70px; height: 70px;">
                                 </div>
                                 <div class="right">
                                     <h6 class="mb-1 font-weight-bold"><?php  echo $customer["first_name"] . " " . $customer["last_name"]; ?> <i
@@ -116,116 +112,36 @@ $customer = $_SESSION['customer'];
                                 <form action="my_account.html">
                                     <div class="form-group">
                                         <label for="exampleInputName1">First Name</label>
-                                        <input type="text" class="form-control" id="exampleInputName1d" value="<?php echo $customer["first_name"] ?>">
+                                        <input type="text" class="form-control" id="exampleInputName1d" value="Gurdeep">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputName1">Last Name</label>
-                                        <input type="text" class="form-control" id="exampleInputName1" value="<?php echo $customer["last_name"] ?>">
+                                        <input type="text" class="form-control" id="exampleInputName1" value="Singh">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputNumber1">Mobile Number</label>
-                                        <input type="number" class="form-control" id="exampleInputNumber1"
-                                            value="1234567890">
+                                        <input type="number" class="form-control" id="exampleInputNumber1" value="1234567890">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            value="<?php echo $customer["email"] ?>">
+                                        <input type="email" class="form-control" id="exampleInputEmail1" value="iamosahan@gmail.com">
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
                                     </div>
                                 </form>
                             </div>
-                            <div class="right ml-auto">
-                                <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
-                            </div>
-                        </a>
-                        <a class="d-flex align-items-center border-bottom p-3" data-toggle="modal" data-target="#inviteModal">
-                            <div class="left mr-3">
-                                <h6 class="font-weight-bold mb-1">Refer Friends</h6>
-                                <p class="small text-primary m-0">Get $10.00 FREE</p>
-                            </div>
-                            <div class="right ml-auto">
-                                <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
-                            </div>
-                        </a>
-                        <a href="faq.html" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
-                            <div class="left mr-3">
-                                <h6 class="font-weight-bold m-0 text-dark"><i class="feather-truck bg-danger text-white p-2 rounded-circle mr-2"></i>
-                                    Delivery Support</h6>
-                            </div>
-                            <div class="right ml-auto">
-                                <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
-                            </div>
-                        </a>
-                        <a href="contact-us.html" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
-                            <div class="left mr-3">
-                                <h6 class="font-weight-bold m-0 text-dark"><i class="feather-phone bg-primary text-white p-2 rounded-circle mr-2"></i>
-                                    Contact</h6>
-                            </div>
-                            <div class="right ml-auto">
-                                <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
-                            </div>
-                        </a>
-                        <a href="terms.html" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
-                            <div class="left mr-3">
-                                <h6 class="font-weight-bold m-0 text-dark"><i class="feather-info bg-success text-white p-2 rounded-circle mr-2"></i> Term
-                                    of use</h6>
-                            </div>
-                            <div class="right ml-auto">
-                                <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
-                            </div>
-                        </a>
-                        <a href="privacy.html" class="d-flex w-100 align-items-center px-3 py-4">
-                            <div class="left mr-3">
-                                <h6 class="font-weight-bold m-0 text-dark"><i class="feather-lock bg-warning text-white p-2 rounded-circle mr-2"></i>
-                                    Privacy policy</h6>
-                            </div>
-                            <div class="right ml-auto">
-                                <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-8 mb-3">
-                <div class="rounded shadow-sm p-4 bg-white">
-                    <h5 class="mb-4">My account</h5>
-                    <div id="edit_profile">
-                        <div>
-                            <form action="my_account.html">
-                                <div class="form-group">
-                                    <label for="exampleInputName1">First Name</label>
-                                    <input type="text" class="form-control" id="exampleInputName1d" value="Gurdeep">
+                            <div class="additional">
+                                <div class="change_password my-3">
+                                    <a href="forgot_password.html" class="p-3 border rounded bg-white btn d-flex align-items-center">Change
+                                        Password
+                                        <i class="feather-arrow-right ml-auto"></i></a>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputName1">Last Name</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" value="Singh">
+                                <div class="deactivate_account">
+                                    <a href="forgot_password.html" class="p-3 border rounded bg-white btn d-flex align-items-center">Deactivate
+                                        Account
+                                        <i class="feather-arrow-right ml-auto"></i></a>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputNumber1">Mobile Number</label>
-                                    <input type="number" class="form-control" id="exampleInputNumber1" value="1234567890">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" value="iamosahan@gmail.com">
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="additional">
-                            <div class="change_password my-3">
-                                <a href="forgot_password.html" class="p-3 border rounded bg-white btn d-flex align-items-center">Change
-                                    Password
-                                    <i class="feather-arrow-right ml-auto"></i></a>
-                            </div>
-                            <div class="deactivate_account">
-                                <a href="forgot_password.html" class="p-3 border rounded bg-white btn d-flex align-items-center">Deactivate
-                                    Account
-                                    <i class="feather-arrow-right ml-auto"></i></a>
                             </div>
                         </div>
                     </div>
@@ -234,7 +150,7 @@ $customer = $_SESSION['customer'];
         </div>
     </div>
 
-    <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
+    <!-- <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
         <div class="row">
             <div class="col">
                 <a href="home.html" class="text-dark small font-weight-bold text-decoration-none">
@@ -268,5 +184,5 @@ $customer = $_SESSION['customer'];
                 </a>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
