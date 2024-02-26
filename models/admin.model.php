@@ -57,38 +57,25 @@ function getOrderStatus($image, $food_name, $customer_name, $status, $date){
     return $stmt->rowCount() > 0;
 }
 
-function checkAdminImage($image): bool
-{
-    // File upload directory
-    $target_dir = "assets/images/uploads/admin_profile/";
-    $file_name = basename($image["name"]);
-    $target_file_path = $target_dir . $file_name;
-    $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-    $file_allow_type = array("jpg", "png", "jpeg");
-    $file_size = $image['size'];
-
-    return 
-    (
-        $file_size < 500000 && 
-        !file_exists($target_file_path) && 
-        in_array($file_type, $file_allow_type)
-    );
-}
-
-function addAdminImageToFolder($image)
-{
-    // File upload directory
-    $target_dir = "assets/images/uploads/admin_profile/";
-    $file_name = basename($image["name"]);
-    $target_file_path = $target_dir . $file_name;
-    $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-    
-    // Allow certain file formats
-    $allowTypes = array('jpg', 'jpeg', 'png');
-    if (in_array($file_type, $allowTypes) && $image["size"] < 5000000) {
-        if (!file_exists($target_file_path)) {
-            move_uploaded_file($image['tmp_name'], $target_file_path);
+// Function to disable or delete fraudulent accounts
+function disableFraudulentAccount(){
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM customers WHERE registration_date < DATE_SUB(NOW(), INTERVAL 30 DAY)");
+    if ($stmt-> rowCount() > 0) {
+        while($row = $stmt->fetch(PDO:: FETCH_ASSOC)) {
+            // For demonstration purposes, let's assume we're deleting the fraudulent account
+            $customerId = $row["customer_id"];
+            $sql = "DELETE FROM customers WHERE customer_id=$customerId";
+            if ($connection->query($sql) === TRUE) {
+                echo "Fraudulent account with ID $customerId has been deleted successfully.<br>";
+            } else {
+                echo "Error deleting record: " . $connection;
+            }
         }
+
     }
+    else {
+        echo "No fraudulent accounts found.";
+    } 
 }
 

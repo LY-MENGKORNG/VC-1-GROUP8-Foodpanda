@@ -189,11 +189,11 @@
                 <tr class="users-table-info">
                   <th>
                     <label class="users-table__checkbox ms-20">
-                      <input type="checkbox" class="check-all">Restaurant
+                      <input type="checkbox" class="check-all">Image
                     </label>
                   </th>
-                  <th>Restaurant_name</th>
-                  <th>Owner_name</th>
+                  <th>Food_name</th>
+                  <th>Customer_name</th>
                   <th>Status</th>
                   <th>Date</th>
                   <th>Action</th>

@@ -75,18 +75,5 @@ function customerSignout($email) {
     return $stmt->rowCount() > 0;
 }
 
-// sava data that updated to database (PD8-69 > PD8-100)
-function customerSave($email) {
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM customer WHERE email = :email");
-    $stmt->execute([':email' => $email]);
-    return $stmt->rowCount() > 0;
-}
-// get all categories
-function getCategories(): array{
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM menuitems");
-    $stmt->execute();
-    return $stmt->fetchAll();
-}
 
+ 
