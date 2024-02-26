@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             unset($_SESSION["is_admin_password"]);
             unset($_SESSION['is_admin_email']);
             unset($_SESSION["admin"]);
-            adminSignout($email);
-            deleteAdminImage($admin["image"]);
+            // adminSignout($email);
+            // deleteAdminImage($admin["image"]);
             header("Location: /foodpanda");
         }
     }
