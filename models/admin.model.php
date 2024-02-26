@@ -67,7 +67,7 @@ function addAdminImageToFolder($image)
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
     $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-
+    
     // Allow certain file formats
     $allowTypes = array('jpg', 'jpeg', 'png');
     if (in_array($file_type, $allowTypes) && $image["size"] < 5000000) {
@@ -100,6 +100,30 @@ function rejectEmail($email, $password): bool {
 
 
 
+
+function rejectEmail($email, $password): bool {
+    getAdmin();
+
+    $emailPattern = ' /^\w+(\.\w+)*@[\w-]+(\.[\w-]+)+$/ ';
+    $passwordPattern = 8;
+
+    $emailValid = preg_match($emailPattern, $email);
+    $passwordValid = preg_match($passwordPattern, $password);
+
+    if (!$emailValid || !$passwordValid) {
+        if (rejectEmail($email,$password)){
+            echo "You got wrong";
+        }
+        return false;
+
+    } else {
+        echo "You got right";
+    }
+
+    return true;
+}
+
+
 function deleteAdminImage(string $image) {
     $target_file_path = "assets/images/uploads/admin_profile/".$image;
 
@@ -107,3 +131,61 @@ function deleteAdminImage(string $image) {
         unlink($target_file_path);
     }
 }
+<<<<<<< HEAD
+=======
+
+function createRestaurant(int $id, string $name, string $email, string $opening_hours, 
+                        string $location, string $contact, string $img, string $desc)  
+{
+    global $connection;
+    $stmt = $connection->prepare("INSERT INTO restaurants 
+    (admin_id, restaurant_name, email, opening_hours, location, contact_info, restaurant_img, description)
+    VALUES (:id, :name, :email, :opening_hours, :location, :contact, :img, :desc)");
+
+    $stmt->execute([
+        ":id" => $id,
+        ":name" => $name,
+        ":email" => $email,
+        ":opening_hours" => $opening_hours,
+        ":location" => $location,
+        ":contact" => $contact,
+        ":img" => $img,
+        ":desc" => $desc
+    ]);
+    return $stmt->rowCount() > 0;
+}
+
+function checkRestaurantImage($image) {
+        // File upload directory
+        $target_dir = "assets/images/uploads/restaurants/";
+        $file_name = basename($image["name"]);
+        $target_file_path = $target_dir . $file_name;
+        $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
+        $file_allow_type = array("jpg", "png", "jpeg");
+        $file_size = $image['size'];
+    
+        return 
+        (
+            $file_size < 500000 && 
+            !file_exists($target_file_path) && 
+            in_array($file_type, $file_allow_type)
+        );
+}
+
+function addRestaurantImgToFolder($image) {
+        // File upload directory
+        $target_dir = "assets/images/uploads/restaurants/";
+        $file_name = basename($image["name"]);
+        $target_file_path = $target_dir . $file_name;
+        $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
+    
+        // Allow certain file formats
+        $allowTypes = array('jpg', 'jpeg', 'png');
+        
+        if (in_array($file_type, $allowTypes) && $image["size"] < 5000000) {
+            if (!file_exists($target_file_path)) {
+                move_uploaded_file($image['tmp_name'], $target_file_path);
+            }
+        }
+}
+>>>>>>> 8f217c810d17c289be5e92d7a70b6d55e8aee870

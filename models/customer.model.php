@@ -83,9 +83,10 @@ function customerSave($email) {
     return $stmt->rowCount() > 0;
 }
 // get all categories
-function getCategories() {
+function getCategories(): array{
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM menuitems");
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
