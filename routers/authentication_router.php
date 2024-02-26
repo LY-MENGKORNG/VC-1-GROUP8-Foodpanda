@@ -10,18 +10,21 @@ $routes = [
     "/" => "foodpanda.php",
     '/foodpanda' => 'foodpanda.php',
 
-    '/admin/signup' => 'controllers/signup/admin_signup.controller.php',
-    '/admin/check-signup' => 'controllers/signup/admin_check_signup.controller.php',
-    '/admin/signin' => 'controllers/signin/admin_signin.controller.php',
-    '/admin/check-signin' => 'controllers/signin/admin_check_signin.controller.php',
-    '/admin/signout' => 'controllers/signout/admin_signout.controller.php',
-    '/admin/check-signout' => 'controllers/signout/admin_check_signout.controller.php',
+    '/admin/signup' => 'controllers/authentication/admin/signup/signup.controller.php',
+    '/admin/check-signup' => 'controllers/authentication/admin/signup/check_signup.controller.php',
+    '/admin/signin' => 'controllers/authentication/admin/signin/signin.controller.php',
+    '/admin/check-signin' => 'controllers/authentication/admin/signin/check_signin.controller.php',
+    '/admin/signout' => 'controllers/authentication/admin/signout/signout.controller.php',
+    '/admin/check-signout' => 'controllers/authentication/admin/signout/check_signout.controller.php',
 
-    '/customer/signin' => 'controllers/signup/customer_signup/customer-signin.controller.php',
-    '/customer/check-signup' => 'controllers/signup/customer_signup/check_signup.controller.php',
-    '/customer/check-signin' => 'controllers/signin/customer/customer_check_signin.controller.php',
-    '/customer/signout' => 'controllers/signout/customer_signout/customer_signout.controller.php',
-    '/customer/check-signout' => 'controllers/signout/customer_signout/customer_check_signout.controller.php',
+    '/restaurant/signin' => 'controllers/authentication/restaurant/signin/signin.controller.php',
+    '/restaurant/check_signin' => 'controllers/authentication/restaurant/signin/check_signin.controller.php',
+
+    '/customer/check-signup' => 'controllers/authentication/customer/signup/check_signup.controller.php',
+    '/customer/signin' => 'controllers/authentication/customer/signin/signin.controller.php',
+    '/customer/check-signin' => 'controllers/authentication/customer/signin/check_signin.controller.php',
+    '/customer/signout' => 'controllers/authentication/customer/signout/signout.controller.php',
+    '/customer/check-signout' => 'controllers/authentication/customer/signout/check_signout.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {

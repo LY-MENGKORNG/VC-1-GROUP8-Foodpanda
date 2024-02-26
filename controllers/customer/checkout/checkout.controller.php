@@ -1,3 +1,3 @@
 <?php
 
-require "views/checkout/checkout.view.php";
+require "./views/customer/checkout/checkout.view.php";

@@ -32,7 +32,7 @@
         .password-toggle-btn {
             cursor: pointer;
             position: absolute;
-            top: 75%;
+            top: 70%;
             right: 10px;
             transform: translateY(-50%);
             z-index: 1;
@@ -55,11 +55,14 @@
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" name="email" class="form-control" id="email" placeholder="Email Address" required>
+                <span class='text-danger'><?= $is_admin_email ?></span>
+
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
                 <i class="password-toggle-btn fa fa-eye-slash" id="eye" aria-hidden="true"></i>
+                <span class='text-danger'><?= $is_admin_password ?></span>
             </div>
 
             <button type="submit" class="btn btn-primary mt-4">Submit</button>

@@ -27,7 +27,7 @@ function getAdmin(): array
     return $stmt->fetchAll();
 }
 
-function accountExist(string $email) : array {
+function adminExist(string $email) : array {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM Admin WHERE email = :email");
     $stmt->execute([':email' => $email]);
@@ -101,3 +101,10 @@ function rejectEmail($email, $password): bool {
 }
 
 
+function deleteAdminImage(string $image) {
+    $target_file_path = "assets/images/uploads/admin_profile/".$image;
+
+    if (file_exists($target_file_path)) {
+        unlink($target_file_path);
+    }
+}

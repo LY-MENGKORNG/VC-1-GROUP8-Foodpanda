@@ -1,3 +1,3 @@
 <?php
 
-require "views/orders/order.view.php";
+require "./views/customer/orders/order.view.php";
