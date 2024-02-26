@@ -6,17 +6,6 @@ function createRestaurant(int $admin_id, string $restaurant_name, string $owner_
     $statement = $connection->prepare("INSERT INTO restaurants (restaurant_name, owner_name, email, password, location, rating, opening_hour, contect_info, description, is_open)
     VALUES (:restaurant_name, :owner_name, :email, :password, :location, :rating, :opening_hour, :contect_info, :description, :is_open)");
     $statement->execute([
-        ':admin_id' => $admin_id,
-        ':restauarnt_naem' => $restaurant_name,
-        ':owner_name' => $owner_name,
-        ':email' => $email,
-        ':password' => $password,
-        ':location' => $location,
-        ':rating' => $rating,
-        ':opening_hour' => $opening_hour,
-        ':contect_info' => $contect_info,
-        ':description' => $description,
-        ':is_open' => $is_open,
         ':title' => $title,
         ':description' => $description
 
@@ -45,9 +34,6 @@ function getPosts() : array
 
 function getAllRestaurants(): array{
     global $connection;
-    $statement = $connection->prepare("delete from posts where id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->rowCount() > 0;
     $stmt = $connection->prepare("SELECT * FROM rastaurants");
     $stmt->execute();
     return $stmt->fetchAll();
