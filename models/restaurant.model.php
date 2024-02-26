@@ -50,3 +50,7 @@ function deletePost(int $id) : bool
     $statement->execute([':id' => $id]);
     return $statement->rowCount() > 0;
 }
+
+function updateMenu(){
+    
+}
