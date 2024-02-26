@@ -1,21 +1,25 @@
 <?php
 
 // Create a new customer
-function createCustomer(string $first_name, string $last_name, string $email, string $password, string $image)
+function createCustomer(string $first_name, string $last_name, string $email, string $password, string $phone, string $profile)
 {
+    global $connection;
+
     date_default_timezone_get();
     $registration_date = date("Y-m-d H:i:s");
+    $role_id = 4;
 
-    global $connection;
-    $stmt = $connection->prepare("INSERT INTO customers (first_name, last_name, email, password, registration_date, image) 
-                                VALUES (:first_name, :last_name, :email, :password, :registration_date, :image);");
+    $stmt = $connection->prepare("INSERT INTO users (first_name, last_name, email, password, phone, registration_date, profile, role_id) 
+                                VALUES (:first_name, :last_name, :email, :password, :phone, :registration_date, :profile, :role_id);");
     $stmt->execute([
         ":first_name" => $first_name,
         ":last_name" => $last_name,
         ":email" => $email,
         ":password" => $password,
+        ":phone" => $phone,
         ":registration_date" => $registration_date,
-        ":image" => $image
+        ":profile" => $profile,
+        ":role_id" => $role_id
     ]);
     return $stmt->rowCount() > 0;
 }
@@ -24,15 +28,14 @@ function createCustomer(string $first_name, string $last_name, string $email, st
 function getAllCustomer(): array
 {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM customers");
-    $stmt->execute();
+    $stmt = $connection->prepare("SELECT * FROM users WHERE role_id = :role_id");
+    $stmt->execute([":role_id" => 4]);
     return $stmt->fetchAll();
 }
 
 // Check if the customer's image profile is available in the database or in the directory
 function checkCustomerImage($image): bool
 {
-    // File upload directory
     $target_dir = "assets/images/uploads/customer_profile/";
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
@@ -41,7 +44,7 @@ function checkCustomerImage($image): bool
     $file_size = $image['size'];
 
     return (
-        $file_size < 500000 &&
+        $file_size < 5000000 &&
         !file_exists($target_file_path) &&
         in_array($file_type, $file_allow_type)
     );
@@ -62,18 +65,37 @@ function addImageToFolder($image)
 function customerExist(string $email): array
 {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM customers WHERE email = :email");
-    $stmt->execute([':email' => $email]);
+    $stmt = $connection->prepare("SELECT * FROM users WHERE email = :email AND role_id = :role_id");
+    $stmt->execute([
+        ':email' => $email,
+        ':role_id' => 4
+    ]);
 
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
 }
 
-function customerSignout($email) {
+// customer edit profile
+function customerEditProfile(string $first_name, string $last_name, string $email, string $phone, string $user_id) {
     global $connection;
-    $stmt = $connection->prepare("DELETE FROM customer WHERE email = :email");
-    $stmt->execute([':email' => $email]);
+    $stmt = $connection->prepare("UPDATE users SET 
+                    first_name = :first_name, last_name = :last_name, email = :email, phone = :phone 
+                    WHERE user_id = :user_id");
+
+    $stmt->execute([
+        ":first_name" => $first_name,
+        ":last_name" => $last_name,
+        ":email" => $email,
+        ":phone" => $phone,
+        ":user_id" => $user_id
+    ]);
     return $stmt->rowCount() > 0;
 }
 
 
- 
+// get all categories
+function getCategories() {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM menuitems");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}

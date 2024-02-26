@@ -1,33 +1,39 @@
 <?php
 
-function createAdmin($admin_name, $email, $password, $phone, $image): bool
+function createAdmin($first_name, $last_name, $email, $password, $phone, $profile): bool
 {
     if (count(getAdmin()) == 1) {
         return false;
     }
-    global $connection;
+    date_default_timezone_get();
+    $registration_date = date("Y-m-d H:i:s");
 
-    $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone, image) VALUES 
-                                (:admin_name, :email, :password, :phone, :image);");
+    global $connection;
+    $role_id = 1;
+    $stmt = $connection->prepare("INSERT INTO Users (first_name, last_name, email, password, phone, profile, registration_date, role_id) VALUES 
+                                (:first_name, :last_name, :email, :password, :phone, :profile, :registration_date, :role_id);");
     $stmt->execute([
-        'admin_name' => $admin_name,
-        'email' => $email,
-        'password' => $password,
-        'phone' => $phone,
-        'image' => $image
+        ':first_name' => $first_name,
+        ':last_name' => $last_name,
+        ':email' => $email,
+        ':password' => $password,
+        ':phone' => $phone,
+        ':profile' => $profile,
+        ':registration_date' => $registration_date,
+        ':role_id' => $role_id
     ]);
     return $stmt->rowCount() > 0;
 }
 
 function getAdmin() : array {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Admin");
+    $stmt = $connection->prepare("SELECT * FROM Users WHERE role_id = 1");
     $stmt->execute();
     return $stmt->fetchAll();
 }
 function accountExist(string $email) {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Admin WHERE email = :email");
+    $stmt = $connection->prepare("SELECT * FROM Users WHERE email = :email");
     $stmt->execute([':email' => $email]);
 
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];

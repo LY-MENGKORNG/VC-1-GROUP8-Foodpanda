@@ -18,7 +18,8 @@ else if (urlIs("/restaurant"))
 // Customer routes
 else if(urlIs("/customer") || urlIs("/customer/checkout") || 
         urlIs("/customer/search") || urlIs("/customer/offers") ||
-        urlIs("/customer/profile") || urlIs("/customer/order")) 
+        urlIs("/customer/profile") || urlIs("/customer/order")  ||
+        urlIs("/customer/edit_profile"))
 {  
     require './routers/customer_router.php';
 }

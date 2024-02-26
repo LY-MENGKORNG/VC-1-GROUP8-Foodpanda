@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootstrap Registration Form</title>
+    <title>Admin Registration Form</title>
+    <!-- Icon -->
+    <link rel="shortcut icon" href="../assets/images/logo/panda-logo.png" type="image/x-icon">
+
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../vendor/css/style.css" rel="stylesheet" />
     <style>
         body {
             width: 100%;
@@ -43,15 +47,15 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <form action="/admin/check-signup" method="POST" enctype="multipart/form-data" class="bg-light p-4 rounded-sm">
-                    <h2 class="mb-4">Register</h2> 
+                    <h2 class="mb-4 text-primary">Register</h2> 
                     <div class="row">
                         <div class="form-group col-6">
-                            <label for="firstName">First Name</label>
-                            <input type="text" class="form-control" id="firstName" name="f-name" required>
+                            <label for="first_name">First Name</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name" required>
                         </div>
                         <div class="form-group col-6">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" name="l-name" required>
+                            <label for="last_name">Last Name</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
                     </div>
                     <div class="row">
@@ -73,12 +77,12 @@
                             <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
                         </div>
                         <div class="custom-file">
-                            <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
-                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            <input type="file" name="profile" class="custom-file-input" id="profile" aria-describedby="inputGroupFileAddon01" required>
+                            <label class="custom-file-label" for="profile">Choose file</label>
                         </div>
                     </div>
-                    <span>Already have the account?<a href="/admin/signin">Sign in</a></span>
-                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    <span>Already have the account?<a class="mx-2" href="/admin/signin">Sign in</a></span>
+                    <button type="submit" class="btn btn-primary btn-block mt-3">Register</button>
                 </form>
             </div>
         </div>

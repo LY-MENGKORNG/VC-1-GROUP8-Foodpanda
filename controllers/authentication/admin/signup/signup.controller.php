@@ -1,7 +1,11 @@
 <?php
 session_start();
 
+<<<<<<< HEAD
 if (isset($_SESSION["admin"])) {
+=======
+if (count(getAdmin()) >= 1 || isset($_SESSION["admin"])) {
+>>>>>>> origin/restaurant_owner_register
     header("Location: /admin");
     die();
 }

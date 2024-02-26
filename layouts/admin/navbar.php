@@ -151,11 +151,11 @@
             <a href="##" class="sidebar-user">
                 <span class="sidebar-user-img">
                     <picture>
-                        <source srcset="../../assets/images/uploads/admin_profile/<?= isset($admin) ? $admin["image"] : '' ?>" type="image/webp"><img src="../../assets/images/uploads/admin_profile/<?= isset($admin) ? $admin["image"] : '' ?>" alt="User name">
+                        <source srcset="../../assets/images/uploads/admin_profile/<?= isset($admin) ? $admin["profile"] : 'avatar.png' ?>" type="image/webp"><img src="../../assets/images/uploads/admin_profile/<?= isset($admin) ? $admin["profile"] : 'avatar.png' ?>" alt="User name">
                     </picture>
                 </span>
                 <div class="sidebar-user-info">
-                    <span class="sidebar-user__title"><?= isset($admin) ? $admin["admin_name"] : "" ?></span>
+                    <span class="sidebar-user__title"><?= isset($admin) ? $admin["first_name"] : "" ?></span>
                     <span class="sidebar-user__subtitle">Support manager</span>
                 </div>
             </a>

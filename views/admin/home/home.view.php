@@ -1,3 +1,4 @@
+
 <div class="main-wrapper">
   <!-- ! Main nav -->
   <nav class="main-nav--bg">
@@ -80,7 +81,7 @@
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <picture>
-                <source srcset="../../assets/images/uploads/admin_profile/<?= $admin['image'] ?>"><img src="../../assets/images/uploads/admin_profile/<?= $admin['image'] ?>" alt="User name">
+                <source srcset="../../assets/images/uploads/admin_profile/<?= $admin['profile'] ?>"><img src="../../assets/images/uploads/admin_profile/<?= $admin['profile'] ?>" alt="User name">
               </picture>
             </span>
           </button>

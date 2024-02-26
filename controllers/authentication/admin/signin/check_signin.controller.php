@@ -6,14 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = htmlspecialchars($_POST['password']);
 
         $admin = adminExist($email);
-        $admin_confirm = password_verify($password, $admin['password']);
         
         if (count($admin) > 0) {
-            if ($admin_confirm) {
+            if (password_verify($password, $admin['password'])) {
                 $_SESSION['admin'] = $admin;
                 header("Location: /admin");
             }else {
-                // header("Location: /admin/signin");
+                header("Location: /admin/signin");
             }
         }
     }
