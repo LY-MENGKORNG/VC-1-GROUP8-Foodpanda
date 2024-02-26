@@ -19,15 +19,13 @@ function createAdmin($admin_name, $email, $password, $phone, $image): bool
     return $stmt->rowCount() > 0;
 }
 
-function getAdmin(): array
-{
+function getAdmin() : array {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM Admin");
     $stmt->execute();
     return $stmt->fetchAll();
 }
-
-function adminExist(string $email) : array {
+function accountExist(string $email) {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM Admin WHERE email = :email");
     $stmt->execute([':email' => $email]);
@@ -35,10 +33,27 @@ function adminExist(string $email) : array {
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
 }
 
+
 function adminSignout(string $email) : bool {
     global $connection;
     $stmt = $connection->prepare("DELETE FROM Admin WHERE email = :email");
     $stmt->execute([':email' => $email]);
+    return $stmt->rowCount() > 0;
+}
+
+// Retrieve order status from the database
+function getOrderStatus($image, $food_name, $customer_name, $status, $date){
+    global $connection;
+    $stmt = $connection->prepare("SELECT f.image, f.food_name, c.first_name,p.status, o.order_date FROM Orders o
+    INNER JOIN Customers c ON o.customer_id = c.customer_id, 
+    LEFT JOIN Payments p ON o.order_id = p.order_id");
+    $stmt -> execute ([
+        ':image' => $image,
+        ':food_name' => $food_name,
+        ':first_name' => $customer_name,
+        ':status' => $status,
+        ':date' => $date
+    ]);
     return $stmt->rowCount() > 0;
 }
 
@@ -77,34 +92,3 @@ function addAdminImageToFolder($image)
     }
 }
 
-
-function rejectEmail($email, $password): bool {
-    getAdmin();
-
-    $emailPattern = ' /^\w+(\.\w+)*@[\w-]+(\.[\w-]+)+$/ ';
-    $passwordPattern = 8;
-
-    $emailValid = preg_match($emailPattern, $email);
-    $passwordValid = preg_match($passwordPattern, $password);
-
-    if (!$emailValid || !$passwordValid) {
-        if (rejectEmail($email,$password)){
-            echo "You got wrong";
-        }
-        return false;
-
-    } else {
-        echo "You got right";
-    }
-
-    return true;
-}
-
-
-function deleteAdminImage(string $image) {
-    $target_file_path = "assets/images/uploads/admin_profile/".$image;
-
-    if (file_exists($target_file_path)) {
-        unlink($target_file_path);
-    }
-}
