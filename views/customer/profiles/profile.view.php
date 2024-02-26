@@ -269,7 +269,7 @@
         </div>
     </div>
 
-    <!-- <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
+    <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
         <div class="row">
             <div class="col">
                 <a href="home.html" class="text-dark small font-weight-bold text-decoration-none">
@@ -303,5 +303,5 @@
                 </a>
             </div>
         </div>
-    </div> -->
+    </div>
 </div>
