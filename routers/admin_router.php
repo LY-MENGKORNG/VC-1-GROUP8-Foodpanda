@@ -1,5 +1,4 @@
 <?php
-session_start();
 require "./models/admin.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
@@ -29,5 +28,5 @@ if (isset($_SESSION["admin"])) {
     require "./layouts/admin/footer.php";
     
 } else {
-    header("Location: /admin/signup");
+    header("Location: /admin/signin");
 }

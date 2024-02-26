@@ -167,8 +167,8 @@
       <div class="container d-flex align-items-center">
         <p class="mb-0">© 2021 Company All rights reserved</p>
         <p class="text-muted mb-0 ml-auto d-flex align-items-center">
-          <a href="#" class="d-block"><img alt="#" src="assets/images/appstore.png" height="40" /></a>
-          <a href="#" class="d-block ml-3"><img alt="#" src="assets/images/playmarket.png" height="40" /></a>
+          <a href="#" class="d-block"><img alt="#" src="../../assets/images/appstore.png" height="40" /></a>
+          <a href="#" class="d-block ml-3"><img alt="#" src="../../assets/images/playmarket.png" height="40" /></a>
         </p>
       </div>
     </section>
@@ -378,15 +378,15 @@
     </div>
   </div>
 
-  <script type="4914b45df6263fcf00a3ac20-text/javascript" src="vendor/jquery/jquery.min.js"></script>
-  <script type="4914b45df6263fcf00a3ac20-text/javascript" src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="4914b45df6263fcf00a3ac20-text/javascript" src="../../vendor/jquery/jquery.min.js"></script>
+  <script type="4914b45df6263fcf00a3ac20-text/javascript" src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <script type="4914b45df6263fcf00a3ac20-text/javascript" src="vendor/slick/slick.min.js"></script>
+  <script type="4914b45df6263fcf00a3ac20-text/javascript" src="../../vendor/slick/slick.min.js"></script>
 
-  <script type="4914b45df6263fcf00a3ac20-text/javascript" src="vendor/sidebar/hc-offcanvas-nav.js"></script>
+  <script type="4914b45df6263fcf00a3ac20-text/javascript" src="../../vendor/sidebar/hc-offcanvas-nav.js"></script>
 
-  <script type="4914b45df6263fcf00a3ac20-text/javascript" src="vendor/js/osahan.js"></script>
-  <script src="vendor/rocket/rocket-loader.min.js" data-cf-settings="4914b45df6263fcf00a3ac20-|49" defer></script>
+  <script type="4914b45df6263fcf00a3ac20-text/javascript" src="../../vendor/js/osahan.js"></script>
+  <script src="../../vendor/rocket/rocket-loader.min.js" data-cf-settings="4914b45df6263fcf00a3ac20-|49" defer></script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
     integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
     data-cf-beacon='{"rayId":"84de77816d468817","r":1,"version":"2024.1.0","token":"dd471ab1978346bbb991feaa79e6ce5c"}'

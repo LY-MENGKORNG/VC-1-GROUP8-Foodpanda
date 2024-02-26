@@ -1,3 +1,4 @@
+
 <div class="osahan-profile">
     <div class="d-none">
         <div class="bg-primary border-bottom p-3 d-flex align-items-center">
@@ -13,10 +14,10 @@
                     <a href="profile.html" class>
                         <div class="d-flex align-items-center p-3">
                             <div class="left mr-3">
-                                <img alt="#" src="assets/images/user1.jpg" class="rounded-circle">
+                                <img alt="#" src="../../assets/images/uploads/customer_profile/<?= $customer["profile"] ?>" class="rounded-circle" style="width: 75px; height: 75px;">
                             </div>
                             <div class="right">
-                                <h6 class="mb-1 font-weight-bold">Gurdeep Singh <i class="feather-check-circle text-success"></i></h6>
+                                <h6 class="mb-1 font-weight-bold"><?= $customer["first_name"] ?><i class="feather-check-circle text-success"></i></h6>
                                 <p class="text-muted m-0 small"><span class="__cf_email__" data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[email&#160;protected]</span>
                                 </p>
                             </div>
@@ -64,7 +65,7 @@
                                 <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
                             </div>
                         </a>
-                        <a href="contact-us.html" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
+                        <a href="/customer/contact" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
                             <div class="left mr-3">
                                 <h6 class="font-weight-bold m-0 text-dark"><i class="feather-phone bg-primary text-white p-2 rounded-circle mr-2"></i>
                                     Contact</h6>
@@ -73,7 +74,7 @@
                                 <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
                             </div>
                         </a>
-                        <a href="terms.html" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
+                        <a href="/customer/term" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
                             <div class="left mr-3">
                                 <h6 class="font-weight-bold m-0 text-dark"><i class="feather-info bg-success text-white p-2 rounded-circle mr-2"></i> Term
                                     of use</h6>
@@ -82,7 +83,7 @@
                                 <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
                             </div>
                         </a>
-                        <a href="privacy.html" class="d-flex w-100 align-items-center px-3 py-4">
+                        <a href="/customer/privacy" class="d-flex w-100 align-items-center px-3 py-4">
                             <div class="left mr-3">
                                 <h6 class="font-weight-bold m-0 text-dark"><i class="feather-lock bg-warning text-white p-2 rounded-circle mr-2"></i>
                                     Privacy policy</h6>
@@ -99,22 +100,23 @@
                     <h5 class="mb-4">My account</h5>
                     <div id="edit_profile">
                         <div>
-                            <form action="my_account.html">
+                            <form action="/customer/edit_profile" method="post">
                                 <div class="form-group">
-                                    <label for="exampleInputName1">First Name</label>
-                                    <input type="text" class="form-control" id="exampleInputName1d" value="Gurdeep">
+                                    <input type="hidden" name="user_id" value="<?= $customer["user_id"] ?>">
+                                    <label for="first_name">First Name</label>
+                                    <input type="text" class="form-control" name="first_name" id="first_name" value="<?= $customer["first_name"] ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputName1">Last Name</label>
-                                    <input type="text" class="form-control" id="exampleInputName1" value="Singh">
+                                    <label for="last_name">Last Name</label>
+                                    <input type="text" class="form-control" name="last_name" id="last_name" value="<?= $customer["last_name"] ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputNumber1">Mobile Number</label>
-                                    <input type="number" class="form-control" id="exampleInputNumber1" value="1234567890">
+                                    <label for="phone">Mobile Number</label>
+                                    <input type="tel" class="form-control" name="phone" id="phone" value="<?= $customer["phone"] ?>" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" value="iamosahan@gmail.com">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" value="<?= $customer["email"] ?>" required>
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary btn-block">Save Changes</button>

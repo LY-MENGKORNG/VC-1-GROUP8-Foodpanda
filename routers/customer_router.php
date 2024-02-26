@@ -1,8 +1,8 @@
 <?php
-session_start();
 require "./models/customer.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
+session_start();
 if (isset($_SESSION["customer"])) {
     $customer = $_SESSION["customer"];
 
@@ -18,6 +18,7 @@ if (isset($_SESSION["customer"])) {
         '/customer/profile' => 'controllers/customer/profiles/profile.controller.php',
         '/customer/search' => 'controllers/customer/search/search.controller.php',
         '/customer/offers' => 'controllers/customer/offer/customer_offer.controller.php',
+        '/customer/edit_profile' => 'controllers/customer/profiles/edit_profile.controller.php',
     ];
     if (array_key_exists($uri, $routes)) {
         $page = $routes[$uri];

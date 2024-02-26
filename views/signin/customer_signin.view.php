@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,10 +37,12 @@
                         <div class="form-group">
                             <label for="email" class="text-dark form-label">Email</label>
                             <input type="email" name="email" placeholder="Enter Email" class="form-control" id="email" required/>
+                            <p class="text-danger"><?= isset($_SESSION["is_customer_email"]) ? $_SESSION["is_customer_email"] : ""  ?></p>
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-dark">Password</label>
                             <input type="password" name="password" placeholder="Enter Password" class="form-control" id="password" required />
+                            <p class="text-danger"><?= isset($_SESSION["is_customer_password"]) ? $_SESSION["is_customer_password"] : ""  ?></p>
                         </div>
                         <button class="btn text-white btn-lg btn-block" style="background: #FF2B85;">SIGN IN</button>
                     </form>
