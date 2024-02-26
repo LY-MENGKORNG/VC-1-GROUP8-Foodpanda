@@ -11,14 +11,14 @@ if (isset($_SESSION["customer"])) {
 $page = "";
 $routes = [
     '/foodpanda' => "foodpanda.php",
-    '/customer' => 'controllers/home/home.controller.php',
-    '/customer/checkout' => 'controllers/checkout/checkout.controller.php',
-    '/customer/favorite' => 'controllers/favorites/favorite.controller.php',
-    '/customer/order' => 'controllers/orders/order.controller.php',
-    '/customer/profile' => 'controllers/profiles/profile.controller.php',
-    '/customer/restaurant' => 'controllers/restaurant/restaurant.controller.php',
-    '/customer/search' => 'controllers/search/search.controller.php',
-    '/customer/offers' => 'controllers/offer/customer_offer.controller.php',
+    '/customer' => 'controllers/customer/home/home.controller.php',
+    '/customer/checkout' => 'controllers/customer/checkout/checkout.controller.php',
+    '/customer/favorite' => 'controllers/customer/favorites/favorite.controller.php',
+    '/customer/order' => 'controllers/customer/orders/order.controller.php',
+    '/customer/profile' => 'controllers/customer/profiles/profile.controller.php',
+    '/customer/restaurant' => 'controllers/customer/restaurant/restaurant.controller.php',
+    '/customer/search' => 'controllers/customer/search/search.controller.php',
+    '/customer/offers' => 'controllers/customer/offer/customer_offer.controller.php',
 ];
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];

@@ -1,3 +1,3 @@
 <?php
-require "./views/manage_restaurant/mange_reataurant.view.php";
+require "./views/admin/manage_restaurant/manage_reataurant.view.php";
 ?>
