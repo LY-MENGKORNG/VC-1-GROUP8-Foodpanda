@@ -42,7 +42,7 @@ div,a {
 }
 
 .bg-primary-style2 {
-    background-color: #b91e1e
+    background-color: #FF2B85
 }
 
 .bg-white.rounded {
@@ -194,8 +194,8 @@ div,a {
 }
 
 .border-custom-radio .custom-control-input:checked~.custom-control-label::before {
-    border-color: #b91e1e;
-    border: 1px solid #b91e1e
+    border-color: #FF2B85;
+    border: 1px solid #FF2B85
 }
 
 .border-custom-radio .custom-control-label::after {
@@ -377,53 +377,53 @@ div,a {
 }
 
 .bg-primary {
-    background: #b91e1e;
-    background: -moz-linear-gradient(45deg,#b91e1e 0%,#B10101 100%);
-    background: -webkit-linear-gradient(45deg,#b91e1e 0%,#B10101 100%);
-    background: linear-gradient(45deg,#b91e1e 0%,#B10101 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b91e1e',endColorstr='#B10101',GradientType=1)
+    background: #FF2B85;
+    background: -moz-linear-gradient(45deg,#FF2B85 0%,#FF2B85 100%);
+    background: -webkit-linear-gradient(45deg,#FF2B85 0%,#FF2B85 100%);
+    background: linear-gradient(45deg,#FF2B85 0%,#FF2B85 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF2B85',endColorstr='#FF2B85',GradientType=1)
 }
 
 .btn-primary {
-    background: #b91e1e;
-    background: -moz-linear-gradient(45deg,#b91e1e 0%,#B10101 100%);
-    background: -webkit-linear-gradient(45deg,#b91e1e 0%,#B10101 100%);
-    background: linear-gradient(45deg,#b91e1e 0%,#B10101 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b91e1e',endColorstr='#B10101',GradientType=1);
-    border-color: #b91e1e
+    background: #FF2B85;
+    background: -moz-linear-gradient(45deg,#FF2B85 0%,#FF2B85 100%);
+    background: -webkit-linear-gradient(45deg,#FF2B85 0%,#FF2B85 100%);
+    background: linear-gradient(45deg,#FF2B85 0%,#FF2B85 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF2B85',endColorstr='#FF2B85',GradientType=1);
+    border-color: #FF2B85
 }
 
 .btn-primary:hover {
-    background: #b91e1e;
-    background: -moz-linear-gradient(-45deg,#b91e1e 0%,#B10101 100%);
-    background: -webkit-linear-gradient(-45deg,#b91e1e 0%,#B10101 100%);
-    background: linear-gradient(135deg,#b91e1e 0%,#B10101 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b91e1e',endColorstr='#B10101',GradientType=1);
-    border-color: #b10101
+    background: #FF2B85;
+    background: -moz-linear-gradient(-45deg,#FF2B85 0%,#FF2B85 100%);
+    background: -webkit-linear-gradient(-45deg,#FF2B85 0%,#FF2B85 100%);
+    background: linear-gradient(135deg,#FF2B85 0%,#FF2B85 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF2B85',endColorstr='#FF2B85',GradientType=1);
+    border-color: #FF2B85
 }
 
 .btn-outline-primary {
-    color: #b10101;
-    border-color: #b10101
+    color: #FF2B85;
+    border-color: #FF2B85
 }
 
 .btn-outline-primary:hover {
     color: #fff;
-    background: #b91e1e;
-    background: -moz-linear-gradient(-45deg,#b91e1e 0%,#B10101 100%);
-    background: -webkit-linear-gradient(-45deg,#b91e1e 0%,#B10101 100%);
-    background: linear-gradient(135deg,#b91e1e 0%,#B10101 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#b91e1e',endColorstr='#B10101',GradientType=1);
-    border-color: #b10101
+    background: #FF2B85;
+    background: -moz-linear-gradient(-45deg,#FF2B85 0%,#FF2B85 100%);
+    background: -webkit-linear-gradient(-45deg,#FF2B85 0%,#FF2B85 100%);
+    background: linear-gradient(135deg,#FF2B85 0%,#FF2B85 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF2B85',endColorstr='#FF2B85',GradientType=1);
+    border-color: #FF2B85
 }
 
 .text-primary {
-    color: #b10101!important;
+    color: #FF2B85!important;
     text-decoration: none!important
 }
 
 a {
-    color: #b10101;
+    color: #FF2B85;
     text-decoration: none!important
 }
 
@@ -434,7 +434,7 @@ p {
 
 .btn-link {
     font-weight: 400;
-    color: #b10101;
+    color: #FF2B85;
     text-decoration: none!important
 }
 
@@ -653,8 +653,8 @@ p {
 
 .custom-control-input:checked~.custom-control-label::before {
     color: #fff;
-    border-color: #b10101;
-    background-color: #b10101
+    border-color: #FF2B85;
+    background-color: #FF2B85
 }
 
 .gold-members h6,.menu-list h6 {
@@ -1008,7 +1008,7 @@ footer .text-muted {
 }
 
 .custom-tabs.nav-tabs .nav-item.show .nav-link,.custom-tabs.nav-tabs .nav-link.active {
-    border-bottom: 2px solid #b91e1e!important
+    border-bottom: 2px solid #FF2B85!important
 }
 
 .search .nav-tabs .nav-item.show .nav-link,.search .nav-tabs .nav-link.active {
