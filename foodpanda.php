@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -136,12 +135,12 @@
                 <h2 class="text-warning" style="color: #FF2B85; font-size: 2.5rem;">Sign up to register</h2>
                 <div class="form-group row">
                     <div class="form-group mt-4 col-6">
-                        <label for="f-name">Firstname</label>
-                        <input type="text" name="f-name" class="form-control" placeholder="First name" id="f-name" required>
+                        <label for="first_name">Firstname</label>
+                        <input type="text" name="first_name" class="form-control" placeholder="First name" id="first_name" required>
                     </div>
                     <div class="form-group mt-4 col-6">
-                        <label for="l-name">Lastname</label>
-                        <input type="text" name="l-name" class="form-control" placeholder="Last name" id="l-name" required>
+                        <label for="last_name">Lastname</label>
+                        <input type="text" name="last_name" class="form-control" placeholder="Last name" id="last_name" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -154,13 +153,14 @@
                         <input type="password" name="password" class="form-control" placeholder="Enter your password" id="password" required>
                     </div>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="phone">Number Phone</label>
+                        <input type="tel" name="phone" id="phone" class="form-control" placeholder="Enter number phone">
                     </div>
-                    <div class="custom-file">
-                        <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
-                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    <div class="mb-3 col-6">
+                        <label for="profile" class="form-label">Customer Profile</label>
+                        <input type="file" name="profile" class="form-control" id="profile">
                     </div>
                 </div>
                 <button type="submit" class="btn mt-3 signin">Sign up</button>

@@ -59,7 +59,7 @@
                                 <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
                                 <p class="text-gray mb-3 time"><span
                                         class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i
-                                            class="feather-clock"></i> 30–35 min</span> <span
+                                            class="feather-clock"></i> 30-35 min</span> <span
                                         class="float-right text-black-50"> $250 FOR TWO</span></p>
                             </div>
                             <div class="list-card-badge">

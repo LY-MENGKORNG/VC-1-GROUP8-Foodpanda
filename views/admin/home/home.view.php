@@ -80,7 +80,7 @@
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <picture>
-                <source srcset="../../assets/images/uploads/admin_profile/<?= $admin['image'] ?>"><img src="../../assets/images/uploads/admin_profile/<?= $admin['image'] ?>" alt="User name">
+                <source srcset="../../assets/images/uploads/admin_profile/<?= $admin['profile'] ?>"><img src="../../assets/images/uploads/admin_profile/<?= $admin['profile'] ?>" alt="User name">
               </picture>
             </span>
           </button>
@@ -189,11 +189,11 @@
                 <tr class="users-table-info">
                   <th>
                     <label class="users-table__checkbox ms-20">
-                      <input type="checkbox" class="check-all">Thumbnail
+                      <input type="checkbox" class="check-all">Image
                     </label>
                   </th>
-                  <th>Title</th>
-                  <th>Author</th>
+                  <th>Food_name</th>
+                  <th>Customer_name</th>
                   <th>Status</th>
                   <th>Date</th>
                   <th>Action</th>
@@ -531,3 +531,5 @@
       </div>
     </div>
   </main>
+
+  
