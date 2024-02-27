@@ -105,29 +105,29 @@
     </nav>
     <!-- Main -->
     <main class="main users chart-page" id="skip-target">
-        <div class="container-fluid">
-            <div class="d-flex flex-row justify-content-sm-between px-2">
-                <h1 class="main-title col-10">Restaurants</h1>
-                <a href="/admin/add_restaurant">
-                    <button  class="btn bg-white font-weight-bold text-gray rounded">
-                        Add Restaurant
-                    </button>
-                </a>
-            </div>
-
-            <div class="container-fluid mt-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <?php foreach ($restaurants as $restaurant) { ?>
-                    <div class="card shadow">
-                        <div class="overflow-hidden" style="height: 54%;">
-                            <img src="../../../assets/images/uploads/restaurants/<?= $restaurant["restaurant_img"] ?>" class="card-img-top" alt="..." style="width: 100%;">
-                        </div>
-                        <div class="card-body" style="height: 46%;">
-                            <h5 class="card-title"><?= $restaurant["restaurant_name"] ?></h5>
-                            <p class="card-text text-bolder">Location: <span class="text-thin"><?= $restaurant["location"] ?></span></p>
-                            <button class="btn btn-primary mt-4">See more</button>
-                        </div>
+        <div class="container p-4">
+            <form action="/admin/check_add_restaurant">
+                <h2 class="text-primary">Add Restaurant</h2>
+                <div class="row mt-4">
+                    <div class="form-group col-6">
+                        <label for="name">Restaurant name</label>
+                        <input type="text" name="restaurant_name" id="name" class="form-control">
                     </div>
-                <?php } ?>
-            </div>
+                    <div class="form-group col-6">
+                        <label for="location">Restaurant location</label>
+                        <input type="text" name="location" id="location" class="form-control">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="form-group col-6">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" class="form-control">
+                    </div>
+                </div>
+            </form>
         </div>
     </main>

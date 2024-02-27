@@ -1,8 +1,9 @@
 <?php
+session_start();
+ob_start();
 require "./models/customer.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-session_start();
 if (isset($_SESSION["customer"])) {
     $customer = $_SESSION["customer"];
 
@@ -26,11 +27,11 @@ if (isset($_SESSION["customer"])) {
         http_response_code(404);
         $page = 'views/errors/404.php';
     }
-
     require "./layouts/customer/header.php";
     require "./layouts/customer/navbar.php";
     require $page;
     require "./layouts/customer/footer.php";
 }else {
     header("Location: /customer/signin");
+    die();
 }

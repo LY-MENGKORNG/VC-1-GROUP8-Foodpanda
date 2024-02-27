@@ -1,5 +1,5 @@
-<header class="section-header bg-white">
-    <section class="header-main shadow-sm">
+<div class="section bg-white">
+    <section class="main shadow-sm">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-2">
@@ -125,4 +125,4 @@
             </div>
         </div>
     </section>
-</header>
+</div>
