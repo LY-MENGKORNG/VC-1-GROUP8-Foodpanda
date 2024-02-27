@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin Dashboard</title>
   <link rel="icon" type="image/png" href="../../assets/images/logo/panda-logo.png" />
-
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo/panda-logo.png" />
   <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -49,5 +48,5 @@
   </style>
 </head>
 
-<body>
+<body class="position-relative">
   <div class="layer"></div>

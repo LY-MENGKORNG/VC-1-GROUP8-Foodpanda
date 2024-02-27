@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2024 at 02:20 PM
+-- Generation Time: Feb 27, 2024 at 12:40 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -143,8 +143,18 @@ CREATE TABLE `restaurants` (
   `opening_hours` int(11) DEFAULT NULL,
   `contact_info` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `status` varchar(100) DEFAULT NULL
+  `restaurant_img` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `restaurants`
+--
+
+INSERT INTO `restaurants` (`restaurant_id`, `owner_id`, `restaurant_name`, `location`, `email`, `rating`, `opening_hours`, `contact_info`, `description`, `restaurant_img`, `password`) VALUES
+(1, NULL, 'KPC', 'Kampong Cham', 'kpc@email.com', NULL, NULL, '+1 (159) 787-4677', 'Hello world', 'pexels-lawrence-suzara-1581554.jpg', '$2y$10$5v57iNnztIyRiQQOY7Jk0epi5qd65imSWiJcAu.u38C9p4cFbPSRW'),
+(2, NULL, 'KPC Restaurant', 'Kampong Cham', 'kpc.restaurant@email.com', NULL, NULL, '+1 (159) 787-4677', 'Welcome to KPC Restaurant', 'pexels-huy-phan-1383776.jpg', '$2y$10$IG9bdIVh95GnrLPUhoXxqOb66KI.zD3oPmpTwvYzQwlmfNB91Oas.'),
+(3, NULL, 'Battombong Restaurant', 'Battombong', 'battombong.restaurant@email.com', NULL, NULL, '123', 'Welcome to Battombong Restaurant', 'pexels-quark-studio-3201920.jpg', '$2y$10$bbfr.IXw9T8fnJ1b1x.Apeskc1qpt8RJiJ8kUVVUvUJz85AdtMJye');
 
 -- --------------------------------------------------------
 
@@ -192,7 +202,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, `phone`, `profile`, `registration_date`, `role_id`) VALUES
 (2, 'mengkorng', 'ly', 'mengkorng.ly@student.passerellesnumeriques.org', '$2y$10$DEp/QIYxFRdcdbC0lnj3huK2O4zCYOBV75KxvjW0F2VmOOhMuBeA.', '+1 (373) 603-4309', 'photo_2023-11-03_22-01-30.jpg', '2024-02-26 08:58:31', 1),
 (4, 'mengkorng', 'ly', 'mengkorng.ly@customer.passerellesnumeriques.org', '$2y$10$epKpap46j06ZqKQZrN8mF.4n3ZO3lzvrSaUKUoW2G09.4yIN1cHly', '+1 (373) 603-4311', 'photo_2023-11-03_22-01-30.jpg', '2024-02-26 09:30:17', 4),
-(5, 'mengkorng', 'smos', 'fowo@mailinator.com', '$2y$10$Tut2fA8T2iLuZ86iszPF.el.JtpoQW8daMUOdOOOrdYMOdEROFJ2K', '+1 (373) 603-4309', 'photo_2023-12-21_12-13-56.jpg', '2024-02-26 10:21:12', 4),
+(5, 'mengkorng123', 'smos', 'fowo@mailinator.com', '$2y$10$Tut2fA8T2iLuZ86iszPF.el.JtpoQW8daMUOdOOOrdYMOdEROFJ2K', '+1 (373) 603-4309', 'photo_2023-12-21_12-13-56.jpg', '2024-02-26 10:21:12', 4),
 (7, 'chhun eii', 'koko', 'chhuneii.koko@student.passerellesnumeriques.org', '$2y$10$hOqvGKrl.QFP817K9j6jbuPasUjirwr48Hc6e1llHAdbtIzv0fWxa', '+1 (373) 603-4309', 'pexels-martins-john-19913299.jpg', '2024-02-26 14:15:30', 4);
 
 --
@@ -332,7 +342,7 @@ ALTER TABLE `payments`
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `roles`

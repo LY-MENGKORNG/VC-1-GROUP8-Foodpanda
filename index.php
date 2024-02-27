@@ -4,7 +4,7 @@ require 'database/database.php';
 
 // Admin routes
 if (urlIs("/admin") || urlIs("/admin/manage_restaurant") || 
-    urlIs("/admin/check_add_restaurant")) 
+    urlIs("/admin/add_restaurant") || urlIs("/admin/check_add_restaurant")) 
 { 
     require "routers/admin_router.php";
 }

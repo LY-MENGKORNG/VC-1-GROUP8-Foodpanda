@@ -2,9 +2,6 @@
 
 function createAdmin($first_name, $last_name, $email, $password, $phone, $profile): bool
 {
-    if (count(getAdmin()) == 1) {
-        return false;
-    }
     date_default_timezone_get();
     $registration_date = date("Y-m-d H:i:s");
 
@@ -25,7 +22,10 @@ function createAdmin($first_name, $last_name, $email, $password, $phone, $profil
     return $stmt->rowCount() > 0;
 }
 
-function getAdmin() : array {
+
+
+function getAdmin(): array
+{
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM Users WHERE role_id = 1");
     $stmt->execute();
@@ -47,42 +47,32 @@ function adminSignout(string $email) : bool {
     return $stmt->rowCount() > 0;
 }
 
-// Retrieve order status from the database
-function getOrderStatus($image, $food_name, $customer_name, $status, $date){
-    global $connection;
-    $stmt = $connection->prepare("SELECT f.image, f.food_name, c.first_name,p.status, o.order_date FROM Orders o
-    INNER JOIN Customers c ON o.customer_id = c.customer_id, 
-    LEFT JOIN Payments p ON o.order_id = p.order_id");
-    $stmt -> execute ([
-        ':image' => $image,
-        ':food_name' => $food_name,
-        ':first_name' => $customer_name,
-        ':status' => $status,
-        ':date' => $date
-    ]);
-    return $stmt->rowCount() > 0;
+function checkAdminImage($image): bool
+{
+    // File upload directory
+    $target_dir = "assets/images/uploads/admin_profile/";
+    $file_name = basename($image["name"]);
+    $target_file_path = $target_dir . $file_name;
+    $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
+    $file_allow_type = array("jpg", "png", "jpeg");
+    $file_size = $image['size'];
+
+    return 
+    (
+        $file_size < 5000000 && 
+        !file_exists($target_file_path) && 
+        in_array($file_type, $file_allow_type)
+    );
 }
 
-// Function to disable or delete fraudulent accounts
-function disableFraudulentAccount(){
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM customers WHERE registration_date < DATE_SUB(NOW(), INTERVAL 30 DAY)");
-    if ($stmt-> rowCount() > 0) {
-        while($row = $stmt->fetch(PDO:: FETCH_ASSOC)) {
-            // For demonstration purposes, let's assume we're deleting the fraudulent account
-            $customerId = $row["customer_id"];
-            $sql = "DELETE FROM customers WHERE customer_id=$customerId";
-            if ($connection->query($sql) === TRUE) {
-                echo "Fraudulent account with ID $customerId has been deleted successfully.<br>";
-            } else {
-                echo "Error deleting record: " . $connection;
-            }
-        }
+function addAdminImageToFolder($image)
+{
+    // File upload directory
+    $target_dir = "assets/images/uploads/admin_profile/";
+    $file_name = basename($image["name"]);
+    $target_file_path = $target_dir . $file_name;
 
-    }
-    else {
-        echo "No fraudulent accounts found.";
-    } 
+    move_uploaded_file($image['tmp_name'], $target_file_path);
 }
 
 
@@ -108,34 +98,31 @@ function rejectEmail($email, $password): bool {
     return true;
 }
 
-
-function deleteAdminImage(string $image) {
-    $target_file_path = "assets/images/uploads/admin_profile/".$image;
-
-    if (file_exists($target_file_path)) {
-        unlink($target_file_path);
-    }
-}
-
-function createRestaurant(int $id, string $name, string $email, string $opening_hours, 
-                        string $location, string $contact, string $img, string $desc)  
+function createRestaurant(string $restaurant_name, string $location, string $email, string $password,
+                        string $contact_info, string $restaurant_img, string $description)  
 {
     global $connection;
     $stmt = $connection->prepare("INSERT INTO restaurants 
-    (admin_id, restaurant_name, email, opening_hours, location, contact_info, restaurant_img, description)
-    VALUES (:id, :name, :email, :opening_hours, :location, :contact, :img, :desc)");
+    (restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
+    (:restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
 
     $stmt->execute([
-        ":id" => $id,
-        ":name" => $name,
-        ":email" => $email,
-        ":opening_hours" => $opening_hours,
+        ":restaurant_name" => $restaurant_name,
         ":location" => $location,
-        ":contact" => $contact,
-        ":img" => $img,
-        ":desc" => $desc
+        ":email" => $email,
+        ":password" => $password,
+        ":contact_info" => $contact_info,
+        ":restaurant_img" => $restaurant_img,
+        ":description" => $description
     ]);
     return $stmt->rowCount() > 0;
+}
+
+function getAllRestaurants() {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM restaurants");
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
 
 function checkRestaurantImage($image) {
@@ -149,7 +136,7 @@ function checkRestaurantImage($image) {
     
         return 
         (
-            $file_size < 500000 && 
+            $file_size < 5000000 && 
             !file_exists($target_file_path) && 
             in_array($file_type, $file_allow_type)
         );
@@ -160,14 +147,5 @@ function addRestaurantImgToFolder($image) {
         $target_dir = "assets/images/uploads/restaurants/";
         $file_name = basename($image["name"]);
         $target_file_path = $target_dir . $file_name;
-        $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-    
-        // Allow certain file formats
-        $allowTypes = array('jpg', 'jpeg', 'png');
-        
-        if (in_array($file_type, $allowTypes) && $image["size"] < 5000000) {
-            if (!file_exists($target_file_path)) {
-                move_uploaded_file($image['tmp_name'], $target_file_path);
-            }
-        }
+        move_uploaded_file($image['tmp_name'], $target_file_path);
 }

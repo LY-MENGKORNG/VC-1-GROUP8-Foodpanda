@@ -1,14 +1,5 @@
 
 <?php 
-
-// get all restaurant
-function getAllRestaurants(): array {
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM rastaurants");
-    $stmt->execute();
-    return $stmt->fetchAll();
-}
-
 // get Restaurant by ID 
 function getRestaurant($id) {
     global $connection;
