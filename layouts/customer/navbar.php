@@ -1,5 +1,5 @@
-<header class="section-header bg-white">
-    <section class="header-main shadow-sm">
+<div class="section bg-white">
+    <section class="main shadow-sm">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-2">
@@ -96,8 +96,8 @@
 
                         <div class="dropdown mr-4 m-none">
                             <a href="#" class="dropdown-toggle text-dark py-3 d-block" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img alt="#" src="../../assets/images/uploads/customer_profile/<?= file_exists($customer['image']) ? $customer["image"] : 'avatar.png' ?>" class="img-fluid rounded-circle header-user mr-2 header-user" style="height: 35px; width: 35px;" />
-                                <span class="main_color font-weight-bolder"><?= isset($customer) ? ucfirst($customer['first_name']) : "" ?></span>
+                                <img alt="#" src="../../assets/images/uploads/customer_profile/<?= isset($customer) ? $customer["profile"] : 'avatar.png' ?>" class="img-fluid rounded-circle header-user mr-2 header-user" style="height: 35px; width: 35px;" />
+                                <span class="main_color font-weight-bolder"><?= isset($customer) ? $customer['first_name'] : "" ?></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/customer/profile">My account</a>
@@ -125,4 +125,4 @@
             </div>
         </div>
     </section>
-</header>
+</div>

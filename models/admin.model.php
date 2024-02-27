@@ -1,39 +1,44 @@
 <?php
 
-function createAdmin($admin_name, $email, $password, $phone, $image): bool
+function createAdmin($first_name, $last_name, $email, $password, $phone, $profile): bool
 {
-    if (count(getAdmin()) == 1) {
-        return false;
-    }
-    global $connection;
+    date_default_timezone_get();
+    $registration_date = date("Y-m-d H:i:s");
 
-    $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone, image) VALUES 
-                                (:admin_name, :email, :password, :phone, :image);");
+    global $connection;
+    $role_id = 1;
+    $stmt = $connection->prepare("INSERT INTO Users (first_name, last_name, email, password, phone, profile, registration_date, role_id) VALUES 
+                                (:first_name, :last_name, :email, :password, :phone, :profile, :registration_date, :role_id);");
     $stmt->execute([
-        'admin_name' => $admin_name,
-        'email' => $email,
-        'password' => $password,
-        'phone' => $phone,
-        'image' => $image
+        ':first_name' => $first_name,
+        ':last_name' => $last_name,
+        ':email' => $email,
+        ':password' => $password,
+        ':phone' => $phone,
+        ':profile' => $profile,
+        ':registration_date' => $registration_date,
+        ':role_id' => $role_id
     ]);
     return $stmt->rowCount() > 0;
 }
 
+
+
 function getAdmin(): array
 {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Admin");
+    $stmt = $connection->prepare("SELECT * FROM Users WHERE role_id = 1");
     $stmt->execute();
     return $stmt->fetchAll();
 }
-
-function adminExist(string $email) : array {
+function accountExist(string $email) {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Admin WHERE email = :email");
+    $stmt = $connection->prepare("SELECT * FROM Users WHERE email = :email");
     $stmt->execute([':email' => $email]);
 
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
 }
+
 
 function adminSignout(string $email) : bool {
     global $connection;
@@ -54,7 +59,7 @@ function checkAdminImage($image): bool
 
     return 
     (
-        $file_size < 500000 && 
+        $file_size < 5000000 && 
         !file_exists($target_file_path) && 
         in_array($file_type, $file_allow_type)
     );
@@ -66,40 +71,9 @@ function addAdminImageToFolder($image)
     $target_dir = "assets/images/uploads/admin_profile/";
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
-    $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-    
-    // Allow certain file formats
-    $allowTypes = array('jpg', 'jpeg', 'png');
-    if (in_array($file_type, $allowTypes) && $image["size"] < 5000000) {
-        if (!file_exists($target_file_path)) {
-            move_uploaded_file($image['tmp_name'], $target_file_path);
-        }
-    }
+
+    move_uploaded_file($image['tmp_name'], $target_file_path);
 }
-function rejectEmail($email, $password): bool {
-    getAdmin();
-
-    $emailPattern = ' /^\w+(\.\w+)*@[\w-]+(\.[\w-]+)+$/ ';
-    $passwordPattern = 8;
-
-    $emailValid = preg_match($emailPattern, $email);
-    $passwordValid = preg_match($passwordPattern, $password);
-
-    if (!$emailValid || !$passwordValid) {
-        if (rejectEmail($email,$password)){
-            echo "You got wrong";
-        }
-        return false;
-
-    } else {
-        echo "You got right";
-    }
-
-    return true;
-}
-
-
-
 
 function rejectEmail($email, $password): bool {
     getAdmin();
@@ -123,36 +97,31 @@ function rejectEmail($email, $password): bool {
     return true;
 }
 
-
-function deleteAdminImage(string $image) {
-    $target_file_path = "assets/images/uploads/admin_profile/".$image;
-
-    if (file_exists($target_file_path)) {
-        unlink($target_file_path);
-    }
-}
-<<<<<<< HEAD
-=======
-
-function createRestaurant(int $id, string $name, string $email, string $opening_hours, 
-                        string $location, string $contact, string $img, string $desc)  
+function createRestaurant(string $restaurant_name, string $location, string $email, string $password,
+                        string $contact_info, string $restaurant_img, string $description)  
 {
     global $connection;
     $stmt = $connection->prepare("INSERT INTO restaurants 
-    (admin_id, restaurant_name, email, opening_hours, location, contact_info, restaurant_img, description)
-    VALUES (:id, :name, :email, :opening_hours, :location, :contact, :img, :desc)");
+    (restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
+    (:restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
 
     $stmt->execute([
-        ":id" => $id,
-        ":name" => $name,
-        ":email" => $email,
-        ":opening_hours" => $opening_hours,
+        ":restaurant_name" => $restaurant_name,
         ":location" => $location,
-        ":contact" => $contact,
-        ":img" => $img,
-        ":desc" => $desc
+        ":email" => $email,
+        ":password" => $password,
+        ":contact_info" => $contact_info,
+        ":restaurant_img" => $restaurant_img,
+        ":description" => $description
     ]);
     return $stmt->rowCount() > 0;
+}
+
+function getAllRestaurants() {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM restaurants");
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
 
 function checkRestaurantImage($image) {
@@ -166,7 +135,7 @@ function checkRestaurantImage($image) {
     
         return 
         (
-            $file_size < 500000 && 
+            $file_size < 5000000 && 
             !file_exists($target_file_path) && 
             in_array($file_type, $file_allow_type)
         );
@@ -177,15 +146,5 @@ function addRestaurantImgToFolder($image) {
         $target_dir = "assets/images/uploads/restaurants/";
         $file_name = basename($image["name"]);
         $target_file_path = $target_dir . $file_name;
-        $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-    
-        // Allow certain file formats
-        $allowTypes = array('jpg', 'jpeg', 'png');
-        
-        if (in_array($file_type, $allowTypes) && $image["size"] < 5000000) {
-            if (!file_exists($target_file_path)) {
-                move_uploaded_file($image['tmp_name'], $target_file_path);
-            }
-        }
+        move_uploaded_file($image['tmp_name'], $target_file_path);
 }
->>>>>>> 8f217c810d17c289be5e92d7a70b6d55e8aee870
