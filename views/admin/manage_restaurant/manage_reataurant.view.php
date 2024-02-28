@@ -115,16 +115,16 @@
                 </a>
             </div>
 
-            <div class="container-fluid mt-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="container-fluid mt-3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                 <?php foreach ($restaurants as $restaurant) { ?>
-                    <div class="card shadow">
-                        <div class="overflow-hidden" style="height: 54%;">
-                            <img src="../../../assets/images/uploads/restaurants/<?= $restaurant["restaurant_img"] ?>" class="card-img-top" alt="..." style="width: 100%;">
+                    <div class="card shadow overflow-hidden">
+                        <div class="d-flex align-items-center justify-content-center overflow-hidden" style="height: 130px;">
+                            <img src="../../../assets/images/uploads/restaurants/<?= $restaurant["restaurant_img"] ?>" class="img-fluid" alt="..." style="width: 100%;">
                         </div>
                         <div class="card-body" style="height: 46%;">
                             <h5 class="card-title"><?= $restaurant["restaurant_name"] ?></h5>
                             <p class="card-text text-bolder">Location: <span class="text-thin"><?= $restaurant["location"] ?></span></p>
-                            <button class="btn btn-primary mt-4">See more</button>
+                            <a href="/admin/restaurant_detail" class="btn btn-primary mt-4">See more</a>
                         </div>
                     </div>
                 <?php } ?>

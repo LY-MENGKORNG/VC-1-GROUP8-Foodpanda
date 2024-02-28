@@ -16,6 +16,7 @@ if (isset($_SESSION["admin"])) {
         '/admin/check_add_restaurant' => 'controllers/admin/restaurant/check_add_restaurant.controller.php',
         '/admin/category' => 'controllers/category/category.controller.php',
         '/admin/add_restaurant' => 'controllers/admin/restaurant/add_restaurant.controller.php',
+        '/admin/restaurant_owner' => 'controllers/admin/restaurant/restaurant_owner.controller.php',
     ];
 
     if (array_key_exists($uri, $routes)) {
@@ -29,7 +30,7 @@ if (isset($_SESSION["admin"])) {
     require $page;
     require "./layouts/admin/footer.php";
     
-} else {
+}else {
     header("Location: /admin/signin");
     die();
 }
