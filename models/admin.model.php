@@ -59,7 +59,7 @@ function checkAdminImage($image): bool
 
     return 
     (
-        $file_size < 5000000 && 
+        $file_size < 10000000 && 
         !file_exists($target_file_path) && 
         in_array($file_type, $file_allow_type)
     );
@@ -136,7 +136,7 @@ function checkRestaurantImage($image) {
     
         return 
         (
-            $file_size < 5000000 && 
+            $file_size < 10000000 && 
             !file_exists($target_file_path) && 
             in_array($file_type, $file_allow_type)
         );

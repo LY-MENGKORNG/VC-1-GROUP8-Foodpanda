@@ -25,8 +25,21 @@
                         <a class="active" href="/admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
                     <li>
-                        <a href="/admin/manage_restaurant"><span class="icon home" aria-hidden="true"></span>Restaurant</a>
-
+                        <a class="show-cat-btn" href="##">
+                            <span class="icon document" aria-hidden="true"></span>Restaurant
+                            <span class="category__btn transparent-btn" title="Open list">
+                                <span class="sr-only">Open list</span>
+                                <span class="icon arrow-down" aria-hidden="true"></span>
+                            </span>
+                        </a>
+                        <ul class="cat-sub-menu">
+                            <li>
+                                <a href="/admin/manage_restaurant">All Restaurants</a>
+                            </li>
+                            <li>
+                                <a href="/admin/restaurant_owner">Restaurant Owners</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">

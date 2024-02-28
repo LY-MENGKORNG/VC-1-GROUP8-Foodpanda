@@ -16,10 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $desc = htmlspecialchars($_POST["description"]);
         $img = $_FILES["restaurant_img"];
 
+        var_dump($img["size"]);
         if (checkRestaurantImage($img)) {
             if (createRestaurant($rest_name, $location, $email, $password_encrypt, 
                                 $contact, $img["name"], $desc)) 
-            {
+            {                                                                                  
                 addRestaurantImgToFolder($img);
             }
         }
