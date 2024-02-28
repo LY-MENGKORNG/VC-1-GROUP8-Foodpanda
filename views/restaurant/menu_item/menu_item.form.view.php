@@ -107,7 +107,7 @@
     <main class="main users chart-page" id="skip-target">
         <div class="container p-4 bg-white">
             <form action="/admin/check_add_restaurant">
-                <h2 class="text-primary">Add Restaurant</h2>
+                <h2 class="text-primary">Update
                 <div class="row mt-4">
                     <div class="form-group col-6">
                         <label for="name">Restaurant name</label>
