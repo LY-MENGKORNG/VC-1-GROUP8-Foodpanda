@@ -1,6 +1,7 @@
 <?php
 require 'utils/url.php';
 require 'database/database.php';
+require "./models/users.model.php";
 
 // Admin routes
 if (urlIs("/admin") || urlIs("/admin/manage_restaurant") || 
