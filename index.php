@@ -12,7 +12,8 @@ if (urlIs("/admin") || urlIs("/admin/manage_restaurant") ||
 }
 
 // Restaurant routes
-else if (urlIs("/restaurant")) 
+else if (urlIs("/restaurant") || urlIs("/restaurant/category") ||
+        urlIs("/restaurant/delivery")) 
 {
     require "./routers/resturant_router.php";
 }

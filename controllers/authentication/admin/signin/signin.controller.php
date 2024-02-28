@@ -5,4 +5,4 @@ if (isset($_SESSION["admin"])) {
     die();
 }
 require "./views/signin/admin_signin.view.php";
-?>
+
