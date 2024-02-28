@@ -148,3 +148,25 @@ function addRestaurantImgToFolder($image) {
         $target_file_path = $target_dir . $file_name;
         move_uploaded_file($image['tmp_name'], $target_file_path);
 }
+
+function createRestuarantOwner($first_name, $last_name, $email, $password, $phone, $profile): bool
+{
+    date_default_timezone_get();
+    $registration_date = date("Y-m-d H:i:s");
+
+    global $connection;
+    $role_id = 2;
+    $stmt = $connection->prepare("INSERT INTO Users (first_name, last_name, email, password, phone, profile, registration_date, role_id) VALUES 
+                                (:first_name, :last_name, :email, :password, :phone, :profile, :registration_date, :role_id);");
+    $stmt->execute([
+        ':first_name' => $first_name,
+        ':last_name' => $last_name,
+        ':email' => $email,
+        ':password' => $password,
+        ':phone' => $phone,
+        ':profile' => $profile,
+        ':registration_date' => $registration_date,
+        ':role_id' => $role_id
+    ]);
+    return $stmt->rowCount() > 0;
+}
