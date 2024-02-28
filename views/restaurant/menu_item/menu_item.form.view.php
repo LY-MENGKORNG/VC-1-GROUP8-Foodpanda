@@ -106,7 +106,7 @@
     <!-- Main -->
     <main class="main users chart-page" id="skip-target">
         <div class="container p-4 bg-white">
-        <form action="/reataurant/check_menu_item" method="POSTgit">
+        <form action="/reataurant/check_menu_item">
                 <h2 class="text-primary"> Menu Item</h2>
                 <div class="row mt-4">
                     <div class="form-group col-6">
@@ -141,7 +141,7 @@
                     <textarea name="description" class="form-control" id="description" cols="30" rows="10" style="max-height: 100px; min-height: 50px;" placeholder="Description"></textarea>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" type="submit">Add Menu Item</button>
+                    <button class="btn btn-primary" type="submit">Add Item</button>
                 </div>
             </form>
         </div>
