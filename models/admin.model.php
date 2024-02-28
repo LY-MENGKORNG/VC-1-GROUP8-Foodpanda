@@ -75,7 +75,6 @@ function addAdminImageToFolder($image)
     move_uploaded_file($image['tmp_name'], $target_file_path);
 }
 
-
 function rejectEmail($email, $password): bool {
     getAdmin();
 
