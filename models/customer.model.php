@@ -1,29 +1,5 @@
 <?php
 
-// Create a new customer
-function createCustomer(string $first_name, string $last_name, string $email, string $password, string $phone, string $profile)
-{
-    global $connection;
-
-    date_default_timezone_get();
-    $registration_date = date("Y-m-d H:i:s");
-    $role_id = 4;
-
-    $stmt = $connection->prepare("INSERT INTO users (first_name, last_name, email, password, phone, registration_date, profile, role_id) 
-                                VALUES (:first_name, :last_name, :email, :password, :phone, :registration_date, :profile, :role_id);");
-    $stmt->execute([
-        ":first_name" => $first_name,
-        ":last_name" => $last_name,
-        ":email" => $email,
-        ":password" => $password,
-        ":phone" => $phone,
-        ":registration_date" => $registration_date,
-        ":profile" => $profile,
-        ":role_id" => $role_id
-    ]);
-    return $stmt->rowCount() > 0;
-}
-
 // Get all data of all customer accounts
 function getAllCustomer(): array
 {

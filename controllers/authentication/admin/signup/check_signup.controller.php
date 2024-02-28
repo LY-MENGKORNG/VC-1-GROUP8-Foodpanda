@@ -11,10 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $image = $_FILES["profile"];
 
         $pass_encrypt = password_hash($password, PASSWORD_BCRYPT);
+        $target_dir = "/assets/images/uploads/admin_profile/";
         
-        if (checkAdminImage($image)) {
-            if(createAdmin($first_name, $last_name, $email, $pass_encrypt, $phone, $image["name"])) {
-                addAdminImageToFolder($image);
+        if (checkImage($image, $target_dir)) {
+            if(createUser(1, $first_name, $last_name, $email, $pass_encrypt, $phone, $image["name"])) {
+                addImageFolder($image, $target_dir);
                 header("Location: /admin/signin");
             }else {
                 header("Location: /admin/signup");
