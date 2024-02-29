@@ -30,7 +30,7 @@
 // }
 
 
-function createUser($role_id, $first_name, $last_name, $email, $password, $phone, $profile): bool
+function createUser($role_id, $first_name, $last_name, $email, $password, $phone, $profile = NULL): bool
 {
     date_default_timezone_get();
     $registration_date = date("Y-m-d H:i:s");
@@ -38,17 +38,21 @@ function createUser($role_id, $first_name, $last_name, $email, $password, $phone
     global $connection;
     $stmt = $connection->prepare("INSERT INTO Users (first_name, last_name, email, password, phone, profile, registration_date, role_id) VALUES 
                                 (:first_name, :last_name, :email, :password, :phone, :profile, :registration_date, :role_id);");
-    $stmt->execute([
-        ':first_name' => $first_name,
-        ':last_name' => $last_name,
-        ':email' => $email,
-        ':password' => $password,
-        ':phone' => $phone,
-        ':profile' => $profile,
-        ':registration_date' => $registration_date,
-        ':role_id' => $role_id
-    ]);
-    return $stmt->rowCount() > 0;
+    try {
+        $stmt->execute([
+            ':first_name' => $first_name,
+            ':last_name' => $last_name,
+            ':email' => $email,
+            ':password' => $password,
+            ':phone' => $phone,
+            ':profile' => $profile,
+            ':registration_date' => $registration_date,
+            ':role_id' => $role_id
+        ]);
+        return true;
+    } catch (\Throwable $th) {
+        return false;   
+    }
 }
 
 function accountExist(string $email) {
