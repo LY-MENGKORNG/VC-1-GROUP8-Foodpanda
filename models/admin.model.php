@@ -146,3 +146,23 @@ function addRestaurantImgToFolder($image) {
         $target_file_path = $target_dir . $file_name;
         move_uploaded_file($image['tmp_name'], $target_file_path);
 }
+
+function restaurantDetail(string $menu_items, string $opening_hours, string $contact_info){
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        global $connection;
+        $menu_items = $_POST['menu_items'];
+        $opening_hours = $_POST['opening_hours'];
+        $contact_info = $_POST['contact_info'];
+
+        $connection = "UPDATE restaurants SET menu_items='$menu_items', opening_hours='$opening_hours', contact_info='$contact_info'";
+        $result = $connection($menu_items, $opening_hours, $contact_info);
+
+        if ($result !== false){
+            echo "Restaurant details updated successfully";
+        } else {
+            echo "Restaurant details update failed ";
+        }
+        return $result;
+    }
+}
