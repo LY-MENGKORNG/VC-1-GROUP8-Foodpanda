@@ -117,7 +117,12 @@ function getAllRestaurants() {
 
 function getRestaurantById($id)  {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM restaurants WHERE restaurant_id = :id");
+    $stmt = $connection->prepare("SELECT users.first_name, users.last_name, restaurants.restaurant_id, 
+    restaurants.owner_id, restaurants.restaurant_name, restaurants.location, restaurants.email, 
+    restaurants.rating, restaurants.opening_hours, restaurants.contact_info, restaurants.description, 
+    restaurants.restaurant_img FROM users RIGHT JOIN restaurants ON users.user_id = restaurants.owner_id 
+    WHERE restaurants.restaurant_id = :id");
+
     $stmt->execute([':id' => $id]);
     return $stmt->fetch();
 }

@@ -37,18 +37,6 @@ function addImageToFolder($image)
     move_uploaded_file($image['tmp_name'], $target_file_path);
 }
 
-// chech if the customer's email is already existed
-function customerExist(string $email): array
-{
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM users WHERE email = :email AND role_id = :role_id");
-    $stmt->execute([
-        ':email' => $email,
-        ':role_id' => 4
-    ]);
-
-    return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
-}
 
 // customer edit profile
 function customerEditProfile(string $first_name, string $last_name, string $email, string $phone, string $user_id) {

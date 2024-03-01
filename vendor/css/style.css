@@ -1052,6 +1052,10 @@ footer .text-muted {
     border-radius: 0 50px 50px 0!important
 }
 
+.add-border {
+    border: 1px solid #b8b8b8;
+}
+
 @media(max-width: 992px) {
     .container,.container-md,.container-sm {
         max-width:100%
