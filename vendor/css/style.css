@@ -711,6 +711,15 @@ p {
     min-height: 676px
 }
 
+.main-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.main-card .child-card {
+    height: 46%;
+}
+
 .food-item {
     border: 1px solid;
     border-radius: 2px;
