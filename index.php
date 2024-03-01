@@ -4,8 +4,7 @@ require 'database/database.php';
 
 // Admin routes
 if (urlIs("/admin") || urlIs("/admin/manage_restaurant") || 
-    urlIs("/admin/add_restaurant") || urlIs("/admin/check_add_restaurant") ||
-    urlIs("/admin/restaurant_owner")) 
+    urlIs("/admin/check_add_restaurant")) 
 { 
     require "routers/admin_router.php";
 }
@@ -19,8 +18,7 @@ else if (urlIs("/restaurant"))
 // Customer routes
 else if(urlIs("/customer") || urlIs("/customer/checkout") || 
         urlIs("/customer/search") || urlIs("/customer/offers") ||
-        urlIs("/customer/profile") || urlIs("/customer/order")  ||
-        urlIs("/customer/edit_profile"))
+        urlIs("/customer/profile") || urlIs("/customer/order")) 
 {  
     require './routers/customer_router.php';
 }

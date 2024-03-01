@@ -9,7 +9,7 @@ if (isset($_SERVER["REQUEST_METHOD"]) == "POST") {
         if (count($restaurant_owner) > 0) {
             if (password_verify($password, $restaurant_owner['password'])) {
                 $_SESSION['restaurant'] = $restaurant_owner;
-                header("Location: /restaurant_owner");
+                header("Location: /restaurant");
             }else {
                 $_SESSION['is_restaurant_owner_password'] = "Invalid password";
                 header("Location: /restaurant/signin");
