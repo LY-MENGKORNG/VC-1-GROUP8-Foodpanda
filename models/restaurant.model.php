@@ -36,7 +36,10 @@ function  restaurantOwnerExist(string $email){
     return $stmt->fetchAll();
 }
 
-function restaurantOwnerSignout(string $email){
+function restaurantOwnerSignout(string $email) {
     global $connection;
+    $stmt = $connection-> prepare("select * from Users WHERE email = :email");
+    $stmt->execute([':email' => $email]);
+    return $stmt->fetch();
     
 }

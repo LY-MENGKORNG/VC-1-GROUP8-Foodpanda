@@ -9,6 +9,7 @@ if (isset($_SESSION["restaurant"])) {
     $page = "";
     $routes = [
         '/restaurant' => 'controllers/restaurant_owner/restaurant_owner.controller.php',
+        '/restaurant/checkout' => 'controllers/restaurant/checkout/checkout.controller.php',
     ];
 
     if (array_key_exists($uri, $routes)) {

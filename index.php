@@ -34,7 +34,8 @@ else if (
     urlIs("/customer/check-signin") || urlIs("/customer/signout") || 
     urlIs("/customer/check-signout") || urlIs("/foodpanda")  ||
 
-    urlIs("/restaurant/signin") || urlIs("/restaurant/check_signin")) 
+    urlIs("/restaurant/signin") || urlIs("/restaurant/check_signin") || 
+    urlIs("/restaurant/signout")) 
 {
     require "./routers/authentication_router.php";
 }

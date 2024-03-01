@@ -22,8 +22,6 @@ function createAdmin($first_name, $last_name, $email, $password, $phone, $profil
     return $stmt->rowCount() > 0;
 }
 
-
-
 function getAdmin(): array
 {
     global $connection;
@@ -74,7 +72,6 @@ function addAdminImageToFolder($image)
 
     move_uploaded_file($image['tmp_name'], $target_file_path);
 }
-
 
 function rejectEmail($email, $password): bool {
     getAdmin();

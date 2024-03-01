@@ -7,7 +7,7 @@
     <meta name="description" content="Gurdeep Osahan" />
     <meta name="author" content="Gurdeep Osahan" />
     <link rel="shortcut icon" href="../../assets/images/logo/panda-logo.png" type="image/x-icon">
-    <title>Foodride - Online Food Ordering Website Template</title>
+    <title>Restaurant Sign Out</title>
 
     <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick-theme.min.css" />
@@ -30,12 +30,12 @@
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-5 col-10 mx-auto">
-                    <h2 class="my-0" style="color: #FF2B85;">Sign out </h2>
-                    <p class="text-50">Sign out of Foodpanda</p>
-                    <form class="mt-5 mb-4" action="/customer/check-signout" method="post">
+                    <h2 class="my-0" style="color: #FF2B85;">Sign out</h2>
+                    <p class="text-50">Sign out from Foodpanda</p>
+                    <form class="mt-5 mb-4" action="/restaurant/check-signout" method="post">
                         <div class="form-group">
                             <label for="email" class="text-dark form-label">Email</label>
-                            <input type="email" name="email" placeholder="Enter Email" class="form-control" id="email" required />
+                            <input type="email" name="email" placeholder="Enter Email" class="form-control" id="email" required/>
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-dark">Password</label>
