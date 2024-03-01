@@ -10,7 +10,7 @@
 
         <!-- Modal -->
         <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content p-4">
                     <div class="modal-header">
                         <h5 class="modal-title">
@@ -22,12 +22,12 @@
                         <form action="/admin/check_add_restaurant" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="form-group col-6">
-                                    <label for="first_name">Restaurant Name</label>
-                                    <input type="text" name="first_name" id="first_name" class="form-control border" required>
+                                    <label for="restaurant_name">Restaurant Name</label>
+                                    <input type="text" name="restaurant_name" id="restaurant_name" class="form-control border" required>
                                 </div>
                                 <div class="form-group col-6">
-                                    <label for="last_name">Location</label>
-                                    <input type="text" name="last_name" id="last_name" class="form-control border" required>
+                                    <label for="location">Location</label>
+                                    <input type="text" name="location" id="location" class="form-control border" required>
                                 </div>
                             </div>
                             <div class="row">
@@ -48,20 +48,16 @@
                             </div>
                             <div class="row">
                                 <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-                                    </div>
-                                    <div class="restaurant-file">
-                                        <input type="file" name="profile" class="restaurant-file-input" id="profile" aria-describedby="inputGroupFileAddon01" required>
-                                        <label class="restaurant-file-label" for="profile">Choose image</label>
-                                    </div>
+                                    <label class="restaurant-file-label" for="profile">Choose image</label>
+                                    <input type="file" name="restaurant_img" class="restaurant-file-input" id="profile" aria-describedby="inputGroupFileAddon01" required>
                                 </div>
                             </div>
                             <div class="row">
                                 <label for="floatingTextarea">Descriptions</label>
-                                <textarea class="form-control" placeholder="" id="floatingTextarea"></textarea>
+                                <textarea class="form-control" name="description" placeholder="Description" id="floatingTextarea"></textarea>
                             </div>
                             <div class="row mt-2">
+                                <input type="hidden" name="owner_id" value="2">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
                         </form>

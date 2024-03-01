@@ -22,15 +22,16 @@ function rejectEmail($email, $password): bool {
     return true;
 }
 
-function createRestaurant(string $restaurant_name, string $location, string $email, string $password,
+function createRestaurant(int $owner_id, string $restaurant_name, string $location, string $email, string $password,
                         string $contact_info, string $restaurant_img, string $description)  
 {
     global $connection;
     $stmt = $connection->prepare("INSERT INTO restaurants 
-    (restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
-    (:restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
+    (owner_id, restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
+    (:owner_id, :restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
 
     $stmt->execute([
+        ":owner_id" => $owner_id,
         ":restaurant_name" => $restaurant_name,
         ":location" => $location,
         ":email" => $email,
