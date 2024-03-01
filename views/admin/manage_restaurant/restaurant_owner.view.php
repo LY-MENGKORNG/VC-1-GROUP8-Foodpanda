@@ -1,109 +1,108 @@
-<div class="main-wrapper">
-    <nav class="main-nav--bg">
-        <div class="container main-nav">
-            <div class="main-nav-start">
-                <div class="search-wrapper">
-                    <i data-feather="search" aria-hidden="true"></i>
-                    <input type="text" placeholder="Enter keywords ..." required>
+<!-- Main -->
+<main class="main users chart-page" id="skip-target">
+    <div class="d-flex justify-content-between px-5">
+        <h3 class="main-title">Restaurant Owner</h3>
+        <button class="btn btn-primary col-2" data-bs-toggle="modal" data-bs-target="#reg-modal">
+            Add Owner
+        </button>
+    </div>
+
+    <!-- modal -->
+    <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content p-4">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <h5 class="modal-title" id="modal-title">Create new Owner to manage your Restaurant</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </h5>
                 </div>
-            </div>
-            <div class="main-nav-end">
-                <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
-                    <span class="sr-only">Toggle menu</span>
-                    <span class="icon menu-toggle--gray" aria-hidden="true"></span>
-                </button>
-                <div class="lang-switcher-wrapper">
-                    <button class="lang-switcher transparent-btn" type="button">
-                        EN
-                        <i data-feather="chevron-down" aria-hidden="true"></i>
-                    </button>
-                    <ul class="lang-menu dropdown">
-                        <li><a href="##">English</a></li>
-                        <li><a href="##">French</a></li>
-                        <li><a href="##">Uzbek</a></li>
-                    </ul>
-                </div>
-                <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
-                    <span class="sr-only">Switch theme</span>
-                    <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
-                    <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
-                </button>
-                <div class="notification-wrapper">
-                    <button class="gray-circle-btn dropdown-btn" title="To messages" type="button">
-                        <span class="sr-only">To messages</span>
-                        <span class="icon notification active" aria-hidden="true"></span>
-                    </button>
-                    <ul class="users-item-dropdown notification-dropdown dropdown">
-                        <li>
-                            <a href="##">
-                                <div class="notification-dropdown-icon info">
-                                    <i data-feather="check"></i>
-                                </div>
-                                <div class="notification-dropdown-text">
-                                    <span class="notification-dropdown__title">System just updated</span>
-                                    <span class="notification-dropdown__subtitle">The system has been successfully upgraded. Read more
-                                        here.</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="##">
-                                <div class="notification-dropdown-icon danger">
-                                    <i data-feather="info" aria-hidden="true"></i>
-                                </div>
-                                <div class="notification-dropdown-text">
-                                    <span class="notification-dropdown__title">The cache is full!</span>
-                                    <span class="notification-dropdown__subtitle">Unnecessary caches take up a lot of memory space and
-                                        interfere ...</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="##">
-                                <div class="notification-dropdown-icon info">
-                                    <i data-feather="check" aria-hidden="true"></i>
-                                </div>
-                                <div class="notification-dropdown-text">
-                                    <span class="notification-dropdown__title">New Subscriber here!</span>
-                                    <span class="notification-dropdown__subtitle">A new subscriber has subscribed.</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="link-to-page" href="##">Go to Notifications page</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="nav-user-wrapper">
-                    <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
-                        <span class="sr-only">My profile</span>
-                        <span class="nav-user-img">
-                            <picture>
-                                <source srcset="../../assets/images/uploads/admin_profile/<?= $admin['profile'] ?>"><img src="../../assets/images/uploads/admin_profile/<?= $admin['profile'] ?>" alt="User name">
-                            </picture>
-                        </span>
-                    </button>
-                    <ul class="users-item-dropdown nav-user-dropdown dropdown">
-                        <li><a href="/admin/profile">
-                                <i data-feather="user" aria-hidden="true"></i>
-                                <span>Profile</span>
-                            </a></li>
-                        <li><a href="##">
-                                <i data-feather="settings" aria-hidden="true"></i>
-                                <span>settings</span>
-                            </a></li>
-                        <li>
-                            <a class="danger" href="/admin/signout">
-                                <i data-feather="log-out" aria-hidden="true"></i>
-                                <span>Log out</span>
-                            </a>
-                        </li>
-                    </ul>
+                <div class="modal-body">
+                    <form action="/admin/check_add_restaurant_owner" method="post">
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="first_name">First Name</label>
+                                <input type="text" name="first_name" id="first_name" class="form-control border" required>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" name="last_name" id="last_name" class="form-control border" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" class="form-control border" required>
+                            </div>
+                            <div class="form-group col-6">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control border" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-12">
+                                <label for="phone">Contact Info</label>
+                                <input type="tel" name="contact_info" id="phone" class="form-control border" required>
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </nav>
-    <!-- Main -->
-    <main class="main users chart-page" id="skip-target">
-        
-    </main>
+    </div>
+    <div class="users-table table-wrapper mt-4 p-4">
+        <table class="posts-table rounded-3">
+            <thead>
+                <tr class="users-table-info  bg-transparent">
+                    <th>
+                        <label class="users-table__checkbox ms-20">
+                            <input type="checkbox" class="check-all">Image
+                        </label>
+                    </th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Register date</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($restaurant_owner as $item) { ?>
+                    <tr>
+                        <td>
+                            <label class="users-table__checkbox">
+                                <input type="checkbox" class="check">
+                                <div class="categories-table-img">
+                                    <picture>
+                                        <source srcset="<?= $target_dir_file ?><?= $item["profile"] != null ? $item["profile"] : 'avatar.png' ?>" type="image/webp">
+                                        <img src="<?= $target_dir_file ?><?= $item["profile"] != null ? $item["profile"] : 'avatar.png' ?>" class="rounded-circle border" alt="<?= $item["first_name"] ?>" style="width: 40px; height: 40px;">
+                                    </picture>
+                                </div>
+                                <?= $item["first_name"] ?>
+                            </label>
+                        </td>
+                        <td><?= $item["phone"] ?></td>
+                        <td><?= $item["email"] ?></td>
+                        <td><?= $item["registration_date"] ?></td>
+                        <td>
+                            <span class="p-relative">
+                                <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                                    <div class="sr-only">More info</div>
+                                    <i data-feather="more-horizontal" aria-hidden="true"></i>
+                                </button>
+                                <ul class="users-item-dropdown dropdown">
+                                    <li><a href="##">Edit</a></li>
+                                    <li><a href="##">Quick edit</a></li>
+                                    <li><a href="##">Trash</a></li>
+                                </ul>
+                            </span>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</main>

@@ -12,7 +12,6 @@
                         <span class="logo-title">Elegant</span>
                         <span class="logo-subtitle">Dashboard</span>
                     </div>
-
                 </a>
                 <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
                     <span class="sr-only">Toggle menu</span>
