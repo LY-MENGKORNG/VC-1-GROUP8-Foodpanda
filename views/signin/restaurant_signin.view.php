@@ -36,19 +36,18 @@
                         <div class="form-group">
                             <label for="email" class="text-dark form-label">Email</label>
                             <input type="email" name="email" placeholder="Enter Email" class="form-control" id="email" required/>
+                            <p class="text-danger"><?= $is_email ?></p>
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-dark">Password</label>
                             <input type="password" name="password" placeholder="Enter Password" class="form-control" id="password" required />
+                            <p class="text-danger"><?= $is_password ?></p>
                         </div>
                         <button class="btn text-white btn-lg btn-block" style="background: #FF2B85;">SIGN IN</button>
                     </form>
                     <a href="forgot_password.html" class="text-decoration-none">
                         <p class="text-center">Forgot your password?</p>
-                    </a>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <p class="text-center m-0">Don't have an account yet? <a href="/foodpanda">Sign up</a></p>
-                    </div>
+                    </a>    
                 </div>
             </div>
         </div>
