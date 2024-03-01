@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
-        $customer = customerExist($email);
+        $customer = accountExist($email, 4);
         
         if (count($customer) > 0) {
             if (password_verify($password, $customer['password'])) {

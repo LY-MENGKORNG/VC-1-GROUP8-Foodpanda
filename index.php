@@ -14,7 +14,7 @@ if (urlIs("/admin") || urlIs("/admin/manage_restaurant") ||
 
 // Restaurant routes
 else if (urlIs("/restaurant") || urlIs("/restaurant/category") ||
-        urlIs("/restaurant/delivery")) 
+        urlIs("/restaurant/delivery") || urlIs("/restaurant/customer")) 
 {
     require "./routers/resturant_router.php";
 }
@@ -37,7 +37,8 @@ else if (
     urlIs("/customer/check-signin") || urlIs("/customer/signout") || 
     urlIs("/customer/check-signout") || urlIs("/foodpanda")  ||
 
-    urlIs("/restaurant/signin") || urlIs("/restaurant/check_signin")) 
+    urlIs("/restaurant/signin") || urlIs("/restaurant/check_signin") ||
+    urlIs("/restaurant/signout") || urlIs("/restaurant/check_signout")) 
 {
     require "./routers/authentication_router.php";
-}
+}   

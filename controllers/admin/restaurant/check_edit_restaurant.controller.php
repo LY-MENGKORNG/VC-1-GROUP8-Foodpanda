@@ -12,7 +12,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $contact_info = $_POST["contact_info"];
         $restaurant_img = $_FILES["restaurant_img"];
         $desc = $_POST["description"];
-        editRestaurant($rest_id, $rest_name, $owner_id, $email, $location, $contact_info, $restaurant_img["name"], $desc);
+        echo $owner_id;
+        if(editRestaurant($rest_id, $rest_name, $owner_id, $email, $location, $contact_info, $restaurant_img["name"], $desc)) {
+            echo "hello";
+            die();
+        }
         header("Location: /admin/restaurant_detail");
     }
 }
