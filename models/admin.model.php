@@ -1,5 +1,6 @@
 <?php
 
+
 function createAdmin($first_name, $last_name, $email, $password, $phone, $profile): bool
 {
     date_default_timezone_get();
@@ -76,7 +77,6 @@ function addAdminImageToFolder($image)
 }
 
 function rejectEmail($email, $password): bool {
-    getAdmin();
 
     $emailPattern = ' /^\w+(\.\w+)*@[\w-]+(\.[\w-]+)+$/ ';
     $passwordPattern = 8;
@@ -124,27 +124,37 @@ function getAllRestaurants() {
     return $stmt->fetchAll();
 }
 
-function checkRestaurantImage($image) {
-        // File upload directory
-        $target_dir = "assets/images/uploads/restaurants/";
-        $file_name = basename($image["name"]);
-        $target_file_path = $target_dir . $file_name;
-        $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-        $file_allow_type = array("jpg", "png", "jpeg");
-        $file_size = $image['size'];
-    
-        return 
-        (
-            $file_size < 5000000 && 
-            !file_exists($target_file_path) && 
-            in_array($file_type, $file_allow_type)
-        );
+function getRestaurantById($id)  {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM restaurants WHERE restaurant_id = :id");
+    $stmt->execute([':id' => $id]);
+    return $stmt->fetch();
 }
 
-function addRestaurantImgToFolder($image) {
-        // File upload directory
-        $target_dir = "assets/images/uploads/restaurants/";
-        $file_name = basename($image["name"]);
-        $target_file_path = $target_dir . $file_name;
-        move_uploaded_file($image['tmp_name'], $target_file_path);
+function restaurantDetail($id): array {
+    global $connection;
+    $stmt = $connection->prepare("SELECT res.restaurant_id, u.owner_id,  FROM restaurants WHERE restaurant_id = :id");
+    $stmt->execute([':id' => $id]);
+    return $stmt->fetch();
+}
+
+function editRestaurant($rest_id, $rest_name, $owner_id, $email, $location, $contact_info, $img, $desc) {
+    global $connection;
+    $stmt = $connection->prepare(
+        "UPDATE restaurants SET restaurant_name = :rest_name, owner_id = :owner_id, email = :email,
+        location = :location, contact_info = :contact_info, restaurant_img = :img, description = :desc
+        WHERE restaurant_id = :rest_id
+    ");
+    echo $img;
+    $stmt->execute([
+        ":rest_name" => $rest_name,
+        ":owner_id" => $owner_id,
+        ":email" => $email,
+        ":location" => $location,
+        ":contact_info" => $contact_info,
+        ":img" => $img,
+        ":desc" => $desc,
+        ":rest_id" => $rest_id
+    ]);
+    return $stmt->rowCount() > 0;
 }

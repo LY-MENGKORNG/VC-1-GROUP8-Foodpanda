@@ -15,9 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             var_dump($profile);
             $pass_encrypt = password_hash($password, PASSWORD_BCRYPT);
 
-        if (checkCustomerImage($profile)) {
-            if(createCustomer($first_name, $last_name, $email, $pass_encrypt, $phone, $profile['name'])) {
-                addImageToFolder($profile);
+            $target_dir = "/assets/images/uploads/customer_profile/";
+
+        if (checkImage($profile, $target_dir)) {
+            if(createUser(4, $first_name, $last_name, $email, $pass_encrypt, $phone, $profile['name'])) {
+                addImageFolder($profile, $target_dir);
                 header("Location: /customer/signin");
             }
         }
