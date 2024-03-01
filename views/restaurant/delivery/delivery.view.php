@@ -1,6 +1,6 @@
 <div class="container p-4">
     <div class="delivery mb-5">
-        <h2>Delivery Onwer</h2>
+        <h2>Delivery</h2>
     </div>
     <table class="table">
         <thead table-light>
