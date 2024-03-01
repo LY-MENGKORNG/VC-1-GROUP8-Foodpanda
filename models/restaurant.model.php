@@ -28,3 +28,4 @@ function updateRestaurant($restaurant_id, $admin_id, $restaurant_name, $owner_na
     ]);
     return $stmt-> rowCount() > 0;
 }
+
