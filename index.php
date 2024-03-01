@@ -6,7 +6,8 @@ require "./models/users.model.php";
 // Admin routes
 if (urlIs("/admin") || urlIs("/admin/manage_restaurant") || 
     urlIs("/admin/add_restaurant") || urlIs("/admin/check_add_restaurant") ||
-    urlIs("/admin/restaurant_owner") || urlIs("/admin/check_add_restaurant_owner")) 
+    urlIs("/admin/restaurant_owner") || urlIs("/admin/check_add_restaurant_owner") ||
+    urlIs("/admin/restaurant_detail") || urlIs("/admin/edit_restaurant")) 
 { 
     require "routers/admin_router.php";
 }

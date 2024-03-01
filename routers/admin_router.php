@@ -19,6 +19,8 @@ if (isset($_SESSION["admin"])) {
         '/admin/add_restaurant' => 'controllers/admin/restaurant/add_restaurant.controller.php',
         '/admin/restaurant_owner' => 'controllers/admin/restaurant/restaurant_owner.controller.php',
         '/admin/check_add_restaurant_owner' => 'controllers/admin/restaurant/check_add_restaurant_owner.controller.php',
+        '/admin/restaurant_detail' => 'controllers/admin/restaurant/restaurant_detail.controller.php',
+        '/admin/edit_restaurant' => 'controllers/admin/restaurant/check_edit_restaurant.controller.php',
     ];
 
     if (array_key_exists($uri, $routes)) {

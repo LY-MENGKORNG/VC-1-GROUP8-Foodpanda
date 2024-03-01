@@ -1,4 +1,3 @@
-
 <!-- Main -->
 <main class="main users chart-page" id="skip-target">
     <div class="d-flex justify-content-between px-5">
@@ -56,10 +55,9 @@
         </div>
     </div>
     <div class="users-table table-wrapper mt-4 p-4">
-        <table class="posts-table">
+        <table class="posts-table rounded-3">
             <thead>
-                <tr class="users-table-info">
-                    <!-- <th> </th> -->
+                <tr class="users-table-info  bg-transparent">
                     <th>
                         <label class="users-table__checkbox ms-20">
                             <input type="checkbox" class="check-all">Image
@@ -80,8 +78,7 @@
                                 <div class="categories-table-img">
                                     <picture>
                                         <source srcset="<?= $target_dir_file ?><?= $item["profile"] != null ? $item["profile"] : 'avatar.png' ?>" type="image/webp">
-                                        <img src="<?= $target_dir_file ?><?= $item["profile"] != null ? $item["profile"] : 'avatar.png' ?>" class="rounded-circle"
-                                        alt="<?= $item["first_name"] ?>" style="width: 30px; height: 30px;">
+                                        <img src="<?= $target_dir_file ?><?= $item["profile"] != null ? $item["profile"] : 'avatar.png' ?>" class="rounded-circle border" alt="<?= $item["first_name"] ?>" style="width: 40px; height: 40px;">
                                     </picture>
                                 </div>
                                 <?= $item["first_name"] ?>
@@ -109,8 +106,3 @@
         </table>
     </div>
 </main>
-<?php
-if (isset($_SESSION["is_owner"])) {
-    echo $_SESSION["is_owner"];
-}
-?>

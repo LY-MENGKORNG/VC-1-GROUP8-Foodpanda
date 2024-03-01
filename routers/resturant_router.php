@@ -1,10 +1,11 @@
 <?php
 session_start();
+ob_start();
 require "./models/restaurant.model.php";
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-// if (isset($_SESSION["restaurant"])) {
-//     $restaurant = $_SESSION["restaurant"];
+if (isset($_SESSION["restaurant_owner"])) {
+    $restaurant_owner = $_SESSION["restaurant_owner"];
 
     $page = "";
     $routes = [
@@ -25,6 +26,6 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
     require "./layouts/restaurant/navbar2.php";
     require $page;
     require "./layouts/restaurant/footer.php";
-// }else {
-//     header("Location: /restaurant/signin");
-// }
+}else {
+    header("Location: /restaurant/signin");
+}
