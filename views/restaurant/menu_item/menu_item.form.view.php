@@ -108,43 +108,45 @@
         <div class="container p-4 bg-white">
             <form action="/admin/check_add_restaurant">
                 <h2 class="text-primary">Update
-                <div class="row mt-4">
-                    <div class="form-group col-6">
-                        <label for="name">Restaurant name</label>
-                        <input type="text" name="restaurant_name" id="name" class="form-control border">
+                    <div class="row mt-4">
+                        <div class="form-group col-6">
+                            <label for="name">Restaurant name</label>
+                            <input type="text" name="restaurant_name" id="name" class="form-control border">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="location">Restaurant location</label>
+                            <input type="text" name="location" id="location" class="form-control border">
+                        </div>
                     </div>
-                    <div class="form-group col-6">
-                        <label for="location">Restaurant location</label>
-                        <input type="text" name="location" id="location" class="form-control border">
+                    <div class="row mt-2">
+                        <div class="form-group col-6">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control border">
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" class="form-control border">
+                        </div>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="form-group col-6">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form-control border">
+                    <div class="row mt-2">
+                        <div class="form-group col-6">
+                            <label for="contact_info">Contact Information</label>
+                            <input type="contact_info" name="contact_info" id="contact_info" class="form-control border">
+                        </div>
+                        <div class="form-group col-6 ">
+                            <label for="restaurant_img">Restaurant Image</label>
+                            <input type="file" name="restaurant_img" id="restaurant_img" class="form-control border ">
+                        </div>
                     </div>
-                    <div class="form-group col-6">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" class="form-control border">
+                    <div class="form-group row">
+                        <label for="description"></label>
+                        <textarea name="description" class="form-control" id="description" cols="30" rows="10" style="max-height: 100px; min-height: 50px;" placeholder="Description"></textarea>
                     </div>
-                </div>
-                <div class="row mt-2">
-                    <div class="form-group col-6">
-                        <label for="contact_info">Contact Information</label>
-                        <input type="contact_info" name="contact_info" id="contact_info" class="form-control border">
+                    <div class="form-group">
+                        <button class="btn btn-primary">Submit</button>
                     </div>
-                    <div class="form-group col-6 ">
-                        <label for="restaurant_img">Restaurant Image</label>
-                        <input type="file" name="restaurant_img" id="restaurant_img" class="form-control border ">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="description"></label>
-                    <textarea name="description" class="form-control" id="description" cols="30" rows="10" style="max-height: 100px; min-height: 50px;" placeholder="Description"></textarea>
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary">Submit</button>
-                </div>
             </form>
         </div>
     </main>
+</div>
+</div>

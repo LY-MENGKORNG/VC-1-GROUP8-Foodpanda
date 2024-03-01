@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
-        $restaurant_owner = accountExist($email);
+        $restaurant_owner = accountExist($email, 2);
 
         if (count($restaurant_owner) > 0) {
             if (password_verify($password, $restaurant_owner['password'])) {
