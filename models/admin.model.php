@@ -31,14 +31,6 @@ function getAdmin(): array
     $stmt->execute();
     return $stmt->fetchAll();
 }
-function accountExist(string $email) {
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Users WHERE email = :email");
-    $stmt->execute([':email' => $email]);
-
-    return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
-}
-
 
 function adminSignout(string $email) : bool {
     global $connection;
