@@ -21,6 +21,7 @@
         <div class=" px-3">
           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reg-modal">Edit Restaurant</button>
         </div>
+        
         <!-- modal -->
         <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg">
