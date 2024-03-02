@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $target_dir = "assets/images/uploads/restaurants/";
 
-        var_dump($img["size"]);
         if (checkImage($img, $target_dir)) {
             if (createRestaurant($rest_name, $location, $email, $password_encrypt, 
                                 $contact, $img["name"], $desc)) 
