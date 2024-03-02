@@ -29,17 +29,3 @@ function updateRestaurant($restaurant_id, $admin_id, $restaurant_name, $owner_na
     return $stmt-> rowCount() > 0;
 }
 
-function  restaurantOwnerExist(string $email){
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Users WHERE email = :email AND role_id = :role_id");
-    $stmt->execute([':email' => $email, ':role_id' => 2]);
-    return $stmt->fetchAll();
-}
-
-function restaurantOwnerSignout(string $email) {
-    global $connection;
-    $stmt = $connection-> prepare("select * from Users WHERE email = :email");
-    $stmt->execute([':email' => $email]);
-    return $stmt->fetch();
-    
-}

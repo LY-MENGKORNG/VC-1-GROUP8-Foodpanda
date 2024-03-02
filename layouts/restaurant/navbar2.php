@@ -80,7 +80,8 @@
                         <span class="sr-only">My profile</span>
                         <span class="nav-user-img">
                             <picture>
-                                <source srcset="../../assets/images/uploads/admin_profile/<?= $admin['profile'] ?>"><img src="../../assets/images/uploads/admin_profile/<?= $admin['profile'] ?>" alt="User name">
+                                <source srcset="../assets/images/uploads/owner_prfile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>">
+                                <img src="../assets/images/uploads/owner_prfile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" alt="User name">
                             </picture>
                         </span>
                     </button>
@@ -94,9 +95,9 @@
                                 <span>settings</span>
                             </a></li>
                         <li>
-                            <a class="danger" href="/admin/signout">
+                            <a class="danger" href="/restaurant/signout">
                                 <i data-feather="log-out" aria-hidden="true"></i>
-                                <span>Log out</span>
+                                <span>Sign out</span>
                             </a>
                         </li>
                     </ul>

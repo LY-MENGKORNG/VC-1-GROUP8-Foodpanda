@@ -65,7 +65,6 @@
                 </div>
             </div>
         </div>
-
         <div class="container-fluid mt-3 main-card">
             <?php foreach ($restaurants as $restaurant) { ?>
                 <div class="card shadow overflow-hidden">

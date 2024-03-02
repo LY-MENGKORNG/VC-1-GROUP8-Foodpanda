@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
-        $admin = accountExist($email);
+        $admin = accountExist($email, 1);
         $password_confirm = password_verify($password, $admin["password"]);
         if (count($admin) == 0 && !$password_confirm) {
 

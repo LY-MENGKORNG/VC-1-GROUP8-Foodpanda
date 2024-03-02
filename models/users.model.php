@@ -1,35 +1,4 @@
 <?php
-// function getUser(string $user): array
-// {
-//     global $connection;
-//     $stmt = $connection->prepare("SELECT * FROM $user");
-//     $stmt->execute();
-//     return $stmt->fetchAll();
-// }
-
-
-// function rejectNewUserRegistration($user){
-//     if (isset($_POST['reject'])) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-
-// function approveNewUserRegistration($user){
-//     getAdmin();
-//     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//         if (isset($_POST['approve'])) {
-//             $user = $_POST['user'];
-//             approveNewUserRegistration($user);
-//         } else if (isset($_POST['reject'])) {
-//             $user = $_POST['user'];
-//             rejectNewUserRegistration($user);
-//         }
-//     }
-// }
-
-
 function createUser($role_id, $first_name, $last_name, $email, $password, $phone, $profile = NULL): bool
 {
     date_default_timezone_get();
@@ -55,7 +24,7 @@ function createUser($role_id, $first_name, $last_name, $email, $password, $phone
     }
 }
 
-function accountExist(string $email) {
+function accountExist(string $email, int $role_id) {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM Users WHERE email = :email");
     $stmt->execute([':email' => $email]);
@@ -66,9 +35,17 @@ function accountExist(string $email) {
 // Get all data of all customer accounts
 function getAllUsers($role_id): array
 {
-    global $connection;
+    global $connection; 
     $stmt = $connection->prepare("SELECT * FROM users WHERE role_id = :role_id");
     $stmt->execute([":role_id" => $role_id]);
+    return $stmt->fetchAll();
+}
+
+// Get all owners
+function getOwner() {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM users WHERE role_id = 1 OR role_id = 2");
+    $stmt->execute();
     return $stmt->fetchAll();
 }
 
