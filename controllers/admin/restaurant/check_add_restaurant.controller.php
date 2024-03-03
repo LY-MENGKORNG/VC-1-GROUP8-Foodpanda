@@ -20,10 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $target_dir = "assets/images/uploads/restaurants/";
 
-<<<<<<< HEAD
-        echo $owner_id;
-=======
->>>>>>> 3f8d5566085aa9041fc4b0d2932f1f54500665ea
         if (checkImage($img, $target_dir)) {
             if (createRestaurant(intval($owner_id), $rest_name, $location, $email, $password_encrypt, 
                                 $contact, $img["name"], $desc)) 
