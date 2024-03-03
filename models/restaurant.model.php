@@ -42,7 +42,7 @@ function getAllFood() {
     $stmt->execute();
     return $stmt->fetchAll();
 }
-function creategory($restaurant_id,$cuisine,$description){
+function createCategory($restaurant_id,$cuisine,$description){
     global $connection;
     $stmt = $connection->prepare("INSERT INTO menuItems (restaurant_id, cuisine, description) VALUES (:id, :cuisine, :description)");
     $stmt -> execute([
