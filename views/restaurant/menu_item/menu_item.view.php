@@ -26,7 +26,7 @@
                             <label for="description">Description:</label>
                             <textarea name="description" id="description" class="form-control" style="min-height: 50px; max-height: 150px;" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
