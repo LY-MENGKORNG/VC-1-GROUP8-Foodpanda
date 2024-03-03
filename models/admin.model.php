@@ -1,4 +1,9 @@
 <?php
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 3f8d5566085aa9041fc4b0d2932f1f54500665ea
 function rejectEmail($email, $password): bool {
 
     $emailPattern = ' /^\w+(\.\w+)*@[\w-]+(\.[\w-]+)+$/ ';
