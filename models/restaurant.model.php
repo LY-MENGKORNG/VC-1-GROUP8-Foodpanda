@@ -29,3 +29,9 @@ function updateRestaurant($restaurant_id, $admin_id, $restaurant_name, $owner_na
     return $stmt-> rowCount() > 0;
 }
 
+function getCategory() {
+    global$connection;
+    $stmt = $connection->prepare("SELECT * FROM menuitems");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}

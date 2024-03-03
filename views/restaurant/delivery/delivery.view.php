@@ -1,40 +1,29 @@
-<!-- Main -->
-<main class="main users chart-page" id="skip-target">
-    <div class="px-5">
-        <div class="px-5 pt-2">
-            <h2 class="text-primary">List of Delivery</h2>
-
-            <div class="container mt-5">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">User ID</th>
-                            <th scope="col">First Name</th>
-                            <th scope="col">Last Name</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Registration Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($delivery as $item) { ?>
-                            <tr>
-                                <td><?= $item["user_id"] ?></td>
-                                <td><?= $item["first_name"] ?></td>
-                                <td><?= $item["last_name"] ?></td>
-                                <td><?= $item["email"] ?></td>
-                                <td><?= $item["phone"] ?></td>
-                                <td><?= $item["registration_date"] ?></td>
-                            </tr>
-                        <?php } ?>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div class="container p-4">
+    <div class="delivery mb-5">
+        <h2>Delivery</h2>
     </div>
-</main>
+    <table class="table">
+        <thead table-light>
+            <tr>
+                <th class="border">User ID</th>
+                <th class="border">First Name</th>
+                <th class="border">Last Name</th>
+                <th class="border">Email</th>
+                <th class="border">Phone</th>
+            </tr>
+        </thead>
 
-
-</div> 
+        <tbody class="table-active">
+            <?php foreach ($delivery as $item) { ?>
+                <tr>
+                    <td class="border"><?= $item["user_id"] ?></td>
+                    <td class="border"><?= $item["first_name"] ?></td>
+                    <td class="border"><?= $item["last_name"] ?></td>
+                    <td class="border"><?= $item["email"] ?></td>
+                    <td class="border"><?= $item["phone"] ?></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 </div>
+</main>
