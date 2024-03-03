@@ -42,15 +42,24 @@ function getAllFood() {
     $stmt->execute();
     return $stmt->fetchAll();
 }
-function createCategory($restaurant_id,$cuisine,$description){
+function createCategory(int $restaurant_id, string $cate_name, string $description){
     global $connection;
-    $stmt = $connection->prepare("INSERT INTO menuItems (restaurant_id, cuisine, description) VALUES (:id, :cuisine, :description)");
+    $stmt = $connection->prepare("INSERT INTO menuItems (restaurant_id, cate_name, description) VALUES (:id, :cate_name, :description)");
     $stmt -> execute([
         ":id" => $restaurant_id,
-        ":cuisine" => $cuisine,
+        ":cate_name" => $cate_name,
         ":description" => $description
     ]);
     return $stmt-> rowCount() > 0;
     
+}
+
+function getRestaurantByOwnerId($owner_id) {
+    global $connection;
+    $stmt = $connection->prepare(
+        "SELECT restaurants.restaurant_id FROM restaurants 
+        JOIN users ON users.user_id = restaurants.owner_id WHERE restaurants.owner_id = :owner_id;");
+    $stmt->execute([":owner_id" => $owner_id]);
+    return $stmt->fetchAll();
 }
 
