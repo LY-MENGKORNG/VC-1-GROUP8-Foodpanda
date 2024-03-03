@@ -16,7 +16,7 @@ if (urlIs("/admin") || urlIs("/admin/manage_restaurant") ||
 // Restaurant routes
 else if (urlIs("/restaurant") || urlIs("/restaurant/category") ||
         urlIs("/restaurant/delivery") || urlIs("/restaurant/customer") ||
-        urlIs("/restaurant/food")) 
+        urlIs("/restaurant/food") ||urlIs("restaurant/category")) 
 {
     require "./routers/resturant_router.php";
 }

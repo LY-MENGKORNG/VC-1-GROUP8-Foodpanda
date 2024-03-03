@@ -1,6 +1,5 @@
 <!-- Main -->
 <main class="main users chart-page" id="skip-target">
-  
     <div class="container">
 
         <div class="d-flex flex-row justify-content-sm-between px-3">
@@ -8,6 +7,7 @@
             <button class="btn btn-primary font-weight-bold text-gray rounded" data-bs-toggle="modal" data-bs-target="#reg-modal">
                 Add Delivery
             </button>
+            
         </div>
         <div class="users-table table-wrapper rounded-lg add-border mt-5">
             <div class="main-nav-start row p-4 d-flex justify-content-between">
