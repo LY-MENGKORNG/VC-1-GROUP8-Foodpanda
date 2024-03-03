@@ -7,5 +7,3 @@ if (isset($_SESSION["is_owner_email"])) {
     $is_password = $_SESSION["is_owner_password"];
 }
 require "./views/signin/restaurant_signin.view.php"; 
-
-?>
