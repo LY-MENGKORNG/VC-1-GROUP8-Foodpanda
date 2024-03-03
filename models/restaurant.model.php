@@ -29,3 +29,14 @@ function updateRestaurant($restaurant_id, $admin_id, $restaurant_name, $owner_na
     return $stmt-> rowCount() > 0;
 }
 
+function createCategory($restaurant_id, $cuisine, $description) {
+    global $connection;
+    $stmt = $connection->prepare("insert into category ($restaurant_id, $cuisine, $description) values (:id, :cuisine, :description)");
+    $stmt -> execute([
+        "restaurant_id" => $restaurant_id,
+        ":cuisine" => $cuisine,
+        ":description" => $description
+    ]);
+    return $stmt-> rowCount() > 0;
+    
+}
