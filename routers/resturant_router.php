@@ -6,7 +6,6 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 if (isset($_SESSION["restaurant_owner"])) {
     $restaurant_owner = $_SESSION["restaurant_owner"];
-
     $page = "";
     $routes = [
         '/restaurant' => 'controllers/restaurant/home/home.controller.php',
@@ -15,7 +14,7 @@ if (isset($_SESSION["restaurant_owner"])) {
         '/restaurant/customer' => 'controllers/restaurant/customer/customer.controller.php',
     ];
 
-    if (array_key_exists($uri, $routes)) {
+    if (array_key_exists($uri, $routes)) { 
         $page = $routes[$uri];
     } else {
         http_response_code(404);
