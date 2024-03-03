@@ -1,6 +1,4 @@
 <?php
-
-
 function rejectEmail($email, $password): bool {
 
     $emailPattern = ' /^\w+(\.\w+)*@[\w-]+(\.[\w-]+)+$/ ';

@@ -2,8 +2,6 @@
 <main class="main users chart-page" id="skip-target">
     <!-- <div class="px-5">
         <div class="px-5 pt-2">
-            <h2 class="text-primary">List of Delivery</h2>
-
             <div class="container mt-5">
                 <table class="table table-bordered">
                     <thead>
