@@ -3,11 +3,67 @@
     <div class="container-fluid">
         <div class="d-flex flex-row justify-content-sm-between px-2">
             <h1 class="main-title col-10">Restaurants</h1>
-            <a href="/admin/add_restaurant">
-                <button class="btn btn-primary font-weight-bold text-gray rounded">
-                    Add Restaurant
-                </button>
-            </a>
+            <button class="btn btn-primary font-weight-bold text-gray rounded" data-bs-toggle="modal" data-bs-target="#reg-modal">
+                Add Restaurant
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content p-4">
+                    <div class="modal-header">
+                        <h5 class="modal-title">
+                            <h5 class="modal-title" id="modal-title">Create a new Restaurant</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/admin/check_add_restaurant" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="restaurant_name">Restaurant Name</label>
+                                    <input type="text" name="restaurant_name" id="restaurant_name" class="form-control border" required>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="location">Location</label>
+                                    <input type="text" name="location" id="location" class="form-control border" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-6">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" id="email" class="form-control border" required>
+                                </div>
+                                <div class="form-group col-6">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control border" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-12">
+                                    <label for="phone">Contact Info</label>
+                                    <input type="tel" name="contact_info" id="phone" class="form-control border" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-group mb-3">
+                                    <label class="restaurant-file-label" for="profile">Choose image</label>
+                                    <input type="file" name="restaurant_img" class="restaurant-file-input" id="profile" aria-describedby="inputGroupFileAddon01" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="floatingTextarea">Descriptions</label>
+                                <textarea class="form-control" name="description" placeholder="Description" id="floatingTextarea"></textarea>
+                            </div>
+                            <div class="row mt-2">
+                                <input type="hidden" name="owner_id" value="2">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="container-fluid mt-3 main-card">
             <?php foreach ($restaurants as $restaurant) { ?>
@@ -19,7 +75,7 @@
                         <h5 class="card-title"><?= $restaurant["restaurant_name"] ?></h5>
                         <p class="card-text text-bolder">Location: <span class="text-thin"><?= $restaurant["location"] ?></span></p>
                         <form action="/admin/restaurant_detail" method="post">
-                            <button type="submit" class="btn btn-primary mt-4" name="restaurant_id" value="<?= $restaurant["restaurant_id"]?>">See more</button>
+                            <button type="submit" class="btn btn-primary mt-4" name="restaurant_id" value="<?= $restaurant["restaurant_id"] ?>">See more</button>
                         </form>
                     </div>
                 </div>

@@ -1,10 +1,11 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
     if (
         !empty($_POST['restaurant_name']) && !empty($_POST["email"]) && 
         !empty($_POST["password"]) && !empty($_POST["location"]) &&
         !empty($_POST["contact_info"]) && !empty($_FILES["restaurant_img"]) && 
-        !empty($_POST["description"])
+        !empty($_POST["description"] && !empty($_POST["owner_id"]))
     ) {
 
         $rest_name = htmlspecialchars($_POST["restaurant_name"]);
@@ -15,11 +16,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $contact = htmlspecialchars($_POST["contact_info"]);
         $desc = htmlspecialchars($_POST["description"]);
         $img = $_FILES["restaurant_img"];
+        $owner_id = $_POST["owner_id"];
 
         $target_dir = "assets/images/uploads/restaurants/";
 
+        echo $owner_id;
         if (checkImage($img, $target_dir)) {
-            if (createRestaurant($rest_name, $location, $email, $password_encrypt, 
+            if (createRestaurant(intval($owner_id), $rest_name, $location, $email, $password_encrypt, 
                                 $contact, $img["name"], $desc)) 
             {                                                                                  
                 addImageFolder($img, $target_dir);
