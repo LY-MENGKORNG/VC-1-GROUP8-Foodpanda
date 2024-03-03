@@ -30,8 +30,15 @@ function updateRestaurant($restaurant_id, $admin_id, $restaurant_name, $owner_na
 }
 
 function getCategory() {
-    global$connection;
+    global $connection;
     $stmt = $connection->prepare("SELECT * FROM menuitems");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getAllFood() {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM foods");
     $stmt->execute();
     return $stmt->fetchAll();
 }

@@ -36,7 +36,7 @@
                                 <a href="/restaurant/category">All Categories</a>
                             </li>
                             <li>
-                                <a href="/restaurant/category">All Foods</a>
+                                <a href="/restaurant/food">All Foods</a>
                             </li>
                         </ul>
                     </li>

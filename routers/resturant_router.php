@@ -12,6 +12,7 @@ if (isset($_SESSION["restaurant_owner"])) {
         '/restaurant/category' => 'controllers/restaurant/menu_item/menu_item.controller.php',
         '/restaurant/delivery' => 'controllers/restaurant/delivery/delivery.controller.php',
         '/restaurant/customer' => 'controllers/restaurant/customer/customer.controller.php',
+        '/restaurant/food' => 'controllers/restaurant/food/food.controller.php',
     ];
 
     if (array_key_exists($uri, $routes)) { 
