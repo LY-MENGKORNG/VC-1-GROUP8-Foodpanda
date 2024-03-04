@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user_id = htmlspecialchars($_POST["user_id"]);
 
         if (customerEditProfile($first_name, $last_name, $email, $phone, $user_id)) {
-            $_SESSION["customer"] = accountExist($email);
+            $_SESSION["customer"] = accountExist($email, 4);
         }
         header("Location: /customer/profile");
     }
