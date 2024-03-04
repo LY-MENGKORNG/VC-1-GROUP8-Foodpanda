@@ -55,6 +55,7 @@ function editUser() {
 
 function checkImage($image, $target_dir): bool
 {
+    if (!is_array($image)) return false; 
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
     $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
@@ -74,4 +75,28 @@ function addImageFolder($image, $target_dir)
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
     move_uploaded_file($image['tmp_name'], $target_file_path);
+}
+
+
+function editProfile(string $first_name, string $last_name, string $email, string $phone, $profile, string $user_id, int $role_id) {
+    global $connection;
+    $stmt = $connection->prepare("UPDATE users SET 
+            first_name = :first_name, last_name = :last_name, email = :email, phone = :phone, profile = :profile 
+            WHERE user_id = :user_id AND role_id = :role_id");
+
+    $stmt->execute([
+        ":first_name" => $first_name,
+        ":last_name" => $last_name,
+        ":email" => $email,
+        ":phone" => $phone,
+        ":profile" => $profile,
+        ":user_id" => $user_id,
+        ":role_id" => $role_id
+    ]);
+    return $stmt->rowCount() > 0;
+}
+
+function changeImage(string $target_dir, array $image, $profile) {
+    unlink($target_dir. $profile);
+    addImageFolder($image, $target_dir);
 }

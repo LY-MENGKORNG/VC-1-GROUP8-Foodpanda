@@ -7,15 +7,15 @@
     </div>
 
     <div class="container position-relative">
-        <form action="/restaurant/edit_profile" method="post" class="py-5 osahan-profile row">
+        <form action="/restaurant/edit_profile" method="post" class="py-5 osahan-profile row" enctype="multipart/form-data">
             <div class="col-md-4 mb-3">
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden p-5 d-flex flex-column align-items-center">
-                    <input type="file" name="profile_img" id="profile_img" style="display: none;">
                     <div class="left rounded-circle d-flex align-items-center position-relative" style="width: 150px; height: 150px;">
-                        <img alt="#" id="originImage" src="../../assets/images/uploads/restaurants/owner/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" class="rounded-circle" style="width: 100%; height: 100%; border: 1px solid gray;">
+                        <img alt="#" id="originImage" src="../../assets/images/uploads/owner_profile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" class="rounded-circle" style="width: 100%; height: 100%; border: 1px solid gray;">
                         <div class="rounded-circle bg-light position-absolute d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; bottom: 5%; right: 5%; border: 1px solid gray;" >
                             <label for="profile_img" class="m-auto">
-                                <i class="feather-camera fs-5 text-secondary border"></i>
+                                <input type="file" name="profile" id="profile_img" style="display: none;">
+                                <i class="feather-camera fs-5 text-secondary border text-primary"></i>
                             </label>
                         </div>
                     </div>
