@@ -14,6 +14,7 @@ if (isset($_SESSION["restaurant_owner"])) {
         '/restaurant/customer' => 'controllers/restaurant/customer/customer.controller.php',
         '/restaurant/food' => 'controllers/restaurant/food/food.controller.php',
         '/restaurant/profile' => 'controllers/restaurant/profile/profile.controller.php',
+        '/restaurant/add_category' => 'controllers/restaurant/menu_item/add_menu_item.controller.php',
     ];
 
     if (array_key_exists($uri, $routes)) { 
@@ -22,7 +23,6 @@ if (isset($_SESSION["restaurant_owner"])) {
         http_response_code(404);
         $page = 'views/errors/404.php';
     }
-
     require "./layouts/restaurant/header.php";
     require "./layouts/restaurant/navbar.php";
     require "./layouts/restaurant/navbar2.php";

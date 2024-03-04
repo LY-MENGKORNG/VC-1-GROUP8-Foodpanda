@@ -17,7 +17,7 @@
                     </h5>
                 </div>
                 <div class="modal-body">
-                    <form action="/restaurant/check_add_category" method="post">
+                    <form action="/restaurant/add_category" method="post">
                         <div class="form-group">
                             <label for="cate_name">Category Name:</label>
                             <input type="text" name="cate_name" id="cate_name" class="form-control border" required>
