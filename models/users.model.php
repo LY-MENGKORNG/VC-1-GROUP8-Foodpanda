@@ -49,7 +49,7 @@ function getOwner() {
     return $stmt->fetchAll();
 }
 
-function editUser($first_name, $last_name, $email, $phone, $profile) {
+function editUser($first_name, $last_name, $email, $phone, $profile, $user_id) {
     global $connection;
     $stmt = $connection->prepare(
         "UPDATE users SET first_name = :first_name, last_name = :last_name, 
@@ -61,7 +61,8 @@ function editUser($first_name, $last_name, $email, $phone, $profile) {
         ":last_name" => $last_name,
         ":email" => $email,
         ":phone" => $phone,
-        ":profile" => $profile
+        ":profile" => $profile,
+        ":user_id" => $user_id
     ]);
     return $stmt->rowCount() > 0;
 }
@@ -87,4 +88,12 @@ function addImageFolder($image, $target_dir)
     $file_name = basename($image["name"]);
     $target_file_path = $target_dir . $file_name;
     move_uploaded_file($image['tmp_name'], $target_file_path);
+}
+
+function deleteImage($target_file) {
+    if (file_exists($target_file)) {
+        unlink($target_file);
+        return true;
+    }
+    return false;
 }
