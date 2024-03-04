@@ -7,8 +7,12 @@
     </div>
 
     <div class="container position-relative">
+<<<<<<< HEAD
         <form class="py-5 osahan-profile row" action="/customer/edit_profile" method="post">
 
+=======
+        <form action="/customer/edit_profile" method="post" class="py-5 osahan-profile row">
+>>>>>>> DEVELOP
             <div class="col-md-4 mb-3">
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden p-5 d-flex flex-column align-items-center">
                     <input type="file" name="profile_img" id="profile_img" style="display: none;">
@@ -35,6 +39,7 @@
                     <h5 class="mb-4">My account</h5>
                     <div id="edit_profile">
                         <div>
+<<<<<<< HEAD
                             <div class="form-group">
                                 <input type="hidden" name="user_id" value="<?= $admin["user_id"] ?>">
                                 <label for="first_name">First Name</label>
@@ -51,6 +56,25 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control border" name="email" id="email" value="<?= $admin["email"] ?>" required>
+=======
+
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" value="<?= $customer["user_id"] ?>">
+                                <label for="first_name">First Name</label>
+                                <input type="text" class="form-control" name="first_name" id="first_name" value="<?= $customer["first_name"] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" class="form-control" name="last_name" id="last_name" value="<?= $customer["last_name"] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Mobile Number</label>
+                                <input type="tel" class="form-control" name="phone" id="phone" value="<?= $customer["phone"] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" name="email" id="email" value="<?= $customer["email"] ?>" required>
+>>>>>>> DEVELOP
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
