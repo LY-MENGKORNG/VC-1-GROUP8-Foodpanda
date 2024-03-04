@@ -11,6 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (customerEditProfile($first_name, $last_name, $email, $phone, $user_id)) {
             $_SESSION["customer"] = accountExist($email, 4);
+            $customer = $_SESSION["customer"];
         }
         header("Location: /customer/profile");
     }
