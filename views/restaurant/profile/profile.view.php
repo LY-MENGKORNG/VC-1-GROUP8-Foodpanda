@@ -12,7 +12,7 @@
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden p-5 d-flex flex-column align-items-center">
                     <input type="file" name="profile_img" id="profile_img" style="display: none;">
                     <div class="left rounded-circle d-flex align-items-center position-relative" style="width: 150px; height: 150px;">
-                        <img alt="#" src="../../assets/images/uploads/restaurants/owner/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" class="rounded-circle" style="width: 100%; height: 100%; border: 1px solid gray;">
+                        <img alt="#" id="originImage" src="../../assets/images/uploads/restaurants/owner/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" class="rounded-circle" style="width: 100%; height: 100%; border: 1px solid gray;">
                         <div class="rounded-circle bg-light border position-absolute d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; bottom: 5%; right: 5%">
                             <label for="profile_img" class="m-auto ">
                                 <i class="feather-camera fs-5 text-secondary"></i>
@@ -35,7 +35,7 @@
                     <div id="edit_profile">
                         <div>
                             <form action="/restaurant/edit_profile" method="post">
-                                <div class="form-group">
+                                <div class="form-group">       
                                     <input type="hidden" name="user_id" value="<?= $restaurant_owner["user_id"] ?>">
                                     <label for="first_name">First Name</label>
                                     <input type="text" class="form-control border" name="first_name" id="first_name" value="<?= $restaurant_owner["first_name"] ?>" required>
