@@ -54,3 +54,21 @@ function createCategory($restaurant_id,$cuisine,$description){
     
 }
 
+// customer edit profile
+function ownerEditProfile(string $first_name, string $last_name, string $email, string $phone, string $user_id) {
+    global $connection;
+    $role_id = 2;
+    $stmt = $connection->prepare("UPDATE users SET 
+                    first_name = :first_name, last_name = :last_name, email = :email, phone = :phone 
+                    WHERE user_id = :user_id AND role_id = :role_id");
+
+    $stmt->execute([
+        ":first_name" => $first_name,
+        ":last_name" => $last_name,
+        ":email" => $email,
+        ":phone" => $phone,
+        ":user_id" => $user_id,
+        ":role_id" => $role_id
+    ]);
+    return $stmt->rowCount() > 0;
+}
