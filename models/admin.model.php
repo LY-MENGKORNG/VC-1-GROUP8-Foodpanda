@@ -122,3 +122,21 @@ function editRestaurant($rest_id, $rest_name, $owner_id, $email, $location, $con
     ]);
     return $stmt->rowCount() > 0;
 }
+
+function saveAccountData($first_name,$last_name,$email,$password,$phone,$profile) {
+    global $connection;
+    $stmt = $connection->prepare("UPDATE users SET first_name = :f_name, last_name = :l_name,
+    email = :email, password = :password, phone = :phone, profile = :profile");
+    $stmt ->execute([
+       ":f_name" => $first_name,
+       ":l_name" => $last_name,
+       ":email"  => $email,
+       ":password"=> $password,
+       ":phone"   => $phone,
+       ":profile" => $profile
+
+     ]);
+    return $stmt ->rowCount() >0 ;
+
+
+}
