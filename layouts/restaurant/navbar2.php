@@ -86,7 +86,7 @@
                         </span>
                     </button>
                     <ul class="users-item-dropdown nav-user-dropdown dropdown">
-                        <li><a href="/admin/profile">
+                        <li><a href="/restaurant/profile">
                                 <i data-feather="user" aria-hidden="true"></i>
                                 <span>Profile</span>
                             </a></li>
