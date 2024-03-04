@@ -19,6 +19,7 @@
                             </label>
                         </div>
                     </div>
+                    
                     <div class="d-flex  d-flex flex-column gap-5 p-3">
                         <div class="left text-center">
                             <h6 class="mb-1 font-weight-bold"><?= $restaurant_owner["first_name"] . " " . $restaurant_owner["last_name"] ?><i class="feather-check-circle text-success"></i></h6>
