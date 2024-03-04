@@ -49,8 +49,21 @@ function getOwner() {
     return $stmt->fetchAll();
 }
 
-function editUser() {
-    
+function editUser($first_name, $last_name, $email, $phone, $profile) {
+    global $connection;
+    $stmt = $connection->prepare(
+        "UPDATE users SET first_name = :first_name, last_name = :last_name, 
+        email = :email, phone = :phone, profile = :profile WHERE user_id = :user_id
+        AND role_id = :role_id");
+        
+    $stmt->execute([
+        ":first_name" => $first_name,
+        ":last_name" => $last_name,
+        ":email" => $email,
+        ":phone" => $phone,
+        ":profile" => $profile
+    ]);
+    return $stmt->rowCount() > 0;
 }
 
 function checkImage($image, $target_dir): bool
