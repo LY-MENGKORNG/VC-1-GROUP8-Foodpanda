@@ -10,7 +10,7 @@ function getRestaurant($id) {
 
 function getRestaurantByOwner($owner_id) {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Restaurants WHERE owner_id = :owner_id");
+    $stmt = $connection->prepare("SELECT * FROM restaurants WHERE owner_id = :owner_id");
     $stmt->execute([":owner_id" => $owner_id]);
     return $stmt->fetch();
 }
