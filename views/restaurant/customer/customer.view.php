@@ -7,13 +7,13 @@
           <div class="main-nav-start col-9">
             <div class="search-wrapper">
               <i data-feather="search" aria-hidden="true"></i>
-              <input type="text" placeholder="Enter keywords ..." required>
+              <input type="text" class="border border-secondary" placeholder="Enter keywords ...">
             </div>
           </div>
           <div class="btn-group col-2">
             <button type="button" class="btn btn-primary rounded" data-bs-toggle="dropdown" aria-expanded="false">
               <i data-feather="filter" aria-hidden="true"></i>
-              Action
+              Filter
             </button>
             <!-- I will do it next -->
             <ul class="dropdown-menu ">
@@ -28,7 +28,7 @@
           </div>
         </div>
       </div>
-      <table class="posts-table">
+      <table class="posts-table border-top border-secondary">
         <thead>
           <tr class="users-table-info">
             <th>
@@ -36,9 +36,8 @@
                 <input type="checkbox" class="check-all">Image
               </label>
             </th>
-            <th>Food_name</th>
             <th>Customer_name</th>
-            <!-- <th>Status</th> -->
+            <th>Food_name</th>
             <th>Date</th>
             <th></th>
           </tr>
@@ -60,12 +59,12 @@
                 </label>
               </td>
               <td>
-                Starting your traveling blog with Vasco
+                <div class="pages-table-img">
+                  <?= $customer["first_name"] . " " . $customer["last_name"] ?>
+                </div>
               </td>
               <td>
-                <div class="pages-table-img">
-                  <?= $customer["first_name"]." ". $customer["last_name"] ?>
-                </div>
+                Starting your traveling blog with Vasco
               </td>
               <!-- <td><span class="badge-pending">Pending</span></td> -->
               <td><?= $customer["registration_date"] ?></td>
