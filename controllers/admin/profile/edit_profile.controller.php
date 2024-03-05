@@ -13,22 +13,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST["email"];
         $profile = !empty($_FILES["profile"]) ? $_FILES["profile"] : $admin["profile"];
         $tartget_dir = "./assets/images/uploads/admin_profile/";
-
         if (!is_array($profile) && $profile == NULL) {
             if (editProfile($first_name, $last_name, $email, $phone, $profile, $user_id, 1)) {
                 $_SESSION["admin"] = accountExist($email, 1);
                 $admin = $_SESSION["admin"];
             }
             header("Location: /admin/profile");
-            echo "hi";
             
-        } else if (checkImage($profile, $tartget_dir)) {
+        } 
+        else if (checkImage($profile, $tartget_dir)) {
             changeImage($tartget_dir, $profile, $admin["profile"]);
             if (editProfile($first_name, $last_name, $email, $phone, $profile["name"], $user_id, 1)) {
                 $_SESSION["admin"] = accountExist($email, 1);
                 $admin = $_SESSION["admin"];
             }
-            echo "hello";
             header("Location: /admin/profile");
         }
     }
