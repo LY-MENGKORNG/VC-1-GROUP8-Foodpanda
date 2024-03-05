@@ -1,6 +1,6 @@
 <div class="container p-4">
     <div class="category mb-5">
-        <h2>Category</h2>
+        <h2 class="main-title">Category</h2>
     </div>
     
     <?php foreach ($category as $item) { ?>
