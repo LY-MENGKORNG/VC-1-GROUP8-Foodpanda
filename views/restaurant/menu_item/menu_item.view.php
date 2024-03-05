@@ -7,6 +7,7 @@
             </button>
         </div>
     </div>
+    <!-- Modal -->
     <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content p-4">
@@ -39,12 +40,11 @@
                 <tr class="users-table-info  bg-transparent">
                     <th>
                         <label class="users-table__checkbox ms-20">
-                            <input type="checkbox" class="check-all">Image
+                            <input type="checkbox" class="check-all">
+                            Category Name
                         </label>
                     </th>
-                    <th>Restaurant_id</th>
-                    <th>Cuisine</th>
-                    <th>Avialable_status</th>
+                    <th>Description</th>
                     <th></th>
                 </tr>
             </thead>
@@ -54,18 +54,10 @@
                         <td>
                             <label class="users-table__checkbox">
                                 <input type="checkbox" class="check">
-                                <div class="categories-table-img">
-                                    <picture>
-                                        <source srcset="<?= $target_dir_file ?><?= $item["profile"] != null ? $item["profile"] : 'avatar.png' ?>" type="image/webp">
-                                        <img src="<?= $target_dir_file ?><?= $item["profile"] != null ? $item["profile"] : 'avatar.png' ?>" class="rounded-circle border" alt="<?= $item["first_name"] ?>" style="width: 40px; height: 40px;">
-                                    </picture>
-                                </div>
-                                <?= $item["first_name"] ?>
+                                <?= $item["cate_name"] ?>
                             </label>
                         </td>
-                        <td><?= $item["restaurant_id"] ?></td>
-                        <td><?= $item["cuisine"] ?></td>
-                        <td><?= $item["avialable_status"] ?></td>
+                        <td><?= $item["description"] ?></td>
                         <td>
                             <span class="p-relative">
                                 <button class="dropdown-btn transparent-btn" type="button" title="More info">

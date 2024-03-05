@@ -1,3 +1,3 @@
 <?php
-$category = getAllUsers(3);
+$category = getCategory();
 require "./views/restaurant/menu_item/menu_item.view.php";

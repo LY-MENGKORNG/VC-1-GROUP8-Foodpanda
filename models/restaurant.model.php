@@ -8,6 +8,13 @@ function getRestaurant($id) {
     return $stmt->fetch();
 }
 
+function getRestaurantByOwner($owner_id) {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM Restaurants WHERE owner_id = :owner_id");
+    $stmt->execute([":owner_id" => $owner_id]);
+    return $stmt->fetch();
+}
+
 function updateRestaurant($restaurant_id, $admin_id, $restaurant_name, $owner_name, $email, $password, $location, $rating, $opening_hour, $contect_info, $description,$is_open){
     global $connection;
     $stmt = $connection->prepare("UPDATE restaurants SET admin_id = :admin_id, restaurant_name = :restaurant_name, owner_name = :owner_name, email = :email, password = :password, location = :location, rating = :rating, 
@@ -44,14 +51,13 @@ function getAllFood() {
 }
 function createCategory(int $restaurant_id, string $cate_name, string $description){
     global $connection;
-    $stmt = $connection->prepare("INSERT INTO menuItems (restaurant_id, cate_name, description) VALUES (:id, :cate_name, :description)");
+    $stmt = $connection->prepare("INSERT INTO menuitems (restaurant_id, cate_name, description) VALUES (:id, :cate_name, :description)");
     $stmt -> execute([
         ":id" => $restaurant_id,
         ":cate_name" => $cate_name,
         ":description" => $description
     ]);
     return $stmt-> rowCount() > 0;
-    
 }
 
 // customer edit profile
