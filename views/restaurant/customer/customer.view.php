@@ -11,12 +11,12 @@
             </div>
           </div>
           <div class="btn-group col-2">
-            <button type="button" class="btn btn-primary" data-bs-toggle="dropdown" aria-expanded="false">
+            <button type="button" class="btn btn-primary rounded" data-bs-toggle="dropdown" aria-expanded="false">
               <i data-feather="filter" aria-hidden="true"></i>
               Action
             </button>
             <!-- I will do it next -->
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu ">
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
