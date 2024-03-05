@@ -7,19 +7,14 @@
     </div>
 
     <div class="container position-relative">
-<<<<<<< HEAD
-        <form class="py-5 osahan-profile row" action="/customer/edit_profile" method="post">
-
-=======
-        <form action="/customer/edit_profile" method="post" class="py-5 osahan-profile row">
->>>>>>> DEVELOP
+        <form action="/admin/edit_profile" method="post" class="py-5 osahan-profile row">
             <div class="col-md-4 mb-3">
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden p-5 d-flex flex-column align-items-center">
-                    <input type="file" name="profile_img" id="profile_img" style="display: none;">
+                    <input type="file" name="profile" id="profile" style="display: none;">
                     <div class="left rounded-circle d-flex align-items-center position-relative" style="width: 150px; height: 150px;">
-                        <img alt="#" src="../../assets/images/uploads/customer_profile/<?= $admin["profile"] ?>" class="rounded-circle" style="width: 100%; height: 100%;">
+                        <img alt="#" src="../../assets/images/uploads/admin_profile/<?= $admin["profile"] ?>" class="rounded-circle" style="width: 100%; height: 100%;">
                         <div class="rounded-circle bg-light border position-absolute d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; bottom: 5%; right: 5%">
-                            <label for="profile_img" class="m-auto ">
+                            <label for="profile" class="m-auto ">
                                 <i class="feather-camera fs-5 text-secondary"></i>
                             </label>
                         </div>
@@ -39,7 +34,6 @@
                     <h5 class="mb-4">My account</h5>
                     <div id="edit_profile">
                         <div>
-<<<<<<< HEAD
                             <div class="form-group">
                                 <input type="hidden" name="user_id" value="<?= $admin["user_id"] ?>">
                                 <label for="first_name">First Name</label>
@@ -56,25 +50,6 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control border" name="email" id="email" value="<?= $admin["email"] ?>" required>
-=======
-
-                            <div class="form-group">
-                                <input type="hidden" name="user_id" value="<?= $customer["user_id"] ?>">
-                                <label for="first_name">First Name</label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" value="<?= $customer["first_name"] ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="last_name">Last Name</label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" value="<?= $customer["last_name"] ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Mobile Number</label>
-                                <input type="tel" class="form-control" name="phone" id="phone" value="<?= $customer["phone"] ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" name="email" id="email" value="<?= $customer["email"] ?>" required>
->>>>>>> DEVELOP
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
