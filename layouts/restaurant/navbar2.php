@@ -79,9 +79,9 @@
                     <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
                         <span class="sr-only">My profile</span>
                         <span class="nav-user-img">
-                            <picture>
-                                <source srcset="../assets/images/uploads/owner_prfile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>">
-                                <img src="../assets/images/uploads/owner_prfile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" alt="User name">
+                            <picture class="overflow-hidden">
+                                <source srcset="../../assets/images/uploads/owner_profile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>">
+                                <img src="../../assets/images/uploads/owner_profile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" alt="User name">
                             </picture>
                         </span>
                     </button>

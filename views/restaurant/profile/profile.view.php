@@ -7,21 +7,22 @@
     </div>
 
     <div class="container position-relative">
-        <div class="py-5 osahan-profile row">
+        <form action="/restaurant/edit_profile" method="post" class="py-5 osahan-profile row" enctype="multipart/form-data">
             <div class="col-md-4 mb-3">
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden p-5 d-flex flex-column align-items-center">
-                    <input type="file" name="profile_img" id="profile_img" style="display: none;">
                     <div class="left rounded-circle d-flex align-items-center position-relative" style="width: 150px; height: 150px;">
-                        <img alt="#" src="../../assets/images/uploads/restaurants/owner/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" class="rounded-circle" style="width: 100%; height: 100%; border: 1px solid gray;">
-                        <div class="rounded-circle bg-light border position-absolute d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; bottom: 5%; right: 5%">
-                            <label for="profile_img" class="m-auto ">
-                                <i class="feather-camera fs-5 text-secondary"></i>
+                        <img alt="#" id="originImage" src="../../assets/images/uploads/owner_profile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" class="rounded-circle" style="width: 100%; height: 100%; border: 1px solid gray;">
+                        <div class="rounded-circle bg-light position-absolute d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; bottom: 5%; right: 5%; border: 1px solid gray;" >
+                            <label for="profile_img" class="m-auto">
+                                <input type="file" name="profile" id="profile_img" style="display: none;">
+                                <i class="feather-camera fs-5 text-secondary border text-primary"></i>
                             </label>
                         </div>
                     </div>
+                    
                     <div class="d-flex  d-flex flex-column gap-5 p-3">
                         <div class="left text-center">
-                            <h6 class="mb-1 font-weight-bold"><?= $restaurant_owner["first_name"]." ". $restaurant_owner["last_name"] ?><i class="feather-check-circle text-success"></i></h6>
+                            <h6 class="mb-1 font-weight-bold"><?= $restaurant_owner["first_name"] . " " . $restaurant_owner["last_name"] ?><i class="feather-check-circle text-success"></i></h6>
                             <p class="text-muted m-0 small">
                                 <span class="__cf_email__" data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[&#160;<?= $restaurant_owner["email"] ?>]</span>
                             </p>
@@ -34,28 +35,27 @@
                     <h5 class="mb-4">My account</h5>
                     <div id="edit_profile">
                         <div>
-                            <form action="/restaurant/edit_profile" method="post">
-                                <div class="form-group">
-                                    <input type="hidden" name="user_id" value="<?= $restaurant_owner["user_id"] ?>">
-                                    <label for="first_name">First Name</label>
-                                    <input type="text" class="form-control border" name="first_name" id="first_name" value="<?= $restaurant_owner["first_name"] ?>" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="last_name">Last Name</label>
-                                    <input type="text" class="form-control border" name="last_name" id="last_name" value="<?= $restaurant_owner["last_name"] ?>" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Mobile Number</label>
-                                    <input type="tel" class="form-control border" name="phone" id="phone" value="<?= $restaurant_owner["phone"] ?>" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control border" name="email" id="email" value="<?= $restaurant_owner["email"] ?>" required>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
-                                </div>
-                            </form>
+
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" value="<?= $restaurant_owner["user_id"] ?>">
+                                <label for="first_name">First Name</label>
+                                <input type="text" class="form-control border" name="first_name" id="first_name" value="<?= $restaurant_owner["first_name"] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name">Last Name</label>
+                                <input type="text" class="form-control border" name="last_name" id="last_name" value="<?= $restaurant_owner["last_name"] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Mobile Number</label>
+                                <input type="tel" class="form-control border" name="phone" id="phone" value="<?= $restaurant_owner["phone"] ?>" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control border" name="email" id="email" value="<?= $restaurant_owner["email"] ?>" required>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+                            </div>
                         </div>
                         <div class="additional">
                             <div class="change_password my-3">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">

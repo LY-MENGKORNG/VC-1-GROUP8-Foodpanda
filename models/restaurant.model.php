@@ -54,12 +54,21 @@ function createCategory(int $restaurant_id, string $cate_name, string $descripti
     
 }
 
-function getRestaurantByOwnerId($owner_id) {
+// customer edit profile
+function ownerEditProfile(string $first_name, string $last_name, string $email, string $phone, string $user_id) {
     global $connection;
-    $stmt = $connection->prepare(
-        "SELECT restaurants.restaurant_id FROM restaurants 
-        JOIN users ON users.user_id = restaurants.owner_id WHERE restaurants.owner_id = :owner_id;");
-    $stmt->execute([":owner_id" => $owner_id]);
-    return $stmt->fetchAll();
-}
+    $role_id = 2;
+    $stmt = $connection->prepare("UPDATE users SET 
+                    first_name = :first_name, last_name = :last_name, email = :email, phone = :phone 
+                    WHERE user_id = :user_id AND role_id = :role_id");
 
+    $stmt->execute([
+        ":first_name" => $first_name,
+        ":last_name" => $last_name,
+        ":email" => $email,
+        ":phone" => $phone,
+        ":user_id" => $user_id,
+        ":role_id" => $role_id
+    ]);
+    return $stmt->rowCount() > 0;
+}
