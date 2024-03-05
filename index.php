@@ -18,7 +18,7 @@ else if (urlIs("/restaurant") || urlIs("/restaurant/category") ||
         urlIs("/restaurant/delivery") || urlIs("/restaurant/customer") ||
         urlIs("/restaurant/food") ||urlIs("/restaurant/category") || 
         urlIs("/restaurant/add_category") || urlIs("/restaurant/profile") || 
-        urlIs("/restaurant/edit_profile")) 
+        urlIs("/restaurant/edit_profile") || urlIs("/restaurant/create_food")) 
 {
     require "./routers/resturant_router.php";
 }

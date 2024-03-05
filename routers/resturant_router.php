@@ -10,7 +10,7 @@ if (isset($_SESSION["restaurant_owner"])) {
     $routes = [
         '/restaurant' => 'controllers/restaurant/home/home.controller.php',
         '/restaurant/category' => 'controllers/restaurant/menu_item/menu_item.controller.php',
-        '/restaurant/add_category' => 'controllers/restaurant/menu_item/add_menu_item.controller.php',
+        '/restaurant/add_category' => 'controllers/restaurant/food/create_food.controller.php',
         '/restaurant/delivery' => 'controllers/restaurant/delivery/delivery.controller.php',
         '/restaurant/customer' => 'controllers/restaurant/customer/customer.controller.php',
         '/restaurant/food' => 'controllers/restaurant/food/food.controller.php',

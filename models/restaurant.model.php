@@ -60,6 +60,22 @@ function createCategory(int $restaurant_id, string $cate_name, string $descripti
     return $stmt-> rowCount() > 0;
 }
 
+function createFood(int $item_id, string $food_name, string $image, int $quantity, int $price, int $rating) {
+    global $connection;
+    $stmt = $connection->prepare("INSERT INTO foods (item_id, food_name, image, quantity, price, rating) 
+                                    VALUES (:item_id, :food_name, :image, :quantity, :price, :rating)");
+    
+    $stmt->execute([
+        ":item_id" => $item_id,
+        ":food_name" => $food_name,
+        ":image" => $image,
+        ":quantity" => $quantity,
+        ":price" => $price,
+        ":rating" => $rating
+    ]);
+    return $stmt-> rowCount() > 0;
+}   
+
 // customer edit profile
 function ownerEditProfile(string $first_name, string $last_name, string $email, string $phone, string $user_id) {
     global $connection;
