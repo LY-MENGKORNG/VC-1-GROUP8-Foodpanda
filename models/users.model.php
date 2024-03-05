@@ -49,8 +49,22 @@ function getOwner() {
     return $stmt->fetchAll();
 }
 
-function editUser() {
-    
+function editUser($first_name, $last_name, $email, $phone, $profile, $user_id) {
+    global $connection;
+    $stmt = $connection->prepare(
+        "UPDATE users SET first_name = :first_name, last_name = :last_name, 
+        email = :email, phone = :phone, profile = :profile WHERE user_id = :user_id
+        AND role_id = :role_id");
+        
+    $stmt->execute([
+        ":first_name" => $first_name,
+        ":last_name" => $last_name,
+        ":email" => $email,
+        ":phone" => $phone,
+        ":profile" => $profile,
+        ":user_id" => $user_id
+    ]);
+    return $stmt->rowCount() > 0;
 }
 
 function checkImage($image, $target_dir): bool
@@ -78,6 +92,14 @@ function addImageFolder($image, $target_dir)
 }
 
 
+function deleteImage($target_file) {
+    if (file_exists($target_file)) {
+        unlink($target_file);
+        return true;
+    }
+    return false;
+}
+
 function editProfile(string $first_name, string $last_name, string $email, string $phone, $profile, string $user_id, int $role_id) {
     global $connection;
     $stmt = $connection->prepare("UPDATE users SET 
@@ -96,7 +118,7 @@ function editProfile(string $first_name, string $last_name, string $email, strin
     return $stmt->rowCount() > 0;
 }
 
-function changeImage(string $target_dir, array $image, $profile) {
-    unlink($target_dir. $profile);
+function changeImage(string $target_dir, array $image, string $profile) {
+    unlink($target_dir.$profile);
     addImageFolder($image, $target_dir);
 }

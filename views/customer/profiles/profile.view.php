@@ -17,7 +17,7 @@
                             </div>
                             <div class="right">
                                 <h6 class="mb-1 font-weight-bold"><?= $customer["first_name"] ?><i class="feather-check-circle text-success"></i></h6>
-                                <p class="text-muted m-0 small"><span class="__cf_email__" data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[email&#160;protected]</span>
+                                <p class="text-muted m-0 small"><span class="__cf_email__" data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[&#160;protected]</span>
                                 </p>
                             </div>
                         </div>
