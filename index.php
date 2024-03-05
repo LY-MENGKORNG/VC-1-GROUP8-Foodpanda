@@ -8,7 +8,7 @@ if (urlIs("/admin") || urlIs("/admin/manage_restaurant") ||
     urlIs("/admin/add_restaurant") || urlIs("/admin/check_add_restaurant") ||
     urlIs("/admin/restaurant_owner") || urlIs("/admin/check_add_restaurant_owner") ||
     urlIs("/admin/restaurant_detail") || urlIs("/admin/edit_restaurant") ||
-    urlIs("/admin/profile")) 
+    urlIs("/admin/profile") || urlIs("/admin/edit_profile")) 
 { 
     require "routers/admin_router.php";
 }
@@ -17,7 +17,8 @@ if (urlIs("/admin") || urlIs("/admin/manage_restaurant") ||
 else if (urlIs("/restaurant") || urlIs("/restaurant/category") ||
         urlIs("/restaurant/delivery") || urlIs("/restaurant/customer") ||
         urlIs("/restaurant/food") ||urlIs("/restaurant/category") || 
-        urlIs("/restaurant/profile") || urlIs("/restaurant/edit_profile")) 
+        urlIs("/restaurant/add_category") || urlIs("/restaurant/profile") || 
+        urlIs("/restaurant/edit_profile")) 
 {
     require "./routers/resturant_router.php";
 }
