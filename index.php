@@ -23,6 +23,12 @@ else if (urlIs("/restaurant") || urlIs("/restaurant/category") ||
     require "./routers/resturant_router.php";
 }
 
+// Delivery routes
+else if (urlIs("/delivery")) 
+{
+    require "./routers/delivery_router.php";
+}
+
 // Customer routes
 else if(urlIs("/customer") || urlIs("/customer/checkout") || 
         urlIs("/customer/search") || urlIs("/customer/offers") ||
@@ -43,7 +49,9 @@ else if (
     urlIs("/customer/check-signout") || urlIs("/foodpanda")  ||
 
     urlIs("/restaurant/signin") || urlIs("/restaurant/check_signin") ||
-    urlIs("/restaurant/signout") || urlIs("/restaurant/check_signout")) 
+    urlIs("/restaurant/signout") || urlIs("/restaurant/check_signout") || 
+
+    urlIs("/delivery/signin") || urlIs("/delivery/check_signin")) 
 {
     require "./routers/authentication_router.php";
 }   
