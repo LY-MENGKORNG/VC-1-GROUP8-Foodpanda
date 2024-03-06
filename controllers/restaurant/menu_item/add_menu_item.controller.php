@@ -1,7 +1,7 @@
 <?php
 $owner_id = $restaurant_owner["user_id"];
 $restaurant_id = getRestaurantByOwner($owner_id)["restaurant_id"];
-
+echo $restaurant_id;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty(($_POST["cate_name"])) && !empty($_POST["description"])) {
         $cate_name = $_POST["cate_name"];

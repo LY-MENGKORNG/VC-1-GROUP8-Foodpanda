@@ -118,7 +118,9 @@ function editProfile(string $first_name, string $last_name, string $email, strin
     return $stmt->rowCount() > 0;
 }
 
-function changeImage(string $target_dir, array $image, string $profile) {
-    unlink($target_dir.$profile);
+function changeImage(string $target_dir, array $image, $profile) {
+    if ($profile) {
+        unlink($target_dir.$profile);
+    }
     addImageFolder($image, $target_dir);
 }
