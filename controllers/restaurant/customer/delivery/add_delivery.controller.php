@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $password = htmlspecialchars($_POST["password"]);
         $password_encrypt = password_hash($password, PASSWORD_BCRYPT);
 
-        if (createUser(2, $first_name, $last_name, $email, $password_encrypt, $contact_info)) {
+        if (createUser(3, $first_name, $last_name, $email, $password_encrypt, $contact_info)) {
             unset($_SESSION["is_delivery"]);
             header("Location: /restaurant/delivery");
         }else {
