@@ -29,6 +29,9 @@ $routes = [
     '/customer/check-signout' => 'controllers/authentication/customer/signout/check_signout.controller.php',
 
     '/delivery/signin' => 'controllers/authentication/delivery/signin/signin.controller.php',
+    '/delivery/check_signin' => 'controllers/authentication/delivery/signin/check_signin.controller.php',
+    '/delivery/signout' => 'controllers/authentication/delivery/signout/signout.controller.php',
+    '/delivery/check_signout' => 'controllers/authentication/delivery/signout/check_signout.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
