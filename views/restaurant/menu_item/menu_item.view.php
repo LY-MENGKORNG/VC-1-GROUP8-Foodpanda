@@ -44,11 +44,6 @@
                             Category Name
                         </label>
                     </th>
-<<<<<<< HEAD
-                    <th>Restaurant_id</th>
-                    <th>Category Name</th>
-=======
->>>>>>> origin/DEVELOP
                     <th>Description</th>
                     <th></th>
                 </tr>
@@ -62,11 +57,6 @@
                                 <?= $item["cate_name"] ?>
                             </label>
                         </td>
-<<<<<<< HEAD
-                        <td><?= $item["restaurant_id"] ?></td>
-                        <td><?= $item["cate_name"] ?></td>
-=======
->>>>>>> origin/DEVELOP
                         <td><?= $item["description"] ?></td>
                         <td>
                             <span class="p-relative">

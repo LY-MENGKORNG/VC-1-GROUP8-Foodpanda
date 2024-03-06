@@ -12,14 +12,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $phone = $_POST["phone"];
         $email = $_POST["email"];
         $profile = !empty($_FILES["profile"]) ? $_FILES["profile"] : $restaurant_owner["profile"];
-        $tartget_dir = "./assets/images/uploads/owner_profile/";
+        $tartget_dir = "assets/images/uploads/owner_profile/";
 
         if (!is_array($profile) && $profile == NULL) {
             if (editProfile($first_name, $last_name, $email, $phone, $profile, $user_id, 2)) {
                 $_SESSION["restaurant_owner"] = accountExist($email, 2);
                 $restaurant_owner = $_SESSION["restaurant_owner"];
             }
-            header("Location: /restaurant/profile");
 
         } else if (checkImage($profile, $tartget_dir)) {
             changeImage($tartget_dir, $profile, $restaurant_owner["profile"]);
@@ -27,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["restaurant_owner"] = accountExist($email, 2);
                 $restaurant_owner = $_SESSION["restaurant_owner"];
             }
-            header("Location: /restaurant/profile");
         }
+        header("Location: /restaurant/profile");
     }
 }
