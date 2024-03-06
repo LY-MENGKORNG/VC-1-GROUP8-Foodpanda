@@ -19,7 +19,7 @@
                         </h5>
                     </div>
                     <div class="modal-body">
-                        <form action="/restaurant/delivery/check_add_delivery" method="post" enctype="multipart/form-data">
+                        <form action="/restaurant/add_delivery" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="restaurant_name">First_Name</label>
@@ -72,20 +72,30 @@
         <table class="posts-table table table-striped">
             <thead>
                 <tr class="users-table-info">
-                    <th>Food Name</th>
-                    <th>Delivery Name</th>
-                    <th>Status</th>
-                    <th>Order Date</th>
+                    <th>
+                        <label class="users-table__checkbox ms-20">
+                            <input type="checkbox" class="check-all">
+                            First Name
+                        </label>
+                    </th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Contact info</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($delivery as $item) { ?>
                     <tr class="users-table-info">
-                        <td><?= $item["first_name"] ?></td>
+                        <td>
+                            <label class="users-table__checkbox">
+                                <input type="checkbox" class="check">
+                                <?= $item["first_name"] ?>
+                            </label>
+                        </td>
                         <td><?= $item["last_name"] ?></td>
                         <td><?= $item["email"] ?></td>
-                        <td><?= $item["registration_date"] ?></td>
+                        <td><?= $item["phone"] ?></td>
                         <td>Action</td>
                     </tr>
                 <?php } ?>
