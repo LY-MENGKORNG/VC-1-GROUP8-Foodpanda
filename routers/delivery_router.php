@@ -9,6 +9,8 @@ if (isset($_SESSION["delivery"])) {
     $page = "";
     $routes = [
         '/delivery' => 'controllers/delivery/home/home.controller.php',
+        '/delivery/profile' => 'controllers/delivery/profile/profile.controller.php',
+        '/delivery/notification' => 'controllers/delivery/notification/notification.controller.php',
     ];
 
     if (array_key_exists($uri, $routes)) { 
@@ -19,7 +21,6 @@ if (isset($_SESSION["delivery"])) {
     }
     require "./layouts/delivery/header.php";
     require "./layouts/delivery/navbar.php";
-    require "./layouts/delivery/navbar2.php";
     require $page;
     require "./layouts/delivery/footer.php";
 }else {

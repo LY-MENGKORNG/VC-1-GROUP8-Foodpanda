@@ -1,3 +1,4 @@
+<a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="section bg-white">
     <section class="main shadow-sm">
         <div class="container">
