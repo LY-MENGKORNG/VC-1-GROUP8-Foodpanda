@@ -8,6 +8,13 @@ function getRestaurant($id) {
     return $stmt->fetch();
 }
 
+function getRestaurantByOwner($owner_id) {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM restaurants WHERE owner_id = :owner_id");
+    $stmt->execute([":owner_id" => $owner_id]);
+    return $stmt->fetch();
+}
+
 function updateRestaurant($restaurant_id, $admin_id, $restaurant_name, $owner_name, $email, $password, $location, $rating, $opening_hour, $contect_info, $description,$is_open){
     global $connection;
     $stmt = $connection->prepare("UPDATE restaurants SET admin_id = :admin_id, restaurant_name = :restaurant_name, owner_name = :owner_name, email = :email, password = :password, location = :location, rating = :rating, 
@@ -42,15 +49,48 @@ function getAllFood() {
     $stmt->execute();
     return $stmt->fetchAll();
 }
-function createCategory($restaurant_id,$cuisine,$description){
+function createCategory(int $restaurant_id, string $cate_name, string $description){
     global $connection;
-    $stmt = $connection->prepare("INSERT INTO menuItems (restaurant_id, cuisine, description) VALUES (:id, :cuisine, :description)");
+    $stmt = $connection->prepare("INSERT INTO menuitems (restaurant_id, cate_name, description) VALUES (:id, :cate_name, :description)");
     $stmt -> execute([
         ":id" => $restaurant_id,
-        ":cuisine" => $cuisine,
+        ":cate_name" => $cate_name,
         ":description" => $description
     ]);
     return $stmt-> rowCount() > 0;
-    
 }
 
+function createFood(int $item_id, string $food_name, string $image, int $quantity, int $price, int $rating) {
+    global $connection;
+    $stmt = $connection->prepare("INSERT INTO foods (item_id, food_name, image, quantity, price, rating) 
+                                    VALUES (:item_id, :food_name, :image, :quantity, :price, :rating)");
+    
+    $stmt->execute([
+        ":item_id" => $item_id,
+        ":food_name" => $food_name,
+        ":image" => $image,
+        ":quantity" => $quantity,
+        ":price" => $price,
+        ":rating" => $rating
+    ]);
+    return $stmt-> rowCount() > 0;
+}   
+
+// customer edit profile
+function ownerEditProfile(string $first_name, string $last_name, string $email, string $phone, string $user_id) {
+    global $connection;
+    $role_id = 2;
+    $stmt = $connection->prepare("UPDATE users SET 
+                    first_name = :first_name, last_name = :last_name, email = :email, phone = :phone 
+                    WHERE user_id = :user_id AND role_id = :role_id");
+
+    $stmt->execute([
+        ":first_name" => $first_name,
+        ":last_name" => $last_name,
+        ":email" => $email,
+        ":phone" => $phone,
+        ":user_id" => $user_id,
+        ":role_id" => $role_id
+    ]);
+    return $stmt->rowCount() > 0;
+}

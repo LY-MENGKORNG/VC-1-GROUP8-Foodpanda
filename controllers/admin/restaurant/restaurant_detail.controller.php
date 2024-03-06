@@ -10,4 +10,3 @@ $owners = getOwner();
 $target_file_dir = "/assets/images/uploads/restaurants/";
 
 require "./views/admin/manage_restaurant/restaurant_detail.view.php";
-?>

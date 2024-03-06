@@ -3,10 +3,10 @@
     <nav class="main-nav--bg">
         <div class="container main-nav">
             <div class="main-nav-start">
-                <div class="search-wrapper">
+                <!-- <div class="search-wrapper">
                     <i data-feather="search" aria-hidden="true"></i>
                     <input type="text" placeholder="Enter keywords ..." required>
-                </div>
+                </div> -->
             </div>
             <div class="main-nav-end">
                 <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
@@ -79,9 +79,9 @@
                     <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
                         <span class="sr-only">My profile</span>
                         <span class="nav-user-img">
-                            <picture>
-                                <source srcset="../assets/images/uploads/owner_prfile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>">
-                                <img src="../assets/images/uploads/owner_prfile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" alt="User name">
+                            <picture class="overflow-hidden">
+                                <source srcset="../../assets/images/uploads/owner_profile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>">
+                                <img src="../../assets/images/uploads/owner_profile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" alt="User name">
                             </picture>
                         </span>
                     </button>
