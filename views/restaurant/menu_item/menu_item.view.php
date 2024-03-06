@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             <label for="description">Description:</label>
-                            <textarea name="description" id="description" class="form-control" style="min-height: 50px; max-height: 150px;" required></textarea>
+                            <textarea name="description" id="description" class="form-control" style="min-height: 100px; max-height: 200px;" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -65,13 +65,65 @@
                                     <i data-feather="more-horizontal" aria-hidden="true"></i>
                                 </button>
                                 <ul class="users-item-dropdown dropdown">
-                                    <li><a href="##">Edit</a></li>
+                                    <li><a class="btn btn-tranparent" data-bs-toggle="modal" data-bs-target="#editCate<?= $item["item_id"] ?>">Edit</a></li>
                                     <li><a href="##">Quick edit</a></li>
-                                    <li><a href="##">Trash</a></li>
+                                    <li><a class="btn btn-tranparent" data-bs-toggle="modal" data-bs-target="#deleteCate<?= $item["item_id"] ?>">Trash</a></li>
                                 </ul>
                             </span>
                         </td>
                     </tr>
+                    <!-- Modal edit -->
+                    <div class="modal fade" id="editCate<?= $item["item_id"] ?>" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content p-4">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        <h5 class="modal-title" id="modal-title">Edit Category</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/restaurant/edit_category" method="post">
+                                        <div class="form-group">
+                                            <label for="cate_name">Category Name:</label>
+                                            <input type="text" name="cate_name" id="cate_name" class="form-control border" value="<?= $item["cate_name"] ?>" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description">Description:</label>
+                                            <textarea name="description" id="description" class="form-control" style="min-height: 100px; max-height: 200px;"  required><?= $item["description"] ?></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal delete -->
+                    <div class="modal fade" id="deleteCate<?= $item["item_id"] ?>" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content p-4">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        <h5 class="modal-title" id="modal-title">Delete Category</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/restaurant/edit_category" method="post">
+                                        <div class="form-group">
+                                            <label for="cate_name">Category Name:</label>
+                                            <input type="text" name="cate_name" id="cate_name" class="form-control border" value="<?= $item["cate_name"] ?>" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description">Description:</label>
+                                            <textarea name="description" id="description" class="form-control" style="min-height: 100px; max-height: 200px;"  required><?= $item["description"] ?></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php } ?>
             </tbody>
         </table>
