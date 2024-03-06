@@ -43,8 +43,8 @@
                         </label>
                     </th>
                     <th>Restaurant_id</th>
-                    <th>Cuisine</th>
-                    <th>Avialable_status</th>
+                    <th>Category Name</th>
+                    <th>Description</th>
                     <th></th>
                 </tr>
             </thead>
@@ -64,8 +64,8 @@
                             </label>
                         </td>
                         <td><?= $item["restaurant_id"] ?></td>
-                        <td><?= $item["cuisine"] ?></td>
-                        <td><?= $item["avialable_status"] ?></td>
+                        <td><?= $item["cate_name"] ?></td>
+                        <td><?= $item["description"] ?></td>
                         <td>
                             <span class="p-relative">
                                 <button class="dropdown-btn transparent-btn" type="button" title="More info">
