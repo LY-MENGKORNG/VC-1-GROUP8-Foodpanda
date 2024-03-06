@@ -60,6 +60,18 @@ function createCategory(int $restaurant_id, string $cate_name, string $descripti
     return $stmt-> rowCount() > 0;
 }
 
+function editCategory($cate_name, $description, $item_id){
+    global $connection;
+    $stmt = $connection->prepare("UPDATE menuitems SET cate_name = :cate_name, description = :description WHERE item_id =:item_id");
+    $stmt->execute([
+        ":cate_name" => $cate_name,
+        ":description" => $description,
+        ":item_id" => $item_id
+        
+    ]);
+    return $stmt-> rowCount() > 0;
+}
+
 function createFood(int $item_id, string $food_name, string $image, int $quantity, int $price, int $rating) {
     global $connection;
     $stmt = $connection->prepare("INSERT INTO foods (item_id, food_name, image, quantity, price, rating) 
