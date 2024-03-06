@@ -23,6 +23,10 @@
                             <label for="cate_name">Category Name:</label>
                             <input type="text" name="cate_name" id="cate_name" class="form-control border" required>
                         </div>
+                        <div class="form-group ">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" id="image" class="form-control border" required>
+                        </div>
                         <div class="form-group">
                             <label for="description">Description:</label>
                             <textarea name="description" id="description" class="form-control" style="min-height: 50px; max-height: 150px;" required></textarea>

@@ -22,12 +22,14 @@
 
     <div class="container">
         <div class="cat-slider">
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
+            <?php foreach ($catergories as $category) {?>
+                <div class="cat-item px-1 py-3">
+                    <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
                     <img alt="#" src="assets/images/icons/Fries.png" class="img-fluid mb-2" />
                     <p class="m-0 small">Fries</p>
                 </a>
             </div>
+          <?php } ?>
         </div>
     </div>
 
