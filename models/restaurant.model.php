@@ -60,14 +60,13 @@ function createCategory(int $restaurant_id, string $cate_name, string $descripti
     return $stmt-> rowCount() > 0;
 }
 
-function editCategory($cate_name, $description, $item_id){
+function editCategory($item_id, $cate_name, $description){
     global $connection;
     $stmt = $connection->prepare("UPDATE menuitems SET cate_name = :cate_name, description = :description WHERE item_id =:item_id");
     $stmt->execute([
+        ":item_id" => $item_id,
         ":cate_name" => $cate_name,
-        ":description" => $description,
-        ":item_id" => $item_id
-        
+        ":description" => $description
     ]);
     return $stmt-> rowCount() > 0;
 }
