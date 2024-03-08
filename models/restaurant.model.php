@@ -72,6 +72,13 @@ function editCategory($cate_name, $description, $item_id){
     return $stmt-> rowCount() > 0;
 }
 
+function deleteCategory($id){
+    global $connection;
+    $stmt = $connection->prepare("DELETE FROM menuitems where item_id = :id");
+    $stmt->execute([":id"=>$id]);
+    return $stmt-> rowCount() > 0;
+}
+
 function createFood(int $item_id, string $food_name, string $image, int $quantity, int $price, int $rating) {
     global $connection;
     $stmt = $connection->prepare("INSERT INTO foods (item_id, food_name, image, quantity, price, rating) 

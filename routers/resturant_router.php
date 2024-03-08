@@ -12,6 +12,7 @@ if (isset($_SESSION["restaurant_owner"])) {
         '/restaurant/category' => 'controllers/restaurant/menu_item/menu_item.controller.php',
         '/restaurant/add_category' => 'controllers/restaurant/menu_item/add_menu_item.controller.php',
         '/restaurant/edit_category' => 'controllers/restaurant/menu_item/edit_menu_item.controller.php',
+        '/restaurant/delete_cate' => 'controllers/restaurant/menu_item/delete_menu_item.controller.php',
         '/restaurant/delivery' => 'controllers/restaurant/delivery/delivery.controller.php',
         '/restaurant/customer' => 'controllers/restaurant/customer/customer.controller.php',
         '/restaurant/food' => 'controllers/restaurant/food/food.controller.php',
