@@ -18,7 +18,7 @@
                     </h5>
                 </div>
                 <div class="modal-body">
-                    <form action="/restaurant/add_category" method="post" enctype="multipart/form-data">
+                    <form action="/restaurant/add_food" method="post" enctype="multipart/form-data">
                         <div class="form-group m-auto border border-info rounded-circle d-flex justify-content-center align-items-center" style="width: 100px; height: 100px;">
                             <input type="file" name="image" id="image" style="display: none;" required>
                             <label for="image">
