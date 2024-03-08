@@ -24,8 +24,8 @@ else if (urlIs("/restaurant") || urlIs("/restaurant/category") ||
 }
 
 // Delivery routes
-else if(urlIs("/delivery") || urlIs("/delivery/profile") || urlIs("/delivery/notification") || 
-        urlIs("/delivery/dashboard") || urlIs("/delivery/shipping")) 
+else if(urlIs("/delivery") || urlIs("/delivery/profile") || urlIs("/delivery/edit_profile") ||
+        urlIs("/delivery/notification") || urlIs("/delivery/dashboard") || urlIs("/delivery/shipping")) 
 {
     require "./routers/delivery_router.php";
 }
