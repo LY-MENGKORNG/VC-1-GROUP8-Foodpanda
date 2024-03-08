@@ -1,24 +1,4 @@
 <?php
-function rejectEmail($email, $password): bool {
-
-    $emailPattern = ' /^\w+(\.\w+)*@[\w-]+(\.[\w-]+)+$/ ';
-    $passwordPattern = 8;
-
-    $emailValid = preg_match($emailPattern, $email);
-    $passwordValid = preg_match($passwordPattern, $password);
-
-    if (!$emailValid || !$passwordValid) {
-        if (rejectEmail($email,$password)){
-            echo "You got wrong";
-        }
-        return false;
-
-    } else {
-        echo "You got right";
-    }
-
-    return true;
-}
 
 function createRestaurant(int $owner_id, string $restaurant_name, string $location, string $email, string $password,
                         string $contact_info, string $restaurant_img, string $description)  
@@ -140,3 +120,5 @@ function saveAccountData($first_name,$last_name,$email,$password,$phone,$profile
 
 
 }
+
+
