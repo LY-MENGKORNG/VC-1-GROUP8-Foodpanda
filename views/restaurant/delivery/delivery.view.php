@@ -96,8 +96,55 @@
                         <td><?= $item["last_name"] ?></td>
                         <td><?= $item["email"] ?></td>
                         <td><?= $item["phone"] ?></td>
-                        <td>Action</td>
+                        <td>
+                            <span class="p-relative">
+                                <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                                    <div class="sr-only">More info</div>
+                                    <i data-feather="more-horizontal" aria-hidden="true"></i>
+                                </button>
+                                <ul class="users-item-dropdown dropdown">
+                                    <li><a class="btn btn-tranparent" data-bs-toggle="modal" data-bs-target="#editDelivery">Edit</a></li>
+                                    <li><a href="##">Quick edit</a></li>
+                                    <li><a href="##">Trash</a></li>
+                                </ul>
+                            </span>
+                        </td>
                     </tr>
+                    <!-- Modal edit -->
+                    <div class="modal fade" id="editDelivery" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content p-4">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        <h5 class="modal-title" id="modal-title">Edit Delivery</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/restaurant/edit_delivery" method="post">
+                                        <div class="form-group">
+                                            <input type="hidden" name="item_id">
+                                            <label for="first_name">First Name</label>
+                                            <input type="text" name="first_name" id="first_name" class="form-control border" value="<?= $item["first_name"]?>" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="last_name">Last Name</label>
+                                            <input type="text" name="last_name" id="last_name" class="form-control border" value="<?= $item["last_name"]?>"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" id="email" class="form-control border" value="<?= $item["email"]?>"required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phone">Contect info</label>
+                                            <input type="number" name="phone" id="phone" class="form-control border" value="<?= $item["phone"]?>" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php } ?>
             </tbody>
         </table>
