@@ -18,14 +18,18 @@
                     </h5>
                 </div>
                 <div class="modal-body">
-                    <form action="/restaurant/add_category" method="post">
+                    <form action="/restaurant/add_category" method="post" enctype="multipart/form-data">
+                        <div class="form-group ">
+                            <label for="image">Image</label>
+                            <input type="file" name="image" id="image" class="form-control border border-info" required>
+                        </div>
                         <div class="form-group">
                             <label for="cate_name">Category Name:</label>
-                            <input type="text" name="cate_name" id="cate_name" class="form-control border" required>
+                            <input type="text" name="cate_name" id="cate_name" class="form-control border border-info" required>
                         </div>
                         <div class="form-group">
                             <label for="description">Description:</label>
-                            <textarea name="description" id="description" class="form-control" style="min-height: 100px; max-height: 200px;" required></textarea>
+                            <textarea name="description" id="description" class="form-control border border-info" style="min-height: 50px; max-height: 150px;" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -41,9 +45,10 @@
                     <th>
                         <label class="users-table__checkbox ms-20">
                             <input type="checkbox" class="check-all">
-                            Category Name
+                            Image
                         </label>
                     </th>
+                    <th>Name</th>
                     <th>Description</th>
                     <th></th>
                 </tr>
@@ -54,9 +59,14 @@
                         <td>
                             <label class="users-table__checkbox">
                                 <input type="checkbox" class="check">
-                                <?= $item["cate_name"] ?>
+                                <div class="categories-table-img">
+                                    <picture>
+                                        <source srcset="../../assets/images/uploads/restaurants/categories/<?= $item["item_img"] ?>" type="image/webp"><img src="assets/images/categories/01.jpg" alt="category">
+                                    </picture>
+                                </div>
                             </label>
                         </td>
+                        <td><?= $item["cate_name"] ?></td>
                         <td><?= $item["description"] ?></td>
                         <td>
                             <span class="p-relative">
