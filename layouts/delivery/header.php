@@ -16,6 +16,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/logo/panda-logo.png" />
   <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../../vendor/css/style.min.css">
 
   <link href="../../vendor/icons/feather.css" rel="stylesheet" type="text/css" />
 
@@ -25,5 +26,5 @@
 </head>
 
 <body>
-    <div class="wrapper position-relative">
+    <div class="wrapper position-relative bg-white">
   

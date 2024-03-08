@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group col-6">
                                 <label for="rating">Rating:</label>
-                                <input type="number" name="rating" id="rating" min="0" class="form-control border border-info" required>
+                                <input type="number" name="rating" id="rating" min="0" max="5" class="form-control border border-info" required>
                             </div>
                         </div>
                         <div class="form-group">

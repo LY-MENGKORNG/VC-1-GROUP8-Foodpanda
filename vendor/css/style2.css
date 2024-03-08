@@ -54,7 +54,7 @@ body {
 .toggle-btn {
     background-color: transparent;
     cursor: pointer;
-    border: 0;
+    border: none;
     padding: 1rem 1.5rem;
 }
 
@@ -95,9 +95,11 @@ a.sidebar-link {
 .sidebar-link i {
     font-size: 1.1rem;
     margin-right: .75rem;
+    transition: 0.1s;
 }
 
-a.sidebar-link:hover {
+a.sidebar-link:hover, a.sidebar-link:active {
+    /* color: #FF2B85; */
     background-color: rgba(255, 255, 255, .075);
     border-left: 3px solid #3b7ddd;
 }
