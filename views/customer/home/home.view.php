@@ -1,4 +1,3 @@
-
 <div class="osahan-home-page">
     <div class="bg-primary p-3 d-none">
         <div class="text-white">
@@ -25,7 +24,7 @@
             <?php foreach ($categories as $category) { ?>
                 <div class="cat-item px-1 py-3">
                     <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                        <img alt="#" src="assets/images/uploads/restaurants/foods/<?= $category['cate_name'] ?>" class="img-fluid mb-2" />
+                        <img alt="#" src="assets/images/uploads/restaurants/categories/<?= $category['item_img'] ?>" class="img-fluid mb-2" />
                         <p class="m-0 small"><?= $category["cate_name"] ?></p>
                     </a>
                 </div>
