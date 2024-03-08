@@ -579,7 +579,7 @@ p {
 .otp input.form-control.form-control-lg {
     text-align: center!important;
     font-size: 44px;
-    border: 1px solid #ccc!important;
+    border: 1px solid #888888!important;
     border-radius: 8px;
     margin: auto
 }
@@ -592,7 +592,7 @@ p {
     background: no-repeat;
     border: none;
     color: #000;
-    border-bottom: 1px solid rgb(160 160 160/32%);
+    border-bottom: 1px solid rgba(160, 160, 160, 0.678);
     border-radius: 0;
     padding: 0;
     box-shadow: none!important
@@ -628,7 +628,7 @@ p {
 .osahan-verification .form-control {
     text-align: center;
     font-size: 47px;
-    border-bottom: 2px solid #ccc!important;
+    border-bottom: 2px solid #919191!important;
     border: none;
     border-radius: 0;
     font-weight: 300;

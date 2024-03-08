@@ -18,7 +18,7 @@
                     </h5>
                 </div>
                 <div class="modal-body">
-                    <form action="/restaurant/add_category" method="post" enctype="multipart/form-data">
+                    <form action="/restaurant/add_food" method="post" enctype="multipart/form-data">
                         <div class="form-group m-auto border border-info rounded-circle d-flex justify-content-center align-items-center" style="width: 100px; height: 100px;">
                             <input type="file" name="image" id="image" style="display: none;" required>
                             <label for="image">
@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group col-6">
                                 <label for="rating">Rating:</label>
-                                <input type="number" name="rating" id="rating" min="0" class="form-control border border-info" required>
+                                <input type="number" name="rating" id="rating" min="0" max="5" class="form-control border border-info" required>
                             </div>
                         </div>
                         <div class="form-group">
