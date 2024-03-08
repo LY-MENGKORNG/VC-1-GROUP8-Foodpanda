@@ -20,6 +20,7 @@ if (isset($_SESSION["customer"])) {
         '/customer/search' => 'controllers/customer/search/search.controller.php',
         '/customer/offers' => 'controllers/customer/offer/customer_offer.controller.php',
         '/customer/edit_profile' => 'controllers/customer/profiles/edit_profile.controller.php',
+        '/customer/trending' => 'controllers/customer/trending/trending.controller.php',
     ];
     if (array_key_exists($uri, $routes)) {
         $page = $routes[$uri];
