@@ -23,7 +23,7 @@
   <link href="../../vendor/css/style2.css" rel="stylesheet" />
   <link href="../../vendor/css/style.css" rel="stylesheet" />
 
-</head>
+</head> 
 
 <body>
     <div class="wrapper position-relative bg-white">
