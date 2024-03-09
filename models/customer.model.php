@@ -59,14 +59,14 @@ function customerEditProfile(string $first_name, string $last_name, string $emai
 // get all categories
 function getCategories() {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM menuitems");
+    $stmt = $connection->prepare("SELECT * FROM categories");
     $stmt->execute();
     return $stmt->fetchAll();
 }
 
-function getFoodsById($item_id) {
+function getFoodsById($cate_id) {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM foods WHERE item_id = :item_id");
-    $stmt->execute([":item_id" => $item_id]);
+    $stmt = $connection->prepare("SELECT * FROM foods WHERE cate_id = :cate_id");
+    $stmt->execute([":cate_id" => $cate_id]);
     return $stmt->fetchAll();
 }

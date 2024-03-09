@@ -17,9 +17,9 @@ $routes = [
     '/restaurant/signout' => 'controllers/authentication/restaurant/signout/signout.controller.php',
     '/restaurant/check_signout' => 'controllers/authentication/restaurant/signout/check_signout.controller.php',
 
-    '/customer/check-signup' => 'controllers/authentication/customer/signup/check_signup.controller.php',
+    '/customer/check_signup' => 'controllers/authentication/customer/signup/check_signup.controller.php',
     '/customer/signin' => 'controllers/authentication/customer/signin/signin.controller.php',
-    '/customer/check-signin' => 'controllers/authentication/customer/signin/check_signin.controller.php',
+    '/customer/check_signin' => 'controllers/authentication/customer/signin/check_signin.controller.php',
     '/customer/signout' => 'controllers/authentication/customer/signout/signout.controller.php',
     '/customer/check-signout' => 'controllers/authentication/customer/signout/check_signout.controller.php',
 

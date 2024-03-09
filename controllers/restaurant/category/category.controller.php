@@ -7,4 +7,4 @@ $category = array_filter($category, function ($item) {
     global $restaurant_id;
     return $item["restaurant_id"] == $restaurant_id;
 });
-require "./views/restaurant/menu_item/menu_item.view.php";
+require "./views/restaurant/category/category.view.php";

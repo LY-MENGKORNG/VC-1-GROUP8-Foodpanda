@@ -1,6 +1,7 @@
 <?php
 $owner_id = $restaurant_owner["user_id"];
 $restaurant_id = getRestaurantByOwner($owner_id)["restaurant_id"];
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty(($_POST["cate_name"])) && !empty($_FILES["image"]) &&  !empty($_POST["description"])) {
         $cate_name = $_POST["cate_name"];
@@ -9,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $path_dir = "assets/images/uploads/restaurants/categories/";
 
+        var_dump($restaurant_id);
         if (checkImage($cate_img, $path_dir)) {
             addImageFolder($cate_img, $path_dir);
             createCategory(intval($restaurant_id), $cate_name, $description, $cate_img['name']);

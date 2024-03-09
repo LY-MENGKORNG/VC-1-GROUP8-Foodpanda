@@ -6,8 +6,11 @@ if (isset($_SESSION["restaurant_owner"])) {
     $page = "";
     $routes = [
         '/restaurant' => 'controllers/restaurant/home/home.controller.php',
-        '/restaurant/category' => 'controllers/restaurant/menu_item/menu_item.controller.php',
-        '/restaurant/add_category' => 'controllers/restaurant/menu_item/add_menu_item.controller.php',
+        '/restaurant/category' => 'controllers/restaurant/category/category.controller.php',
+        '/restaurant/add_category' => 'controllers/restaurant/category/add_category.controller.php',
+        '/restaurant/edit_category' => 'controllers/restaurant/category/edit_category.controller.php',
+        '/restaurant/delete_category' => 'controllers/restaurant/category/delete_category.controller.php',
+
         '/restaurant/delivery' => 'controllers/restaurant/delivery/delivery.controller.php',
         '/restaurant/customer' => 'controllers/restaurant/customer/customer.controller.php',
         '/restaurant/food' => 'controllers/restaurant/food/food.controller.php',

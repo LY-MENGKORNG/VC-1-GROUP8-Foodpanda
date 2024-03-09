@@ -49,9 +49,9 @@ else if (
     urlIs("/admin/check_signin") || urlIs("/admin/check_signup") ||
     urlIs("/admin/signout") || urlIs("/admin/check-signout") ||
     
-    urlIs("/customer/check-signup") || urlIs("/customer/signin") || 
-    urlIs("/customer/check-signin") || urlIs("/customer/signout") || 
-    urlIs("/customer/check-signout") || urlIs("/foodpanda")  ||
+    urlIs("/customer/check_signup") || urlIs("/customer/signin") || 
+    urlIs("/customer/check_signin") || urlIs("/customer/signout") || 
+    urlIs("/customer/check_signout") || urlIs("/foodpanda")  ||
 
     urlIs("/restaurant/signin") || urlIs("/restaurant/check_signin") ||
     urlIs("/restaurant/signout") || urlIs("/restaurant/check_signout") || 

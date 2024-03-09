@@ -25,12 +25,12 @@
                 <form action="/customer/trending" method="post">
                     <div class="cat-item px-1 py-3" id="cate">
                         <label for="button" class="bg-white rounded d-block p-2 text-center shadow-sm">
-                            <img alt="#" src="assets/images/uploads/restaurants/categories/<?= $category['item_img'] ?>" class="img-fluid mb-2" />
+                            <img alt="#" src="assets/images/uploads/restaurants/categories/<?= $category['cate_img'] ?>" class="img-fluid mb-2" />
                             <p class="m-0 small"><?= $category["cate_name"] ?></p>
                         </label>
                     </div>
                     <input id="inputId" type="hidden" name="" value="">
-                    <button id="button" value="<?= $category["item_id"] ?>" type="submit"  style="display: none;"></button>
+                    <button id="button" value="<?= $category["cate_id"] ?>" type="submit"  style="display: none;"></button>
                 </form>
             <?php } ?>
         </div>

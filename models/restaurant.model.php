@@ -49,14 +49,15 @@ function getAllFood() {
     $stmt->execute();
     return $stmt->fetchAll();
 }
-function createCategory(int $restaurant_id, string $cate_name, string $description, $item_img){
+function createCategory(int $restaurant_id, string $cate_name, string $description, $cate_img){
     global $connection;
-    $stmt = $connection->prepare("INSERT INTO menuitems (restaurant_id, cate_name, description,item_img) VALUES (:id, :cate_name, :description,:item_img)");
+    $stmt = $connection->prepare("INSERT INTO categories (restaurant_id, cate_name, description, cate_img) VALUES 
+                                (:id, :cate_name, :description,:cate_img)");
     $stmt -> execute([
         ":id" => $restaurant_id,
         ":cate_name" => $cate_name,
         ":description" => $description,
-        ":item_img" => $item_img
+        ":cate_img" => $cate_img
     ]);
     return $stmt-> rowCount() > 0;
 }
