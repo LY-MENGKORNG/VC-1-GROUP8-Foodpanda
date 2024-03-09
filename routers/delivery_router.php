@@ -8,6 +8,7 @@ if (isset($_SESSION["delivery"])) {
         '/delivery' => 'controllers/delivery/home/home.controller.php',
         '/delivery/dashboard' => 'controllers/delivery/home/home.controller.php',
         '/delivery/profile' => 'controllers/delivery/profile/profile.controller.php',
+        '/delivery/edit_profile' => 'controllers/delivery/profile/edit_profile.controller.php',
         '/delivery/notification' => 'controllers/delivery/notification/notification.controller.php',
         '/delivery/shipping' => 'controllers/delivery/shipping/shipping.controller.php',
     ];

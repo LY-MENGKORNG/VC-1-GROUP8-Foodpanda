@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
         } else if (checkImage($profile, $tartget_dir)) {
             changeImage($tartget_dir, $profile, $admin["profile"]);
-            changeImage($tartget_dir, $profile, $admin["profile"]);
+            changeImage($tartget_dir2, $profile, $admin["profile"]);
             if (edituser($first_name, $last_name, $email, $phone, $profile["name"], $user_id, 1)) {
                 $_SESSION["admin"] = accountExist($email, 1);
                 $admin = $_SESSION["admin"];

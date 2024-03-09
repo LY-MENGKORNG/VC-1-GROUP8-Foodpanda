@@ -63,3 +63,10 @@ function getCategories() {
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
+function getFoodsById($item_id) {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM foods WHERE item_id = :item_id");
+    $stmt->execute([":item_id" => $item_id]);
+    return $stmt->fetchAll();
+}
