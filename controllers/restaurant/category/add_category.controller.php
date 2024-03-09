@@ -7,7 +7,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cate_name = $_POST["cate_name"];
         $description = $_POST["description"];
         $cate_img = $_FILES["image"];
-
         $path_dir = "assets/images/uploads/restaurants/categories/";
 
         if (checkImage($cate_img, $path_dir)) {
