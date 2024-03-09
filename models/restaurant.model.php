@@ -62,13 +62,26 @@ function createCategory(int $restaurant_id, string $cate_name, string $descripti
     return $stmt-> rowCount() > 0;
 }
 
-function createFood(int $item_id, string $food_name, string $image, int $quantity, int $price, int $rating) {
+function editCategory(int $cate_id, string $cate_name, string $description, string | array $cate_img) : bool {
     global $connection;
-    $stmt = $connection->prepare("INSERT INTO foods (item_id, food_name, image, quantity, price, rating) 
-                                    VALUES (:item_id, :food_name, :image, :quantity, :price, :rating)");
+    $stmt = $connection->prepare("UPDATE categories SET cate_name = :cate_name, description = :description, 
+                                cate_img = :cate_img WHERE cate_id = :cate_id");
+    $stmt->execute([
+        ":cate_name" => $cate_name,
+        ":description" => $description,
+        ":cate_img" => $cate_img,
+        ":cate_id" => $cate_id
+    ]);
+    return $stmt->rowCount() > 0;
+}
+
+function createFood(int $cate_id, string $food_name, string $image, int $quantity, int $price, int $rating) {
+    global $connection;
+    $stmt = $connection->prepare("INSERT INTO foods (cate_id, food_name, image, quantity, price, rating) 
+                                    VALUES (:cate_id, :food_name, :image, :quantity, :price, :rating)");
     
     $stmt->execute([
-        ":item_id" => $item_id,
+        ":cate_id" => $cate_id,
         ":food_name" => $food_name,
         ":image" => $image,
         ":quantity" => $quantity,
@@ -78,7 +91,7 @@ function createFood(int $item_id, string $food_name, string $image, int $quantit
     return $stmt-> rowCount() > 0;
 }   
 
-// customer edit profile
+// owner edit profile
 function ownerEditProfile(string $first_name, string $last_name, string $email, string $phone, string $user_id) {
     global $connection;
     $role_id = 2;

@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $path_dir = "assets/images/uploads/restaurants/categories/";
 
-        var_dump($restaurant_id);
         if (checkImage($cate_img, $path_dir)) {
             addImageFolder($cate_img, $path_dir);
             createCategory(intval($restaurant_id), $cate_name, $description, $cate_img['name']);

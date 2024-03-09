@@ -86,35 +86,34 @@
                                     <div class="sr-only">More info</div>
                                     <i data-feather="more-horizontal" aria-hidden="true"></i>
                                 </button>
-                                <ul class="users-cate$category-dropdown dropdown">
-                                    <li>
-                                        <a class="btn btn-tranparent" data-bs-toggle="modal"
-                                            data-bs-target="#edit<?= $category["cate_id"] ?>">Edit
-                                        </a>
-                                    </li>
+                                <ul class="users-item-dropdown dropdown">
+                                    <li><a class="btn btn-tranparent" data-bs-toggle="modal"
+                                            data-bs-target="#editCate<?= $category["cate_id"] ?>">Edit</a></li>
+                                    <li><a class="btn btn-tranparent" data-bs-toggle="modal"
+                                            data-bs-target="#deleteCate<?= $category["cate_id"] ?>">Trash</a></li>
                                 </ul>
                             </span>
                         </td>
                     </tr>
                     <!-- edit category -->
-                    <div class="modal fade" id="edit<?= $category["cate_id"] ?>" tabindex="-1" aria-labelledby="modal-title"
+                    <div class="modal fade" id="editCate<?= $category["cate_id"] ?>" tabindex="-1" aria-labelledby="modal-title"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content p-4">
                                 <div class="modal-header">
                                     <h5 class="modal-title">
-                                        <h5 class="modal-title" id="modal-title">Create new Category</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <h5 class="modal-title text-dark" id="modal-title">Edit Category</h5>
+                                        <button type="button" class="btn btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"><i class="feather-x" style="font-size: 20px;"></i></button>
                                     </h5>
                                 </div>
-                                <div class="modal-body">
+                                <div class="modal-body text-dark">
                                     <form action="/restaurant/edit_category" method="post" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="form-group col-6">
                                                 <label for="image">Image</label>
                                                 <input type="file" name="image" id="image"
-                                                    class="form-control border border-info" required>
+                                                    class="form-control border border-info">
                                             </div>
                                             <div class="form-group col-6">
                                                 <label for="cate_name">Category Name:</label>
@@ -127,15 +126,58 @@
                                             <label for="description">Description:</label>
                                             <textarea name="description" id="description"
                                                 class="form-control border border-info"
-                                                style="min-height: 50px; max-height:200px;"
-                                                name="<?= $category["description"] ?>" required></textarea>
+                                                style="min-height: 50px; max-height:200px;" required><?= $category["description"] ?></textarea>
                                         </div>
+                                        <input type="hidden" name="cate_id" value="<?= $category["cate_id"] ?>">
+                                        <input type="hidden" name="current_img" value="<?= $category["cate_img"] ?>">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- delete category -->
+                    <div class="modal fade" id="deleteCate<?= $category["cate_id"] ?>" tabindex="-1" aria-labelledby="modal-title"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content p-4">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        <h5 class="modal-title text-dark" id="modal-title">Edit Category</h5>
+                                        <button type="button" class="btn btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"><i class="feather-x" style="font-size: 20px;"></i></button>
+                                    </h5>
+                                </div>
+                                <div class="modal-body text-dark">
+                                    <form action="/restaurant/edit_category" method="post" enctype="multipart/form-data">
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label for="image">Image</label>
+                                                <input type="file" name="image" id="image"
+                                                    class="form-control border border-info">
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label for="cate_name">Category Name:</label>
+                                                <input type="text" name="cate_name" id="cate_name"
+                                                    class="form-control border border-info"
+                                                    value="<?= $category["cate_name"] ?>" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description">Description:</label>
+                                            <textarea name="description" id="description"
+                                                class="form-control border border-info"
+                                                style="min-height: 50px; max-height:200px;" required><?= $category["description"] ?></textarea>
+                                        </div>
+                                        <input type="hidden" name="cate_id" value="<?= $category["cate_id"] ?>">
+                                        <input type="hidden" name="current_img" value="<?= $category["cate_img"] ?>">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 <?php } ?>
             </tbody>
         </table>
