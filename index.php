@@ -6,7 +6,7 @@ require 'database/database.php';
 if (urlIs("/admin") || urlIs("/admin/manage_restaurant") || 
     urlIs("/admin/check_add_restaurant")) 
 { 
-    require "routers/admin_router.php";
+    require "routers/admin_router.php";   
 }
 
 // Restaurant routes
