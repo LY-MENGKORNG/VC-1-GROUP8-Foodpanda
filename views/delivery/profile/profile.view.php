@@ -8,7 +8,7 @@
         </div>
 
         <div class="container position-relative">
-            <form action="/delivery/edit_profile" method="post" class="py-5 osahan-profile row">
+            <form action="/delivery/edit_profile" enctype="multipart/form-data" method="post" class="py-5 osahan-profile row">
                 <div class="col-md-4 mb-3">
                     <div class="bg-white rounded shadow-sm overflow-hidden pt-3 d-flex flex-column align-items-center">
                         <input type="file" name="profile" id="profile" style="display: none;">

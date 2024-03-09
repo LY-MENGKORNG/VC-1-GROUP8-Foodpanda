@@ -1,8 +1,5 @@
 <?php
-session_start();
-ob_start();
 require "./models/restaurant.model.php";
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 if (isset($_SESSION["restaurant_owner"])) {
     $restaurant_owner = $_SESSION["restaurant_owner"];

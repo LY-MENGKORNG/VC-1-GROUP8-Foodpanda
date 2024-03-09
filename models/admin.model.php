@@ -23,22 +23,26 @@ function rejectEmail($email, $password): bool {
 function createRestaurant(int $owner_id, string $restaurant_name, string $location, string $email, string $password,
                         string $contact_info, string $restaurant_img, string $description)  
 {
-    global $connection;
-    $stmt = $connection->prepare("INSERT INTO restaurants 
-    (owner_id, restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
-    (:owner_id, :restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
-
-    $stmt->execute([
-        ":owner_id" => $owner_id,
-        ":restaurant_name" => $restaurant_name,
-        ":location" => $location,
-        ":email" => $email,
-        ":password" => $password,
-        ":contact_info" => $contact_info,
-        ":restaurant_img" => $restaurant_img,
-        ":description" => $description
-    ]);
-    return $stmt->rowCount() > 0;
+    try {
+        global $connection;
+        $stmt = $connection->prepare("INSERT INTO restaurants 
+        (owner_id, restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
+        (:owner_id, :restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
+    
+        $stmt->execute([
+            ":owner_id" => $owner_id,
+            ":restaurant_name" => $restaurant_name,
+            ":location" => $location,
+            ":email" => $email,
+            ":password" => $password,
+            ":contact_info" => $contact_info,
+            ":restaurant_img" => $restaurant_img,
+            ":description" => $description
+        ]);
+        return true;
+    } catch (\Throwable $th) {
+        return false;
+    }
 }
 
 function getAllRestaurants() {
@@ -52,7 +56,7 @@ function getRestaurantById($id)  {
     global $connection;
     $stmt = $connection->prepare("SELECT users.first_name, users.last_name, restaurants.restaurant_id, 
     restaurants.owner_id, restaurants.restaurant_name, restaurants.location, restaurants.email, 
-    restaurants.rating, restaurants.opening_hours, restaurants.contact_info, restaurants.description, 
+    restaurants.rating, restaurants.opening_hour, restaurants.contact_info, restaurants.description, 
     restaurants.restaurant_img FROM users RIGHT JOIN restaurants ON users.user_id = restaurants.owner_id 
     WHERE restaurants.restaurant_id = :id");
 

@@ -1,3 +1,8 @@
+<?php 
+if (count(getAllUsers(1)) == 0) {
+    header('Location: /admin/signup');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 

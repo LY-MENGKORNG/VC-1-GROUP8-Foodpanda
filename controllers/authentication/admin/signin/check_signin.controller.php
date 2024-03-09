@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $admin = accountExist($email, 1);
         if (count($admin) > 0) {
             if (password_verify($password, $admin['password'])) {
-                session_start();
                 $_SESSION['admin'] = $admin;
                 header("Location: /admin");
             } else {

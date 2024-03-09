@@ -1,17 +1,14 @@
 <?php
 
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
-
-
 $page = "";
 $routes = [
     "/" => "foodpanda.php",
     '/foodpanda' => 'foodpanda.php',
 
     '/admin/signup' => 'controllers/authentication/admin/signup/signup.controller.php',
-    '/admin/check-signup' => 'controllers/authentication/admin/signup/check_signup.controller.php',
+    '/admin/check_signup' => 'controllers/authentication/admin/signup/check_signup.controller.php',
     '/admin/signin' => 'controllers/authentication/admin/signin/signin.controller.php',
-    '/admin/check-signin' => 'controllers/authentication/admin/signin/check_signin.controller.php',
+    '/admin/check_signin' => 'controllers/authentication/admin/signin/check_signin.controller.php',
     '/admin/signout' => 'controllers/authentication/admin/signout/signout.controller.php',
     '/admin/check-signout' => 'controllers/authentication/admin/signout/check_signout.controller.php',
 
@@ -38,4 +35,4 @@ if (array_key_exists($uri, $routes)) {
     http_response_code(404);
     $page = 'views/errors/404.php';
 }
-require $page;
+require $page;    
