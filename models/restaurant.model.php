@@ -43,10 +43,24 @@ function getCategory() {
     return $stmt->fetchAll();
 }
 
+function getCateById($id) {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM categories WHERE cate_id = :id");
+    $stmt->execute([":id" => $id]);
+    return $stmt->fetch();
+}
+
 function getAllFood() {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM foods");
     $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getFoodsByOwner($id) {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM foods_info WHERE owner_id = :id");
+    $stmt->execute([":id" => $id]);
     return $stmt->fetchAll();
 }
 function createCategory(int $restaurant_id, string $cate_name, string $description, $cate_img){
@@ -73,6 +87,13 @@ function editCategory(int $cate_id, string $cate_name, string $description, stri
         ":cate_id" => $cate_id
     ]);
     return $stmt->rowCount() > 0;
+}
+
+function deleteCategory($id){
+    global $connection;
+    $stmt = $connection->prepare("DELETE FROM categories where cate_id = :id");
+    $stmt->execute([":id"=>$id]);
+    return $stmt-> rowCount() > 0;
 }
 
 function createFood(int $cate_id, string $food_name, string $image, int $quantity, int $price, int $rating) {

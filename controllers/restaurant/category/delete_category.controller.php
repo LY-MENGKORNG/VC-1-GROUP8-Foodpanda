@@ -1,11 +1,11 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    $id = $_POST["item_id"];
+    $id = $_POST["cate_id"];
     $path_dir = "assets/images/uploads/restaurants/categories/";
-    $item_img = getCateById($id)["item_img"] ? getCateById($id)["item_img"] : false;
-    if ($item_img) {
-        deleteImage($path_dir . $item_img);
+    $cate_img = getCateById($id)["cate_img"] ? getCateById($id)["cate_img"] : false;
+    if ($cate_img) {
+        deleteImage($path_dir . $cate_img);
     }
     deleteCategory($id);
     header("Location: /restaurant/category");

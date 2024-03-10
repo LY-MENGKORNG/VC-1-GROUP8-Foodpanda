@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="modal-body p-2 m-2 d-flex justify-content-end">
                                     <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
-                                    <form action="/restaurant/delete_cate" method="post">
+                                    <form action="/restaurant/delete_category" method="post">
                                         <button type="submit" name="cate_id" value="<?= $category["cate_id"] ?>" class="btn btn-primary">Save changes</button>
                                     </form>
                                 </div>
