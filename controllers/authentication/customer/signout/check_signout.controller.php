@@ -1,11 +1,11 @@
 <?php
-session_start();    
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['email']) && !empty($_POST['password'])) {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
-        $customer = accountExist($email, 4);
+        $customer = $_SESSION["customer"];
+        var_dump($customer);
         $password_confirm = password_verify($password, $customer["password"]);
         if (count($customer) == 0 && !$password_confirm) {
 
