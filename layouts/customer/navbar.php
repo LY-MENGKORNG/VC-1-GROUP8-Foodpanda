@@ -5,12 +5,15 @@
             <div class="row align-items-center">
                 <div class="col-2">
                     <a href="/customer" class="brand-wrap mb-0 d-flex">
-                        <img alt="logo foodpanda" class="img-fluid" src="../../assets/images/logo/panda-logo2.png" style="width: 130px; height: 90px;" />
+                        <img alt="logo foodpanda" class="img-fluid" src="../../assets/images/logo/panda-logo2.png"
+                            style="width: 130px; height: 90px;" />
                     </a>
                 </div>
                 <div class="col-2 d-flex align-items-center m-none">
                     <div class="dropdown mr-3">
-                        <a class="btn-border-1 text-white dropdown-toggle d-flex align-items-center py-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn-border-1 text-white dropdown-toggle d-flex align-items-center py-3" href="#"
+                            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                             <div>
                                 <i class="feather-map-pin mr-2 text-white main_bg rounded-pill p-2 icofont-size"></i>
                             </div>
@@ -28,7 +31,8 @@
                                                 <i class="feather-search text-white"></i>
                                             </button>
                                         </div>
-                                        <input type="text" class="shadow-none border-0 form-control" placeholder="Enter Your Location" />
+                                        <input type="text" class="shadow-none border-0 form-control"
+                                            placeholder="Enter Your Location" />
                                     </div>
                                 </div>
                                 <div class="p-3 border-bottom">
@@ -43,28 +47,40 @@
                                         Choose your country
                                     </h6>
                                     <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio1" name="location" class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio1">Afghanistan</label>
+                                        <input type="radio" id="customRadio1" name="location"
+                                            class="custom-control-input" />
+                                        <label class="custom-control-label py-3 w-100 px-3"
+                                            for="customRadio1">Afghanistan</label>
                                     </div>
                                     <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio2" name="location" class="custom-control-input" checked />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio2">India</label>
+                                        <input type="radio" id="customRadio2" name="location"
+                                            class="custom-control-input" checked />
+                                        <label class="custom-control-label py-3 w-100 px-3"
+                                            for="customRadio2">India</label>
                                     </div>
                                     <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio3" name="location" class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio3">USA</label>
+                                        <input type="radio" id="customRadio3" name="location"
+                                            class="custom-control-input" />
+                                        <label class="custom-control-label py-3 w-100 px-3"
+                                            for="customRadio3">USA</label>
                                     </div>
                                     <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio4" name="location" class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio4">Australia</label>
+                                        <input type="radio" id="customRadio4" name="location"
+                                            class="custom-control-input" />
+                                        <label class="custom-control-label py-3 w-100 px-3"
+                                            for="customRadio4">Australia</label>
                                     </div>
                                     <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio5" name="location" class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio5">Japan</label>
+                                        <input type="radio" id="customRadio5" name="location"
+                                            class="custom-control-input" />
+                                        <label class="custom-control-label py-3 w-100 px-3"
+                                            for="customRadio5">Japan</label>
                                     </div>
                                     <div class="custom-control px-0 custom-radio">
-                                        <input type="radio" id="customRadio6" name="location" class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio6">China</label>
+                                        <input type="radio" id="customRadio6" name="location"
+                                            class="custom-control-input" />
+                                        <label class="custom-control-label py-3 w-100 px-3"
+                                            for="customRadio6">China</label>
                                     </div>
                                 </div>
                             </div>
@@ -96,9 +112,15 @@
                         </a>
 
                         <div class="dropdown mr-4 m-none">
-                            <a href="#" class="dropdown-toggle text-dark py-3 d-block" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img alt="#" src="../../assets/images/uploads/customer_profile/<?= isset($customer["profile"]) ? $customer["profile"] : 'avatar.png' ?>" class="img-fluid rounded-circle header-user mr-2 header-user" style="height: 35px; width: 35px;" />
-                                <span class="main_color font-weight-bolder"><?= isset($customer) ? $customer['first_name'] : "" ?></span>
+                            <a href="#" class="dropdown-toggle text-dark py-3 d-block" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img alt="#"
+                                    src="../../assets/images/uploads/customer_profile/<?= isset($customer["profile"]) ? $customer["profile"] : 'avatar.png' ?>"
+                                    class="img-fluid rounded-circle header-user mr-2 header-user"
+                                    style="height: 35px; width: 35px;" />
+                                <span class="main_color font-weight-bolder">
+                                    <?= isset($customer) ? $customer['first_name'] : "" ?>
+                                </span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="/customer/profile">My account</a>
@@ -116,11 +138,9 @@
                                 <span class="text-dark">Cart</span>
                             </div>
                         </a>
-                        <button class="btn main_bg rounded-circle" style="position: absolute; right: 0px; height: 48px; width: 48px;">
-                            <a class="toggle rounded p-left-5" href="#" style="position: absolute; top: 10px;">
-                                <span class="text-dark"></span>
-                            </a>
-                        </button>
+                        <a class="toggle rounded p-left-5" href="#">
+                            <span class="text-dark"></span>
+                        </a>
                     </div>
                 </div>
             </div>
