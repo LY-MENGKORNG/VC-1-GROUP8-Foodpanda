@@ -1,8 +1,5 @@
 <?php
-session_start();
-ob_start();
 require "./models/customer.model.php";
-$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 if (isset($_SESSION["customer"])) {
     $customer = $_SESSION["customer"];

@@ -13,7 +13,7 @@
                     <div class="bg-white rounded shadow-sm overflow-hidden pt-3 d-flex flex-column align-items-center">
                         <input type="file" name="profile" id="profile" style="display: none;">
                         <div class="left rounded-circle border border-primary d-flex align-items-center position-relative" style="width: 150px; height: 150px;">
-                            <img alt="#" src="../../assets/images/uploads/owner_profile/<?= isset($delivery["profile"]) ? $delivery["profile"] : 'avatar.png' ?>" class="rounded-circle" style="width: 100%; height: 100%;">
+                            <img alt="#" src="../../assets/images/uploads/delivery_profile/<?= isset($delivery["profile"]) ? $delivery["profile"] : 'avatar.png' ?>" class="rounded-circle" style="width: 100%; height: 100%;">
                             <div class="rounded-circle bg-secondary border position-absolute d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; bottom: 5%; right: 5%">
                                 <label for="profile" class="m-auto ">
                                     <i class="feather-camera fs-5 text-light"></i>

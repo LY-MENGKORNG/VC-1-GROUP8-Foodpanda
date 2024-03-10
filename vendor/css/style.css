@@ -713,11 +713,9 @@ p {
 
 .main-card {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    justify-content: center;
     gap: 20px;
-}
-.main-card .child-card {
-    height: 46%;
 }
 
 .food-item {

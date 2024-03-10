@@ -9,7 +9,7 @@
         <div class="card-body d-flex flex-column justify-content-between">
           <div class="">
             <h3 class="stat-cards-info__num " style="font-size: 1.5rem;">Restaurant: <span class="stat-cards-info__title" style="font-size: 1.5rem;"><?= $restaurant["restaurant_name"] ?></span></h3>
-            <h5 class="stat-cards-info__num mb-3" style="font-size: 1.2rem;">Owner: <span class="stat-cards-info__title" style="font-size: 1rem;"><?= $restaurant["first_name"]." ". $restaurant["last_name"] ?></span></h5>
+            <h5 class="stat-cards-info__num mb-3" style="font-size: 1.2rem;">Owner: <span class="stat-cards-info__title" style="font-size: 1rem;"><?= $restaurant["first_name"] ?></span></h5>
             <strong class="stat-cards-info__num" style="font-size: 14px;">Contact Info: <span class="stat-cards-info__title"><?= $restaurant["contact_info"] ?> </span></strong>
             <p class="stat-cards-info__num"><small class="text-info">Last updated 3 mins ago</small></p>
           </div>
@@ -80,6 +80,7 @@
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary rounded-sm" data-bs-dismiss="modal">Close</button>
                   <input type="hidden" name="restaurant_id" value="<?= $restaurant["restaurant_id"] ?>">
+                  <input type="hidden" name="restaurant_img" value="<?= $restaurant["restaurant_img"] ?>">
                   <button type="submit" class="btn btn-primary rounded-sm">Submit</button>
                 </div>
               </form>
