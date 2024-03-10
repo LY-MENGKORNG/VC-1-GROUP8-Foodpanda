@@ -10,7 +10,7 @@ $routes = [
     '/admin/signin' => 'controllers/authentication/admin/signin/signin.controller.php',
     '/admin/check_signin' => 'controllers/authentication/admin/signin/check_signin.controller.php',
     '/admin/signout' => 'controllers/authentication/admin/signout/signout.controller.php',
-    '/admin/check-signout' => 'controllers/authentication/admin/signout/check_signout.controller.php',
+    '/admin/check_signout' => 'controllers/authentication/admin/signout/check_signout.controller.php',
 
     '/restaurant/signin' => 'controllers/authentication/restaurant/signin/signin.controller.php',
     '/restaurant/check_signin' => 'controllers/authentication/restaurant/signin/check_signin.controller.php',
