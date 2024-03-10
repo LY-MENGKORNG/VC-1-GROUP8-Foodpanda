@@ -1,3 +1,3 @@
 <?php
 
-require "./views/customer/search/search.view.php";
+require "./views/customer/restaurant/restaurant.view.php";
