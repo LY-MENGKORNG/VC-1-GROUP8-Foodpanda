@@ -64,6 +64,19 @@ function getCategories() {
     return $stmt->fetchAll();
 }
 
+function getFoodsInfo() : array {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM foods_info");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+function getFoodInfoById($food_id) : array {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM foods_info WHERE food_id = :food_id");
+    $stmt->execute([":food_id" => $food_id]);
+    return $stmt->fetch();
+}
+
 function getFoodsById($cate_id) {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM foods WHERE cate_id = :cate_id");
