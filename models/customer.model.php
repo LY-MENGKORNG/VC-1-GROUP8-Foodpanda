@@ -77,9 +77,25 @@ function getFoodInfoById($food_id) : array {
     return $stmt->fetch();
 }
 
-function getFoodsById($cate_id) {
+function getFoodInfoByCateId($cate_id) : array {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM foods WHERE cate_id = :cate_id");
+    $stmt = $connection->prepare("SELECT * FROM foods_info WHERE cate_id = :cate_id");
     $stmt->execute([":cate_id" => $cate_id]);
+    return $stmt->fetch();
+}
+
+function getFoodsById($cate_id = null) {
+    global $connection;
+    if ($cate_id) {
+        $stmt = $connection->prepare(
+            "SELECT * FROM cate_food WHERE cate_id = :cate_id"
+        );
+        $stmt->execute([":cate_id" => $cate_id]);
+    }else {
+        $stmt = $connection->prepare(
+            "SELECT * FROM cate_food"
+        );
+        $stmt->execute();
+    }
     return $stmt->fetchAll();
 }

@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
-        $restaurant_owner = accountExist($email, 2);
+        $restaurant_owner = $_SESSION["restaurant_owner"];
         $password_confirm = password_verify($password, $restaurant_owner["password"]);
         if (count($restaurant_owner) == 0 && !$password_confirm) {
 
@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['is_owner_password'] = "Password is incorrect";
             header("Location: /restaurant/signout");
         } else if (count($restaurant_owner) == 0 && $password_confirm) {
-            unset($_SESSION['is_restaurant_password']);
+            unset($_SESSION['is_owner_password']);
 
-            $_SESSION['is_restaurant_email'] = "Email is incorrect";
+            $_SESSION['is_owner_email'] = "Email is incorrect";
             header("Location: /restaurant/signout");
         } else {
 

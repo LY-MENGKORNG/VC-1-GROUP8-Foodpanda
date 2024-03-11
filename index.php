@@ -47,7 +47,7 @@ else if(urlIs("/customer") || urlIs("/customer/checkout") ||
 else if (
     urlIs("/") || urlIs("/admin/signup") || urlIs("/admin/signin") || 
     urlIs("/admin/check_signin") || urlIs("/admin/check_signup") ||
-    urlIs("/admin/signout") || urlIs("/admin/check-signout") ||
+    urlIs("/admin/signout") || urlIs("/admin/check_signout") ||
     
     urlIs("/customer/check_signup") || urlIs("/customer/signin") || 
     urlIs("/customer/check_signin") || urlIs("/customer/signout") || 
