@@ -13,7 +13,7 @@ for (let i = 0; i < cates.length; i++) {
 
 // get the food id when we click 
 const toRestaurant = document.querySelectorAll("#toRestaurant");
-const foods =document.querySelectorAll("#food");
+const foods = document.querySelectorAll("#food");
 const food_id = document.getElementById("food_id");
 for (let i = 0; i < foods.length; i++) {
     foods[i].onclick = (e) => {
@@ -21,3 +21,7 @@ for (let i = 0; i < foods.length; i++) {
         food_id.value = toRestaurant[i].value;
     }
 }
+
+
+
+

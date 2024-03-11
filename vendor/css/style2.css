@@ -92,6 +92,11 @@ a.sidebar-link {
     border-left: 3px solid transparent;
 }
 
+a.active {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
 .sidebar-link i {
     font-size: 1.1rem;
     margin-right: .75rem;
