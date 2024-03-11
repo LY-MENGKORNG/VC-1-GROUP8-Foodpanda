@@ -5,19 +5,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = htmlspecialchars($_POST['password']);
 
         $customer = $_SESSION["customer"];
-        var_dump($customer);
         $password_confirm = password_verify($password, $customer["password"]);
-        if (count($customer) == 0 && !$password_confirm) {
+        if ($customer["email"] != $email && !$password_confirm) {
 
             $_SESSION['is_customer_password'] = "Password is incorrect";
             $_SESSION['is_customer_email'] = "email is incorrect";
             header("Location: /customer/signout");
-        } else if (!$password_confirm && count($customer) > 0) {
+        } else if (!$password_confirm && $customer["email"] == $email) {
             unset($_SESSION['is_customer_email']);
 
             $_SESSION['is_customer_password'] = "Password is incorrect";
             header("Location: /customer/signout");
-        } else if (count($customer) == 0 && $password_confirm) {
+        } else if ($customer["email"] != $email && $password_confirm) {
             unset($_SESSION['is_customer_password']);
 
             $_SESSION['is_customer_email'] = "Email is incorrect";

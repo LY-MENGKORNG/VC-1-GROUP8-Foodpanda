@@ -36,6 +36,7 @@
                         <div class="form-group">
                             <label for="email" class="text-dark form-label">Email</label>
                             <input type="email" name="email" placeholder="Enter Email" class="form-control" id="email" required />
+                            <p class="text-danger"><?= $is_customer_email ?></p>
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-dark">Password</label>

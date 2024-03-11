@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
-        $delivery = accountExist($email, 3);
+        $delivery = $_SESSION["delivery"];
         $password_confirm = password_verify($password, $delivery["password"]);
         if (count($delivery) == 0 && !$password_confirm) {
 
