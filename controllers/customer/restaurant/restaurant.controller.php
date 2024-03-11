@@ -6,5 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     require "./views/customer/restaurant/restaurant.view.php";
 }else {
-    header("Location: /customer");
+    require "./views/customer/restaurant/restaurant.view.php";
+    // header("Location: /customer");
 }
