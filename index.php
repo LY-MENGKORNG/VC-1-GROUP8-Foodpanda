@@ -1,7 +1,11 @@
 <?php
+session_start();
+ob_start();
 require 'utils/url.php';
 require 'database/database.php';
 require "./models/users.model.php";
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+
 
 // Admin routes
 if (urlIs("/admin") || urlIs("/admin/manage_restaurant") || 
@@ -10,17 +14,17 @@ if (urlIs("/admin") || urlIs("/admin/manage_restaurant") ||
     urlIs("/admin/restaurant_detail") || urlIs("/admin/edit_restaurant") ||
     urlIs("/admin/profile") || urlIs("/admin/edit_profile")) 
 { 
-    require "routers/admin_router.php";
+    require "./routers/admin_router.php";
 }
 
 // Restaurant routes
-else if (urlIs("/restaurant") || urlIs("/restaurant/category") ||
-        urlIs("/restaurant/delivery") || urlIs("/restaurant/customer") ||
-        urlIs("/restaurant/food") || urlIs("/restaurant/add_food") || urlIs("/restaurant/category") || 
-        urlIs("/restaurant/add_category") || urlIs("/restaurant/profile") || 
-        urlIs("/restaurant/edit_profile") || urlIs("/restaurant/add_delivery")) 
+else if (urlIs("/restaurant") || urlIs("/restaurant/category") || urlIs("/restaurant/delivery") || 
+        urlIs("/restaurant/customer") || urlIs("/restaurant/food") || urlIs("/restaurant/add_food") || 
+        urlIs("/restaurant/category") || urlIs("/restaurant/add_category") || urlIs("/restaurant/edit_category") ||
+        urlIs("/restaurant/delete_category") || urlIs("/restaurant/profile") || urlIs("/restaurant/edit_profile") || 
+        urlIs("/restaurant/add_delivery")) 
 {
-    require "./routers/resturant_router.php"; 
+    require "./routers/resturant_router.php";
 }
 
 // Delivery routes

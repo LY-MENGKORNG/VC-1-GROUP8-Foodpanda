@@ -1,8 +1,10 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (!empty(($_POST["item_id"]))) {
-        $item_id = $_POST["item_id"];
-        $foods = getFoodsById($item_id);
+    if (!empty(($_POST["cate_id"]))) {
+        $cate_id = $_POST["cate_id"];
+        $foods = getFoodsById($cate_id);
+    }else {
+        $foods = getFoodsById();
     }
 }
 require "./views/customer/trending/trending.view.php";
