@@ -1,5 +1,4 @@
 <?php
-session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['email']) && !empty($_POST['password'])) {
         $email = htmlspecialchars($_POST['email']);
@@ -12,9 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['customer'] = $customer;
                 header("Location: /customer");
             }else {
+                unset($_SESSION["is_customer_email"]);
                 $_SESSION['is_customer_password'] = "Invalid password";
+                header("Location: /customer/signin");
             }
         }else {
+            unset($_SESSION["is_customer_password"]);
             $_SESSION['is_customer_email'] = "Invalid email";
             header("Location: /customer/signin");
         }
