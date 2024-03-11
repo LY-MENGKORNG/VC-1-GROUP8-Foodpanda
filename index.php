@@ -20,7 +20,7 @@ else if (urlIs("/restaurant") || urlIs("/restaurant/category") ||
         urlIs("/restaurant/add_category") || urlIs("/restaurant/profile") || 
         urlIs("/restaurant/edit_profile") || urlIs("/restaurant/add_delivery")) 
 {
-    require "./routers/resturant_router.php";
+    require "./routers/resturant_router.php"; 
 }
 
 // Delivery routes
