@@ -579,7 +579,7 @@ p {
 .otp input.form-control.form-control-lg {
     text-align: center!important;
     font-size: 44px;
-    border: 1px solid #ccc!important;
+    border: 1px solid #888888!important;
     border-radius: 8px;
     margin: auto
 }
@@ -592,7 +592,7 @@ p {
     background: no-repeat;
     border: none;
     color: #000;
-    border-bottom: 1px solid rgb(160 160 160/32%);
+    border-bottom: 1px solid rgba(160, 160, 160, 0.678);
     border-radius: 0;
     padding: 0;
     box-shadow: none!important
@@ -628,7 +628,7 @@ p {
 .osahan-verification .form-control {
     text-align: center;
     font-size: 47px;
-    border-bottom: 2px solid #ccc!important;
+    border-bottom: 2px solid #919191!important;
     border: none;
     border-radius: 0;
     font-weight: 300;
@@ -709,6 +709,13 @@ p {
 
 .osahan-track-order-page {
     min-height: 676px
+}
+
+.main-card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+    justify-content: center;
+    gap: 20px;
 }
 
 .food-item {
@@ -1041,6 +1048,10 @@ footer .text-muted {
 
 .border_search {
     border-radius: 0 50px 50px 0!important
+}
+
+.add-border {
+    border: 1px solid #b8b8b8;
 }
 
 @media(max-width: 992px) {

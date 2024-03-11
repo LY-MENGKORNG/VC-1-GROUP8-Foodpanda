@@ -1,128 +1,58 @@
-<header class="section-header bg-white">
-    <section class="header-main shadow-sm">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-2">
-                    <a href="/customer" class="brand-wrap mb-0 d-flex">
-                        <img alt="logo foodpanda" class="img-fluid" src="../../assets/images/logo/panda-logo2.png" style="width: 130px; height: 90px;" />
-                    </a>
-                </div>
-                <div class="col-2 d-flex align-items-center m-none">
-                    <div class="dropdown mr-3">
-                        <a class="btn-border-1 text-white dropdown-toggle d-flex align-items-center py-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div>
-                                <i class="feather-map-pin mr-2 text-white main_bg rounded-pill p-2 icofont-size"></i>
-                            </div>
-                            <div>
-                                <p class="text-dark mb-0 small">Select Location</p>
-                                <p class="font-weight-bold text-dark">Phnom Penh</p>
-                            </div>
+<!-- ! Body -->
+<a class="skip-link sr-only" href="#skip-target">Skip to content</a>
+<div class="page-flex">
+    <!-- ! Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-start">
+            <div class="sidebar-head">
+                <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
+                    <span class="sr-only">Toggle menu</span>
+                    <span class="icon menu-toggle" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="sidebar-body">
+                <ul class="sidebar-body-menu">
+                    <li>
+                        <a class="active" href="/restaurant"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="show-cat-btn" href="##">
+                            <span class="icon folder" aria-hidden="true"></span>Categories
+                            <span class="category__btn transparent-btn" title="Open list">
+                                <span class="sr-only">Open list</span>
+                                <span class="icon arrow-down" aria-hidden="true"></span>
+                            </span>
                         </a>
-                        <div class="dropdown-menu p-0 drop-loc" aria-labelledby="navbarDropdown">
-                            <div class="osahan-country">
-                                <div class="search_location main_bg p-3 text-right">
-                                    <div class="input-group rounded shadow-sm overflow-hidden">
-                                        <div class="input-group-prepend">
-                                            <button class="border-0 btn text-dark btn-block">
-                                                <i class="feather-search text-white"></i>
-                                            </button>
-                                        </div>
-                                        <input type="text" class="shadow-none border-0 form-control" placeholder="Enter Your Location" />
-                                    </div>
-                                </div>
-                                <div class="p-3 border-bottom">
-                                    <a href="/customer" class="text-decoration-none">
-                                        <p class="font-weight-bold main_color m-0">
-                                            <i class="feather-navigation"></i> New York, USA
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="filter">
-                                    <h6 class="px-3 py-3 bg-light pb-1 m-0 border-bottom">
-                                        Choose your country
-                                    </h6>
-                                    <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio1" name="location" class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio1">Afghanistan</label>
-                                    </div>
-                                    <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio2" name="location" class="custom-control-input" checked />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio2">India</label>
-                                    </div>
-                                    <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio3" name="location" class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio3">USA</label>
-                                    </div>
-                                    <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio4" name="location" class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio4">Australia</label>
-                                    </div>
-                                    <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio5" name="location" class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio5">Japan</label>
-                                    </div>
-                                    <div class="custom-control px-0 custom-radio">
-                                        <input type="radio" id="customRadio6" name="location" class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3" for="customRadio6">China</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-8">
-                    <div class="d-flex align-items-center justify-content-end pr-5">
-                        <a href="/customer/search" class="text-dark widget-header mr-4">
-                            <div class="icon d-flex align-items-center">
-                                <i class="feather-search h6 mr-2 mb-0"></i>
-                                <span>Search</span>
-                            </div>
-                        </a>
-
-                        <a href="/customer/offers" class="btn main_bg text-white widget-header mr-4  m-none">
-                            <div class="icon d-flex align-items-center">
-                                <i class="feather-disc h6 mr-2 mb-0"></i>
-                                <span>Offers</span>
-                            </div>
-                        </a>
-
-                        <a href="/customer/signin" class="widget-header mr-4 text-dark m-none">
-                            <div class="icon d-flex align-items-center">
-                                <i class="feather-user h6 mr-2 mb-0"></i>
-                                <span>Sign in</span>
-                            </div>
-                        </a>
-
-                        <div class="dropdown mr-4 m-none">
-                            <a href="#" class="dropdown-toggle text-dark py-3 d-block" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img alt="#" src="../../assets/images/uploads/customer_profile/<?= isset($customer) ? $customer["image"] : 'avatar.png' ?>" class="img-fluid rounded-circle header-user mr-2 header-user" style="height: 35px; width: 35px;" />
-                                <span class="main_color font-weight-bolder"><?= isset($customer) ? ucfirst($customer['first_name']) : "" ?></span>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="/customer/profile">My account</a>
-                                <a class="dropdown-item" href="/customer/delivery">Delivery support</a>
-                                <a class="dropdown-item" href="/customer/contact">Contant us</a>
-                                <a class="dropdown-item" href="/customer/term">Term of use</a>
-                                <a class="dropdown-item" href="customer/privacy">Privacy policy</a>
-                                <a class="dropdown-item" href="/customer/signout">Logout</a>
-                            </div>
-                        </div>
-
-                        <a href="/customer/checkout" class="btn widget-header mr-4">
-                            <div class="icon d-flex align-items-center">
-                                <i class="feather-shopping-cart h6 mr-2 mb-0 text-dark"></i>
-                                <span class="text-dark">Cart</span>
-                            </div>
-                        </a>
-                        <button class="btn main_bg rounded-circle" style="position: absolute; right: 0px; height: 48px; width: 48px;">
-                            <a class="toggle rounded p-left-5" href="#" style="position: absolute; top: 10px;">
-                                <span class="text-dark"></span>
-                            </a>
-                        </button>
-                    </div>
-                </div>
+                        <ul class="cat-sub-menu">
+                            <li>
+                                <a href="/restaurant/category">All Categories</a>
+                            </li>
+                            <li>
+                                <a href="/restaurant/food">All Foods</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="" href="/restaurant/delivery"><span class="icon home" aria-hidden="true"></span>Delivery</a>
+                    </li>
+                    <li>
+                        <a class="" href="/restaurant/customer"><span class="icon home" aria-hidden="true"></span>Customer</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </section>
-</header>
+        <div class="sidebar-footer">
+            <a href="/restaurant/profile" class="sidebar-user">
+                <span class="sidebar-user-img">
+                    <picture class="overflow-hidden">
+                        <source srcset="../../assets/images/uploads/owner_profile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>">
+                        <img src="../../assets/images/uploads/owner_profile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" alt="User name">
+                    </picture>
+                </span>
+                <div class="sidebar-user-info">
+                    <span class="sidebar-user__title"><?= isset($restaurant_owner) ? $restaurant_owner["first_name"] : "" ?></span>
+                    <span class="sidebar-user__subtitle">Support manager</span>
+                </div>
+            </a>
+        </div>
+    </aside>

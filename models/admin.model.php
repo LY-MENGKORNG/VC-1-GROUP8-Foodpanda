@@ -1,85 +1,5 @@
 <?php
-
-function createAdmin($admin_name, $email, $password, $phone, $image): bool
-{
-    if (count(getAdmin()) == 1) {
-        return false;
-    }
-    global $connection;
-
-    $stmt = $connection->prepare("INSERT INTO Admin (admin_name, email, password, phone, image) VALUES 
-                                (:admin_name, :email, :password, :phone, :image);");
-    $stmt->execute([
-        'admin_name' => $admin_name,
-        'email' => $email,
-        'password' => $password,
-        'phone' => $phone,
-        'image' => $image
-    ]);
-    return $stmt->rowCount() > 0;
-}
-
-function getAdmin(): array
-{
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Admin");
-    $stmt->execute();
-    return $stmt->fetchAll();
-}
-
-function adminExist(string $email) : array {
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Admin WHERE email = :email");
-    $stmt->execute([':email' => $email]);
-
-    return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
-}
-
-function adminSignout(string $email) : bool {
-    global $connection;
-    $stmt = $connection->prepare("DELETE FROM Admin WHERE email = :email");
-    $stmt->execute([':email' => $email]);
-    return $stmt->rowCount() > 0;
-}
-
-function checkAdminImage($image): bool
-{
-    // File upload directory
-    $target_dir = "assets/images/uploads/admin_profile/";
-    $file_name = basename($image["name"]);
-    $target_file_path = $target_dir . $file_name;
-    $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-    $file_allow_type = array("jpg", "png", "jpeg");
-    $file_size = $image['size'];
-
-    return 
-    (
-        $file_size < 500000 && 
-        !file_exists($target_file_path) && 
-        in_array($file_type, $file_allow_type)
-    );
-}
-
-function addAdminImageToFolder($image)
-{
-    // File upload directory
-    $target_dir = "assets/images/uploads/admin_profile/";
-    $file_name = basename($image["name"]);
-    $target_file_path = $target_dir . $file_name;
-    $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-    
-    // Allow certain file formats
-    $allowTypes = array('jpg', 'jpeg', 'png');
-    if (in_array($file_type, $allowTypes) && $image["size"] < 5000000) {
-        if (!file_exists($target_file_path)) {
-            move_uploaded_file($image['tmp_name'], $target_file_path);
-        }
-    }
-}
-
-
 function rejectEmail($email, $password): bool {
-    getAdmin();
 
     $emailPattern = ' /^\w+(\.\w+)*@[\w-]+(\.[\w-]+)+$/ ';
     $passwordPattern = 8;
@@ -100,66 +20,112 @@ function rejectEmail($email, $password): bool {
     return true;
 }
 
-
-function deleteAdminImage(string $image) {
-    $target_file_path = "assets/images/uploads/admin_profile/".$image;
-
-    if (file_exists($target_file_path)) {
-        unlink($target_file_path);
+function createRestaurant(int $owner_id, string $restaurant_name, string $location, string $email, string $password,
+                        string $contact_info, string $restaurant_img, string $description)  
+{
+    try {
+        global $connection;
+        $stmt = $connection->prepare("INSERT INTO restaurants 
+        (owner_id, restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
+        (:owner_id, :restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
+    
+        $stmt->execute([
+            ":owner_id" => $owner_id,
+            ":restaurant_name" => $restaurant_name,
+            ":location" => $location,
+            ":email" => $email,
+            ":password" => $password,
+            ":contact_info" => $contact_info,
+            ":restaurant_img" => $restaurant_img,
+            ":description" => $description
+        ]);
+        return true;
+    } catch (\Throwable $th) {
+        return false;
     }
 }
 
-function createRestaurant(int $id, string $name, string $email, string $opening_hours, 
-                        string $location, string $contact, string $img, string $desc)  
+function getAllRestaurants() {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM restaurants");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getRestaurantById($id)  {
+    global $connection;
+    $stmt = $connection->prepare("SELECT users.first_name, users.last_name, restaurants.restaurant_id, 
+    restaurants.owner_id, restaurants.restaurant_name, restaurants.location, restaurants.email, 
+    restaurants.rating, restaurants.opening_hour, restaurants.contact_info, restaurants.description, 
+    restaurants.restaurant_img FROM users RIGHT JOIN restaurants ON users.user_id = restaurants.owner_id 
+    WHERE restaurants.restaurant_id = :id");
+
+    $stmt->execute([':id' => $id]);
+    return $stmt->fetch();
+}
+
+function getRestaurantInfo() : array {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM restaurant_info");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function restaurantDetail(string $menu_items, string $opening_hours, string $contact_info){
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        global $connection;
+        $menu_items = $_POST['menu_items'];
+        $opening_hours = $_POST['opening_hours'];
+        $contact_info = $_POST['contact_info'];
+
+        $connection = "UPDATE restaurants SET menu_items='$menu_items', opening_hours='$opening_hours', contact_info='$contact_info'";
+        $result = $connection($menu_items, $opening_hours, $contact_info);
+
+        if ($result !== false){
+            echo "Restaurant details updated successfully";
+        } else {
+            echo "Restaurant details update failed ";
+        }
+        return $result;
+    }
+}
+
+function createRestuarantOwner($first_name, $last_name, $email, $password, $phone, $profile): bool
 {
     global $connection;
-    $stmt = $connection->prepare("INSERT INTO restaurants 
-    (admin_id, restaurant_name, email, opening_hours, location, contact_info, restaurant_img, description)
-    VALUES (:id, :name, :email, :opening_hours, :location, :contact, :img, :desc)");
-
+    $role_id = 2;
+    $stmt = $connection->prepare("INSERT INTO Users (first_name, last_name, email, password, phone, profile, role_id) VALUES 
+                                (:first_name, :last_name, :email, :password, :phone, :profile, :role_id);");
     $stmt->execute([
-        ":id" => $id,
-        ":name" => $name,
-        ":email" => $email,
-        ":opening_hours" => $opening_hours,
-        ":location" => $location,
-        ":contact" => $contact,
-        ":img" => $img,
-        ":desc" => $desc
+        ':first_name' => $first_name,
+        ':last_name' => $last_name,
+        ':email' => $email,
+        ':password' => $password,
+        ':phone' => $phone,
+        ':profile' => $profile,
+        ':role_id' => $role_id
     ]);
     return $stmt->rowCount() > 0;
 }
 
-function checkRestaurantImage($image) {
-        // File upload directory
-        $target_dir = "assets/images/uploads/restaurants/";
-        $file_name = basename($image["name"]);
-        $target_file_path = $target_dir . $file_name;
-        $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-        $file_allow_type = array("jpg", "png", "jpeg");
-        $file_size = $image['size'];
-    
-        return 
-        (
-            $file_size < 500000 && 
-            !file_exists($target_file_path) && 
-            in_array($file_type, $file_allow_type)
-        );
+function editRestaurant($rest_id, $rest_name, $owner_id, $email, $location, $contact_info, $img, $desc) {
+    global $connection;
+    $stmt = $connection->prepare(
+        "UPDATE restaurants SET restaurant_name = :rest_name, owner_id = :owner_id, email = :email,
+        location = :location, contact_info = :contact_info, restaurant_img = :img, description = :desc
+        WHERE restaurant_id = :rest_id
+    ");
+    $stmt->execute([
+        ":rest_name" => $rest_name,
+        ":owner_id" => $owner_id,
+        ":email" => $email,
+        ":location" => $location,
+        ":contact_info" => $contact_info,
+        ":img" => $img,
+        ":desc" => $desc,
+        ":rest_id" => $rest_id
+    ]);
+    return $stmt->rowCount() > 0;
 }
 
-function addRestaurantImgToFolder($image) {
-        // File upload directory
-        $target_dir = "assets/images/uploads/restaurants/";
-        $file_name = basename($image["name"]);
-        $target_file_path = $target_dir . $file_name;
-        $file_type = pathinfo($target_file_path, PATHINFO_EXTENSION);
-    
-        // Allow certain file formats
-        $allowTypes = array('jpg', 'jpeg', 'png');
-        
-        if (in_array($file_type, $allowTypes) && $image["size"] < 5000000) {
-            if (!file_exists($target_file_path)) {
-                move_uploaded_file($image['tmp_name'], $target_file_path);
-            }
-        }
-}

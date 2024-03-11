@@ -51,7 +51,7 @@
 <body>
     <div class="container">
         <h1 class="text-start">Admin Signout</h1>
-        <form action="/admin/check-signout" method="post" class="mt-5">
+        <form action="/admin/check_signout" method="post" class="mt-5">
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" name="email" class="form-control" id="email" placeholder="Email Address" required>

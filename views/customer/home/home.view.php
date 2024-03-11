@@ -1,4 +1,3 @@
-
 <div class="osahan-home-page">
     <div class="bg-primary p-3 d-none">
         <div class="text-white">
@@ -22,12 +21,18 @@
 
     <div class="container">
         <div class="cat-slider">
-            <div class="cat-item px-1 py-3">
-                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-                    <img alt="#" src="assets/images/icons/Fries.png" class="img-fluid mb-2" />
-                    <p class="m-0 small">Fries</p>
-                </a>
-            </div>
+            <?php foreach ($categories as $category) { ?>
+                <form action="/customer/trending" method="post">
+                    <div class="cat-item px-1 py-3" id="cate">
+                        <label for="button" class="bg-white rounded d-block p-2 text-center shadow-sm">
+                            <img alt="#" src="assets/images/uploads/restaurants/categories/<?= $category['cate_img'] ?>" class="img-fluid mb-2" />
+                            <p class="m-0 small"><?= $category["cate_name"] ?></p>
+                        </label>
+                    </div>
+                    <input id="inputId" type="hidden" name="" value="">
+                    <button id="button" value="<?= $category["cate_id"] ?>" type="submit"  style="display: none;"></button>
+                </form>
+            <?php } ?>
         </div>
     </div>
 

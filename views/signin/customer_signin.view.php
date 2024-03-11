@@ -32,14 +32,16 @@
                 <div class="px-5 col-10 mx-auto">
                     <h2 class="my-0" style="color: #FF2B85;">Sign in to your account</h2>
                     <p class="text-50">Sign in to continue</p>
-                    <form class="mt-5 mb-4" action="/customer/check-signin" method="post">
+                    <form class="mt-5 mb-4" action="/customer/check_signin" method="post">
                         <div class="form-group">
                             <label for="email" class="text-dark form-label">Email</label>
                             <input type="email" name="email" placeholder="Enter Email" class="form-control" id="email" required/>
+                            <p class="text-danger"><?= isset($_SESSION["is_customer_email"]) ? $_SESSION["is_customer_email"] : ""  ?></p>
                         </div>
                         <div class="form-group">
                             <label for="password" class="text-dark">Password</label>
                             <input type="password" name="password" placeholder="Enter Password" class="form-control" id="password" required />
+                            <p class="text-danger"><?= isset($_SESSION["is_customer_password"]) ? $_SESSION["is_customer_password"] : ""  ?></p>
                         </div>
                         <button class="btn text-white btn-lg btn-block" style="background: #FF2B85;">SIGN IN</button>
                     </form>

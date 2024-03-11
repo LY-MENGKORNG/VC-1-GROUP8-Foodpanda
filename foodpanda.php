@@ -1,4 +1,8 @@
-
+<?php
+if (count(getAllUsers(1)) == 0) {
+    header('Location: /admin/signup');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +12,8 @@
     <title>Welcome to Foodpanda</title>
     <link rel="shortcut icon" href="./assets/images/logo/panda-logo.png" type="image/x-icon">
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         /* Custom styles */
         * {
@@ -35,13 +40,14 @@
         }
 
         .content {
+            width: 55%;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-70%, -50%);
         }
 
-        .content h1 {
+        .content h2 {
             font-size: 4rem;
             margin-bottom: 20px;
         }
@@ -65,51 +71,12 @@
         .start:hover,
         .signin:hover {
             padding: 8px 35px;
+            background: #FF2B85;
             color: white;
         }
 
-        .card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: slideInDown 0.5s ease;
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        @keyframes slideInDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .card-header {
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 10px 10px 0 0;
-        }
-
-        .card-body {
-            padding: 30px;
-        }
-
-        .form-group label {
-            font-weight: bold;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
+        .text {
+            color: #FF2B85;
         }
     </style>
 </head>
@@ -124,43 +91,49 @@
 
         <!-- Content -->
         <div class="content">
-            <h1 class="text-white">Welcome to <span class="text-warning">Foodpanda</span></h1>
+            <h2 class="text-white">Welcome to <span class="text-warning">Foodpanda</span></h2>
             <p class="text">We're here to help you live life the panda way.
                 Spend more time doing what you love - we'll take
                 care of tasty meals, fresh groceries and new flavours.
             </p>
-            <button class="btn start">Get Started</button>
+            <button class="btn start" data-bs-toggle="modal" data-bs-target="#cusotmerRegister">Get Started</button>
         </div>
         <div class="container mt-5" style="display: none;">
-            <form action="/customer/check-signup" method="post" enctype="multipart/form-data" class="bg-light px-5 py-4 rounded-lg m-auto" style="max-width: 800px;">
+            <form action="/customer/check-signup" method="post" enctype="multipart/form-data"
+                class="bg-light px-5 py-4 rounded-lg m-auto" style="max-width: 800px;">
                 <h2 class="text-warning" style="color: #FF2B85; font-size: 2.5rem;">Sign up to register</h2>
                 <div class="form-group row">
                     <div class="form-group mt-4 col-6">
-                        <label for="f-name">Firstname</label>
-                        <input type="text" name="f-name" class="form-control" placeholder="First name" id="f-name" required>
+                        <label for="first_name">Firstname</label>
+                        <input type="text" name="first_name" class="form-control" placeholder="First name"
+                            id="first_name" required>
                     </div>
                     <div class="form-group mt-4 col-6">
-                        <label for="l-name">Lastname</label>
-                        <input type="text" name="l-name" class="form-control" placeholder="Last name" id="l-name" required>
+                        <label for="last_name">Lastname</label>
+                        <input type="text" name="last_name" class="form-control" placeholder="Last name" id="last_name"
+                            required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="form-group col-6">
                         <label for="email">Email Adress</label>
-                        <input type="email" name="email" class="form-control" placeholder="Enter your email" id="email" required>
+                        <input type="email" name="email" class="form-control" placeholder="Enter your email" id="email"
+                            required>
                     </div>
                     <div class="form-group col-6">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Enter your password" id="password" required>
+                        <input type="password" name="password" class="form-control" placeholder="Enter your password"
+                            id="password" required>
                     </div>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="phone">Number Phone</label>
+                        <input type="tel" name="phone" id="phone" class="form-control" placeholder="Enter number phone">
                     </div>
-                    <div class="custom-file">
-                        <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" required>
-                        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                    <div class="mb-3 col-6">
+                        <label for="profile" class="form-label">Customer Profile</label>
+                        <input type="file" name="profile" class="form-control" id="profile">
                     </div>
                 </div>
                 <button type="submit" class="btn mt-3 signin">Sign up</button>
@@ -168,19 +141,57 @@
             </form>
 
         </div>
+        <div class="modal fade" id="cusotmerRegister" tabindex="-1" aria-labelledby="cusotmerRegisterLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content pt-3 px-3">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-4 text" id="cusotmerRegisterLabel">Create account</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/customer/check_signup" method="post">
+                            <div class="row d-flex flex-row">
+                                <div class="col-6">
+                                    <label for="first_name" class="col-form-label">First Name:</label>
+                                    <input type="text" name="first_name" class="form-control" id="first_name">
+                                </div>
+                                <div class="col-6">
+                                    <label for="last_name" class="col-form-label">Last Name:</label>
+                                    <input type="text" name="last_name" class="form-control" id="last_name">
+                                </div>
+                            </div>
+                            <div class="row d-flex flex-row mt-2">
+                                <div class="col-6">
+                                    <label for="email" class="col-form-label">Email:</label>
+                                    <input type="email" name="email" class="form-control" id="email">
+                                </div>
+                                <div class="col-6">
+                                    <label for="password" class="col-form-label">Password:</label>
+                                    <input type="password" name="password" class="form-control" id="password">
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <label for="phone" class="col-form-label">Phone:</label>
+                                <input type="tel" name="phone" class="form-control" id="phone"></input>
+                            </div>
+                            <div class="mt-3">
+                                <button class="btn btn-primary start border-0 rounded-0">Submit</button>
+                                <p class="">Already have the account? <a href="/customer/signin">Sing In</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        const start = document.querySelector(".start");
-        start.onclick = () => {
-            document.querySelector(".content").style.display = "none";
-            document.querySelector(".container").style.display = "block";
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

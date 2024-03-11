@@ -12,7 +12,6 @@
                         <span class="logo-title">Elegant</span>
                         <span class="logo-subtitle">Dashboard</span>
                     </div>
-
                 </a>
                 <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
                     <span class="sr-only">Toggle menu</span>
@@ -25,56 +24,10 @@
                         <a class="active" href="/admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
                     <li>
-                        <a href="/admin/manage_restaurant"><span class="icon home" aria-hidden="true"></span>Restaurant</a>
-
+                        <a class="" href="/admin/manage_restaurant"><span class="icon home" aria-hidden="true"></span>Restaurants</a>
                     </li>
                     <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon document" aria-hidden="true"></span>Posts
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="posts.html">All Posts</a>
-                            </li>
-                            <li>
-                                <a href="new-post.html">Add new post</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon folder" aria-hidden="true"></span>Categories
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="/admin/category">All categories</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon image" aria-hidden="true"></span>Media
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="media-01.html">Media-01</a>
-                            </li>
-                            <li>
-                                <a href="media-02.html">Media-02</a>
-                            </li>
-                        </ul>
+                        <a class="" href="/admin/restaurant_owner"><span class="icon home" aria-hidden="true"></span>Owners</a>
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
@@ -151,11 +104,11 @@
             <a href="##" class="sidebar-user">
                 <span class="sidebar-user-img">
                     <picture>
-                        <source srcset="../../assets/images/uploads/admin_profile/<?= isset($admin) ? $admin["image"] : '' ?>" type="image/webp"><img src="../../assets/images/uploads/admin_profile/<?= isset($admin) ? $admin["image"] : '' ?>" alt="User name">
+                        <source srcset="../../assets/images/uploads/admin_profile/<?= isset($admin["profile"]) ? $admin["profile"] : 'avatar.png' ?>" type="image/webp"><img src="../../assets/images/uploads/admin_profile/<?= isset($admin) ? $admin["profile"] : 'avatar.png' ?>" alt="User name">
                     </picture>
                 </span>
                 <div class="sidebar-user-info">
-                    <span class="sidebar-user__title"><?= isset($admin) ? $admin["admin_name"] : "" ?></span>
+                    <span class="sidebar-user__title"><?= isset($admin) ? $admin["first_name"] : "" ?></span>
                     <span class="sidebar-user__subtitle">Support manager</span>
                 </div>
             </a>
