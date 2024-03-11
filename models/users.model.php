@@ -121,3 +121,7 @@ function changeImage(string $target_dir, array $image, $profile) {
     }
     addImageFolder($image, $target_dir);
 }
+
+function getActivePage($page) : string {
+    return $page == parse_url($_SERVER['REQUEST_URI'])['path'] ? "active" : "";
+}

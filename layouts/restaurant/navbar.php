@@ -13,30 +13,19 @@
             <div class="sidebar-body">
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a class="active" href="/restaurant"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                        <a class="<?= getActivePage('/restaurant') ?>" href="/restaurant"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
                     <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon folder" aria-hidden="true"></span>Categories
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="/restaurant/category">All Categories</a>
-                            </li>
-                            <li>
-                                <a href="/restaurant/food">All Foods</a>
-                            </li>
-                        </ul>
+                        <a class="<?= getActivePage('/restaurant/category') ?>" href="/restaurant/category"><span class="icon home" aria-hidden="true"></span>Category</a>
                     </li>
                     <li>
-                        <a class="" href="/restaurant/delivery"><span class="icon home" aria-hidden="true"></span>Delivery</a>
+                        <a class="<?= getActivePage('/restaurant/food') ?>" href="/restaurant/food"><span class="icon home" aria-hidden="true"></span>Food</a>
                     </li>
                     <li>
-                        <a class="" href="/restaurant/customer"><span class="icon home" aria-hidden="true"></span>Customer</a>
+                        <a class="<?= getActivePage('/restaurant/delivery') ?>" href="/restaurant/delivery"><span class="icon home" aria-hidden="true"></span>Delivery</a>
+                    </li>
+                    <li>
+                        <a class="<?= getActivePage('/restaurant/customer') ?>" href="/restaurant/customer"><span class="icon home" aria-hidden="true"></span>Customer</a>
                     </li>
                 </ul>
             </div>
