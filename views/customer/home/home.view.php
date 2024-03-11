@@ -30,7 +30,7 @@
                         </label>
                     </div>
                     <input id="inputId" type="hidden" name="" value="">
-                    <button id="button" value="<?= $category["cate_id"] ?>" type="submit"  style="display: none;"></button>
+                    <button id="button" value="<?= $category["cate_id"] ?>" type="submit" style="display: none;"></button>
                 </form>
             <?php } ?>
         </div>
@@ -74,148 +74,49 @@
         </div>
 
         <div class="trending-slider">
-            <div class="osahan-slider-item">
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <div class="star position-absolute">
-                            <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
-                        </div>
-                        <div class="favourite-heart text-danger position-absolute">
-                            <a href="#"><i class="feather-heart"></i></a>
-                        </div>
-                        <div class="member-plan position-absolute">
-                            <span class="badge badge-dark">Promoted</span>
-                        </div>
-                        <a href="/restaurant">
-                            <img alt="#" src="assets/images/trending1.png" class="img-fluid item-img w-100" />
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1">
-                                <a href="/restaurant" class="text-black">Famous Dave's Bar-B-Que
-                                </a>
-                            </h6>
-                            <p class="text-gray mb-3">Vegetarian • Indian • Pure veg</p>
-                            <p class="text-gray mb-3 time">
-                                <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 15–30
-                                    min</span>
-                                <span class="float-right text-black-50"> $350 FOR TWO</span>
-                            </p>
-                        </div>
-                        <div class="list-card-badge">
-                            <span class="badge badge-danger">OFFER</span>
-                            <small> Use Coupon OSAHAN50</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="osahan-slider-item">
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <div class="star position-absolute">
-                            <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
-                        </div>
-                        <div class="favourite-heart text-danger position-absolute">
-                            <a href="#"><i class="feather-heart"></i></a>
-                        </div>
-                        <div class="member-plan position-absolute">
-                            <span class="badge badge-dark">Promoted</span>
-                        </div>
-                        <a href="/restaurant">
-                            <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100" />
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1">
-                                <a href="/restaurant" class="text-black">Thai Famous Cuisine</a>
-                            </h6>
-                            <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                            <p class="text-gray mb-3 time">
-                                <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 30–35
-                                    min</span>
-                                <span class="float-right text-black-50"> $250 FOR TWO</span>
-                            </p>
-                        </div>
-                        <div class="list-card-badge">
-                            <span class="badge badge-success">OFFER</span>
-                            <small>65% off</small>
+            <?php foreach ($foods as $food) { ?>
+                <form action="/customer/restaurant" method="post">
+                    <div class="osahan-slider-item">
+                        <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                            <div class="list-card-image">
+                                <div class="star position-absolute">
+                                    <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
+                                </div>
+                                <div class="favourite-heart text-danger position-absolute">
+                                    <a href="#"><i class="feather-heart"></i></a>
+                                </div>
+                                <div class="member-plan position-absolute">
+                                    <span class="badge badge-dark">Promoted</span>
+                                </div>
+                                <label for="toRestaurant" id="food">
+                                    <img alt="#" src="../../../assets/images/uploads/restaurants/foods/<?= $food["image"] ?>" class="img-fluid item-img w-100" />
+                                </label>
+                            </div>
+                            <div class="p-3 position-relative">
+                                <div class="list-card-body">
+                                    <h6 class="mb-1">
+                                        <label for="toRestaurant" class="text-black"><?= $food["restaurant_name"] ?>
+                                        </label>
+                                    </h6>
+                                    <p class="text-gray mb-3"><?= $food["cate_name"] ?></p>
+                                    <p class="text-gray mb-3 time">
+                                        <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 15–30
+                                            min</span>
+                                        <span class="float-right text-black-50"> $<?= intval($food["price"]) * 2 ?> FOR TWO</span>
+                                    </p>
+                                </div>
+                                <div class="list-card-badge">
+                                    <span class="badge badge-danger">OFFER</span>
+                                    <small> Use Coupon OSAHAN50</small>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="osahan-slider-item">
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <div class="star position-absolute">
-                            <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
-                        </div>
-                        <div class="favourite-heart text-danger position-absolute">
-                            <a href="#"><i class="feather-heart"></i></a>
-                        </div>
-                        <div class="member-plan position-absolute">
-                            <span class="badge badge-dark">Promoted</span>
-                        </div>
-                        <a href="/restaurant">
-                            <img alt="#" src="assets/images/trending3.png" class="img-fluid item-img w-100" />
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1">
-                                <a href="/restaurant" class="text-black">The osahan Restaurant
-                                </a>
-                            </h6>
-                            <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
-                            <p class="text-gray mb-3 time">
-                                <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 15–25
-                                    min</span>
-                                <span class="float-right text-black-50"> $500 FOR TWO</span>
-                            </p>
-                        </div>
-                        <div class="list-card-badge">
-                            <span class="badge badge-danger">OFFER</span>
-                            <small>65% OSAHAN50</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="osahan-slider-item">
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <div class="star position-absolute">
-                            <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
-                        </div>
-                        <div class="favourite-heart text-danger position-absolute">
-                            <a href="#"><i class="feather-heart"></i></a>
-                        </div>
-                        <div class="member-plan position-absolute">
-                            <span class="badge badge-dark">Promoted</span>
-                        </div>
-                        <a href="/restaurant">
-                            <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100" />
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1">
-                                <a href="/restaurant" class="text-black">Thai Famous Cuisine</a>
-                            </h6>
-                            <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                            <p class="text-gray mb-3 time">
-                                <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 30–35
-                                    min</span>
-                                <span class="float-right text-black-50"> $250 FOR TWO</span>
-                            </p>
-                        </div>
-                        <div class="list-card-badge">
-                            <span class="badge badge-success">OFFER</span>
-                            <small>65% off</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    <input id="food_id" type="hidden" name="" value="">
+                    <button id="toRestaurant" value="<?= $food["food_id"] ?>" type="submit" style="display: none;"></button>
+                </form>
+            <?php } ?>
+
         </div>
 
         <div class="py-3 title d-flex align-items-center">

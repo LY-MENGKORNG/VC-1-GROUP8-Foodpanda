@@ -6,9 +6,9 @@
     </div>
     <div class="offer-section py-4">
         <div class="container position-relative">
-            <img alt="#" src="assets/images/trending1.png" class="restaurant-pic">
+            <img alt="#" src="../../assets/images/uploads/restaurants/foods/<?= $foods_info["image"] ?>" class="restaurant-pic">
             <div class="pt-3 text-white">
-                <h2 class="font-weight-bold">Conrad Chicago Restaurant</h2>
+                <h2 class="font-weight-bold"><?= $foods_info["restaurant_name"] ?></h2>
                 <p class="text-white m-0">963 Madyson Drive Suite 679</p>
                 <div class="rating-wrap d-flex align-items-center mt-2">
                     <ul class="rating-stars list-unstyled">
