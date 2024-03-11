@@ -21,7 +21,7 @@ $routes = [
     '/customer/signin' => 'controllers/authentication/customer/signin/signin.controller.php',
     '/customer/check_signin' => 'controllers/authentication/customer/signin/check_signin.controller.php',
     '/customer/signout' => 'controllers/authentication/customer/signout/signout.controller.php',
-    '/customer/check-signout' => 'controllers/authentication/customer/signout/check_signout.controller.php',
+    '/customer/check_signout' => 'controllers/authentication/customer/signout/check_signout.controller.php',
 
     '/delivery/signin' => 'controllers/authentication/delivery/signin/signin.controller.php',
     '/delivery/check_signin' => 'controllers/authentication/delivery/signin/check_signin.controller.php',
