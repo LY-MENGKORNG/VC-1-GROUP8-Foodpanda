@@ -1,4 +1,19 @@
 <?php
+
+// Validation for use sign up
+function validateEmail(string $email): bool {
+    $email_regex = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,10})$/";
+    return preg_match($email_regex, $email);
+}
+function validatePassword(string $password) : bool {
+    $password_regex = "/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!@#$%])[0-9A-Za-z!@#$%]{6,15}$/";
+    return preg_match($password_regex, $password);
+}
+function validatePhone(string $phone) : bool {
+    $phone_regex = "/^(?:\+?\d{1,3}[- .]?)?(?:\(?\d{3}\)?[- .]?)?\d{2,5}[- .]?\d{2,5}[- .]?\d{2,5}$/";
+    return preg_match($phone_regex, $phone);
+}
+
 function createUser($role_id, $first_name, $last_name, $email, $password, $phone, $profile = NULL): bool
 {
     global $connection;
@@ -22,8 +37,8 @@ function createUser($role_id, $first_name, $last_name, $email, $password, $phone
 
 function accountExist(string $email, int $role_id) {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM Users WHERE email = :email");
-    $stmt->execute([':email' => $email]);
+    $stmt = $connection->prepare("SELECT * FROM Users WHERE email = :email AND role_id = :role_id");
+    $stmt->execute([':email' => $email, ':role_id' => $role_id]);
 
     return $stmt->rowCount() > 0 ? $stmt->fetch() : [];
 }
@@ -83,9 +98,13 @@ function checkImage($image, $target_dir): bool
 
 function addImageFolder($image, $target_dir)
 {
-    $file_name = basename($image["name"]);
-    $target_file_path = $target_dir . $file_name;
-    move_uploaded_file($image['tmp_name'], $target_file_path);
+    try {
+        $file_name = basename($image["name"]);
+        $target_file_path = $target_dir . $file_name;
+        return move_uploaded_file($image['tmp_name'], $target_file_path);
+    } catch (\Throwable $th) {
+        return false;
+    }
 }
 
 
@@ -120,4 +139,8 @@ function changeImage(string $target_dir, array $image, $profile) {
         unlink($target_dir.$profile);
     }
     addImageFolder($image, $target_dir);
+}
+
+function getActivePage($page) : string {
+    return $page == parse_url($_SERVER['REQUEST_URI'])['path'] ? "active" : "";
 }

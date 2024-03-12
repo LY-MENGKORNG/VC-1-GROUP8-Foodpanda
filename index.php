@@ -38,7 +38,7 @@ else if(urlIs("/delivery") || urlIs("/delivery/profile") || urlIs("/delivery/edi
 else if(urlIs("/customer") || urlIs("/customer/checkout") || 
         urlIs("/customer/search") || urlIs("/customer/offers") ||
         urlIs("/customer/profile") || urlIs("/customer/order") ||
-        urlIs("/customer/edit_profile") || urlIs("/customer/trending")) 
+        urlIs("/customer/edit_profile") || urlIs("/customer/trending") || urlIs("/customer/restaurant")) 
 {  
     require './routers/customer_router.php';
 }
@@ -49,9 +49,10 @@ else if (
     urlIs("/admin/check_signin") || urlIs("/admin/check_signup") ||
     urlIs("/admin/signout") || urlIs("/admin/check_signout") ||
     
-    urlIs("/customer/check_signup") || urlIs("/customer/signin") || 
-    urlIs("/customer/check_signin") || urlIs("/customer/signout") || 
-    urlIs("/customer/check_signout") || urlIs("/foodpanda")  ||
+    urlIs("/customer/signup") || urlIs("/customer/check_signup") || 
+    urlIs("/customer/signin") || urlIs("/customer/check_signin") || 
+    urlIs("/customer/signout") || urlIs("/customer/check_signout") || 
+    urlIs("/foodpanda")  ||
 
     urlIs("/restaurant/signin") || urlIs("/restaurant/check_signin") ||
     urlIs("/restaurant/signout") || urlIs("/restaurant/check_signout") || 

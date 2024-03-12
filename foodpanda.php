@@ -96,50 +96,8 @@ if (count(getAllUsers(1)) == 0) {
                 Spend more time doing what you love - we'll take
                 care of tasty meals, fresh groceries and new flavours.
             </p>
-            <button class="btn start" data-bs-toggle="modal" data-bs-target="#cusotmerRegister">Get Started</button>
-        </div>
-        <div class="container mt-5" style="display: none;">
-            <form action="/customer/check-signup" method="post" enctype="multipart/form-data"
-                class="bg-light px-5 py-4 rounded-lg m-auto" style="max-width: 800px;">
-                <h2 class="text-warning" style="color: #FF2B85; font-size: 2.5rem;">Sign up to register</h2>
-                <div class="form-group row">
-                    <div class="form-group mt-4 col-6">
-                        <label for="first_name">Firstname</label>
-                        <input type="text" name="first_name" class="form-control" placeholder="First name"
-                            id="first_name" required>
-                    </div>
-                    <div class="form-group mt-4 col-6">
-                        <label for="last_name">Lastname</label>
-                        <input type="text" name="last_name" class="form-control" placeholder="Last name" id="last_name"
-                            required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="form-group col-6">
-                        <label for="email">Email Adress</label>
-                        <input type="email" name="email" class="form-control" placeholder="Enter your email" id="email"
-                            required>
-                    </div>
-                    <div class="form-group col-6">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Enter your password"
-                            id="password" required>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-6">
-                        <label for="phone">Number Phone</label>
-                        <input type="tel" name="phone" id="phone" class="form-control" placeholder="Enter number phone">
-                    </div>
-                    <div class="mb-3 col-6">
-                        <label for="profile" class="form-label">Customer Profile</label>
-                        <input type="file" name="profile" class="form-control" id="profile">
-                    </div>
-                </div>
-                <button type="submit" class="btn mt-3 signin">Sign up</button>
-                <p class="text-secondary mt-2">Already have the account <a href="/customer/signin">Sign in</a></p>
-            </form>
-
+            <a class="btn start" href="/customer/signup">Get Started</a>
+            <!-- <button class="btn start" data-bs-toggle="modal" data-bs-target="#cusotmerRegister">Get Started</button> -->
         </div>
         <div class="modal fade" id="cusotmerRegister" tabindex="-1" aria-labelledby="cusotmerRegisterLabel"
             aria-hidden="true">
@@ -161,15 +119,13 @@ if (count(getAllUsers(1)) == 0) {
                                     <input type="text" name="last_name" class="form-control" id="last_name">
                                 </div>
                             </div>
-                            <div class="row d-flex flex-row mt-2">
-                                <div class="col-6">
-                                    <label for="email" class="col-form-label">Email:</label>
-                                    <input type="email" name="email" class="form-control" id="email">
-                                </div>
-                                <div class="col-6">
-                                    <label for="password" class="col-form-label">Password:</label>
-                                    <input type="password" name="password" class="form-control" id="password">
-                                </div>
+                            <div class="mt-3">
+                                <label for="email" class="col-form-label">Email:</label>
+                                <input type="email" name="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="col-form-label">Password:</label>
+                                <input type="password" name="password" class="form-control" id="password">
                             </div>
                             <div class="mb-1">
                                 <label for="phone" class="col-form-label">Phone:</label>

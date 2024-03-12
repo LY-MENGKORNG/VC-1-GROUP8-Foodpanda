@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2024 at 08:29 AM
+-- Generation Time: Mar 11, 2024 at 02:19 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -44,7 +44,28 @@ INSERT INTO `categories` (`cate_id`, `restaurant_id`, `cate_name`, `description`
 (2, 13, 'American', 'Hello world', 'Burger.png'),
 (4, 13, 'Khmer', 'Hello world', 'Salad.png'),
 (8, 12, 'Italian', 'Hello world', 'Pizza.png'),
-(9, 12, 'Drink', 'Hello world', 'Coffee.png');
+(9, 12, 'Drink', 'Hello world', 'Coffee.png'),
+(10, 10, 'Thai', 'How do you want to get started', 'Fries.png'),
+(11, 10, 'France', 'Hello, this is france food\r\n', 'france.png');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `cate_food`
+-- (See below for the actual view)
+--
+CREATE TABLE `cate_food` (
+`cate_id` int(11)
+,`restaurant_id` int(11)
+,`cate_name` varchar(255)
+,`cate_img` varchar(255)
+,`food_id` int(11)
+,`food_name` varchar(255)
+,`image` varchar(255)
+,`quantity` int(11)
+,`price` int(11)
+,`rating` int(11)
+);
 
 -- --------------------------------------------------------
 
@@ -94,7 +115,10 @@ INSERT INTO `foods` (`food_id`, `cate_id`, `food_name`, `image`, `quantity`, `pr
 (2, 8, 'Unknown', 'popular1.png', 50, 5, 5),
 (3, 8, 'Italian desert', 'popular8.png', 100, 5, 5),
 (4, 4, 'Bror Hit', 'popular7.png', 100, 5, 4),
-(5, 2, 'Unknown food', 'popular2.png', 50, 3, 4);
+(5, 2, 'Unknown food', 'popular2.png', 50, 3, 4),
+(8, 10, 'Tong yam', 'thai food.jpg', 50, 5, 3),
+(9, 11, 'Omelet', 'france food.jpg', 20, 10, 4),
+(10, 9, 'Pokis', 'pokis.jpg', 100, 2, 4);
 
 -- --------------------------------------------------------
 
@@ -202,10 +226,10 @@ CREATE TABLE `restaurants` (
 --
 
 INSERT INTO `restaurants` (`restaurant_id`, `owner_id`, `restaurant_name`, `location`, `email`, `password`, `opening_hour`, `contact_info`, `description`, `restaurant_img`, `rating`) VALUES
-(9, 3, 'KPC168 Restaurant', 'Kampong Cham', 'kampong.cham@restaurant.com', '$2y$10$vZORMEt2r3XjKxFMDWKsnOug0BZvgb5OvtmKFJI9ZYK740YVkclES', NULL, '+1 (124) 985-1702', 'gfsglk', 'pexels-lawrence-suzara-1581554.jpg', '1'),
-(10, 9, 'Battombong Restaurant', 'Battombong', 'battombong.restaurant@email.com', '$2y$10$xM5JSvFkL6T2ikbfweZ7FeD.ENYKPqfCc9.KMyFiZCoRIy8T5HERa', NULL, '+1 (146) 552-6397', 'herasdkfa;s', 'pexels-huy-phan-1383776.jpg', '1'),
+(9, 3, 'KPC 168', 'Kampong Cham', 'kampong.cham@restaurant.com', '$2y$10$vZORMEt2r3XjKxFMDWKsnOug0BZvgb5OvtmKFJI9ZYK740YVkclES', NULL, '+1 (124) 985-1702', 'gfsglk', 'pexels-lawrence-suzara-1581554.jpg', '1'),
+(10, 9, 'Khmerhouse', 'Battombong', 'battombong.restaurant@email.com', '$2y$10$xM5JSvFkL6T2ikbfweZ7FeD.ENYKPqfCc9.KMyFiZCoRIy8T5HERa', NULL, '+1 (146) 552-6397', 'herasdkfa;s', 'pexels-huy-phan-1383776.jpg', '1'),
 (12, 8, 'KFC Cambodia', 'Phnom Penh', 'kfc.cambodia@restaurant.com', '$2y$10$bhuYDhooln9VNJ5Mig2TCObc7Nm8XuJNDVceYSnaUfmB7210CXQk6', NULL, '+1 (413) 887-4212', 'hdasdfha', 'pexels-zak-chapman-2290753.jpg', '1'),
-(13, 4, 'Siemeap Restaurant', 'Siem Reap', 'siemreap.restaurant@emai.com', '$2y$10$xlqURWvw0joW72TiiRRPKucM/x59vnE7btkH10La6IwqJojLFlwQ.', NULL, '+1 (159) 787-4677', 'fasdfhadf', 'pexels-igor-starkov-1055058.jpg', '1');
+(13, 4, 'Kon nak Siemeap', 'Siem Reap', 'siemreap.restaurant@emai.com', '$2y$10$xlqURWvw0joW72TiiRRPKucM/x59vnE7btkH10La6IwqJojLFlwQ.', NULL, '+1 (159) 787-4677', 'fasdfhadf', 'pexels-igor-starkov-1055058.jpg', '1');
 
 -- --------------------------------------------------------
 
@@ -278,7 +302,18 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, 
 (6, 'mengkorng', 'smossne', 'mengkorng.ly@deliverysmos.passerellesnumeriques.org', '$2y$10$XMQzpohUKbCwi2g5gyJ6wO4Df6Ae/myD27wvy/pI6ONLPyOJ98o0e', '+1 (146) 552-6397', 'photo_2023-11-03_22-01-29.jpg', '2024-03-10 00:05:08', 3),
 (7, 'mengkorng', 'ly', 'mengkorng.ly@customer.passerellesnumeriques.org', '$2y$10$1YVvyNlo1iz6jfK6k/ObZu07vI0gTA6Yucw5G1O5n5zkPLtWm.Fze', '+1 (403) 454-5718', NULL, '2024-03-10 01:28:13', 4),
 (8, 'DAVIT', 'CHOEUN', 'davit.choeun@owner.passerellesnumeriques.org', '$2y$10$yyHkGXdQ8RWpwj8VOTfT/.xySIlM45/R5Vswn3AmCxsQmc7/IZN0S', '+1 (256) 547-6668', 'photo_2024-03-06_10-57-53.jpg', '2024-03-10 02:55:49', 2),
-(9, 'CHHUN EII', 'OEUY', 'chhuneii.oeuy@owner.passerellesnumeriques.org', '$2y$10$OoGla5omDCaojLM6nTowjuLoaHavWGv0pBTh68Ow4pxBfDqOlOR1q', '+1 (413) 887-4212', 'photo_2024-02-25_16-18-50.jpg', '2024-03-10 12:03:40', 2);
+(9, 'CHHUN EII', 'OEUY', 'chhuneii.oeuy@owner.passerellesnumeriques.org', '$2y$10$OoGla5omDCaojLM6nTowjuLoaHavWGv0pBTh68Ow4pxBfDqOlOR1q', '+1 (413) 887-4212', 'photo_2024-02-25_16-18-50.jpg', '2024-03-10 12:03:40', 2),
+(10, 'thary', 'oeun', 'thary.oeun@customer.passerellesnumeriques.org', '$2y$10$aDZhDbmRYJGE5hnUFtkKP.hcgckcsu.FaWA5cM930l3dK582aSplW', '0979899310', NULL, '2024-03-10 14:55:22', 4),
+(11, 'THARY', 'OEUN', 'thary.oeun@owner.passerellesnumeriques.org', '$2y$10$lE6.si3kgM0csIBwig1umelvNZq6Y3wNXZwV6i8C14cPqXXVLHt7W', '+1 (124) 985-1702', NULL, '2024-03-11 14:05:34', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `cate_food`
+--
+DROP TABLE IF EXISTS `cate_food`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cate_food`  AS SELECT `categories`.`cate_id` AS `cate_id`, `categories`.`restaurant_id` AS `restaurant_id`, `categories`.`cate_name` AS `cate_name`, `categories`.`cate_img` AS `cate_img`, `foods`.`food_id` AS `food_id`, `foods`.`food_name` AS `food_name`, `foods`.`image` AS `image`, `foods`.`quantity` AS `quantity`, `foods`.`price` AS `price`, `foods`.`rating` AS `rating` FROM (`categories` join `foods` on(`foods`.`cate_id` = `categories`.`cate_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -383,7 +418,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `cate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -401,7 +436,7 @@ ALTER TABLE `favorites`
 -- AUTO_INCREMENT for table `foods`
 --
 ALTER TABLE `foods`
-  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `locations`
@@ -437,7 +472,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
