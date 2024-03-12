@@ -75,13 +75,57 @@
                                     <i data-feather="more-horizontal" aria-hidden="true"></i>
                                 </button>
                                 <ul class="users-item-dropdown dropdown">
-                                    <li><a href="##">Edit</a></li>
+                                    <li><a class="btn btn-tranparent" data-bs-toggle="modal" data-bs-target="#editCate<?= $item["item_id"] ?>">Edit</a></li>
                                     <li><a href="##">Quick edit</a></li>
-                                    <li><a href="##">Trash</a></li>
+                                    <li><a class="btn btn-tranparent" data-bs-toggle="modal" data-bs-target="#deleteCate<?= $item["item_id"] ?>">Trash</a></li>
                                 </ul>
                             </span>
                         </td>
                     </tr>
+                    <!-- Modal edit -->
+                    <div class="modal fade" id="editCate<?= $item["item_id"] ?>" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content p-4">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        <h5 class="modal-title text-dark" id="modal-title">Edit Category</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </h5>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/restaurant/edit_category" method="post">
+                                        <div class="form-group">
+                                            <label for="cate_name" class="text-dark">Category Name:</label>
+                                            <input type="text" name="cate_name" id="cate_name" class="form-control border border-info" value="<?= $item["cate_name"] ?>" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description" class="text-dark">Description:</label>
+                                            <textarea name="description" id="description" class="form-control border border-info" style="min-height: 100px; max-height: 200px;" required><?= $item["description"] ?></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal delete -->
+                    <div class="modal fade" id="deleteCate<?= $item["item_id"] ?>" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header row p-2 m-0">
+                                    <div class="alert alert-danger col-12 rounded-0" role="alert">
+                                        Are you sure you want to delete this category?
+                                    </div>
+                                </div>
+                                <div class="modal-body p-2 m-2 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
+                                    <form action="/restaurant/delete_cate" method="post">
+                                        <button type="submit" name="item_id" value="<?= $item["item_id"] ?>" class="btn btn-primary">Save changes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php } ?>
             </tbody>
         </table>

@@ -47,9 +47,9 @@
                         </div>
                         <div class="form-group">
                             <label for="cate">Category:</label>
-                            <select name="item_id" id="cate" class="form-control form-select-md border border-info" required>
-                                <?php foreach ($category as $item) { ?>
-                                    <option value="<?= $item["item_id"] ?>"><?= $item["cate_name"] ?></option>
+                            <select name="cate_id" id="cate" class="form-control form-select-md border border-info" required>
+                                <?php foreach ($categories as $category) { ?>
+                                    <option value="<?= $category["cate_id"] ?>"><?= $category["cate_name"] ?></option>
                                 <?php } ?>
                             </select>
                         </div>

@@ -23,22 +23,26 @@ function rejectEmail($email, $password): bool {
 function createRestaurant(int $owner_id, string $restaurant_name, string $location, string $email, string $password,
                         string $contact_info, string $restaurant_img, string $description)  
 {
-    global $connection;
-    $stmt = $connection->prepare("INSERT INTO restaurants 
-    (owner_id, restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
-    (:owner_id, :restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
-
-    $stmt->execute([
-        ":owner_id" => $owner_id,
-        ":restaurant_name" => $restaurant_name,
-        ":location" => $location,
-        ":email" => $email,
-        ":password" => $password,
-        ":contact_info" => $contact_info,
-        ":restaurant_img" => $restaurant_img,
-        ":description" => $description
-    ]);
-    return $stmt->rowCount() > 0;
+    try {
+        global $connection;
+        $stmt = $connection->prepare("INSERT INTO restaurants 
+        (owner_id, restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
+        (:owner_id, :restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
+    
+        $stmt->execute([
+            ":owner_id" => $owner_id,
+            ":restaurant_name" => $restaurant_name,
+            ":location" => $location,
+            ":email" => $email,
+            ":password" => $password,
+            ":contact_info" => $contact_info,
+            ":restaurant_img" => $restaurant_img,
+            ":description" => $description
+        ]);
+        return true;
+    } catch (\Throwable $th) {
+        return false;
+    }
 }
 
 function getAllRestaurants() {
@@ -52,12 +56,19 @@ function getRestaurantById($id)  {
     global $connection;
     $stmt = $connection->prepare("SELECT users.first_name, users.last_name, restaurants.restaurant_id, 
     restaurants.owner_id, restaurants.restaurant_name, restaurants.location, restaurants.email, 
-    restaurants.rating, restaurants.opening_hours, restaurants.contact_info, restaurants.description, 
+    restaurants.rating, restaurants.opening_hour, restaurants.contact_info, restaurants.description, 
     restaurants.restaurant_img FROM users RIGHT JOIN restaurants ON users.user_id = restaurants.owner_id 
     WHERE restaurants.restaurant_id = :id");
 
     $stmt->execute([':id' => $id]);
     return $stmt->fetch();
+}
+
+function getRestaurantInfo() : array {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM restaurant_info");
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
 
 function restaurantDetail(string $menu_items, string $opening_hours, string $contact_info){
@@ -82,13 +93,10 @@ function restaurantDetail(string $menu_items, string $opening_hours, string $con
 
 function createRestuarantOwner($first_name, $last_name, $email, $password, $phone, $profile): bool
 {
-    date_default_timezone_get();
-    $registration_date = date("Y-m-d H:i:s");
-
     global $connection;
     $role_id = 2;
-    $stmt = $connection->prepare("INSERT INTO Users (first_name, last_name, email, password, phone, profile, registration_date, role_id) VALUES 
-                                (:first_name, :last_name, :email, :password, :phone, :profile, :registration_date, :role_id);");
+    $stmt = $connection->prepare("INSERT INTO Users (first_name, last_name, email, password, phone, profile, role_id) VALUES 
+                                (:first_name, :last_name, :email, :password, :phone, :profile, :role_id);");
     $stmt->execute([
         ':first_name' => $first_name,
         ':last_name' => $last_name,
@@ -96,7 +104,6 @@ function createRestuarantOwner($first_name, $last_name, $email, $password, $phon
         ':password' => $password,
         ':phone' => $phone,
         ':profile' => $profile,
-        ':registration_date' => $registration_date,
         ':role_id' => $role_id
     ]);
     return $stmt->rowCount() > 0;
@@ -109,7 +116,6 @@ function editRestaurant($rest_id, $rest_name, $owner_id, $email, $location, $con
         location = :location, contact_info = :contact_info, restaurant_img = :img, description = :desc
         WHERE restaurant_id = :rest_id
     ");
-    echo $img;
     $stmt->execute([
         ":rest_name" => $rest_name,
         ":owner_id" => $owner_id,
@@ -123,20 +129,3 @@ function editRestaurant($rest_id, $rest_name, $owner_id, $email, $location, $con
     return $stmt->rowCount() > 0;
 }
 
-function saveAccountData($first_name,$last_name,$email,$password,$phone,$profile) {
-    global $connection;
-    $stmt = $connection->prepare("UPDATE users SET first_name = :f_name, last_name = :l_name,
-    email = :email, password = :password, phone = :phone, profile = :profile");
-    $stmt ->execute([
-       ":f_name" => $first_name,
-       ":l_name" => $last_name,
-       ":email"  => $email,
-       ":password"=> $password,
-       ":phone"   => $phone,
-       ":profile" => $profile
-
-     ]);
-    return $stmt ->rowCount() >0 ;
-
-
-}

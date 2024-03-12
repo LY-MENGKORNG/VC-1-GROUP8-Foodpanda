@@ -1,12 +1,9 @@
 <?php
 function createUser($role_id, $first_name, $last_name, $email, $password, $phone, $profile = NULL): bool
 {
-    date_default_timezone_get();
-    $registration_date = date("Y-m-d H:i:s");
-
     global $connection;
-    $stmt = $connection->prepare("INSERT INTO Users (first_name, last_name, email, password, phone, profile, registration_date, role_id) VALUES 
-                                (:first_name, :last_name, :email, :password, :phone, :profile, :registration_date, :role_id);");
+    $stmt = $connection->prepare("INSERT INTO Users (first_name, last_name, email, password, phone, profile, role_id) VALUES 
+                                (:first_name, :last_name, :email, :password, :phone, :profile, :role_id);");
     try {
         $stmt->execute([
             ':first_name' => $first_name,
@@ -15,7 +12,6 @@ function createUser($role_id, $first_name, $last_name, $email, $password, $phone
             ':password' => $password,
             ':phone' => $phone,
             ':profile' => $profile,
-            ':registration_date' => $registration_date,
             ':role_id' => $role_id
         ]);
         return true;
@@ -49,7 +45,7 @@ function getOwner() {
     return $stmt->fetchAll();
 }
 
-function editUser($first_name, $last_name, $email, $phone, $profile, $user_id) {
+function editUser($first_name, $last_name, $email, $phone, $profile, $user_id, $role_id) {
     global $connection;
     $stmt = $connection->prepare(
         "UPDATE users SET first_name = :first_name, last_name = :last_name, 
@@ -62,7 +58,8 @@ function editUser($first_name, $last_name, $email, $phone, $profile, $user_id) {
         ":email" => $email,
         ":phone" => $phone,
         ":profile" => $profile,
-        ":user_id" => $user_id
+        ":user_id" => $user_id,
+        ":role_id" => $role_id
     ]);
     return $stmt->rowCount() > 0;
 }

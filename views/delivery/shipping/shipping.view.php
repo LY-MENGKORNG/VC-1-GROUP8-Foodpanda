@@ -135,7 +135,7 @@
         </div>
         <div class="users-table table-wrapper rounded-lg  mt-3">
             <table class="posts-table table table-striped">
-                <thead class="" style="border-bottom: 1px solid gray;">
+                <thead class="" style="border-bottom: 1px solid gray;">T
                     <tr class="">
                         <th>No</th>
                         <th>Recipient</th>

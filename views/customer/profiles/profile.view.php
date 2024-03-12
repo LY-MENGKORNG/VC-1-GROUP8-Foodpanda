@@ -13,7 +13,7 @@
                     <a href="profile.html" class>
                         <div class="d-flex align-items-center p-3">
                             <div class="left mr-3">
-                                <img alt="#" src="../../assets/images/uploads/customer_profile/<?= $customer["profile"] ?>" class="rounded-circle" style="width: 75px; height: 75px;">
+                                <img alt="#" src="../../assets/images/uploads/customer_profile/<?= isset($customer["profile"]) ? $customer["profile"] : 'avatar.png' ?>" class="rounded-circle" style="width: 75px; height: 75px;">
                             </div>
                             <div class="right">
                                 <h6 class="mb-1 font-weight-bold"><?= $customer["first_name"] ?><i class="feather-check-circle text-success"></i></h6>
