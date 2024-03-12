@@ -106,10 +106,10 @@
                                     <ul class="rating-stars list-unstyled">
                                         <li>
                                             <?php
-                                            for ($i = 0; $i < intval($food["rating"]); $i++) { ?>
+                                            for ($i = 0; $i < intval($food["food_rate"]); $i++) { ?>
                                                 <i class="feather-star star_active"></i>
                                             <?php }
-                                            for ($i = 0; $i < 5 - intval($food["rating"]); $i++) { ?>
+                                            for ($i = 0; $i < 5 - intval($food["food_rate"]); $i++) { ?>
                                                 <i class="feather-star"></i>
                                             <?php } ?>
                                         </li>

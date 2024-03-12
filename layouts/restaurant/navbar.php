@@ -12,9 +12,9 @@
             </div>
             <div class="sidebar-body">
                 <ul class="sidebar-body-menu">
-                    <li>
+                    <!-- <li>
                         <a class="<?= getActivePage('/restaurant') ?>" href="/restaurant"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a class="<?= getActivePage('/restaurant/category') ?>" href="/restaurant/category"><span class="icon home" aria-hidden="true"></span>Category</a>
                     </li>

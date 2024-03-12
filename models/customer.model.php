@@ -34,27 +34,26 @@ function getCategories() {
 
 function getFoodsInfo() : array {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM foods_info");
+    $stmt = $connection->prepare("SELECT * FROM food_info");
     $stmt->execute();
     return $stmt->fetchAll();
 }
 function getFoodInfoById($food_id) : array {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM foods_info WHERE food_id = :food_id");
+    $stmt = $connection->prepare("SELECT * FROM food_info WHERE food_id = :food_id");
     $stmt->execute([":food_id" => $food_id]);
     return $stmt->fetch();
 }
-
-function getFoodInfoByCateId($cate_id) : array {
+function getFoodInfoByRestaurantId($restaurant_id) : array {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM foods_info WHERE cate_id = :cate_id");
-    $stmt->execute([":cate_id" => $cate_id]);
-    return $stmt->fetch();
+    $stmt = $connection->prepare("SELECT * FROM food_info WHERE restaurant_id = :restaurant_id");
+    $stmt->execute([":restaurant_id" => $restaurant_id]);
+    return $stmt->fetchAll();
 }
 
-function getFoodsById($cate_id = null) {
+function getFoodsByCateId($cate_id = null) {
     global $connection;
-    if ($cate_id) {
+    if ($cate_id) { 
         $stmt = $connection->prepare(
             "SELECT * FROM cate_food WHERE cate_id = :cate_id"
         );

@@ -13,14 +13,15 @@
             <div class="rating-wrap d-flex align-items-center mt-2">
                 <ul class="rating-stars list-unstyled">
                     <li>
-                        <i class="feather-star text-warning"></i>
-                        <i class="feather-star text-warning"></i>
-                        <i class="feather-star text-warning"></i>
-                        <i class="feather-star text-warning"></i>
-                        <i class="feather-star"></i>
+                        <?php for ($i=0; $i < intval($foods_info["restaurant_rate"]); $i++) { ?> 
+                            <i class="feather-star text-warning"></i>
+                        <?php }
+                        for ($i=0; $i < 5 - intval($foods_info["restaurant_rate"]); $i++) { ?> 
+                            <i class="feather-star"></i>
+                        <?php } ?>
                     </li>
                 </ul>
-                <p class="label-rating text-white ml-2 small"> (245 Reviews)</p>
+                <p class="label-rating text-white ml-2 small"> (2 Reviews)</p>
             </div>
         </div>
         <div class="pb-4">
@@ -31,7 +32,7 @@
                 </div>
                 <div class="col-6 col-md-2">
                     <p class="text-white-50 font-weight-bold m-0 small">Open time</p>
-                    <p class="text-white m-0">8:00 AM</p>
+                    <p class="text-white m-0"><?= $foods_info["opening_hour"] ?>.00 AM</p>
                 </div>
             </div>
         </div>
@@ -53,20 +54,20 @@
     <div class>
         <p class="font-weight-bold pt-4 m-0">FEATURED ITEMS</p>
         <div class="trending-slider rounded">
-            <?php foreach ($all_food_info as $foods_info) { ?>
+            <?php foreach ($restaurants as $foods) { ?>
                 <div class="osahan-slider-item">
-                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                        <div class="list-card-image">
+                    <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm" style="height: 270px;">
+                        <div class="list-card-image overflow-hidden"  style="height: 150px;">
                             <a href="customer/checkout">
-                                <img alt="#" src="../../../assets/images/uploads/restaurants/foods/<?= $foods_info["image"] ?>" class="img-fluid item-img w-100">
+                                <img alt="#" src="../../../assets/images/uploads/restaurants/foods/<?= $foods["image"] ?>" class="img-fluid item-img w-100">
                             </a>
                         </div>
-                        <div class="p-3 position-relative">
+                        <div class="p-3 position-relative"  style="height: 120px;">
                             <div class="list-card-body">
-                                <h6 class="mb-1"><a href="customer/checkout" class="text-black"><?= $foods_info["food_name"] ?></a>
+                                <h6 class="mb-1"><a href="customer/checkout" class="text-black"><?= $foods["food_name"] ?></a>
                                 </h6>
-                                <p class="text-gray mb-3"><?= $foods_info["cate_name"] ?></p>
-                                <p class="text-gray m-0"> <span class="text-black-50"> $<?= intval($foods_info["price"]) * 2 ?> FOR TWO</span></p>
+                                <p class="text-gray mb-3"><?= $foods["cate_name"] ?></p>
+                                <p class="text-gray m-0"> <span class="text-black-50"> $<?= intval($foods["price"]) * 2 ?> FOR TWO</span></p>
                             </div>
                         </div>
                     </div>

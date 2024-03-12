@@ -1,4 +1,5 @@
 <main class="main users chart-page" id="skip-target">
+<?php if (count($categories) != 0) { ?>
     <div class="container-fluid">
         <div class="d-flex flex-row justify-content-sm-between px-2">
             <h1 class="main-title col-9">List Foods</h1>
@@ -98,7 +99,7 @@
                         <td><?= $item["food_name"] ?></td>
                         <td><?= $item["price"] ?>$</td>
                         <td><?= $item["quantity"] ?></td>
-                        <td><?= $item["rating"] ?></td>
+                        <td><?= $item["food_rate"] ?></td>
                         <td>
                             <span class="p-relative">
                                 <button class="dropdown-btn transparent-btn" type="button" title="More info">
@@ -117,5 +118,10 @@
             </tbody>
         </table>
     </div>
+<?php } else { ?>
+    <div class="container h-100">
+        
+    </div>
+<?php } ?>
 
 </main>
