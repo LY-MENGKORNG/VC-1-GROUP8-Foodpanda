@@ -1,20 +1,19 @@
 <?php
 
-function createRestaurant(int $owner_id, string $restaurant_name, string $location, string $email, string $password,
+function createRestaurant(int $owner_id, string $restaurant_name, string $location, string $email,
                         string $contact_info, string $restaurant_img, string $description)  
 {
     try {
         global $connection;
         $stmt = $connection->prepare("INSERT INTO restaurants 
-        (owner_id, restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
-        (:owner_id, :restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
+        (owner_id, restaurant_name, location, email, contact_info, restaurant_img, description) VALUES 
+        (:owner_id, :restaurant_name, :location, :email, :contact_info, :restaurant_img, :description)");
     
         $stmt->execute([
             ":owner_id" => $owner_id,
             ":restaurant_name" => $restaurant_name,
             ":location" => $location,
             ":email" => $email,
-            ":password" => $password,
             ":contact_info" => $contact_info,
             ":restaurant_img" => $restaurant_img,
             ":description" => $description

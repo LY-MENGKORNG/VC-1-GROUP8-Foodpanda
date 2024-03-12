@@ -11,13 +11,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = htmlspecialchars($_POST['password']);
         $phone = htmlspecialchars($_POST['phone']);
 
+        $_SESSION["is_admin"] = [
+            "email" => !validateEmail($email) ? "Invalid email!" : "",
+            "password" => !validatePassword($password) ? "Invalid password!" : "",
+            "phone" => !validatePhone($phone) ? "Invalid phone!" : "",
+        ];
+
+        if ($_SESSION["is_admin"]["email"] != "" || $_SESSION["is_admin"]["password"] != "" || $_SESSION["is_admin"]["phone"] != "") {
+            header("Location: /admin/signup");
+            die();
+        }
+
         $pass_encrypt = password_hash($password, PASSWORD_BCRYPT);
 
         if (createUser(1, $first_name, $last_name, $email, $pass_encrypt, $phone)) {
             header("Location: /admin/signin");
-        } else {
-            header("Location: /admin/signup");
+            die();
         }
-
+        header("Location: /admin/signup");
     }
 }

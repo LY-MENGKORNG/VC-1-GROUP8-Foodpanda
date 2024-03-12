@@ -23,7 +23,7 @@
         <div class="cat-slider">
             <?php foreach ($categories as $category) { ?>
                 <form action="/customer/trending" method="post">
-                    <div class="cat-item px-1 py-3" id="cate">
+                    <div class="cat-item px-1 py-3" id="cate" style="cursor: pointer;">
                         <label for="button" class="bg-white rounded d-block p-2 text-center shadow-sm">
                             <img alt="#" src="assets/images/uploads/restaurants/categories/<?= $category['cate_img'] ?>" class="img-fluid mb-2" />
                             <p class="m-0 small"><?= $category["cate_name"] ?></p>
@@ -78,8 +78,8 @@
             <div class="row">
                 <?php foreach ($foods as $food) { ?>
                     <form action="/customer/restaurant" method="post" class="col-md-3 pb-3">
-                        <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                            <div class="list-card-image">
+                        <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm" style="height: 250px;">
+                            <div class="list-card-image overflow-hidden h-55" style="height: 130px;">
                                 <div class="star position-absolute">
                                     <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
                                 </div>
@@ -89,11 +89,11 @@
                                 <div class="member-plan position-absolute">
                                     <span class="badge badge-dark">Promoted</span>
                                 </div>
-                                <label for="toRestaurant">
+                                <label for="toRestaurant" id="food">
                                     <img alt="#" src="../../../assets/images/uploads/restaurants/foods/<?= $food["image"] ?>" class="img-fluid item-img w-100" />
                                 </label>
-                                <input type="hidden" name="food_id" value="<?= $food["food_id"] ?>">
-                                <button id="toRestaurant" type="submit"></button>
+                                <input type="hidden" name="" id="food_id">
+                                <button id="toRestaurant" type="submit" value="<?= $food["food_id"] ?>" style="display: none;"></button>
                             </div>
                             <div class="p-3 position-relative">
                                 <div class="list-card-body">
