@@ -6,32 +6,16 @@
 </div>
 <div class="offer-section py-4">
     <div class="container position-relative">
-<<<<<<< HEAD
-        <img alt="#" src="../../assets/images/uploads/restaurants/foods/<?= $foods_info["image"] ?>" class="restaurant-pic">
-        <div class="pt-3 text-white">
-            <h2 class="font-weight-bold"><?= $foods_info["restaurant_name"] ?></h2>
-=======
         <img alt="#" src="../../assets/images/uploads/restaurants/foods/<?= $foods_info["image"] ?>"
             class="restaurant-pic">
         <div class="pt-3 text-white">
             <h2 class="font-weight-bold">
                 <?= $foods_info["restaurant_name"] ?>
             </h2>
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
             <p class="text-white m-0">963 Madyson Drive Suite 679</p>
             <div class="rating-wrap d-flex align-items-center mt-2">
                 <ul class="rating-stars list-unstyled">
                     <li>
-<<<<<<< HEAD
-                        <i class="feather-star text-warning"></i>
-                        <i class="feather-star text-warning"></i>
-                        <i class="feather-star text-warning"></i>
-                        <i class="feather-star text-warning"></i>
-                        <i class="feather-star"></i>
-                    </li>
-                </ul>
-                <p class="label-rating text-white ml-2 small"> (245 Reviews)</p>
-=======
                         <?php for ($i = 0; $i < intval($foods_info["restaurant_rate"]); $i++) { ?>
                             <i class="feather-star text-warning"></i>
                         <?php }
@@ -41,7 +25,6 @@
                     </li>
                 </ul>
                 <p class="label-rating text-white ml-2 small"> (2 Reviews)</p>
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
             </div>
         </div>
         <div class="pb-4">
@@ -52,13 +35,9 @@
                 </div>
                 <div class="col-6 col-md-2">
                     <p class="text-white-50 font-weight-bold m-0 small">Open time</p>
-<<<<<<< HEAD
-                    <p class="text-white m-0">8:00 AM</p>
-=======
                     <p class="text-white m-0">
                         <?= $foods_info["opening_hour"] ?>.00 AM
                     </p>
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
                 </div>
             </div>
         </div>
@@ -68,97 +47,18 @@
     <div class="p-3 bg-primary bg-primary mt-n3 rounded position-relative">
         <div class="d-flex align-items-center">
             <div class="feather_icon">
-<<<<<<< HEAD
-                <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i class="p-2 bg-light rounded-circle font-weight-bold  feather-upload"></i></a>
-                <a href="#ratings-and-reviews" class="text-decoration-none text-dark mx-2"><i class="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
-                <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i class="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
-=======
                 <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i
                         class="p-2 bg-light rounded-circle font-weight-bold  feather-upload"></i></a>
                 <a href="#ratings-and-reviews" class="text-decoration-none text-dark mx-2"><i
                         class="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
                 <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i
                         class="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
             </div>
             <a href="contact-us.html" class="btn btn-sm btn-outline-light ml-auto">Contact</a>
         </div>
     </div>
 </div>
 <div class="container">
-<<<<<<< HEAD
-    <div class>
-        <p class="font-weight-bold pt-4 m-0">FEATURED ITEMS</p>
-
-        <div class="trending-slider rounded">
-            <div class="osahan-slider-item">
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <a href="/checkout">
-                            <img alt="#" src="assets/images/trending1.png" class="img-fluid item-img w-100">
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1"><a href="/checkout" class="text-black">Famous Dave's Bar-B-Que</a>
-                            </h6>
-                            <p class="text-gray mb-3">Vegetarian • Indian • Pure veg</p>
-                            <p class="text-gray m-0"> <span class="text-black-50"> $350 FOR TWO</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="osahan-slider-item">
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <a href="/checkout">
-                            <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100">
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1"><a href="/checkout" class="text-black">Thai Famous Cuisine</a></h6>
-                            <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                            <p class="text-gray m-0"> <span class="text-black-50"> $250 FOR TWO</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="osahan-slider-item">
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <a href="/checkout">
-                            <img alt="#" src="assets/images/trending3.png" class="img-fluid item-img w-100">
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1"><a href="/checkout" class="text-black">The osahan Restaurant</a>
-                            </h6>
-                            <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
-                            <p class="text-gray m-0"> <span class="text-black-50"> $500 FOR TWO</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="osahan-slider-item">
-                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        <a href="/checkout">
-                            <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100">
-                        </a>
-                    </div>
-                    <div class="p-3 position-relative">
-                        <div class="list-card-body">
-                            <h6 class="mb-1"><a href="/checkout" class="text-black">Thai Famous Cuisine</a></h6>
-                            <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                            <p class="text-gray m-0"> <span class="text-black-50"> $250 FOR TWO</span></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-=======
     <p class="font-weight-bold pt-4 m-0">FEATURED ITEMS</p>
     <div class="row py-4">
         <?php foreach ($restaurants as $foods) { ?>
@@ -206,17 +106,12 @@
             </form>
         <?php } ?>
 
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
     </div>
 </div>
 
 <div class="container position-relative">
     <div class="row">
-<<<<<<< HEAD
-        <div class="col-md-7 pt-3">
-=======
         <div class="col-md-8 pt-3">
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
             <div class="shadow-sm rounded bg-white mb-3 overflow-hidden">
                 <div class="d-flex item-aligns-center">
                     <p class="font-weight-bold h6 p-3 border-bottom mb-0 w-100">Menu</p>
@@ -227,12 +122,8 @@
                     <div class="col-md-12 px-0 border-top">
                         <div class>
                             <div class="p-3 border-bottom gold-members">
-<<<<<<< HEAD
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
-=======
                                 <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
                                         data-toggle="modal" data-target="#extras">ADD</a></span>
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
                                 <div class="media">
                                     <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
                                     <div class="media-body">
@@ -242,12 +133,8 @@
                                 </div>
                             </div>
                             <div class="p-3 border-bottom gold-members">
-<<<<<<< HEAD
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
-=======
                                 <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
                                         data-toggle="modal" data-target="#extras">ADD</a></span>
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
                                 <div class="media">
                                     <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
                                     <div class="media-body">
@@ -258,13 +145,6 @@
                                 </div>
                             </div>
                             <div class="p-3 border-bottom gold-members">
-<<<<<<< HEAD
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Chicken Tikka Sub <span class="badge badge-danger text-white">Non veg</span></h6>
-=======
                                 <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
                                         data-toggle="modal" data-target="#extras">ADD</a></span>
                                 <div class="media">
@@ -272,7 +152,6 @@
                                     <div class="media-body">
                                         <h6 class="mb-1">Chicken Tikka Sub <span
                                                 class="badge badge-danger text-white">Non veg</span></h6>
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
                                         <p class="text-muted mb-0">$250</p>
                                     </div>
                                 </div>
@@ -285,17 +164,11 @@
                     <div class="col-md-12 px-0 border-top">
                         <div class>
                             <div class="p-3 border-bottom menu-list">
-<<<<<<< HEAD
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <img alt="#" src="assets/images/starter1.jpg" alt="Gurdeep Osahan" class="mr-3 rounded-pill ">
-=======
                                 <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
                                         data-toggle="modal" data-target="#extras">ADD</a></span>
                                 <div class="media">
                                     <img alt="#" src="assets/images/starter1.jpg" alt="Gurdeep Osahan"
                                         class="mr-3 rounded-pill ">
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
                                     <div class="media-body">
                                         <h6 class="mb-1">Chicken Tikka Sub </h6>
                                         <p class="text-muted mb-0">$250</p>
@@ -303,17 +176,11 @@
                                 </div>
                             </div>
                             <div class="p-3 border-bottom menu-list">
-<<<<<<< HEAD
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <img alt="#" src="assets/images/starter2.jpg" alt="Gurdeep Osahan" class="mr-3 rounded-pill ">
-=======
                                 <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
                                         data-toggle="modal" data-target="#extras">ADD</a></span>
                                 <div class="media">
                                     <img alt="#" src="assets/images/starter2.jpg" alt="Gurdeep Osahan"
                                         class="mr-3 rounded-pill ">
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
                                     <div class="media-body">
                                         <h6 class="mb-1">Cheese corn Roll <span class="badge badge-danger">BEST
                                                 SELLER</span></h6>
@@ -322,17 +189,11 @@
                                 </div>
                             </div>
                             <div class="p-3 border-bottom menu-list">
-<<<<<<< HEAD
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <img alt="#" src="assets/images/starter3.jpg" alt="Gurdeep Osahan" class="mr-3 rounded-pill ">
-=======
                                 <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
                                         data-toggle="modal" data-target="#extras">ADD</a></span>
                                 <div class="media">
                                     <img alt="#" src="assets/images/starter3.jpg" alt="Gurdeep Osahan"
                                         class="mr-3 rounded-pill ">
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
                                     <div class="media-body">
                                         <h6 class="mb-1">Chicken Tikka Sub <span class="badge badge-success">Pure
                                                 Veg</span></h6>
@@ -348,12 +209,8 @@
                     <div class="col-md-12 px-0 border-top">
                         <div class="bg-white">
                             <div class="p-3 border-bottom gold-members">
-<<<<<<< HEAD
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
-=======
                                 <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
                                         data-toggle="modal" data-target="#extras">ADD</a></span>
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
                                 <div class="media">
                                     <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
                                     <div class="media-body">
@@ -363,12 +220,8 @@
                                 </div>
                             </div>
                             <div class="p-3 border-bottom gold-members">
-<<<<<<< HEAD
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
-=======
                                 <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
                                         data-toggle="modal" data-target="#extras">ADD</a></span>
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
                                 <div class="media">
                                     <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
                                     <div class="media-body">
@@ -379,12 +232,8 @@
                                 </div>
                             </div>
                             <div class="p-3 border-bottom gold-members">
-<<<<<<< HEAD
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#extras">ADD</a></span>
-=======
                                 <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
                                         data-toggle="modal" data-target="#extras">ADD</a></span>
->>>>>>> dc8538cc93c55f44a1c9ecb6762415181ba49cad
                                 <div class="media">
                                     <div class="mr-3 font-weight-bold text-success veg">.</div>
                                     <div class="media-body">
