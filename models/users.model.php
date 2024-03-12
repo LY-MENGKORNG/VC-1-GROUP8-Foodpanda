@@ -98,9 +98,13 @@ function checkImage($image, $target_dir): bool
 
 function addImageFolder($image, $target_dir)
 {
-    $file_name = basename($image["name"]);
-    $target_file_path = $target_dir . $file_name;
-    move_uploaded_file($image['tmp_name'], $target_file_path);
+    try {
+        $file_name = basename($image["name"]);
+        $target_file_path = $target_dir . $file_name;
+        return move_uploaded_file($image['tmp_name'], $target_file_path);
+    } catch (\Throwable $th) {
+        return false;
+    }
 }
 
 

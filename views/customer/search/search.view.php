@@ -161,10 +161,10 @@ $js_food_info = json_encode($food_info);
 
         foods.forEach(food => {
             let stars = ""
-            for (let i = 0; i < parseInt(food["9"]); i++) {
+            for (let i = 0; i < parseInt(food["food_rate"]); i++) {
                 stars += `<i class="feather-star star_active mx-1"></i>`;
             }
-            for (let i = 0; i < 5 - parseInt(food["9"]); i++) {
+            for (let i = 0; i < 5 - parseInt(food["food_rate"]); i++) {
                 stars += `<i class="feather-star mx-1"></i>`;
             }
             foodContainer.innerHTML += `
@@ -174,7 +174,7 @@ $js_food_info = json_encode($food_info);
                     <div class="star position-absolute">
                         <span class="badge badge-success">
                             <i class="feather-star"></i>
-                            ${food["9"]}.1 (${food["9"]}00+)
+                            ${food["food_rate"]}.1 (${food["food_rate"]}00+)
                         </span>
                     </div>
                     <div class="favourite-heart text-danger position-absolute">
@@ -182,14 +182,14 @@ $js_food_info = json_encode($food_info);
                     </div>
                     <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                     <a href="/customer/restaurant">
-                        <img alt="#" src="../../../assets/images/uploads/restaurants/foods/${food['6']}" class="img-fluid item-img w-100">
+                        <img alt="#" src="../../../assets/images/uploads/restaurants/foods/${food['image']}" class="img-fluid item-img w-100">
                     </a>
                 </div>
                 <div class="p-3 position-relative" style="style="height: 50%">
                     <div class="list-card-body">
-                        <h6 class="mb-1"><a href="/customer/restaurant" class="text-black">${food["5"]}</a>
+                        <h6 class="mb-1"><a href="/customer/restaurant" class="text-black">${food["restaurant_name"]}</a>
                         </h6>
-                        <p class="text-gray mb-1 small">• Category • ${food["4"]} Food</p>
+                        <p class="text-gray mb-1 small">• Category • ${food["cate_name"]} Food</p>
                         <p class="text-gray mb-1 rating">
                         <ul class="rating-stars list-unstyled">
                             <li> ${stars} </li>
@@ -202,7 +202,7 @@ $js_food_info = json_encode($food_info);
                 </div>
             </div>
         </div>
-    `;
+    `; 
         });
     }
 </script>
