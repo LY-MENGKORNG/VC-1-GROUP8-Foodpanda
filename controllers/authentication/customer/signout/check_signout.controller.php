@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
-        $customer = $_SESSION["customer"];
+        $customer = $_SESSION["customer"]; 
         $password_confirm = password_verify($password, $customer["password"]);
         if ($customer["email"] != $email && !$password_confirm) {
 

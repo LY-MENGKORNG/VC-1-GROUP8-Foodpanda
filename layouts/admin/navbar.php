@@ -21,13 +21,13 @@
             <div class="sidebar-body">
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a class="active" href="/admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                        <a class="<?= getActivePage('/admin') ?>" href="/admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
                     <li>
-                        <a class="" href="/admin/manage_restaurant"><span class="icon home" aria-hidden="true"></span>Restaurants</a>
+                        <a class="<?= getActivePage('/admin/manage_restaurant') ?>" href="/admin/manage_restaurant"><span class="icon home" aria-hidden="true"></span>Restaurants</a>
                     </li>
                     <li>
-                        <a class="" href="/admin/restaurant_owner"><span class="icon home" aria-hidden="true"></span>Owners</a>
+                        <a class="<?= getActivePage('/admin/restaurant_owner') ?>" href="/admin/restaurant_owner"><span class="icon home" aria-hidden="true"></span>Owners</a>
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">

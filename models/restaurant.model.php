@@ -59,7 +59,7 @@ function getAllFood() {
 
 function getFoodsByOwner($id) {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM foods_info WHERE owner_id = :id");
+    $stmt = $connection->prepare("SELECT * FROM food_info WHERE owner_id = :id");
     $stmt->execute([":id" => $id]);
     return $stmt->fetchAll();
 }
