@@ -1,40 +1,19 @@
 <?php
-function rejectEmail($email, $password): bool {
 
-    $emailPattern = ' /^\w+(\.\w+)*@[\w-]+(\.[\w-]+)+$/ ';
-    $passwordPattern = 8;
-
-    $emailValid = preg_match($emailPattern, $email);
-    $passwordValid = preg_match($passwordPattern, $password);
-
-    if (!$emailValid || !$passwordValid) {
-        if (rejectEmail($email,$password)){
-            echo "You got wrong";
-        }
-        return false;
-
-    } else {
-        echo "You got right";
-    }
-
-    return true;
-}
-
-function createRestaurant(int $owner_id, string $restaurant_name, string $location, string $email, string $password,
+function createRestaurant(int $owner_id, string $restaurant_name, string $location, string $email,
                         string $contact_info, string $restaurant_img, string $description)  
 {
     try {
         global $connection;
         $stmt = $connection->prepare("INSERT INTO restaurants 
-        (owner_id, restaurant_name, location, email, password, contact_info, restaurant_img, description) VALUES 
-        (:owner_id, :restaurant_name, :location, :email, :password, :contact_info, :restaurant_img, :description)");
+        (owner_id, restaurant_name, location, email, contact_info, restaurant_img, description) VALUES 
+        (:owner_id, :restaurant_name, :location, :email, :contact_info, :restaurant_img, :description)");
     
         $stmt->execute([
             ":owner_id" => $owner_id,
             ":restaurant_name" => $restaurant_name,
             ":location" => $location,
             ":email" => $email,
-            ":password" => $password,
             ":contact_info" => $contact_info,
             ":restaurant_img" => $restaurant_img,
             ":description" => $description

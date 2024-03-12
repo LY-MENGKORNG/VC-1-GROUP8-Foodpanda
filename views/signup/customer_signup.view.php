@@ -1,7 +1,3 @@
-<?php if (count(getAllUsers(1)) == 1) {
-    header("Location: /admin/signin");
-    die();
-} ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +7,7 @@
     <meta name="description" content="Gurdeep Osahan" />
     <meta name="author" content="Gurdeep Osahan" />
     <link rel="shortcut icon" href="../../assets/images/logo/panda-logo.png" type="image/x-icon">
-    <title>Admin Sign Up</title>
+    <title>Customer Sign up</title>
 
     <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick-theme.min.css" />
@@ -34,14 +30,8 @@
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-3 col-10 mx-auto">
-                    <?php if (isset($_SESSION["is_admin_acc"])) { ?>
-                        <div class="alert alert-danger mt-3" role="alert">
-                            You don't have the account yet. Please sign up to register
-                        </div>
-                    <?php } ?>
                     <h3 class="my-0 text-primary">Create your account</h3>
-                    <p class="text-50 mb-3">Welcome to Foodpanda</p>
-                    <form class="mt-3" action="/admin/check_signup" method="post">
+                    <form class="mt-5" action="/customer/check_signup" method="post">
                         <div class="row d-flex gap-2">
                             <div class="form-group col-6">
                                 <label for="first_name" class="text-dark form-label">First Name</label>
@@ -53,33 +43,31 @@
                                 <input type="last_name" name="last_name" class="form-control" id="last_name" required />
                             </div>
                         </div>
-                        <div class="row d-flex gap-2">
-                            <div class="form-group col-6">
-                                <label for="email" class="text-dark form-label">Email</label>
-                                <input type="email" name="email" class="form-control" id="email" required />
-                                <p class="text-danger">
-                                    <?= isset($_SESSION["is_admin"]) ? $_SESSION["is_admin"]["email"] : "" ?>
-                                </p>
-                            </div>
-                            <div class="form-group col-6">
-                                <label for="password" class="text-dark form-label">Password</label>
-                                <input type="password" name="password" class="form-control" id="password" required />
-                                <p class="text-danger">
-                                    <?= isset($_SESSION["is_admin"]) ? $_SESSION["is_admin"]["password"] : "" ?>
-                                </p>
-                            </div>
+                        <div class="form-group">
+                            <label for="email" class="text-dark form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" required />
+                            <p class="text-danger">
+                                <?= isset($_SESSION["is_customer"]) ? $_SESSION["is_customer"]["email"] : ""; ?>
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="text-dark form-label">Password</label>
+                            <input type="password" name="password" class="form-control" id="password" required />
+                            <p class="text-danger">
+                                <?= isset($_SESSION["is_customer"]) ? $_SESSION["is_customer"]["password"] : "" ?>
+                            </p>
                         </div>
                         <div class="form-group">
                             <label for="phone" class="text-dark form-label">phone</label>
                             <input type="phone" name="phone" class="form-control" id="phone" required />
                             <p class="text-danger">
-                                <?= isset($_SESSION["is_admin"]) ? $_SESSION["is_admin"]["phone"] : "" ?>
+                            <?= isset($_SESSION["is_customer"]) ? $_SESSION["is_customer"]["phone"] : "" ?>
                             </p>
                         </div>
 
                         <button class="btn text-white btn-lg btn-block" style="background: #FF2B85;">SIGN IN</button>
                     </form>
-                    <div class="text-center mt-0">
+                    <div class="text-center mt-1">
                         <p class="text-info">Already have the account? <a href="/admin/signin">Sign in</a></p>
                     </div>
                 </div>
