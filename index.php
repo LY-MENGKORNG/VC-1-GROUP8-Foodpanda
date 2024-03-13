@@ -20,6 +20,7 @@ if (urlIs("/admin") || urlIs("/admin/manage_restaurant") ||
 // Restaurant routes
 else if (urlIs("/restaurant") || urlIs("/restaurant/category") || urlIs("/restaurant/delivery") || 
         urlIs("/restaurant/customer") || urlIs("/restaurant/food") || urlIs("/restaurant/add_food") || 
+        urlIs("/restaurant/edit_food")|| urlIs("/restaurant/delete_food") ||
         urlIs("/restaurant/category") || urlIs("/restaurant/add_category") || urlIs("/restaurant/edit_category") ||
         urlIs("/restaurant/delete_category") || urlIs("/restaurant/profile") || urlIs("/restaurant/edit_profile") || 
         urlIs("/restaurant/add_delivery")) 
