@@ -21,7 +21,13 @@ for (let i = 0; i < foods.length; i++) {
         food_id.value = toRestaurant[i].value;
     }
 }
-
-
-
-
+// get the food id when we click 
+const toCheckout = document.querySelectorAll("#toCheckout");
+const foods2 = document.querySelectorAll("#food2");
+const food_id2 = document.getElementById("food_id2");
+for (let i = 0; i < foods2.length; i++) {
+    foods2[i].onclick = (e) => {
+        food_id2.name = "food_id";
+        food_id2.value = toCheckout[i].value;
+    }
+}
