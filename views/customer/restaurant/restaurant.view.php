@@ -6,8 +6,7 @@
 </div>
 <div class="offer-section py-4">
     <div class="container position-relative">
-        <img alt="#" src="../../assets/images/uploads/restaurants/foods/<?= $foods_info["image"] ?>"
-            class="restaurant-pic">
+        <img alt="#" src="../../assets/images/uploads/restaurants/foods/<?= $foods_info["image"] ?>" class="restaurant-pic">
         <div class="pt-3 text-white">
             <h2 class="font-weight-bold">
                 <?= $foods_info["restaurant_name"] ?>
@@ -47,12 +46,9 @@
     <div class="p-3 bg-primary bg-primary mt-n3 rounded position-relative">
         <div class="d-flex align-items-center">
             <div class="feather_icon">
-                <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i
-                        class="p-2 bg-light rounded-circle font-weight-bold  feather-upload"></i></a>
-                <a href="#ratings-and-reviews" class="text-decoration-none text-dark mx-2"><i
-                        class="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
-                <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i
-                        class="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
+                <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i class="p-2 bg-light rounded-circle font-weight-bold  feather-upload"></i></a>
+                <a href="#ratings-and-reviews" class="text-decoration-none text-dark mx-2"><i class="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
+                <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i class="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
             </div>
             <a href="contact-us.html" class="btn btn-sm btn-outline-light ml-auto">Contact</a>
         </div>
@@ -114,163 +110,26 @@
                     <h6 class="p-3 m-0 bg-light w-100">Quick Bites <small class="text-black-50">3 ITEMS</small></h6>
                     <div class="col-md-12 px-0 border-top">
                         <div class>
-                            <div class="p-3 border-bottom gold-members">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Chicken Tikka Sub </h6>
-                                        <p class="text-muted mb-0">$250</p>
+                            <?php $stars = 0 ?>
+                            <?php foreach ($restaurants as $restaurant) { ?>
+                                <div class="p-3 border-bottom gold-members">
+                                    <span class="float-right">
+                                        <button class="btn btn-outline-secondary btn-sm" id="add" data-index="<?= $restaurant["food_id"] ?>">ADD</button>
+                                    </span>
+                                    <div class="media">
+                                        <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
+                                        <div class="media-body">
+                                            <h6 class="mb-1"><?= $restaurant["food_name"] ?>
+                                                <span class="badge badge-danger">BEST SELLER</span>
+                                            </h6>
+                                            <p class="text-muted mb-0"> $<?= $restaurant["price"] ?></p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="p-3 border-bottom gold-members">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Cheese corn Roll <span class="badge badge-danger">BEST
-                                                SELLER</span></h6>
-                                        <p class="text-muted mb-0">$600</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-3 border-bottom gold-members">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Chicken Tikka Sub <span
-                                                class="badge badge-danger text-white">Non veg</span></h6>
-                                        <p class="text-muted mb-0">$250</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row m-0">
-                    <h6 class="p-3 m-0 bg-light w-100">Starters <small class="text-black-50">3 ITEMS</small></h6>
-                    <div class="col-md-12 px-0 border-top">
-                        <div class>
-                            <div class="p-3 border-bottom menu-list">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <img alt="#" src="assets/images/starter1.jpg" alt="Gurdeep Osahan"
-                                        class="mr-3 rounded-pill ">
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Chicken Tikka Sub </h6>
-                                        <p class="text-muted mb-0">$250</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-3 border-bottom menu-list">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <img alt="#" src="assets/images/starter2.jpg" alt="Gurdeep Osahan"
-                                        class="mr-3 rounded-pill ">
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Cheese corn Roll <span class="badge badge-danger">BEST
-                                                SELLER</span></h6>
-                                        <p class="text-muted mb-0">$600</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-3 border-bottom menu-list">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <img alt="#" src="assets/images/starter3.jpg" alt="Gurdeep Osahan"
-                                        class="mr-3 rounded-pill ">
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Chicken Tikka Sub <span class="badge badge-success">Pure
-                                                Veg</span></h6>
-                                        <p class="text-muted mb-0">$250</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row m-0">
-                    <h6 class="p-3 m-0 bg-light w-100">Soups <small class="text-black-50">8 ITEMS</small></h6>
-                    <div class="col-md-12 px-0 border-top">
-                        <div class="bg-white">
-                            <div class="p-3 border-bottom gold-members">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Chicken Tikka Sub </h6>
-                                        <p class="text-muted mb-0">$250</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-3 border-bottom gold-members">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Cheese corn Roll <span class="badge badge-danger">BEST
-                                                SELLER</span></h6>
-                                        <p class="text-muted mb-0">$600</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-3 border-bottom gold-members">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <div class="mr-3 font-weight-bold text-success veg">.</div>
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Chicken Tikka Sub <span class="badge badge-success">Pure
-                                                Veg</span></h6>
-                                        <p class="text-muted mb-0">$250</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-3 border-bottom gold-members">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <div class="mr-3 font-weight-bold text-success veg">.</div>
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Chicken Tikka Sub </h6>
-                                        <p class="text-muted mb-0">$250</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-3 border-bottom gold-members">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Cheese corn Roll <span class="badge badge-danger">BEST
-                                                SELLER</span></h6>
-                                        <p class="text-muted mb-0">$600</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-3 gold-members">
-                                <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                        data-toggle="modal" data-target="#extras">ADD</a></span>
-                                <div class="media">
-                                    <div class="mr-3 font-weight-bold text-success veg">.</div>
-                                    <div class="media-body">
-                                        <h6 class="mb-1">Chicken Tikka Sub <span class="badge badge-success">Pure
-                                                Veg</span></h6>
-                                        <p class="text-muted mb-0">$250</p>
-                                    </div>
-                                </div>
-                            </div>
+                            <?php
+                                $stars += intval($restaurant["food_rate"]);
+                            } ?>
+
                         </div>
                     </div>
                 </div>
@@ -279,13 +138,10 @@
                 <div id="ratings-and-reviews" class="bg-white shadow-sm d-flex align-items-center rounded p-3 mb-3 clearfix restaurant-detailed-star-rating">
                     <h6 class="mb-0">Rate this Place</h6>
                     <div class="star-rating ml-auto">
-                        <div class="d-inline-block h6 m-0"><i class="feather-star text-warning"></i>
+                        <b class="text-black ml-2"><?= $stars ?></b>
+                        <div class="d-inline-block h6 m-0">
                             <i class="feather-star text-warning"></i>
-                            <i class="feather-star text-warning"></i>
-                            <i class="feather-star text-warning"></i>
-                            <i class="feather-star"></i>
                         </div>
-                        <b class="text-black ml-2">334</b>
                     </div>
                 </div>
                 <div class="bg-white rounded p-3 mb-3 clearfix graph-star-rating rounded shadow-sm">
@@ -366,10 +222,10 @@
                                 </div>
                                 <div class="reviews-members-footer"><a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-up"></i> 856M</a> <a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-down"></i> 158K</a>
                                     <span class="total-like-user-main ml-2" dir="rtl">
-                                        <a href="#" aria-describedby="tooltip-top0"><img alt="#" src="assets/images/reviewer3.png" class="total-like-user rounded-pill"></a>
+                                        <!-- <a href="#" aria-describedby="tooltip-top0"><img alt="#" src="assets/images/reviewer3.png" class="total-like-user rounded-pill"></a>
                                         <a href="#" aria-describedby="tooltip-top1"><img alt="#" src="assets/images/reviewer4.png" class="total-like-user rounded-pill"></a>
                                         <a href="#"><img alt="#" src="assets/images/reviewer5.png" class="total-like-user rounded-pill"></a>
-                                        <a href="#" aria-describedby="tooltip-top3"><img alt="#" src="assets/images/reviewer6.png" class="total-like-user rounded-pill"></a>
+                                        <a href="#" aria-describedby="tooltip-top3"><img alt="#" src="assets/images/reviewer6.png" class="total-like-user rounded-pill"></a> -->
                                     </span>
                                 </div>
                             </div>
@@ -404,38 +260,12 @@
                 <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
                     <img alt="osahan" src="../../../assets/images/uploads/restaurants/<?= $foods_info["restaurant_img"]; ?>" class="mr-3 rounded-circle img-fluid" style="width: 60px; height: 60px;">
                     <div class="d-flex flex-column">
-                        <h6 class="mb-1 font-weight-bold">Spice Hut Indian Restaurant</h6>
-                        <p class="mb-0 small text-muted"><i class="feather-map-pin"></i> 2036 2ND AVE, NEW YORK, NY
-                            10029</p>
+                        <h6 class="mb-1 font-weight-bold"><?= $foods_info["restaurant_name"] ?></h6>
+                        <p class="mb-0 small text-muted"><i class="feather-map-pin"></i> <?= $foods_info["location"] ?></p>
                     </div>
                 </div>
-                <div class="bg-white border-bottom py-2">
-                    <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                        <div class="media align-items-center">
-                            <div class="mr-2 text-danger">&middot;</div>
-                            <div class="media-body">
-                                <p class="m-0">Chicken Tikka Sub</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <span class="count-number float-right"><button type="button" class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                                </button><input class="count-number-input" type="text" readonly value="2"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i class="feather-plus"></i> </button></span>
-                            <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                        </div>
-                    </div>
-                    <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2">
-                        <div class="media align-items-center">
-                            <div class="mr-2 text-success">&middot;</div>
-                            <div class="media-body">
-                                <p class="m-0">Rara Paneer</p>
-                            </div>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <span class="count-number float-right"><button type="button" class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                                </button><input class="count-number-input" type="text" readonly value="2"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i class="feather-plus"></i> </button></span>
-                            <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                        </div>
-                    </div>
+                <div class="bg-white border-bottom py-2" id="checkoutContent">
+
                 </div>
                 <div class="bg-white p-3 py-3 border-bottom clearfix">
                     <div class="input-group-sm mb-2 input-group">
@@ -500,3 +330,35 @@
     </div>
 </div>
 </div>
+
+<script>
+    const addToCartBtns = document.querySelectorAll("#add");
+    const checkoutContent = document.getElementById("checkoutContent");
+    let cart = [];
+
+    function checkout(cart) {
+        checkout = ""
+        // cart.forEach(food => {
+        //     checkoutContent.innerHTML += `
+        //         <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
+        //             <div class="media align-items-center">
+        //                 <div class="mr-2 text-danger">&middot;</div>
+        //                 <div class="media-body">
+        //                     <p class="m-0">Chicken Tikka Sub</p>
+        //                 </div>
+        //             </div>
+        //             <div class="d-flex align-items-center">
+        //                 <span class="count-number float-right"><button type="button" class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
+        //                     </button><input class="count-number-input" type="text" readonly value="2"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i class="feather-plus"></i> </button></span>
+        //                 <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
+        //             </div>
+        //         </div>
+        //     `;
+        // });
+    }
+    <?php for ($i; $i< count($restaurants); $i++) { ?>
+        addToCartBtns[<?= intval($i) ?>].addEventListener("click", async ()=> {
+            console.log(<?= json_encode($restaurant) ?>)
+        })
+    <?php } ?>
+</script>

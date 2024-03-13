@@ -31,3 +31,4 @@ for (let i = 0; i < foods2.length; i++) {
         food_id2.value = toCheckout[i].value;
     }
 }
+
