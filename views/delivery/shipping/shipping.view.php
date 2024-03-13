@@ -91,48 +91,6 @@
     </div>
     <div class="container mt-5">
         <h4 class="title">Shipping Report</h4>
-        <div class="container-fluid">
-            <!-- Modal -->
-            <div class="d-flex flex-row justify-content-sm-between px-2">
-            		<button class="btn btn-primary font-weight-bold text-gray rounded" data-bs-toggle="modal" data-bs-target="#deliveryModal">
-                	Add Report
-            		</button>
-        	</div>
-            <div class="modal fade" id="deliveryModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content p-4">
-                        <div class="modal-body">
-                            <form action="/restaurant/add_delivery" method="post" enctype="multipart/form-data">
-                                <div class="row">
-                                    <div class="form-group col-6">
-                                        <label for="report_id">No</label>
-                                        <input type="text" name="report_id" id="report_id" class="form-control border" required>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="recipient">Recipient</label>
-                                        <input type="text" name="recipient" id="recipient" class="form-control border" required>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="form-group col-6">
-                                        <label for="status">Status</label>
-                                        <input type="status" name="status" id="status" class="form-control border" required>
-                                    </div>
-                                    <div class="form-group col-6">
-                                        <label for="fee">Fee</label>
-                                        <input type="fee" name="fee" id="fee" class="form-control border" required>
-                                    </div>
-                                </div>
-                                <div class="row mt-2">
-                                    <input type="hidden" name="delivery_id" value="3">
-                                    <button type="submit" class="btn btn-primary width= 60">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="users-table table-wrapper rounded-lg  mt-3">
             <table class="posts-table table table-striped">
                 <thead class="" style="border-bottom: 1px solid gray;">
@@ -145,14 +103,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                        <tr class="users-table-info">
-                            <td>1</td>
-                            <td><?= $delivery["first_name"] ?></td>
-                            <td><?= $delivery["last_name"] ?></td>
-                            <td><?= $delivery["email"] ?></td>
-                            <td><?= $delivery["phone"] ?></td>
-                            <td>Action</td>
-                        </tr>
+                    <tr class="users-table-info">
+                        <td>1</td>
+                        <td><?= $delivery["first_name"] ?></td>
+                        <td><?= $delivery["last_name"] ?></td>
+                        <td><?= $delivery["email"] ?></td>
+                        <td><?= $delivery["phone"] ?></td>
+                        <td>Action</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
