@@ -151,21 +151,21 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- delete category -->
-                <div class="modal fade" id="deletefood<?= $item["food_id"] ?>" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header row p-2 m-0">
-                                <div class="alert alert-danger col-12 rounded-0" role="alert">
-                                    Are you sure you want to delete this food?
+                    <!-- delete category -->
+                    <div class="modal fade" id="deletefood<?= $item["food_id"] ?>" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header row p-2 m-0">
+                                    <div class="alert alert-danger col-12 rounded-0" role="alert">
+                                        Are you sure you want to delete this food?
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="modal-body p-2 m-2 d-flex justify-content-end">
-                                <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
-                                <form action="/restaurant/delete_food" method="post">
-                                    <button type="submit" name="food_id" value="<?= $item["food_id"] ?>" class="btn btn-primary">Save changes</button>
-                                </form>
+                                <div class="modal-body p-2 m-2 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
+                                    <form action="/restaurant/delete_food" method="post">
+                                        <button type="submit" name="food_id" value="<?= $item["food_id"] ?>" class="btn btn-primary">Save changes</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
