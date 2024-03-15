@@ -168,36 +168,6 @@
                             </div>
                         </div>
                     </div>
-                        <!-- <div class="modal fade" id="editfood<?= $item["food_id"] ?>" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content p-4">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">
-                                            <h5 class="modal-title text-dark" id="modal-title">Edit Food</h5>
-                                            <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="feather-x" style="font-size: 20px;"></i></button>
-                                        </h5>
-                                    </div>
-                                    <div class="modal-body text-dark">
-                                        <form action="/restaurant/edit_food" method="post" enctype="multipart/form-data">
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="image">Image</label>
-                                                    <input type="file" name="image" id="image" class="form-control border border-info">
-                                                </div>
-                                                <div class="form-group col-6">
-                                                    <label for="food_name">Food Name:</label>
-                                                    <input type="text" name="food_name" id="food_name" class="form-control border border-info" value="<?= $item["food_name"] ?>" required>
-                                                </div>
-                                            </div>
-
-                                            <input type="hidden" name="food_id" value="<?= $item["food_id"] ?>">
-                                            <input type="hidden" name="current_image" value="<?= $item["current_image"] ?>">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                     <!-- delete category -->
                     <div class="modal fade" id="deletefood<?= $item["food_id"] ?>" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
                         <div class="modal-dialog">
