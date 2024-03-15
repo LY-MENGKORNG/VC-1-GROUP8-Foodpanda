@@ -184,10 +184,10 @@
                 <div class="col-md-4">
                     <div class="osahan-cart-item rounded rounded shadow-sm overflow-hidden bg-white sticky_sidebar">
                         <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
-                            <img alt="osahan" src="../../../assets/images/uploads/restaurants/<?= $foods["restaurant_img"]; ?>" class="mr-3 rounded-circle img-fluid" style="width: 60px; height: 60px;">
+                            <img alt="osahan" src="../../../assets/images/uploads/restaurants/" class="mr-3 rounded-circle img-fluid" style="width: 60px; height: 60px;">
                             <div class="d-flex flex-column">
-                                <h6 class="mb-1 font-weight-bold"><?= $foods["restaurant_name"] ?></h6>
-                                <p class="mb-0 small text-muted"><i class="feather-map-pin"></i> <?= $foods["location"] ?></p>
+                                <h6 class="mb-1 font-weight-bold"></h6>
+                                <p class="mb-0 small text-muted"><i class="feather-map-pin"></i></p>
                             </div>
                         </div>
                         <div class="bg-white border-bottom py-2">
