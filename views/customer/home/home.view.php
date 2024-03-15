@@ -166,7 +166,7 @@
                                             <p class="text-gray mb-3">North • <?= $food["food_name"] ?></p>
                                             <p class="text-gray mb-3 time">
                                                 <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> <?= $food["opening_hour"] ?>
-                                                    .00</span>
+                                                    : 00</span>
                                                 <span class="float-right text-black-50">
                                                     $<?= $food["price"]*2 ?> FOR TWO</span>
                                             </p>
