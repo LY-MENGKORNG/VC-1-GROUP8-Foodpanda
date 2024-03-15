@@ -15,7 +15,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (checkImage($cate_img, $path_dir)) {
             changeImage($path_dir, $cate_img, $current_img);
-            addImageFolder($cate_img, $path_dir);
             editCategory(intval($cate_id), $cate_name, $description, $cate_img['name']);
         }else {
             editCategory(intval($cate_id), $cate_name, $description, $current_img);
