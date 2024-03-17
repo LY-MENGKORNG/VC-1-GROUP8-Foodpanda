@@ -95,6 +95,12 @@
                                 <span>settings</span>
                             </a></li>
                         <li>
+                            <a class="" href="/restaurant/signin">
+                                <i data-feather="log-in" aria-hidden="true"></i>
+                                <span>Sign in</span>
+                            </a>
+                        </li>
+                        <li>
                             <a class="danger" href="/restaurant/signout">
                                 <i data-feather="log-out" aria-hidden="true"></i>
                                 <span>Sign out</span>

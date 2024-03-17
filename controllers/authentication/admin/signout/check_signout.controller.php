@@ -1,11 +1,10 @@
 <?php
-session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['email']) && !empty($_POST['password'])) {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
 
-        $admin = accountExist($email, 1);
+        $admin = $_SESSION["admin"];
         $password_confirm = password_verify($password, $admin["password"]);
         if (count($admin) == 0 && !$password_confirm) {
 
@@ -29,8 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             unset($_SESSION["is_admin_password"]);
             unset($_SESSION['is_admin_email']);
             unset($_SESSION["admin"]);
-            // adminSignout($email);
-            // deleteAdminImage($admin["image"]);
             header("Location: /foodpanda");
         }
     }

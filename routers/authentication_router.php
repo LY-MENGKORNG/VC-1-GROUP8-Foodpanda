@@ -10,18 +10,19 @@ $routes = [
     '/admin/signin' => 'controllers/authentication/admin/signin/signin.controller.php',
     '/admin/check_signin' => 'controllers/authentication/admin/signin/check_signin.controller.php',
     '/admin/signout' => 'controllers/authentication/admin/signout/signout.controller.php',
-    '/admin/check-signout' => 'controllers/authentication/admin/signout/check_signout.controller.php',
+    '/admin/check_signout' => 'controllers/authentication/admin/signout/check_signout.controller.php',
 
     '/restaurant/signin' => 'controllers/authentication/restaurant/signin/signin.controller.php',
     '/restaurant/check_signin' => 'controllers/authentication/restaurant/signin/check_signin.controller.php',
     '/restaurant/signout' => 'controllers/authentication/restaurant/signout/signout.controller.php',
     '/restaurant/check_signout' => 'controllers/authentication/restaurant/signout/check_signout.controller.php',
 
+    '/customer/signup' => 'controllers/authentication/customer/signup/signup.controller.php',
     '/customer/check_signup' => 'controllers/authentication/customer/signup/check_signup.controller.php',
     '/customer/signin' => 'controllers/authentication/customer/signin/signin.controller.php',
     '/customer/check_signin' => 'controllers/authentication/customer/signin/check_signin.controller.php',
     '/customer/signout' => 'controllers/authentication/customer/signout/signout.controller.php',
-    '/customer/check-signout' => 'controllers/authentication/customer/signout/check_signout.controller.php',
+    '/customer/check_signout' => 'controllers/authentication/customer/signout/check_signout.controller.php',
 
     '/delivery/signin' => 'controllers/authentication/delivery/signin/signin.controller.php',
     '/delivery/check_signin' => 'controllers/authentication/delivery/signin/check_signin.controller.php',

@@ -11,7 +11,7 @@
     <meta name="description" content="Gurdeep Osahan" />
     <meta name="author" content="Gurdeep Osahan" />
     <link rel="shortcut icon" href="../../assets/images/logo/panda-logo.png" type="image/x-icon">
-    <title>Admin Sign in</title>
+    <title>Admin Sign Up</title>
 
     <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick-theme.min.css" />
@@ -47,16 +47,10 @@
                                 <label for="first_name" class="text-dark form-label">First Name</label>
                                 <input type="first_name" name="first_name" class="form-control" id="first_name"
                                     required />
-                                <p class="text-danger">
-                                    <?= isset($_SESSION["is_admin_first_name"]) ? $_SESSION["is_admin_first_name"] : "" ?>
-                                </p>
                             </div>
                             <div class="form-group col-6">
                                 <label for="last_name" class="text-dark form-label">Last Name</label>
                                 <input type="last_name" name="last_name" class="form-control" id="last_name" required />
-                                <p class="text-danger">
-                                    <?= isset($_SESSION["is_admin_last_name"]) ? $_SESSION["is_admin_last_name"] : "" ?>
-                                </p>
                             </div>
                         </div>
                         <div class="row d-flex gap-2">
@@ -64,14 +58,14 @@
                                 <label for="email" class="text-dark form-label">Email</label>
                                 <input type="email" name="email" class="form-control" id="email" required />
                                 <p class="text-danger">
-                                    <?= isset($_SESSION["is_admin_email"]) ? $_SESSION["is_admin_email"] : "" ?>
+                                    <?= isset($_SESSION["is_admin"]) ? $_SESSION["is_admin"]["email"] : "" ?>
                                 </p>
                             </div>
                             <div class="form-group col-6">
                                 <label for="password" class="text-dark form-label">Password</label>
                                 <input type="password" name="password" class="form-control" id="password" required />
                                 <p class="text-danger">
-                                    <?= isset($_SESSION["is_admin_password"]) ? $_SESSION["is_admin_password"] : "" ?>
+                                    <?= isset($_SESSION["is_admin"]) ? $_SESSION["is_admin"]["password"] : "" ?>
                                 </p>
                             </div>
                         </div>
@@ -79,15 +73,12 @@
                             <label for="phone" class="text-dark form-label">phone</label>
                             <input type="phone" name="phone" class="form-control" id="phone" required />
                             <p class="text-danger">
-                                <?= isset($_SESSION["is_admin_phone"]) ? $_SESSION["is_admin_phone"] : "" ?>
+                                <?= isset($_SESSION["is_admin"]) ? $_SESSION["is_admin"]["phone"] : "" ?>
                             </p>
                         </div>
 
                         <button class="btn text-white btn-lg btn-block" style="background: #FF2B85;">SIGN IN</button>
                     </form>
-                    <a href="/admin/forgot_password" class="text-decoration-none">
-                        <p class="text-center">Forgot your password?</p>
-                    </a>
                     <div class="text-center mt-0">
                         <p class="text-info">Already have the account? <a href="/admin/signin">Sign in</a></p>
                     </div>

@@ -108,10 +108,10 @@
                   <td><?= $restaurant["restaurant_name"] ?></td>
                   <td>
                     <div class="pages-table-img">
-                      <picture>
+                      <picture class="d-flex flex-row align-items-end">
                         <source srcset="../../assets/images/uploads/owner_profile/<?= isset($restaurant["profile"]) ? $restaurant["profile"] : 'avatar.png' ?>" type="image/webp"><img src="../../assets/images/uploads/owner_profile/<?= isset($restaurant["profile"]) ? $restaurant["profile"] : 'avatar.png' ?>" alt="profile">
+                        <?= $restaurant["first_name"]." ". $restaurant["last_name"] ?>
                       </picture>
-                      <?= $restaurant["first_name"]." ". $restaurant["last_name"] ?>
                     </div>
                   </td>
                   <td>
