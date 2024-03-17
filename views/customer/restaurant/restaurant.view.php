@@ -117,12 +117,14 @@
                     <h6 class="p-3 m-0 bg-light w-100">Quick Bites <small class="text-black-50">3 ITEMS</small></h6>
                     <div class="col-md-12 px-0 border-top">
                         <div class>
-                            <?php $stars = 0 ?>
+                            <?php $stars = 0; ?>
                             <?php foreach ($restaurants as $restaurant) { ?>
                                 <div class="p-3 border-bottom gold-members">
                                     <span class="float-right">
-                                        <button class="btn btn-outline-secondary btn-sm" id="add"
-                                            data-index="<?= $restaurant["food_id"] ?>">ADD</button>
+                                        <form action="/customer/restaurant" method="post">
+                                            <button type="submit" class="btn btn-outline-secondary btn-sm" name="food_id"
+                                                value="<?= $restaurant["food_id"] ?>">ADD</button>
+                                        </form>
                                     </span>
                                     <div class="media">
                                         <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
@@ -296,6 +298,37 @@
                     </div>
                 </div>
                 <div class="bg-white border-bottom py-2" id="checkoutContent">
+                    <?php
+                    $total_price = 0;
+                    foreach ($checkout as $food) { ?>
+                        <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
+                            <div class="media align-items-center">
+                                <div class="mr-2 text-danger">&middot;</div>
+                                <div class="media-body">
+                                    <p class="m-0">
+                                        <?= $food["food_name"] ?>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <span class="count-number float-right">
+                                    <button type="button" class="btn-sm left dec btn btn-outline-secondary"> 
+                                        <i class="feather-minus"></i>
+                                    </button>
+                                    <input class="count-number-input" type="text" readonly
+                                        value="<?= $food["quantity"] ?>">
+                                    <button type="button" class="btn-sm right inc btn btn-outline-secondary"> 
+                                        <i class="feather-plus"></i>
+                                    </button>
+                                </span>
+                                <p class="text-gray mb-0 float-right ml-2 text-muted small">$
+                                    <?= intval($food["price"]) * intval($food["quantity"]) ?>
+                                </p>
+                            </div>
+                        </div>
+                        <?php
+                        $total_price += intval($food["price"]) * intval($food["quantity"]);
+                    } ?>
 
                 </div>
                 <div class="bg-white p-3 py-3 border-bottom clearfix">
@@ -313,18 +346,28 @@
                     </div>
                 </div>
                 <div class="bg-white p-3 clearfix border-bottom">
-                    <p class="mb-1">Item Total <span class="float-right text-dark">$3140</span></p>
-                    <p class="mb-1">Restaurant Charges <span class="float-right text-dark">$62.8</span></p>
+                    <p class="mb-1">Item Total <span class="float-right text-dark">$
+                            <?= $total_price ?>
+                        </span></p>
+                    <p class="mb-1">Restaurant Charges <span class="float-right text-dark">$0.00</span></p>
                     <p class="mb-1">Delivery Fee<span class="text-info ml-1"><i class="feather-info"></i></span><span
-                            class="float-right text-dark">$10</span></p>
-                    <p class="mb-1 text-success">Total Discount<span class="float-right text-success">$1884</span>
+                            class="float-right text-dark">$0.00</span></p>
+                    <p class="mb-1 text-success">Total Discount<span class="float-right text-success"
+                            id="discount">$0.00</span>
                     </p>
                     <hr>
-                    <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$1329</span></h6>
+                    <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right" id="pricePay">$
+                            <?= $total_price ?>
+                        </span></h6>
                 </div>
                 <div class="p-3">
-                    <a class="btn btn-success btn-block btn-lg" href="/customer/checkout">CHECK OUT <i
-                            class="feather-arrow-right"></i></a>
+                    <form action="/customer/checkout" method="post">
+                        <input type="hidden" style="display: none;" name="food_id" value="<?= $food_id ?>">
+                        <button type="submit"  class="btn btn-success btn-block btn-lg">
+                            CHECK OUT 
+                            <i class="feather-arrow-right"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -367,11 +410,3 @@
     </div>
 </div>
 </div>
-
-<script>
-    const addToCartBtns = document.querySelectorAll("#add");
-    const checkoutContent = document.getElementById("checkoutContent");
-    let cart = <?= json_encode($restaurant); ?>;
-    
-
-</script>

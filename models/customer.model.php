@@ -7,7 +7,7 @@ function customerEditProfile(string $first_name, string $last_name, string $emai
                     first_name = :first_name, last_name = :last_name, email = :email, phone = :phone 
                     WHERE user_id = :user_id");
 
-    $stmt->execute([
+    $stmt->execute([ 
         ":first_name" => $first_name,
         ":last_name" => $last_name,
         ":email" => $email,
@@ -64,5 +64,36 @@ function getFoodsByCateId($cate_id = null) {
         );
         $stmt->execute();
     }
+    return $stmt->fetchAll();
+}
+
+function addCart($food_id, $restaurant_id, $user_id, $food_name, $quantity, $price) {
+    // var_dump($food_id);
+    global $connection;
+    try {
+        //code...
+        $stmt = $connection->prepare(
+            "INSERT INTO checkout (food_id, restaurant_id, user_id, food_name, quantity, price) 
+            VALUES (:food_id, :restaurant_id, :user_id, :food_name, :quantity, :price)");
+    
+        $stmt->execute([
+            ":food_id" => $food_id,
+            ":restaurant_id" => $restaurant_id,
+            ":user_id" => $user_id,
+            ":food_name" => $food_name,
+            ":quantity" => $quantity,
+            ":price" => $price,
+        ]);
+        return $stmt->rowCount() > 0;
+    } catch (\Throwable $th) {
+        //throw $th;
+        return $stmt->rowCount() > 0;
+    }
+}
+
+function getCheckout() {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM checkout");
+    $stmt->execute();
     return $stmt->fetchAll();
 }
