@@ -1,6 +1,8 @@
 <?php
 require "./models/restaurant.model.php";
-
+if ($uri == "/restaurant") {
+    header("Location: /restaurant/category");
+}
 if (isset($_SESSION["restaurant_owner"])) {
     $restaurant_owner = $_SESSION["restaurant_owner"];
     $page = "";
