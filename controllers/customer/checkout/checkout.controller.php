@@ -1,11 +1,6 @@
-<?php
-if (isset($_POST["food_id"])) {
-    $food_id = $_POST["food_id"];
-    $all_food_info = getFoodsInfo();
-    $foods_info = getFoodInfoById($food_id);
-    $restaurant_id = $foods_info["restaurant_id"];
-    $restaurants = getFoodInfoByRestaurantId($restaurant_id);
-    $checkout = getCheckout();
-}
 
+<?php
+$foods_info = $_SESSION["foods_info"];
+$deliveries = getAllUsers(3);
+$addresses = getAddress();
 require "./views/customer/checkout/checkout.view.php";

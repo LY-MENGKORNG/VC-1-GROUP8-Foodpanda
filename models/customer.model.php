@@ -91,9 +91,22 @@ function addCart($food_id, $restaurant_id, $user_id, $food_name, $quantity, $pri
     }
 }
 
-function getCheckout() {
+function addAddress(string $address_name, string $address_type, int $delivery_id, int $customer_id) : bool {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM checkout");
+    $stmt = $connection->prepare("INSERT INTO address (address_name, address_type, delivery_id, customer_id) 
+                    VALUES (:address_name, :address_type, :delivery_id, :customer_id)");
+    $stmt->execute([
+        ":address_name" => $address_name,
+        ":address_type" => $address_type,
+        ":delivery_id" => $delivery_id,
+        ":customer_id" => $customer_id
+    ]);
+    return $stmt->rowCount() > 0;
+}
+
+function getAddress(){
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM address");
     $stmt->execute();
     return $stmt->fetchAll();
 }

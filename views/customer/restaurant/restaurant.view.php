@@ -1,7 +1,7 @@
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
-        <h4 class="font-weight-bold m-0 text-white">Osahan Bar</h4>
+        <h4 class="font-weight-bold m-0 text-white">Customer</h4>
     </div>
 </div>
 <div class="offer-section py-4">
@@ -101,7 +101,6 @@
                 </div>
             </div>
         <?php } ?>
-
     </div>
 </div>
 
@@ -121,20 +120,24 @@
                             <?php foreach ($restaurants as $restaurant) { ?>
                                 <div class="p-3 border-bottom gold-members">
                                     <span class="float-right">
-                                        <form action="/customer/restaurant" method="post">
-                                            <button type="submit" class="btn btn-outline-secondary btn-sm" name="food_id"
-                                                value="<?= $restaurant["food_id"] ?>">ADD</button>
-                                        </form>
+                                        <button type="submit" id="add" class="btn btn-outline-secondary btn-sm"
+                                            name="food_id" value="<?= $restaurant["food_id"] ?>">ADD</button>
+                                        <input type="hidden" id="restaurantName"
+                                            value="<?= $restaurant["restaurant_name"] ?>">
                                     </span>
                                     <div class="media">
                                         <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
                                         <div class="media-body">
                                             <h6 class="mb-1">
-                                                <?= $restaurant["food_name"] ?>
+                                                <span id="foodName">
+                                                    <?= $restaurant["food_name"] ?>
+                                                </span>
                                                 <span class="badge badge-danger">BEST SELLER</span>
                                             </h6>
                                             <p class="text-muted mb-0"> $
-                                                <?= $restaurant["price"] ?>
+                                                <span id="price">
+                                                    <?= $restaurant["price"] ?>
+                                                </span>
                                             </p>
                                         </div>
                                     </div>
@@ -298,38 +301,6 @@
                     </div>
                 </div>
                 <div class="bg-white border-bottom py-2" id="checkoutContent">
-                    <?php
-                    $total_price = 0;
-                    foreach ($checkout as $food) { ?>
-                        <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                            <div class="media align-items-center">
-                                <div class="mr-2 text-danger">&middot;</div>
-                                <div class="media-body">
-                                    <p class="m-0">
-                                        <?= $food["food_name"] ?>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <span class="count-number float-right">
-                                    <button type="button" class="btn-sm left dec btn btn-outline-secondary"> 
-                                        <i class="feather-minus"></i>
-                                    </button>
-                                    <input class="count-number-input" type="text" readonly
-                                        value="<?= $food["quantity"] ?>">
-                                    <button type="button" class="btn-sm right inc btn btn-outline-secondary"> 
-                                        <i class="feather-plus"></i>
-                                    </button>
-                                </span>
-                                <p class="text-gray mb-0 float-right ml-2 text-muted small">$
-                                    <?= intval($food["price"]) * intval($food["quantity"]) ?>
-                                </p>
-                            </div>
-                        </div>
-                        <?php
-                        $total_price += intval($food["price"]) * intval($food["quantity"]);
-                    } ?>
-
                 </div>
                 <div class="bg-white p-3 py-3 border-bottom clearfix">
                     <div class="input-group-sm mb-2 input-group">
@@ -346,9 +317,7 @@
                     </div>
                 </div>
                 <div class="bg-white p-3 clearfix border-bottom">
-                    <p class="mb-1">Item Total <span class="float-right text-dark">$
-                            <?= $total_price ?>
-                        </span></p>
+                    <p class="mb-1">Item Total <span class="float-right text-dark" id="totalItem"> </span></p>
                     <p class="mb-1">Restaurant Charges <span class="float-right text-dark">$0.00</span></p>
                     <p class="mb-1">Delivery Fee<span class="text-info ml-1"><i class="feather-info"></i></span><span
                             class="float-right text-dark">$0.00</span></p>
@@ -357,17 +326,14 @@
                     </p>
                     <hr>
                     <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right" id="pricePay">$
-                            <?= $total_price ?>
+
                         </span></h6>
                 </div>
                 <div class="p-3">
-                    <form action="/customer/checkout" method="post">
-                        <input type="hidden" style="display: none;" name="food_id" value="<?= $food_id ?>">
-                        <button type="submit"  class="btn btn-success btn-block btn-lg">
-                            CHECK OUT 
-                            <i class="feather-arrow-right"></i>
-                        </button>
-                    </form>
+                    <a id="checkout" class="btn btn-success btn-block btn-lg text-white">
+                        CHECK OUT
+                        <i class="feather-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -410,3 +376,4 @@
     </div>
 </div>
 </div>
+
