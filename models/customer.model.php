@@ -7,7 +7,7 @@ function customerEditProfile(string $first_name, string $last_name, string $emai
                     first_name = :first_name, last_name = :last_name, email = :email, phone = :phone 
                     WHERE user_id = :user_id");
 
-    $stmt->execute([
+    $stmt->execute([ 
         ":first_name" => $first_name,
         ":last_name" => $last_name,
         ":email" => $email,
@@ -65,4 +65,37 @@ function getFoodsByCateId($cate_id = null) {
         $stmt->execute();
     }
     return $stmt->fetchAll();
+}
+
+function addAddress(string $address_name, string $address_type, int $delivery_id, int $customer_id) : bool {
+    global $connection;
+    $stmt = $connection->prepare("INSERT INTO address (address_name, address_type, delivery_id, customer_id) 
+                    VALUES (:address_name, :address_type, :delivery_id, :customer_id)");
+    $stmt->execute([
+        ":address_name" => $address_name,
+        ":address_type" => $address_type,
+        ":delivery_id" => $delivery_id,
+        ":customer_id" => $customer_id
+    ]);
+    return $stmt->rowCount() > 0;
+}
+
+function getAddress(){
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM address");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function addCheckout(int $food_id, int $quantity, int $price_amount, int $user_id) {
+    global $connection;
+    $stmt = $connection->prepare("INSERT INTO checkout (food_id, quantity, price_amount, user_id) 
+                                VALUES (:food_id, :quantity, :price_amount, :user_id)");
+    $stmt->execute([
+        ":food_id" => $food_id,
+        ":quantity" => $quantity,
+        ":price_amount" => $price_amount,
+        ":user_id" => $user_id
+    ]);
+    return $stmt->rowCount() > 0;
 }
