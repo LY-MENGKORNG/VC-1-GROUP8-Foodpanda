@@ -45,11 +45,11 @@
                         </div>
                         <button class="btn text-white btn-lg btn-block" style="background: #FF2B85;">SIGN IN</button>
                     </form>
-                    <a href="forgot_password.html" class="text-decoration-none">
-                        <p class="text-center">Forgot your password?</p>
-                    </a>
+                    
+                        <p class="text-center"><a href="/forgot_password" class="text-decoration-none">Forgot password? </a></p>
+                  
                     <div class="d-flex align-items-center justify-content-center">
-                        <p class="text-center m-0">Don't have an account yet? <a href="/foodpanda">Sign up</a></p>
+                        <p class="text-center m-0">Don't have an account yet? <a href="/customer/signup">Sign up</a></p>
                     </div>
                 </div>
             </div>

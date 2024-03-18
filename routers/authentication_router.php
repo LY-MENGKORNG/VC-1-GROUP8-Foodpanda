@@ -4,6 +4,7 @@ $page = "";
 $routes = [
     "/" => "foodpanda.php",
     '/foodpanda' => 'foodpanda.php',
+    '/forgot_password' => 'controllers/authentication/forgot_password/forgot_password.controller.php',
 
     '/admin/signup' => 'controllers/authentication/admin/signup/signup.controller.php',
     '/admin/check_signup' => 'controllers/authentication/admin/signup/check_signup.controller.php',
