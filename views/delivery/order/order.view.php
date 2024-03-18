@@ -13,7 +13,7 @@
                 </form>
             </nav>
             <table class="posts-table table table-striped">
-                <thead class="" style="border-bottom: 1px solid gray;">
+                <thead class="" style="border-bottom: 2px solid gray;">
                     <tr class="" style="background: #FF2B85">
                         <th style="color:white">No</th>
                         <th style="color:white">Product</th>
@@ -24,7 +24,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr style="border-bottom: 2px solid pink;">
+                        <td>
+                            <input type="checkbox" class="check-all">
+                        </td>
+                        <td><?= $delivery["first_name"] ?></td>
+                        <td><?= $delivery["last_name"] ?></td>
+                        <td><?= $delivery["email"] ?></td>
+                        <td><?= $delivery["phone"] ?></td>
+                        <td><?= $delivery["phone"] ?></td>
+                    </tr>
+                    <tr style="border-bottom: 2px solid pink;">
                         <td>
                             <input type="checkbox" class="check-all">
                         </td>
