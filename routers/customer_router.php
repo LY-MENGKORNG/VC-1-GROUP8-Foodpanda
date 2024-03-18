@@ -21,7 +21,7 @@ if (isset($_SESSION["customer"])) {
         '/customer/restaurant' => 'controllers/customer/restaurant/restaurant.controller.php',
         '/customer/address' => 'controllers/customer/checkout/address.controller.php',
         '/customer/editAddress' => 'controllers/customer/checkout/edit_address.controller.php',
-        '/customer/success' => 'controllers/customer/success/success.controller.php',
+        '/customer/success' => 'controllers/customer/checkout/success.controller.php',
     ];
     if (array_key_exists($uri, $routes)) {
         $page = $routes[$uri];

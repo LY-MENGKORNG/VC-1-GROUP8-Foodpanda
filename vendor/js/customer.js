@@ -250,7 +250,7 @@ if (document.getElementById("promoInput")) {
             document.getElementById("message").innerHTML = "Promo code accepted!";
         } else {
             // If it's not a valid promo code, show an error message
-            document.getElementById("message").innerHTML = "Invalid promo code. Please enter alphanumeric characters only.";
+            document.getElementById("message").innerHTML = "Invalid promo code!";
         }
     }
 }

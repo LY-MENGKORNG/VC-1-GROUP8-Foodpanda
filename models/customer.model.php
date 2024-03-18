@@ -96,17 +96,18 @@ function getAddress()
     return $stmt->fetchAll();
 }
 
-function addCheckout(int $food_id, int $quantity, int $price_amount, int $user_id,  string $food_name)
+function addCheckout(int $food_id, int $quantity, int $price_amount, int $user_id,  string $food_name, int $order_id)
 {
     global $connection;
-    $stmt = $connection->prepare("INSERT INTO checkout (food_id, quantity, price_amount, user_id, food_name) 
-                                VALUES (:food_id, :quantity, :price_amount, :user_id, :food_name)");
+    $stmt = $connection->prepare("INSERT INTO checkout (food_id, quantity, price_amount, user_id, food_name, order_id) 
+                                VALUES (:food_id, :quantity, :price_amount, :user_id, :food_name, :order_id)");
     $stmt->execute([
         ":food_id" => $food_id,
         ":quantity" => $quantity,
         ":price_amount" => $price_amount,
         ":user_id" => $user_id,
-        ":food_name" => $food_name
+        ":food_name" => $food_name,
+        ":order_id" => $order_id
     ]);
     return $stmt->rowCount() > 0;
 }
@@ -142,21 +143,30 @@ function addOrder(
     int $delivery_id,
     string $order_progress,
     string $restaurant_name,
-    string $restaurant_img
+    string $restaurant_img,
+    int $address_id
 ): bool {
     global $connection;
     $stmt = $connection->prepare("INSERT INTO orders 
-    (customer_id, delivery_id, order_status, restaurant_name, restaurant_img) 
-    VALUES (:cuz_id, :deli_id, :progress, :restaurant_name, :restaurant_img)");
+    (customer_id, delivery_id, order_status, restaurant_name, restaurant_img, address_id) 
+    VALUES (:cuz_id, :deli_id, :progress, :restaurant_name, :restaurant_img, :address_id)");
 
     $stmt->execute([
         ":cuz_id" => $customer_id,
         ":deli_id" => $delivery_id,
         ":progress" => $order_progress,
         ":restaurant_name" => $restaurant_name,
-        ":restaurant_img" => $restaurant_img
+        ":restaurant_img" => $restaurant_img,
+        ":address_id" => $address_id
     ]);
     return $stmt->rowCount() > 0;
+}
+
+function getAllOrders() : array {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM orders");
+    $stmt->execute();
+    return $stmt->fetchAll();
 }
 
 function getOrders($status, $customer_id): array

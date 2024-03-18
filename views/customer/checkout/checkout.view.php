@@ -21,7 +21,7 @@
                                             <div
                                                 class="custom-control col-lg-6 custom-radio mb-3 position-relative border-custom-radio">
                                                 <input type="radio" id="address<?= $address["address_id"] ?>"
-                                                    name="address_id" class="custom-control-input" required>
+                                                    name="address_id" value="<?= $address["address_id"] ?>" class="custom-control-input address_id" required>
                                                 <label class="custom-control-label w-100"
                                                     for="address<?= $address["address_id"] ?>">
                                                     <div>
@@ -369,15 +369,15 @@
                             <div class="bg-white border-bottom py-2" id="checkoutContent">
                             </div>
                             <div class="bg-white p-3 py-3 border-bottom clearfix">
-                                <div class="input-group-sm mb-2 input-group">
+                                <div class="input-group-sm input-group">
                                     <input placeholder="Enter promo code" name="promo_code" type="text" class="form-control" id="promoInput" required>
                                     <div class="input-group-append">
                                         <button type="button" class="btn btn-primary" onclick="checkPromoCode()">
                                             <i class="feather-percent"></i> APPLY
                                         </button>
                                     </div>
-                                    <p id="message" class="text-warning"></p>
                                 </div>
+                                <p id="message" class="text-danger"></p>
                                 <div class="mb-0 input-group">
                                     <div class="input-group-prepend"><span class="input-group-text"><i
                                                 class="feather-message-square"></i></span></div>
