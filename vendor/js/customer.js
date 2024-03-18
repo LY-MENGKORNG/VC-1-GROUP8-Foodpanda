@@ -170,7 +170,7 @@ displayCheckout();
 */
 // card number format
 if (document.getElementById('cardNumber')) {
-    document.getElementById('cardNumber').addEventListener('input',  (e) => {
+    document.getElementById('cardNumber').addEventListener('input', (e) => {
         var value = e.target.value.replace(/\D/g, '');
         value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
         e.target.value = value.trim();
@@ -182,15 +182,15 @@ if (document.getElementById('validThrough')) {
     document.getElementById('validThrough').addEventListener('input', (e) => {
         const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
         const formattedValue = value.replace(/^(\d{2})(\d{2})$/, '$1/$2'); // Format as MM/YY
-    
+
         if (/^\d{4}$/.test(value)) {
             const month = parseInt(value.substring(0, 2));
             const year = parseInt(value.substring(2, 4));
-    
+
             const today = new Date();
             const currentYear = today.getFullYear() % 100;
             const currentMonth = today.getMonth() + 1;
-    
+
             if (year < currentYear || (year === currentYear && month < currentMonth)) {
                 e.target.setCustomValidity('Card has expired');
             } else {
@@ -199,7 +199,7 @@ if (document.getElementById('validThrough')) {
         } else {
             e.target.setCustomValidity('Please enter a valid expiration date (MM/YY)');
         }
-    
+
         e.target.value = formattedValue;
     });
 }
@@ -208,13 +208,13 @@ if (document.getElementById('validThrough')) {
 if (document.getElementById('cvv')) {
     document.getElementById('cvv').addEventListener('input', (e) => {
         const value = e.target.value.replace(/\D/g, ''); // Remove non-digit characters
-    
+
         if (/^\d{3,4}$/.test(value)) {
             e.target.setCustomValidity('');
         } else {
             e.target.setCustomValidity('Please enter a valid CVV (3 or 4 digits)');
         }
-    
+
         e.target.value = value;
     });
 }
@@ -223,15 +223,34 @@ if (document.getElementById('cvv')) {
 if (document.getElementById("address")) {
     document.getElementById("address").oninput = (e) => {
         const addressInput = e.target.value.trim();
-    
+
         // Regular expression to match the desired format
         const regex = /^[a-zA-Z\s,]+,\s*[a-zA-Z\s,]+,\s*[a-zA-Z\s,]+$/;
-    
+
         if (regex.test(addressInput)) {
             document.getElementById("errorMessage").textContent = "";
             document.getElementById("addAddress").type = "submit";
         } else {
             document.getElementById("errorMessage").textContent = "Please enter the address in the format: Khan Sen Sok, Phnom Penh, Cambodia";
+        }
+    }
+}
+
+// promo code 
+if (document.getElementById("promoInput")) {
+    function checkPromoCode() {
+        var promoInput = document.getElementById("promoInput").value.trim();
+
+        // Regular expression to match only alphanumeric characters
+        var alphanumericRegex = /^[a-zA-Z0-9]+$/;
+
+        // Check if the promo code matches the pattern
+        if (alphanumericRegex.test(promoInput)) {
+            // If it's a valid promo code, do something here
+            document.getElementById("message").innerHTML = "Promo code accepted!";
+        } else {
+            // If it's not a valid promo code, show an error message
+            document.getElementById("message").innerHTML = "Invalid promo code. Please enter alphanumeric characters only.";
         }
     }
 }
