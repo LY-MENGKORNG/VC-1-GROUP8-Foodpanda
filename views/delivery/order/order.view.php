@@ -14,17 +14,37 @@
             </nav>
             <table class="posts-table table table-striped">
                 <thead class="" style="border-bottom: 1px solid gray;">
-                    <tr class="place-holder">
-                        <th>No</th>
-                        <th>Product</th>
-                        <th>Customer</th>
-                        <th>Purchase Date</th>
-                        <th>Status</th>
-                        <th>Prive</th>
+                    <tr class="" style="background: #FF2B85">
+                        <th style="color:white">No</th>
+                        <th style="color:white">Product</th>
+                        <th style="color:white">Customer</th> 
+                        <th style="color:white">Purchase Date</th>
+                        <th style="color:white">Status</th>
+                        <th style="color:white">Prive</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="users-table-info">
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="check-all">
+                        </td>
+                        <td><?= $delivery["first_name"] ?></td>
+                        <td><?= $delivery["last_name"] ?></td>
+                        <td><?= $delivery["email"] ?></td>
+                        <td><?= $delivery["phone"] ?></td>
+                        <td><?= $delivery["phone"] ?></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="checkbox" class="check-all">
+                        </td>
+                        <td><?= $delivery["first_name"] ?></td>
+                        <td><?= $delivery["last_name"] ?></td>
+                        <td><?= $delivery["email"] ?></td>
+                        <td><?= $delivery["phone"] ?></td>
+                        <td><?= $delivery["phone"] ?></td>
+                    </tr>
+                    <tr>
                         <td>
                             <input type="checkbox" class="check-all">
                         </td>
