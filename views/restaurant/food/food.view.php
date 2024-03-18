@@ -9,7 +9,7 @@
     </div>
     <!-- Modal create -->
     <div class="modal fade" id="createFood" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-lg"> 
             <div class="modal-content p-3">
                 <div class="modal-header">
                     <h5 class="modal-title">
