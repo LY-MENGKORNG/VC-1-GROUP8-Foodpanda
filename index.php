@@ -30,16 +30,16 @@ else if (urlIs("/restaurant") || urlIs("/restaurant/category") || urlIs("/restau
 
 // Delivery routes
 else if(urlIs("/delivery") || urlIs("/delivery/profile") || urlIs("/delivery/edit_profile") ||
-        urlIs("/delivery/notification") || urlIs("/delivery/dashboard") || urlIs("/delivery/shipping")) 
+        urlIs("/delivery/notification") || urlIs("/delivery/shipping") || urlIs("/delivery/order")) 
 {
     require "./routers/delivery_router.php";
 }
 
 // Customer routes
-else if(urlIs("/customer") || urlIs("/customer/checkout") || 
-        urlIs("/customer/search") || urlIs("/customer/offers") ||
-        urlIs("/customer/profile") || urlIs("/customer/order") ||
-        urlIs("/customer/edit_profile") || urlIs("/customer/trending") || urlIs("/customer/restaurant")) 
+else if(urlIs("/customer") || urlIs("/customer/checkout") || urlIs("/customer/search") || urlIs("/customer/offers") ||
+        urlIs("/customer/profile") || urlIs("/customer/order") || urlIs("/customer/edit_profile") || 
+        urlIs("/customer/trending") || urlIs("/customer/restaurant") || urlIs("/customer/success") ||
+        urlIs("/customer/address") || urlIs("/customer/editAddress"))
 {  
     require './routers/customer_router.php';
 }

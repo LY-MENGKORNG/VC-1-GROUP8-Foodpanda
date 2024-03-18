@@ -68,7 +68,7 @@
                         <button class="btn text-white btn-lg btn-block" style="background: #FF2B85;">SIGN IN</button>
                     </form>
                     <div class="text-center mt-1">
-                        <p class="text-info">Already have the account? <a href="/admin/signin">Sign in</a></p>
+                        <p class="text-info">Already have the account? <a href="/customer/signin">Sign in</a></p>
                     </div>
                 </div>
             </div>

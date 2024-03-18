@@ -19,6 +19,9 @@ if (isset($_SESSION["customer"])) {
         '/customer/edit_profile' => 'controllers/customer/profiles/edit_profile.controller.php',
         '/customer/trending' => 'controllers/customer/trending/trending.controller.php',
         '/customer/restaurant' => 'controllers/customer/restaurant/restaurant.controller.php',
+        '/customer/address' => 'controllers/customer/checkout/address.controller.php',
+        '/customer/editAddress' => 'controllers/customer/checkout/edit_address.controller.php',
+        '/customer/success' => 'controllers/customer/success/success.controller.php',
     ];
     if (array_key_exists($uri, $routes)) {
         $page = $routes[$uri];
