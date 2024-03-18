@@ -14,6 +14,7 @@ if (isset($_SESSION["delivery"])) {
         '/delivery/edit_profile' => 'controllers/delivery/profile/edit_profile.controller.php',
         '/delivery/notification' => 'controllers/delivery/notification/notification.controller.php',
         '/delivery/shipping' => 'controllers/delivery/shipping/shipping.controller.php',
+        '/delivery/order' => 'controllers/delivery/order/order.controller.php',
     ];
 
     if (array_key_exists($uri, $routes)) { 
