@@ -302,20 +302,6 @@
                 </div>
                 <div class="bg-white border-bottom py-2" id="checkoutContent">
                 </div>
-                <div class="bg-white p-3 py-3 border-bottom clearfix">
-                    <div class="input-group-sm mb-2 input-group">
-                        <input placeholder="Enter promo code" type="text" class="form-control">
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-primary"><i class="feather-percent"></i> APPLY</button>
-                        </div>
-                    </div>
-                    <div class="mb-0 input-group">
-                        <div class="input-group-prepend"><span class="input-group-text"><i
-                                    class="feather-message-square"></i></span></div>
-                        <textarea placeholder="Any suggestions? We will pass it on..." aria-label="With textarea"
-                            class="form-control"></textarea>
-                    </div>
-                </div>
                 <div class="bg-white p-3 clearfix border-bottom">
                     <p class="mb-1">Item Total <span class="float-right text-dark" id="totalItem"> </span></p>
                     <p class="mb-1">Restaurant Charges <span class="float-right text-dark">$0.00</span></p>

@@ -268,8 +268,7 @@
                                                     pattern="\d{3,4}" class="form-control" required>
                                             </div>
                                             <div class="col-md-12 form-group">
-                                                <label class="form-label font-weight-bold small">Name on
-                                                    card</label>
+                                                <label class="form-label font-weight-bold small">Name on card</label>
                                                 <input placeholder="Enter Card name" name="card_name" type="text" class="form-control" required>
                                             </div>
                                             <div class="col-md-12 form-group mb-0">
@@ -357,6 +356,7 @@
                                 <img alt="osahan"
                                     src="../../../assets/images/uploads/restaurants/<?= $foods_info["restaurant_img"]; ?>"
                                     class="mr-3 rounded-circle img-fluid" style="width: 60px; height: 60px;">
+                                    <input type="hidden" name="restaurant_img" value="<?= $foods_info["restaurant_img"] ?>">
                                 <div class="d-flex flex-column">
                                     <h6 class="mb-1 font-weight-bold">
                                         <?= $foods_info["restaurant_name"] ?>
@@ -370,9 +370,13 @@
                             </div>
                             <div class="bg-white p-3 py-3 border-bottom clearfix">
                                 <div class="input-group-sm mb-2 input-group">
-                                    <input placeholder="Enter promo code" type="text" class="form-control">
-                                    <div class="input-group-append"><button type="button" class="btn btn-primary"><i
-                                                class="feather-percent"></i> APPLY</button></div>
+                                    <input placeholder="Enter promo code" name="promo_code" type="text" class="form-control" id="promoInput" required>
+                                    <div class="input-group-append">
+                                        <button type="button" class="btn btn-primary" onclick="checkPromoCode()">
+                                            <i class="feather-percent"></i> APPLY
+                                        </button>
+                                    </div>
+                                    <p id="message" class="text-warning"></p>
                                 </div>
                                 <div class="mb-0 input-group">
                                     <div class="input-group-prepend"><span class="input-group-text"><i
