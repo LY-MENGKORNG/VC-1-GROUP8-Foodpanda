@@ -96,8 +96,37 @@
                         <td><?= $item["last_name"] ?></td>
                         <td><?= $item["email"] ?></td>
                         <td><?= $item["phone"] ?></td>
-                        <td>Action</td>
+                        <td>
+                            <span class="p-relative">
+                                <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                                    <div class="sr-only">More info</div>
+                                    <i data-feather="more-horizontal" aria-hidden="true"></i>
+                                </button>
+                                <ul class="users-item-dropdown dropdown">
+                                    <li><a class="btn btn-tranparent" data-bs-toggle="modal" data-bs-target="#deletedelivery<?= $item['user_id'] ?>">Trash</a></li>
+                                </ul>
+                            </span>
+                        </td>
+                        </td>
                     </tr>
+                    <!-- delete delivery -->
+                    <div class="modal fade" id="deletedelivery<?= $item["user_id"] ?>" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header row p-2 m-0">
+                                    <div class="alert alert-danger col-12 rounded-0" role="alert">
+                                        Are you sure you want to delete this delivery?
+                                    </div>
+                                </div>
+                                <div class="modal-body p-2 m-2 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
+                                    <form action="/restaurant/delete_delivery" method="post">
+                                        <button type="submit" name="user_id" value="<?= $item["user_id"] ?>" class="btn btn-primary">Ok</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php } ?>
             </tbody>
         </table>

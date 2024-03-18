@@ -22,6 +22,8 @@ if (isset($_SESSION["restaurant_owner"])) {
         '/restaurant/profile' => 'controllers/restaurant/profile/profile.controller.php',
         '/restaurant/edit_profile' => 'controllers/restaurant/profile/edit_profile.controller.php',
         '/restaurant/add_delivery' => 'controllers/restaurant/delivery/check_add_delivery.controller.php',
+        '/restaurant/edit_delivery' => 'controllers/restaurant/delivery/edit_delivery.controller.php',
+        '/restaurant/delete_delivery' => 'controllers/restaurant/delivery/delete_delivery.controller.php',
     ];  
 
     if (array_key_exists($uri, $routes)) { 

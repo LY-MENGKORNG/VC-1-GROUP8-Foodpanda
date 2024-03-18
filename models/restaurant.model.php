@@ -106,6 +106,14 @@ function deleteCategory($id)
     return $stmt->rowCount() > 0;
 }
 
+function deleteDelivery($user_id){
+    global $connection;
+    $role_id = 3;
+    $stmt = $connection->prepare("DELETE FROM users where user_id = :user_id AND role_id = :role_id");
+    $stmt->execute([":user_id" => $user_id, ":role_id" => $role_id]);
+    return $stmt->rowCount() > 0;
+}
+
 function createFood(int $cate_id, string $food_name, string $image, int $quantity, int $price, int $rating)
 {
     global $connection;
