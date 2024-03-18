@@ -17,7 +17,7 @@
                     <tr class="" style="background: #FF2B85">
                         <th style="color:white">No</th>
                         <th style="color:white">Product</th>
-                        <th style="color:white">Customer</th> 
+                        <th style="color:white">Customer</th>
                         <th style="color:white">Purchase Date</th>
                         <th style="color:white">Status</th>
                         <th style="color:white">Prive</th>
@@ -34,26 +34,18 @@
                         <td><?= $delivery["phone"] ?></td>
                         <td><?= $delivery["phone"] ?></td>
                     </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" class="check-all">
-                        </td>
-                        <td><?= $delivery["first_name"] ?></td>
-                        <td><?= $delivery["last_name"] ?></td>
-                        <td><?= $delivery["email"] ?></td>
-                        <td><?= $delivery["phone"] ?></td>
-                        <td><?= $delivery["phone"] ?></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="checkbox" class="check-all">
-                        </td>
-                        <td><?= $delivery["first_name"] ?></td>
-                        <td><?= $delivery["last_name"] ?></td>
-                        <td><?= $delivery["email"] ?></td>
-                        <td><?= $delivery["phone"] ?></td>
-                        <td><?= $delivery["phone"] ?></td>
-                    </tr>
+                    <!-- <?php foreach ($orders as $order) { ?>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="check-all">
+                            </td>
+                            <td><?= $order["first_name"] ?></td>
+                            <td><?= $order["last_name"] ?></td>
+                            <td><?= $order["email"] ?></td>
+                            <td><?= $order["phone"] ?></td>
+                            <td><?= $order["phone"] ?></td>
+                        </tr>
+                    <?php } ?> -->
                 </tbody>
             </table>
         </div>
