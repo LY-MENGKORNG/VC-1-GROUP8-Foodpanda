@@ -7,7 +7,7 @@
     </div>
 
     <div class="container position-relative">
-        <form action="/customer/success" method="post">
+        <form action="/customer/success" id="form1" method="post">
             <div class="py-5 row">
                 <div class="col-md-8 mb-3">
                     <div>
@@ -16,11 +16,12 @@
                                 <div class="d-flex flex-column">
                                     <h6 class="mb-3 font-weight-bold">Delivery Address</h6>
                                     <div class="row">
-                                        <?php foreach ($addresses as $address) { 
+                                        <?php foreach ($addresses as $address) {
                                             $address_type = $address["address_type"] ?>
-                                            <div class="custom-control col-lg-6 custom-radio mb-3 position-relative border-custom-radio">
-                                                <input type="radio" id="address<?= $address["address_id"] ?>" name="address_id"
-                                                    class="custom-control-input" required>
+                                            <div
+                                                class="custom-control col-lg-6 custom-radio mb-3 position-relative border-custom-radio">
+                                                <input type="radio" id="address<?= $address["address_id"] ?>"
+                                                    name="address_id" class="custom-control-input" required>
                                                 <label class="custom-control-label w-100"
                                                     for="address<?= $address["address_id"] ?>">
                                                     <div>
@@ -34,7 +35,9 @@
                                                                     Select
                                                                 </p>
                                                             </div>
-                                                            <p class="small text-muted m-0"><?= $address["address_name"] ?></p>
+                                                            <p class="small text-muted m-0">
+                                                                <?= $address["address_name"] ?>
+                                                            </p>
                                                         </div>
                                                         <a href="#" data-toggle="modal"
                                                             data-target="#editAddress<?= $address["address_id"] ?>"
@@ -43,80 +46,98 @@
                                                 </label>
                                             </div>
                                             <!-- edit address -->
-                                            <div class="modal fade" id="editAddress<?= $address["address_id"] ?>" tabindex="-1" role="dialog"
-                                                aria-labelledby="editAddress<?= $address["address_id"] ?>Label" aria-hidden="true">
+                                            <div class="modal fade" id="editAddress<?= $address["address_id"] ?>"
+                                                tabindex="-1" role="dialog"
+                                                aria-labelledby="editAddress<?= $address["address_id"] ?>Label"
+                                                aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
-                                                    <form action="/customer/editAddress" method="post" class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title">Edit Delivery Address</h5>
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <div class="form-row">
-                                                                <div class="col-md-12 form-group">
-                                                                    <label class="form-label">Delivery Address</label>
-                                                                    <div class="input-group">
-                                                                        <select name="delivery_id" class="form-control"
-                                                                            id="delivery">
-                                                                            <?php foreach ($deliveries as $delivery) { ?>
-                                                                                <?php if ($address["delivery_id"] == $delivery["user_id"]) { ?>
-                                                                                    <option value="<?= $delivery["user_id"] ?>" selected>
-                                                                                        <?= $delivery["first_name"] ?>
-                                                                                    </option>
-                                                                                <?php } else { ?>
-                                                                                    <option value="<?= $delivery["user_id"] ?>">
-                                                                                    <?= $delivery["first_name"] ?>
-                                                                                </option>
-                                                                                <?php }
-                                                                             } ?>
-                                                                        </select>
+                                                    <form action="/customer/editAddress"
+                                                        id="formEdit<?= $address["address_id"] ?>" method="post">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Edit Delivery Address</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="form-row">
+                                                                    <div class="col-md-12 form-group">
+                                                                        <label class="form-label">Delivery Address</label>
+                                                                        <div class="input-group">
+                                                                            <select name="delivery_id" class="form-control"
+                                                                                id="delivery">
+                                                                                <?php foreach ($deliveries as $delivery) { ?>
+                                                                                    <?php if ($address["delivery_id"] == $delivery["user_id"]) { ?>
+                                                                                        <option value="<?= $delivery["user_id"] ?>"
+                                                                                            selected>
+                                                                                            <?= $delivery["first_name"] ?>
+                                                                                        </option>
+                                                                                    <?php } else { ?>
+                                                                                        <option value="<?= $delivery["user_id"] ?>">
+                                                                                            <?= $delivery["first_name"] ?>
+                                                                                        </option>
+                                                                                    <?php }
+                                                                                } ?>
+                                                                            </select>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="col-md-12 form-group">
-                                                                    <label class="form-label">Complete Address</label>
-                                                                    <div class="input-group">
-                                                                        <input name="address_name"
-                                                                            placeholder="e.g. Khan Sen Sok, Phnom Penh, Cambodia"
-                                                                            type="text" class="form-control" id="editAddress"
-                                                                            value="<?= $address["address_name"] ?>">
-                                                                        <div class="input-group-append"><button type="button"
-                                                                                class="btn btn-outline-secondary"><i
-                                                                                    class="feather-map-pin"></i></button></div>
-                                                                        <p class="text-danger" id="EditerrorMessage"></p>
+                                                                    <div class="col-md-12 form-group">
+                                                                        <label class="form-label">Complete Address</label>
+                                                                        <div class="input-group">
+                                                                            <input name="address_name"
+                                                                                placeholder="e.g. Khan Sen Sok, Phnom Penh, Cambodia"
+                                                                                type="text" class="form-control"
+                                                                                id="editAddress"
+                                                                                value="<?= $address["address_name"] ?>">
+                                                                            <div class="input-group-append"><button
+                                                                                    type="button"
+                                                                                    class="btn btn-outline-secondary"><i
+                                                                                        class="feather-map-pin"></i></button>
+                                                                            </div>
+                                                                            <p class="text-danger" id="EditerrorMessage">
+                                                                            </p>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="mb-0 col-md-12 form-group">
-                                                                    <label class="form-label">Nickname</label>
-                                                                    <div class="btn-group btn-group-toggle w-100"
-                                                                        data-toggle="buttons">
-                                                                        <label class="btn btn-outline-secondary <?= $address_type == "Home" ? "active" : "" ?> ">
-                                                                            <input type="radio" name="address_type" value="Home"
-                                                                                id="option1" <?= $address_type == "Home" ? "checked" : "" ?>> Home
-                                                                        </label>
-                                                                        <label class="btn btn-outline-secondary <?= $address_type == "Work" ? "active" : "" ?>">
-                                                                            <input type="radio" name="address_type" value="Work"
-                                                                                id="option2" <?= $address_type == "Work" ? "checked" : "" ?>> Work
-                                                                        </label>
-                                                                        <label class="btn btn-outline-secondary <?= $address_type == "Other" ? "active" : "" ?>">
-                                                                            <input type="radio" name="address_type"
-                                                                                value="Other" id="option3" <?= $address_type == "Other" ? "checked" : "" ?>> Other
-                                                                        </label>
+                                                                    <div class="mb-0 col-md-12 form-group">
+                                                                        <label class="form-label">Nickname</label>
+                                                                        <div class="btn-group btn-group-toggle w-100"
+                                                                            data-toggle="buttons">
+                                                                            <label
+                                                                                class="btn btn-outline-secondary <?= $address_type == "Home" ? "active" : "" ?> ">
+                                                                                <input type="radio" name="address_type"
+                                                                                    value="Home" id="option1"
+                                                                                    <?= $address_type == "Home" ? "checked" : "" ?>> Home
+                                                                            </label>
+                                                                            <label
+                                                                                class="btn btn-outline-secondary <?= $address_type == "Work" ? "active" : "" ?>">
+                                                                                <input type="radio" name="address_type"
+                                                                                    value="Work" id="option2"
+                                                                                    <?= $address_type == "Work" ? "checked" : "" ?>> Work
+                                                                            </label>
+                                                                            <label
+                                                                                class="btn btn-outline-secondary <?= $address_type == "Other" ? "active" : "" ?>">
+                                                                                <input type="radio" name="address_type"
+                                                                                    value="Other" id="option3"
+                                                                                    <?= $address_type == "Other" ? "checked" : "" ?>>
+                                                                                <span>Other</span>
+                                                                            </label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="modal-footer p-0 border-0">
-                                                            <div class="col-6 m-0 p-0">
-                                                                <button type="button" class="btn border-top btn-lg btn-block"
-                                                                    data-dismiss="modal">Close</button>
-                                                            </div>
-                                                            <div class="col-6 m-0 p-0">
-                                                                <button type="button" id="editAddress"
-                                                                    class="btn btn-primary btn-lg btn-block">Save
-                                                                    changes</button>
+                                                            <div class="modal-footer p-0 border-0">
+                                                                <div class="col-6 m-0 p-0">
+                                                                    <button type="button"
+                                                                        class="btn border-top btn-lg btn-block"
+                                                                        data-dismiss="modal">Close</button>
+                                                                </div>
+                                                                <div class="col-6 m-0 p-0">
+                                                                    <button type="button" id="editAddress"
+                                                                        class="btn btn-primary btn-lg btn-block">Save
+                                                                        changes</button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </form>
@@ -159,8 +180,8 @@
                                                 <label class="form-label">Complete Address</label>
                                                 <div class="input-group">
                                                     <input name="address_name"
-                                                        placeholder="e.g. Khan Sen Sok, Phnom Penh, Cambodia" type="text"
-                                                        class="form-control" id="address">
+                                                        placeholder="e.g. Khan Sen Sok, Phnom Penh, Cambodia"
+                                                        type="text" class="form-control" id="address">
                                                     <div class="input-group-append"><button type="button"
                                                             class="btn btn-outline-secondary"><i
                                                                 class="feather-map-pin"></i></button></div>
@@ -171,15 +192,17 @@
                                                 <label class="form-label">Nickname</label>
                                                 <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                                     <label class="btn btn-outline-secondary active">
-                                                        <input type="radio" name="address_type" value="Home" id="option12"
-                                                            checked> Home
+                                                        <input type="radio" name="address_type" value="Home"
+                                                            id="option12" checked> Home
                                                     </label>
                                                     <label class="btn btn-outline-secondary">
-                                                        <input type="radio" name="address_type" value="Work" id="option22">
+                                                        <input type="radio" name="address_type" value="Work"
+                                                            id="option22">
                                                         Work
                                                     </label>
                                                     <label class="btn btn-outline-secondary">
-                                                        <input type="radio" name="address_type" value="Other" id="option32">
+                                                        <input type="radio" name="address_type" value="Other"
+                                                            id="option32">
                                                         Other
                                                     </label>
                                                 </div>
@@ -218,55 +241,53 @@
                                         <h6 class="m-0">Add new card</h6>
                                         <p class="small">WE ACCEPT <span class="osahan-card ml-2 font-weight-bold">(
                                                 Master Card / Visa Card / Rupay )</span></p>
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="col-md-12 form-group">
-                                                    <label class="form-label font-weight-bold small">Card number</label>
-                                                    <div class="input-group">
-                                                        <input type="text" id="cardNumber" maxlength="19"
-                                                            pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"
-                                                            class="form-control"
-                                                            placeholder="e.g. 1234 5678 9101 1121">
-                                                        <div class="input-group-append">
-                                                            <button type="button" class="btn btn-outline-secondary">
-                                                                <i class="feather-credit-card"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-8 form-group">
-                                                    <label class="form-label font-weight-bold small">Valid
-                                                        through(MM/YY)</label>
-                                                    <input type="text" id="validThrough"
-                                                        placeholder="Enter Valid through(MM/YY)" maxlength="5"
-                                                        pattern="(0[1-9]|1[0-2])\/\d{2}" class="form-control">
-                                                </div>
-                                                <div class="col-md-4 form-group">
-                                                    <label class="form-label font-weight-bold small">CVV</label>
-                                                    <input type="text" placeholder="Enter CVV Number" id="cvv" maxlength="4"
-                                                        pattern="\d{3,4}" class="form-control">
-                                                </div>
-                                                <div class="col-md-12 form-group">
-                                                    <label class="form-label font-weight-bold small">Name on card</label>
-                                                    <input placeholder="Enter Card name" type="text" class="form-control">
-                                                </div>
-                                                <div class="col-md-12 form-group mb-0">
-                                                    <div class="custom-control custom-checkbox">
-                                                        <input type="checkbox" id="custom-checkbox1"
-                                                            class="custom-control-input">
-                                                        <label title type="checkbox" for="custom-checkbox1"
-                                                            class="custom-control-label small pt-1">
-                                                            Securely save this
-                                                            card for a faster checkout next time.
-                                                        </label>
+                                        <div class="form-row">
+                                            <div class="col-md-12 form-group">
+                                                <label class="form-label font-weight-bold small">Card number</label>
+                                                <div class="input-group">
+                                                    <input type="text" name="card_number" id="cardNumber" maxlength="19"
+                                                        pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"
+                                                        class="form-control" placeholder="e.g. 1234 5678 9101 1121"​ required>
+                                                    <div class="input-group-append">
+                                                        <button type="button" class="btn btn-outline-secondary">
+                                                            <i class="feather-credit-card"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                            <div class="col-md-8 form-group">
+                                                <label class="form-label font-weight-bold small">Valid
+                                                    through(MM/YY)</label>
+                                                <input type="text" name="valid_through" id="validThrough"
+                                                    placeholder="Enter Valid through(MM/YY)" maxlength="5"
+                                                    pattern="(0[1-9]|1[0-2])\/\d{2}" class="form-control" required>
+                                            </div>
+                                            <div class="col-md-4 form-group">
+                                                <label class="form-label font-weight-bold small">CVV</label>
+                                                <input type="text" name="cvv_number" placeholder="Enter CVV Number" id="cvv" maxlength="4"
+                                                    pattern="\d{3,4}" class="form-control" required>
+                                            </div>
+                                            <div class="col-md-12 form-group">
+                                                <label class="form-label font-weight-bold small">Name on
+                                                    card</label>
+                                                <input placeholder="Enter Card name" name="card_name" type="text" class="form-control" required>
+                                            </div>
+                                            <div class="col-md-12 form-group mb-0">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" id="custom-checkbox1"
+                                                        class="custom-control-input">
+                                                    <label title type="checkbox" for="custom-checkbox1"
+                                                        class="custom-control-label small pt-1">
+                                                        Securely save this
+                                                        card for a faster checkout next time.
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="osahan-card bg-white border-bottom overflow-hidden">
+                            <!-- <div class="osahan-card bg-white border-bottom overflow-hidden">
                                 <div class="osahan-card-header" id="headingTwo">
                                     <h2 class="mb-0">
                                         <button class="d-flex p-3 align-items-center btn btn-link w-100" type="button"
@@ -280,16 +301,15 @@
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
                                     data-parent="#accordionExample">
                                     <div class="osahan-card-body border-top p-3">
-                                        <form>
                                             <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                                 <label class="btn btn-outline-secondary active">
-                                                    <input type="radio" name="options" id="option1" checked> HDFC
+                                                    <input type="radio" name="bank" id="option1" checked> HDFC
                                                 </label>
                                                 <label class="btn btn-outline-secondary">
-                                                    <input type="radio" name="options" id="option2"> ICICI
+                                                    <input type="radio" name="bank" id="option2"> ICICI
                                                 </label>
                                                 <label class="btn btn-outline-secondary">
-                                                    <input type="radio" name="options" id="option3"> AXIS
+                                                    <input type="radio" name="bank" id="option3"> AXIS
                                                 </label>
                                             </div>
                                             <hr>
@@ -297,7 +317,7 @@
                                                 <div class="col-md-12 form-group mb-0">
                                                     <label class="form-label small font-weight-bold">Select
                                                         Bank</label><br>
-                                                    <select class="custom-select form-control">
+                                                    <select class="custom-select form-control" name="bank" required>
                                                         <option>Bank</option>
                                                         <option>KOTAK</option>
                                                         <option>SBI</option>
@@ -305,10 +325,9 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="osahan-card bg-white overflow-hidden">
                                 <div class="osahan-card-header" id="headingThree">
                                     <h2 class="mb-0">
@@ -363,17 +382,19 @@
                                 </div>
                             </div>
                             <div class="bg-white p-3 clearfix border-bottom">
-                                <p class="mb-1">Item Total <span class="float-right text-dark" id="totalItem"> </span></p>
+                                <p class="mb-1">Item Total <span class="float-right text-dark" id="totalItem"> </span>
+                                </p>
                                 <p class="mb-1">Restaurant Charges <span class="float-right text-dark">$0.00</span></p>
                                 <p class="mb-1">Delivery Fee<span class="text-info ml-1"><i
-                                            class="feather-info"></i></span><span class="float-right text-dark">$0.00</span>
+                                            class="feather-info"></i></span><span
+                                        class="float-right text-dark">$0.00</span>
                                 </p>
                                 <p class="mb-1 text-success">Total Discount<span class="float-right text-success"
                                         id="discount">$0.00</span>
                                 </p>
                                 <hr>
                                 <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right" id="pricePay">$
-    
+
                                     </span></h6>
                             </div>
                             <div class="p-3">

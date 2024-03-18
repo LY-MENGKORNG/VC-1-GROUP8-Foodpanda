@@ -15,6 +15,3 @@
         </div>
     </div>
 </div>
-<script>
-    localStorage.removeItem("cart");
-</script>

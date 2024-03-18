@@ -96,7 +96,7 @@ function displayCheckout() {
                             <button type="button" id="plus" onclick="decreaseQty(${food.id})" class="btn-sm left dec btn btn-outline-secondary">
                                 <i class="feather-minus"></i>
                             </button>
-                            <input name="quantity[]" class="count-number-input" id="qty" type="text" readonly value="${food.quantity}" min="0">
+                            <input name="quantity[]" class="count-number-input" type="text" readonly value="${food.quantity}" min="0">
                             <button type="button" id="minus" onclick="increaseQty(${food.id})" class="btn-sm right inc btn btn-outline-secondary">
                                 <i class="feather-plus"></i>
                             </button>
@@ -154,7 +154,9 @@ if (checkoutBtn) {
 if (successBtn != undefined) {
     successBtn.onclick = (e) => {
         if (getCheckout().length > 0) {
-            successBtn.type = "submit";
+            if (confirm("Are you sure you want to continue this purchase")) {
+                successBtn.type = "submit";
+            }
         } else {
             window.alert("You did not choose any orders!");
         }

@@ -67,30 +67,6 @@ function getFoodsByCateId($cate_id = null) {
     return $stmt->fetchAll();
 }
 
-function addCart($food_id, $restaurant_id, $user_id, $food_name, $quantity, $price) {
-    // var_dump($food_id);
-    global $connection;
-    try {
-        //code...
-        $stmt = $connection->prepare(
-            "INSERT INTO checkout (food_id, restaurant_id, user_id, food_name, quantity, price) 
-            VALUES (:food_id, :restaurant_id, :user_id, :food_name, :quantity, :price)");
-    
-        $stmt->execute([
-            ":food_id" => $food_id,
-            ":restaurant_id" => $restaurant_id,
-            ":user_id" => $user_id,
-            ":food_name" => $food_name,
-            ":quantity" => $quantity,
-            ":price" => $price,
-        ]);
-        return $stmt->rowCount() > 0;
-    } catch (\Throwable $th) {
-        //throw $th;
-        return $stmt->rowCount() > 0;
-    }
-}
-
 function addAddress(string $address_name, string $address_type, int $delivery_id, int $customer_id) : bool {
     global $connection;
     $stmt = $connection->prepare("INSERT INTO address (address_name, address_type, delivery_id, customer_id) 
@@ -109,4 +85,17 @@ function getAddress(){
     $stmt = $connection->prepare("SELECT * FROM address");
     $stmt->execute();
     return $stmt->fetchAll();
+}
+
+function addCheckout(int $food_id, int $quantity, int $price_amount, int $user_id) {
+    global $connection;
+    $stmt = $connection->prepare("INSERT INTO checkout (food_id, quantity, price_amount, user_id) 
+                                VALUES (:food_id, :quantity, :price_amount, :user_id)");
+    $stmt->execute([
+        ":food_id" => $food_id,
+        ":quantity" => $quantity,
+        ":price_amount" => $price_amount,
+        ":user_id" => $user_id
+    ]);
+    return $stmt->rowCount() > 0;
 }
