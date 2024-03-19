@@ -7,31 +7,24 @@
                 Add Food
             </button>
         </div>
-    </div>
-    <!-- Modal create -->
-    <div class="modal fade" id="createFood" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content p-3">
-                <div class="modal-header">
-                    <h5 class="modal-title">
-                        <h5 class="modal-title" id="modal-title">Create new Food</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </h5>
-                </div>
-                <div class="modal-body">
-                    <form action="/restaurant/add_food" method="post" enctype="multipart/form-data">
-                        <div class="form-group m-auto border border-info rounded-circle d-flex justify-content-center align-items-center"
-                            style="width: 100px; height: 100px;">
-                            <input type="file" name="image" id="image" style="display: none;" required>
-                            <label for="image">
-                                <i class="feather-image text-primary" style="font-size: 50px;"></i>
-                            </label>
-                        </div>
-                        <div class="row d-flex gap-3 mt-4">
-                            <div class="form-group col-6">
-                                <label for="food_name">Food Name:</label>
-                                <input type="text" name="food_name" id="food_name"
-                                    class="form-control border border-info" required>
+        <!-- Modal -->
+        <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content p-3">
+                    <div class="modal-header"> 
+                        <h5 class="modal-title">
+                            <h5 class="modal-title" id="modal-title">Create new Food</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </h5>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/restaurant/add_food" method="post" enctype="multipart/form-data">
+                            <div class="form-group m-auto border border-info rounded-circle d-flex justify-content-center align-items-center"
+                                style="width: 100px; height: 100px;">
+                                <input type="file" name="image" id="image" style="display: none;" required>
+                                <label for="image">
+                                    <i class="feather-image text-primary" style="font-size: 50px;"></i>
+                                </label>
                             </div>
                             <div class="row d-flex gap-3 mt-4">
                                 <div class="form-group col-6">
