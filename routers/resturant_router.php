@@ -3,6 +3,7 @@ require "./models/restaurant.model.php";
 
 if (isset($_SESSION["restaurant_owner"])) {
     $restaurant_owner = $_SESSION["restaurant_owner"];
+
     $page = "";
     $routes = [
         '/restaurant' => 'controllers/restaurant/home/home.controller.php',

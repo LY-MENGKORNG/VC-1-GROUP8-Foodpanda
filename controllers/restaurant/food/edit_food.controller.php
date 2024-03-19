@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $quantity = $_POST["quantity"];
         $price = $_POST["price"];
         $rating = $_POST["rating"];
-        var_dump($quantity);
         $path_dir = "assets/images/uploads/restaurants/foods/";
 
         if (checkImage($image, $path_dir)) {

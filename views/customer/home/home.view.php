@@ -42,17 +42,17 @@
         <div class="container">
             <div class="offer-slider">
                 <div class="cat-item px-1 py-3">
-                    <a class="d-block text-center shadow-sm" href="trending.html">
+                    <a class="d-block text-center shadow-sm" href="/customer/trending">
                         <img alt="#" src="assets/images/pro1.jpg" class="img-fluid rounded" />
                     </a>
                 </div>
                 <div class="cat-item px-1 py-3">
-                    <a class="d-block text-center shadow-sm" href="trending.html">
+                    <a class="d-block text-center shadow-sm" href="/customer/trending">
                         <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
                     </a>
                 </div>
                 <div class="cat-item px-1 py-3">
-                    <a class="d-block text-center shadow-sm" href="trending.html">
+                    <a class="d-block text-center shadow-sm" href="/customer/trending">
                         <img alt="#" src="assets/images/pro3.jpg" class="img-fluid rounded" />
                     </a>
                 </div>
@@ -121,7 +121,7 @@
                                     </div>
                                     <div class="list-card-badge">
                                         <span class="badge badge-danger">OFFER</span>
-                                        <small>65% </small>
+                                        <small><?= $food["discount"] ?>% </small>
                                     </div>
                                 </div>
                             </div>

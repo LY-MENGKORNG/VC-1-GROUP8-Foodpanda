@@ -135,7 +135,7 @@ function editProfile(string $first_name, string $last_name, string $email, strin
 }
 
 function changeImage(string $target_dir, array $image, $profile) {
-    if ($profile) {
+    if (file_exists($profile)) {
         unlink($target_dir.$profile);
     }
     addImageFolder($image, $target_dir);

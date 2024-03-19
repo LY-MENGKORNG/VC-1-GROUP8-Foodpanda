@@ -6,5 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }else {
         $foods = getFoodsByCateId();
     }
+}else {
+    $foods = getFoodsByCateId();
 }
 require "./views/customer/trending/trending.view.php";
