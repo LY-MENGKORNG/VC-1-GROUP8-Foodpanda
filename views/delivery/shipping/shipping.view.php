@@ -15,7 +15,7 @@
                             <p class="stat-cards-info__progress text-secondary">
                                 <span class="stat-cards-info__profit info">
                                     <i data-feather="trending-up" aria-hidden="true"></i>4.07%
-                                </span>
+                                </span> 
                                 Last month
                             </p>
                         </div>
