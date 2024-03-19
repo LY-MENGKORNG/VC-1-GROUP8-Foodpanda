@@ -13,7 +13,7 @@
         <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content p-3">
-                    <div class="modal-header">
+                    <div class="modal-header"> 
                         <h5 class="modal-title">
                             <h5 class="modal-title" id="modal-title">Create new Food</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
