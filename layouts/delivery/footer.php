@@ -1,4 +1,5 @@
     </div>
+
     <!-- Chart library -->
     <script src="../../vendor/plugins/chart.min.js"></script>
     <!-- Icons library -->

@@ -1,12 +1,17 @@
 <?php
 require "./models/delivery.model.php";
 
-if (isset($_SESSION["delivery"])) {
+if (isset ($_SESSION["delivery"])) {
     if ($uri == "/delivery") {
         header("Location: /delivery/shipping");
     }
-
     $delivery = $_SESSION["delivery"];
+    $delivery_id = $delivery["user_id"];
+    $orders = getAllOrders($delivery_id);
+    $order_progress = getOrderByStatus("On progress", $delivery_id);
+    $order_completed = getOrderByStatus("Completed", $delivery_id);
+    // $order_progress = getOrderByStatus("On progress");
+
     $page = "";
     $routes = [
         '/delivery' => 'controllers/delivery/home/home.controller.php',
@@ -17,7 +22,7 @@ if (isset($_SESSION["delivery"])) {
         '/delivery/order' => 'controllers/delivery/order/order.controller.php',
     ];
 
-    if (array_key_exists($uri, $routes)) { 
+    if (array_key_exists($uri, $routes)) {
         $page = $routes[$uri];
     } else {
         http_response_code(404);
@@ -28,6 +33,6 @@ if (isset($_SESSION["delivery"])) {
     require "./layouts/delivery/navbar2.php";
     require $page;
     require "./layouts/delivery/footer.php";
-}else {
+} else {
     header("Location: /delivery/signin");
 }

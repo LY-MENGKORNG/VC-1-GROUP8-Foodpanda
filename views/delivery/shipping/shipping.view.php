@@ -2,7 +2,7 @@
 <main class="main users chart-page" id="skip-target">
     <div class="container">
         <h3 class="title">Hi, <?= ($delivery["first_name"]) ?> 👋🏻</h2>
-            <p class="my-2 fw-lighter">Welcome to Dashboard</p>
+            <p class="my-2 fw-lighter" style="text-decoration: underline;">Welcome to Dashboard</p>
             <div class="row stat-cards d-flex mt-4">
                 <div class="col-md-3 col-xl-4">
                     <article class="stat-cards-item rounded-0" style="background: #FBE2DE;">
@@ -11,7 +11,7 @@
                         </div>
                         <div class="stat-cards-info">
                             <p class="stat-cards-info__num text-dark">On going</p>
-                            <p class="stat-cards-info__title text-dark">1478 286</p>
+                            <p class="stat-cards-info__title text-dark"><?= count($order_progress) ?></p>
                             <p class="stat-cards-info__progress text-secondary">
                                 <span class="stat-cards-info__profit info">
                                     <i data-feather="trending-up" aria-hidden="true"></i>4.07%
@@ -45,7 +45,7 @@
                         </div>
                         <div class="stat-cards-info">
                             <p class="stat-cards-info__num text-dark">Completed</p>
-                            <p class="stat-cards-info__title text-dark">Total visits</p>
+                            <p class="stat-cards-info__title text-dark fw-bold"><?= count($order_completed) ?></p>
                             <p class="stat-cards-info__progress text-secondary">
                                 <span class="stat-cards-info__profit info">
                                     <i data-feather="trending-up" aria-hidden="true"></i>4.07%
