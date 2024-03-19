@@ -2,8 +2,8 @@
     <div class="container-fluid">
         <div class="d-flex flex-row justify-content-sm-between px-2">
             <h1 class="main-title col-10">Category</h1>
-            <button class="btn btn-primary font-weight-bold text-gray rounded" data-bs-toggle="modal"
-                data-bs-target="#categoryModal">
+            <button class="btn btn-primary btn-sm font-weight-bold text-gray rounded" data-bs-toggle="modal"
+                data-bs-target="#categoryModal" style="width: 130px; height: 40px;">
                 Add Category
             </button>
         </div>
@@ -44,7 +44,7 @@
         </div>
     </div>
 
-    <div class="users-table table-wrapper mt-4 p-4">
+    <div class="users-table table-wrapper mt-4 border border-gray shadow-sm">
         <table class="posts-table rounded-3">
             <thead>
                 <tr class="users-table-info  bg-transparent">
@@ -96,8 +96,8 @@
                         </td>
                     </tr>
                     <!-- edit category -->
-                    <div class="modal fade" id="editCate<?= $category["cate_id"] ?>" tabindex="-1" aria-labelledby="modal-title"
-                        aria-hidden="true">
+                    <div class="modal fade" id="editCate<?= $category["cate_id"] ?>" tabindex="-1"
+                        aria-labelledby="modal-title" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content p-4">
                                 <div class="modal-header">
@@ -126,7 +126,8 @@
                                             <label for="description">Description:</label>
                                             <textarea name="description" id="description"
                                                 class="form-control border border-info"
-                                                style="min-height: 50px; max-height:200px;" required><?= $category["description"] ?></textarea>
+                                                style="min-height: 50px; max-height:200px;"
+                                                required><?= $category["description"] ?></textarea>
                                         </div>
                                         <input type="hidden" name="cate_id" value="<?= $category["cate_id"] ?>">
                                         <input type="hidden" name="current_img" value="<?= $category["cate_img"] ?>">
@@ -137,7 +138,8 @@
                         </div>
                     </div>
                     <!-- delete category -->
-                    <div class="modal fade" id="deleteCate<?= $category["cate_id"] ?>" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+                    <div class="modal fade" id="deleteCate<?= $category["cate_id"] ?>" tabindex="-1"
+                        aria-labelledby="modal-title" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header row p-2 m-0">
@@ -146,9 +148,11 @@
                                     </div>
                                 </div>
                                 <div class="modal-body p-2 m-2 d-flex justify-content-end">
-                                    <button type="button" class="btn btn-secondary mx-2" data-bs-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary mx-2"
+                                        data-bs-dismiss="modal">Close</button>
                                     <form action="/restaurant/delete_category" method="post">
-                                        <button type="submit" name="cate_id" value="<?= $category["cate_id"] ?>" class="btn btn-primary">Save changes</button>
+                                        <button type="submit" name="cate_id" value="<?= $category["cate_id"] ?>"
+                                            class="btn btn-primary">Save changes</button>
                                     </form>
                                 </div>
                             </div>

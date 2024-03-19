@@ -11,7 +11,7 @@
                         </div>
                         <div class="stat-cards-info">
                             <p class="stat-cards-info__num text-dark">On going</p>
-                            <p class="stat-cards-info__title text-dark">1478 286</p>
+                            <p class="stat-cards-info__title text-danger fw-bold"><?= count($orders_progress) ?></p>
                             <p class="stat-cards-info__progress text-secondary">
                                 <span class="stat-cards-info__profit info">
                                     <i data-feather="trending-up" aria-hidden="true"></i>4.07%
@@ -28,7 +28,7 @@
                         </div>
                         <div class="stat-cards-info">
                             <p class="stat-cards-info__num text-dark">Shipping</p>
-                            <p class="stat-cards-info__title text-dark">1478 286</p>
+                            <p class="stat-cards-info__title text-danger fw-bold"><?= count($orders_pending) ?></p>
                             <p class="stat-cards-info__progress text-secondary">
                                 <span class="stat-cards-info__profit info">
                                     <i data-feather="trending-up" aria-hidden="true"></i>4.07%
@@ -45,7 +45,7 @@
                         </div>
                         <div class="stat-cards-info">
                             <p class="stat-cards-info__num text-dark">Completed</p>
-                            <p class="stat-cards-info__title text-dark">Total visits</p>
+                            <p class="stat-cards-info__title text-danger fw-bold"><?= count($orders_completed) ?></p>
                             <p class="stat-cards-info__progress text-secondary">
                                 <span class="stat-cards-info__profit info">
                                     <i data-feather="trending-up" aria-hidden="true"></i>4.07%
