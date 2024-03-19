@@ -378,8 +378,8 @@
 </div>
 
 <script type="4914b45df6263fcf00a3ac20-text/javascript" src="../../vendor/jquery/jquery.min.js"></script>
-<script type="4914b45df6263fcf00a3ac20-text/javascript"
-  src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script type="4914b45df6263fcf00a3ac20-text/javascript" src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../vendor/plugins/feather.min.js"></script>
 
 <script type="4914b45df6263fcf00a3ac20-text/javascript" src="../../vendor/slick/slick.min.js"></script>
 

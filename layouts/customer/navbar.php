@@ -132,10 +132,11 @@
                             </div>
                         </div>
 
-                        <a href="/customer/checkout" class="btn widget-header mr-4">
+                        <a href="/customer/checkout" class="btn border border-secondary widget-header mr-4">
                             <div class="icon d-flex align-items-center">
-                                <i class="feather-shopping-cart h6 mr-2 mb-0 text-dark"></i>
-                                <span class="text-dark">Cart</span>
+                                <span class="icon notification active" aria-hidden="true"></span>
+                                <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
+                                <span>Cart</span>
                             </div>
                         </a>
                         <a class="toggle rounded p-left-5" href="#">

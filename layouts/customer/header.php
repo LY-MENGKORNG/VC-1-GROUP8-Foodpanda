@@ -8,14 +8,13 @@
   <meta name="description" content="Gurdeep Osahan" />
   <meta name="author" content="Gurdeep Osahan" />
   <link rel="icon" type="image/png" href="../../assets/images/logo/panda-logo.png" />
-  <title>Foodride - Online Food Ordering Website Template</title>
-
+  <title>Foodpanda | <?= $customer["first_name"] ?></title>
   <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick-theme.min.css" />
+  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
   <link href="../../vendor/icons/feather.css" rel="stylesheet" type="text/css" />
 
-  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
   <link href="../../vendor/css/style.css" rel="stylesheet" />
 

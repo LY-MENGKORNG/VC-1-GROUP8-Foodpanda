@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 11, 2024 at 02:19 PM
+-- Generation Time: Mar 18, 2024 at 02:18 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -24,6 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `address`
+--
+
+CREATE TABLE `address` (
+  `address_id` int(11) NOT NULL,
+  `address_name` varchar(255) DEFAULT NULL,
+  `address_type` enum('Home','Work','Other') DEFAULT NULL,
+  `delivery_id` int(11) DEFAULT NULL,
+  `customer_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `address`
+--
+
+INSERT INTO `address` (`address_id`, `address_name`, `address_type`, `delivery_id`, `customer_id`) VALUES
+(2, 'khan sen sok, phnom penh, cambodia', 'Work', 5, 7),
+(3, 'kangmeas, Kampong cham, Cambodia', 'Work', 6, 7),
+(5, 'khan chba om pov, Phnom penh, Cambodia', 'Work', 6, 7),
+(6, 'Song kae, Battom bong, Cambodia', 'Home', 5, 7);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -40,13 +64,15 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`cate_id`, `restaurant_id`, `cate_name`, `description`, `cate_img`) VALUES
-(1, 13, 'Breakfast', 'Hello, this is breakfast!\r\n', 'Breakfast.png'),
+(1, 13, 'Breakfast2', 'Hello, this is breakfast!\r\n', 'Breakfast.png'),
 (2, 13, 'American', 'Hello world', 'Burger.png'),
 (4, 13, 'Khmer', 'Hello world', 'Salad.png'),
 (8, 12, 'Italian', 'Hello world', 'Pizza.png'),
 (9, 12, 'Drink', 'Hello world', 'Coffee.png'),
 (10, 10, 'Thai', 'How do you want to get started', 'Fries.png'),
-(11, 10, 'France', 'Hello, this is france food\r\n', 'france.png');
+(11, 10, 'France', 'Hello, this is france food\r\n', 'france.png'),
+(15, 9, 'Nom Khmer', 'fsdfhajdf', 'k\'tom.png'),
+(16, 9, 'Japanese fried rice', 'hello world', 'Japanese-food-omurice-1024x683-removebg-preview.png');
 
 -- --------------------------------------------------------
 
@@ -66,6 +92,35 @@ CREATE TABLE `cate_food` (
 ,`price` int(11)
 ,`rating` int(11)
 );
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `checkout`
+--
+
+CREATE TABLE `checkout` (
+  `checkout_id` int(11) NOT NULL,
+  `food_id` int(11) DEFAULT NULL,
+  `quantity` int(11) DEFAULT NULL,
+  `price_amount` int(11) DEFAULT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `checkout_date` datetime DEFAULT current_timestamp(),
+  `food_name` varchar(255) DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `checkout`
+--
+
+INSERT INTO `checkout` (`checkout_id`, `food_id`, `quantity`, `price_amount`, `user_id`, `checkout_date`, `food_name`, `order_id`) VALUES
+(26, 3, 1, 5, 10, '2024-03-18 17:27:56', 'Italian desert', 10),
+(28, 2, 1, 5, 10, '2024-03-18 17:32:16', 'Unknown', 12),
+(29, 10, 1, 2, 10, '2024-03-18 17:32:16', 'Pokis', 12),
+(30, 11, 1, 5, 10, '2024-03-18 18:08:43', 'Nom banh jok', 13),
+(31, 4, 1, 5, 10, '2024-03-18 18:08:43', 'Bror Hit', 13),
+(32, 4, 3, 5, 10, '2024-03-18 19:00:46', 'Bror Hit', 14);
 
 -- --------------------------------------------------------
 
@@ -118,31 +173,38 @@ INSERT INTO `foods` (`food_id`, `cate_id`, `food_name`, `image`, `quantity`, `pr
 (5, 2, 'Unknown food', 'popular2.png', 50, 3, 4),
 (8, 10, 'Tong yam', 'thai food.jpg', 50, 5, 3),
 (9, 11, 'Omelet', 'france food.jpg', 20, 10, 4),
-(10, 9, 'Pokis', 'pokis.jpg', 100, 2, 4);
+(10, 9, 'Pokis', 'pokis.jpg', 100, 2, 4),
+(11, 4, 'Nom banh jok', 'Nom banh jok.jpg', 50, 5, 4),
+(12, 15, 'Nok ah kour', 'khmer desert1.jpg', 50, 5, 4),
+(13, 15, 'pumpkin desert ', 'khmer desert2.jpg', 25, 5, 5);
 
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `foods_info`
+-- Stand-in structure for view `food_info`
 -- (See below for the actual view)
 --
-CREATE TABLE `foods_info` (
+CREATE TABLE `food_info` (
 `food_id` int(11)
-,`cate_id` int(11)
-,`cate_name` varchar(255)
-,`description` varchar(255)
-,`cate_img` varchar(255)
 ,`food_name` varchar(255)
 ,`image` varchar(255)
 ,`quantity` int(11)
 ,`price` int(11)
-,`rating` int(11)
+,`food_rate` int(11)
+,`cate_id` int(11)
+,`cate_name` varchar(255)
+,`cate_img` varchar(255)
+,`cate_desc` varchar(255)
+,`restaurant_id` int(11)
 ,`owner_id` int(11)
 ,`restaurant_name` varchar(255)
 ,`location` varchar(255)
 ,`email` varchar(255)
 ,`opening_hour` int(11)
+,`contact_info` varchar(255)
 ,`restaurant_img` varchar(255)
+,`restaurant_rate` enum('1','2','3','4','5')
+,`restaurant_desc` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -186,20 +248,71 @@ CREATE TABLE `notifications` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `customer_id` int(11) DEFAULT NULL,
+  `delivery_id` int(11) DEFAULT NULL,
+  `order_status` varchar(255) DEFAULT NULL,
+  `order_date` datetime DEFAULT current_timestamp(),
+  `restaurant_name` varchar(255) DEFAULT NULL,
+  `deliver_date` date DEFAULT NULL,
+  `restaurant_img` varchar(255) DEFAULT NULL,
+  `address_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `customer_id`, `delivery_id`, `order_status`, `order_date`, `restaurant_name`, `deliver_date`, `restaurant_img`, `address_id`) VALUES
+(10, 10, 5, 'On progress', '2024-03-18 17:27:56', 'KFC Cambodia', NULL, 'pexels-zak-chapman-2290753.jpg', 6),
+(12, 10, 5, 'On progress', '2024-03-18 17:32:16', 'KFC Cambodia', NULL, 'pexels-zak-chapman-2290753.jpg', 3),
+(13, 10, 5, 'On progress', '2024-03-18 18:08:43', 'Kon nak Siemeap', NULL, 'pexels-igor-starkov-1055058.jpg', 6),
+(14, 10, 5, 'On progress', '2024-03-18 19:00:46', 'Kon nak Siemeap', NULL, 'pexels-igor-starkov-1055058.jpg', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_details`
+--
+
+CREATE TABLE `order_details` (
+  `order_details_id` int(11) NOT NULL,
+  `checkout_id` int(11) DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `payment_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payments`
 --
 
 CREATE TABLE `payments` (
   `payment_id` int(11) NOT NULL,
   `user_id` int(11) DEFAULT NULL,
-  `payment_amount` decimal(10,2) DEFAULT NULL,
+  `card_number` varchar(255) DEFAULT NULL,
+  `valid_through` varchar(255) DEFAULT NULL,
+  `cvv` int(11) DEFAULT NULL,
+  `card_name` varchar(255) DEFAULT NULL,
   `payment_date` datetime DEFAULT current_timestamp(),
-  `payment_method` varchar(255) DEFAULT NULL,
-  `status` enum('pending','completed','failed') DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `payment_gateway` enum('Stripe','PayPal','Bank Transfer') DEFAULT NULL,
-  `refund_status` enum('pending','processed','completed','failed') DEFAULT NULL
+  `payment_amount` int(11) DEFAULT NULL,
+  `promo_code` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`payment_id`, `user_id`, `card_number`, `valid_through`, `cvv`, `card_name`, `payment_date`, `payment_amount`, `promo_code`) VALUES
+(13, 10, 'Kon khmer', '12/24', 1234, 'Kon khmer', '2024-03-18 17:27:56', 5, 'dfs@#%$'),
+(15, 10, 'Kon khmer', '12/24', 1234, 'Kon khmer', '2024-03-18 17:32:16', 7, 'dsds@#%$'),
+(16, 10, 'Kon khmer', '12/24', 1234, 'Kon khmer', '2024-03-18 18:08:43', 10, '1234g@$'),
+(17, 10, 'Kon khmer', '12/24', 4132, 'Kon khmer', '2024-03-18 19:00:46', 5, 'sdfa$@#');
 
 -- --------------------------------------------------------
 
@@ -226,10 +339,10 @@ CREATE TABLE `restaurants` (
 --
 
 INSERT INTO `restaurants` (`restaurant_id`, `owner_id`, `restaurant_name`, `location`, `email`, `password`, `opening_hour`, `contact_info`, `description`, `restaurant_img`, `rating`) VALUES
-(9, 3, 'KPC 168', 'Kampong Cham', 'kampong.cham@restaurant.com', '$2y$10$vZORMEt2r3XjKxFMDWKsnOug0BZvgb5OvtmKFJI9ZYK740YVkclES', NULL, '+1 (124) 985-1702', 'gfsglk', 'pexels-lawrence-suzara-1581554.jpg', '1'),
-(10, 9, 'Khmerhouse', 'Battombong', 'battombong.restaurant@email.com', '$2y$10$xM5JSvFkL6T2ikbfweZ7FeD.ENYKPqfCc9.KMyFiZCoRIy8T5HERa', NULL, '+1 (146) 552-6397', 'herasdkfa;s', 'pexels-huy-phan-1383776.jpg', '1'),
-(12, 8, 'KFC Cambodia', 'Phnom Penh', 'kfc.cambodia@restaurant.com', '$2y$10$bhuYDhooln9VNJ5Mig2TCObc7Nm8XuJNDVceYSnaUfmB7210CXQk6', NULL, '+1 (413) 887-4212', 'hdasdfha', 'pexels-zak-chapman-2290753.jpg', '1'),
-(13, 4, 'Kon nak Siemeap', 'Siem Reap', 'siemreap.restaurant@emai.com', '$2y$10$xlqURWvw0joW72TiiRRPKucM/x59vnE7btkH10La6IwqJojLFlwQ.', NULL, '+1 (159) 787-4677', 'fasdfhadf', 'pexels-igor-starkov-1055058.jpg', '1');
+(9, 11, 'KPC 168', 'Kampong Cham', 'kampong.cham@restaurant.com', '$2y$10$vZORMEt2r3XjKxFMDWKsnOug0BZvgb5OvtmKFJI9ZYK740YVkclES', 8, '+1 (124) 985-1702', 'gfsglk', 'pexels-lawrence-suzara-1581554.jpg', '1'),
+(10, 9, 'Khmerhouse', 'Battombong', 'battombong.restaurant@email.com', '$2y$10$xM5JSvFkL6T2ikbfweZ7FeD.ENYKPqfCc9.KMyFiZCoRIy8T5HERa', 8, '+1 (146) 552-6397', 'herasdkfa;s', 'pexels-huy-phan-1383776.jpg', '1'),
+(12, 8, 'KFC Cambodia', 'Phnom Penh', 'kfc.cambodia@restaurant.com', '$2y$10$bhuYDhooln9VNJ5Mig2TCObc7Nm8XuJNDVceYSnaUfmB7210CXQk6', 8, '+1 (413) 887-4212', 'hdasdfha', 'pexels-zak-chapman-2290753.jpg', '1'),
+(13, 4, 'Kon nak Siemeap', 'Siem Reap', 'siemreap.restaurant@emai.com', '$2y$10$xlqURWvw0joW72TiiRRPKucM/x59vnE7btkH10La6IwqJojLFlwQ.', 8, '+1 (159) 787-4677', 'fasdfhadf', 'pexels-igor-starkov-1055058.jpg', '1');
 
 -- --------------------------------------------------------
 
@@ -304,7 +417,9 @@ INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, 
 (8, 'DAVIT', 'CHOEUN', 'davit.choeun@owner.passerellesnumeriques.org', '$2y$10$yyHkGXdQ8RWpwj8VOTfT/.xySIlM45/R5Vswn3AmCxsQmc7/IZN0S', '+1 (256) 547-6668', 'photo_2024-03-06_10-57-53.jpg', '2024-03-10 02:55:49', 2),
 (9, 'CHHUN EII', 'OEUY', 'chhuneii.oeuy@owner.passerellesnumeriques.org', '$2y$10$OoGla5omDCaojLM6nTowjuLoaHavWGv0pBTh68Ow4pxBfDqOlOR1q', '+1 (413) 887-4212', 'photo_2024-02-25_16-18-50.jpg', '2024-03-10 12:03:40', 2),
 (10, 'thary', 'oeun', 'thary.oeun@customer.passerellesnumeriques.org', '$2y$10$aDZhDbmRYJGE5hnUFtkKP.hcgckcsu.FaWA5cM930l3dK582aSplW', '0979899310', NULL, '2024-03-10 14:55:22', 4),
-(11, 'THARY', 'OEUN', 'thary.oeun@owner.passerellesnumeriques.org', '$2y$10$lE6.si3kgM0csIBwig1umelvNZq6Y3wNXZwV6i8C14cPqXXVLHt7W', '+1 (124) 985-1702', NULL, '2024-03-11 14:05:34', 2);
+(11, 'THARY', 'OEUN', 'thary.oeun@owner.passerellesnumeriques.org', '$2y$10$lE6.si3kgM0csIBwig1umelvNZq6Y3wNXZwV6i8C14cPqXXVLHt7W', '+1 (124) 985-1702', 'photo_2023-12-04_20-05-22.jpg', '2024-03-11 14:05:34', 2),
+(24, 'mengkorng123', 'ly', 'mengkorng.ly@newcustomer.passerellesnumeriques.org', '$2y$10$3PeKc36DOh7FQO2Mi4GLCu4rufhXaSk3QM6ClQpwgCNnDmgW18ZLG', '+1 (526) 259-6055', NULL, '2024-03-12 11:58:47', 4),
+(25, 'DAVIT', 'CHOEUN', 'davit.choeun@customer1.passerellesnumeriques.org', '$2y$10$HYdBPtQ.qiXMil0o1EJOF.bVx0a/p0xjX2wPsY1JFKBHSHfK.K43q', '+1 (464) 441-4173', NULL, '2024-03-12 20:55:18', 4);
 
 -- --------------------------------------------------------
 
@@ -318,11 +433,11 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 -- --------------------------------------------------------
 
 --
--- Structure for view `foods_info`
+-- Structure for view `food_info`
 --
-DROP TABLE IF EXISTS `foods_info`;
+DROP TABLE IF EXISTS `food_info`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `foods_info`  AS SELECT `foods`.`food_id` AS `food_id`, `foods`.`cate_id` AS `cate_id`, `categories`.`cate_name` AS `cate_name`, `categories`.`description` AS `description`, `categories`.`cate_img` AS `cate_img`, `foods`.`food_name` AS `food_name`, `foods`.`image` AS `image`, `foods`.`quantity` AS `quantity`, `foods`.`price` AS `price`, `foods`.`rating` AS `rating`, `restaurants`.`owner_id` AS `owner_id`, `restaurants`.`restaurant_name` AS `restaurant_name`, `restaurants`.`location` AS `location`, `restaurants`.`email` AS `email`, `restaurants`.`opening_hour` AS `opening_hour`, `restaurants`.`restaurant_img` AS `restaurant_img` FROM ((`restaurants` join `categories` on(`categories`.`restaurant_id` = `restaurants`.`restaurant_id`)) join `foods` on(`categories`.`cate_id` = `foods`.`cate_id`)) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `food_info`  AS SELECT `foods`.`food_id` AS `food_id`, `foods`.`food_name` AS `food_name`, `foods`.`image` AS `image`, `foods`.`quantity` AS `quantity`, `foods`.`price` AS `price`, `foods`.`rating` AS `food_rate`, `categories`.`cate_id` AS `cate_id`, `categories`.`cate_name` AS `cate_name`, `categories`.`cate_img` AS `cate_img`, `categories`.`description` AS `cate_desc`, `restaurants`.`restaurant_id` AS `restaurant_id`, `restaurants`.`owner_id` AS `owner_id`, `restaurants`.`restaurant_name` AS `restaurant_name`, `restaurants`.`location` AS `location`, `restaurants`.`email` AS `email`, `restaurants`.`opening_hour` AS `opening_hour`, `restaurants`.`contact_info` AS `contact_info`, `restaurants`.`restaurant_img` AS `restaurant_img`, `restaurants`.`rating` AS `restaurant_rate`, `restaurants`.`description` AS `restaurant_desc` FROM ((`restaurants` join `categories` on(`restaurants`.`restaurant_id` = `categories`.`restaurant_id`)) join `foods` on(`categories`.`cate_id` = `foods`.`cate_id`)) ;
 
 -- --------------------------------------------------------
 
@@ -338,11 +453,26 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
+-- Indexes for table `address`
+--
+ALTER TABLE `address`
+  ADD PRIMARY KEY (`address_id`),
+  ADD KEY `delivery_id` (`delivery_id`);
+
+--
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`cate_id`),
   ADD KEY `categories_ibfk_1` (`restaurant_id`);
+
+--
+-- Indexes for table `checkout`
+--
+ALTER TABLE `checkout`
+  ADD PRIMARY KEY (`checkout_id`),
+  ADD KEY `food_id` (`food_id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `comments`
@@ -382,6 +512,23 @@ ALTER TABLE `notifications`
   ADD KEY `notifications_ibfk_2` (`recipient`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `customer_id` (`customer_id`),
+  ADD KEY `delivery_id` (`delivery_id`);
+
+--
+-- Indexes for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD PRIMARY KEY (`order_details_id`),
+  ADD KEY `payment_id` (`payment_id`),
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `checkout_id` (`checkout_id`);
+
+--
 -- Indexes for table `payments`
 --
 ALTER TABLE `payments`
@@ -415,10 +562,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `address`
+--
+ALTER TABLE `address`
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `checkout`
+--
+ALTER TABLE `checkout`
+  MODIFY `checkout_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -436,7 +595,7 @@ ALTER TABLE `favorites`
 -- AUTO_INCREMENT for table `foods`
 --
 ALTER TABLE `foods`
-  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `locations`
@@ -451,10 +610,22 @@ ALTER TABLE `notifications`
   MODIFY `noti_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `order_details`
+--
+ALTER TABLE `order_details`
+  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `restaurants`
@@ -472,17 +643,30 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
 --
 
 --
+-- Constraints for table `address`
+--
+ALTER TABLE `address`
+  ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`delivery_id`) REFERENCES `users` (`user_id`);
+
+--
 -- Constraints for table `categories`
 --
 ALTER TABLE `categories`
   ADD CONSTRAINT `categories_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`restaurant_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `checkout`
+--
+ALTER TABLE `checkout`
+  ADD CONSTRAINT `checkout_ibfk_1` FOREIGN KEY (`food_id`) REFERENCES `foods` (`food_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `checkout_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `comments`
@@ -510,6 +694,21 @@ ALTER TABLE `foods`
 ALTER TABLE `notifications`
   ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`sender`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `notifications_ibfk_2` FOREIGN KEY (`recipient`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`delivery_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `order_details`
+--
+ALTER TABLE `order_details`
+  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`payment_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`checkout_id`) REFERENCES `checkout` (`checkout_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `payments`

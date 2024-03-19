@@ -4,7 +4,7 @@
             <img src="../../assets/images/logo/delivery-bike.png" alt="" width="30px">
         </button>
         <div class="sidebar-logo mt-3">
-            <a href="/delivery/dashboard">
+            <a href="/delivery">
                 <h5 class="m-0 p-0">Foodpanda</h5>
             </a>
             <span class="text-white fw-lighter">Delivery</span>
