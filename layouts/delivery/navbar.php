@@ -30,35 +30,27 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="/delivery/restaurant" class="sidebar-link <?= getActivePage('/delivery/restaurant') ?>">
-                <i class="lni lni-caravan"></i>
-                <span class="fw-lighter">Marketplace</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="/delivery/customer" class="sidebar-link <?= getActivePage('/delivery/customer') ?>" >
-                <i class="lni lni-users"></i>
-                <span class="fw-lighter">Customers</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a href="/delivery/message" class="sidebar-link <?= getActivePage('/delivery/message') ?>">
-                <i class="lni lni-comments-alt-2"></i>
-                <span class="fw-lighter">Message</span>
+            <a href="/delivery/notification" class="sidebar-link <?= getActivePage('/delivery/notification') ?>">
+                <i class="lni lni-alarm"></i>
+                <span class="fw-lighter">Notification</span>
             </a>
         </li>
     </ul>
 
     <ul class="sidebar-item">
-        <a href="#" class="sidebar-link <?= getActivePage('/delivery/setting') ?> collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#setting" aria-expanded="false" aria-controls="setting">
-            <i class="lni lni-cog"></i>
-            <span class="fw-lighter">Setting</span>
+        <a href="#" class="sidebar-link <?= getActivePage('/delivery/setting') ?> collapsed has-dropdown" data-bs-toggle="collapse" data-bs-target="#authentiction" aria-expanded="false" aria-controls="authentiction">
+            <i class="lni lni-protection"></i>
+            <span class="fw-lighter">Authentication</span>
         </a>
         <ul id="setting" class="sidebar-dropdown bg-secondary list-unstyled collapse" data-bs-parent="#sidebar">
             <li class="sidebar-item">
-                <a href="/delivery/authentication" class="sidebar-link <?= getActivePage('/delivery/authentication') ?>">
-                    <i class="lni lni-protection"></i>
-                    <span class="fw-lighter">Authentications</span>
+                <a href="/delivery/signin" class="sidebar-link <?= getActivePage('/delivery/signin') ?>">
+                    <i class="feather-log-in"></i>Sign In
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="/delivery/signout" class="sidebar-link <?= getActivePage('/delivery/signout') ?>">
+                    <i class="feather-log-out"></i>Sign Out
                 </a>
             </li>
         </ul>

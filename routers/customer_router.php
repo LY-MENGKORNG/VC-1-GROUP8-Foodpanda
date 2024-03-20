@@ -32,6 +32,7 @@ if (isset($_SESSION["customer"])) {
     require "./layouts/customer/header.php";
     require "./layouts/customer/navbar.php";
     require $page;
+    require "./layouts/customer/navbar2.php";
     require "./layouts/customer/footer.php";
 }else {
     header("Location: /customer/signin");
