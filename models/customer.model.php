@@ -185,3 +185,10 @@ function getCheckoutById($customer_id) {
     $stmt->execute([":user_id" => $customer_id]);
     return $stmt->fetchAll();
 }
+
+function getAllFavorite() : array {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM favorites");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}

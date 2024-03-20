@@ -40,7 +40,7 @@ else if(urlIs("/delivery") || urlIs("/delivery/profile") || urlIs("/delivery/edi
 else if(urlIs("/customer") || urlIs("/customer/checkout") || urlIs("/customer/search") || urlIs("/customer/offers") ||
         urlIs("/customer/profile") || urlIs("/customer/order") || urlIs("/customer/edit_profile") || 
         urlIs("/customer/trending") || urlIs("/customer/restaurant") || urlIs("/customer/success") ||
-        urlIs("/customer/address") || urlIs("/customer/editAddress"))
+        urlIs("/customer/address") || urlIs("/customer/editAddress") || urlIs("/customer/favorite"))
 {  
     require './routers/customer_router.php';
 }

@@ -15,9 +15,11 @@
         </div>
     </div>
 </div>
-<script>
-    localStorage.removeItem("cart");
-    setTimeout(() => {
-        window.location.href = "/customer/checkout";
-    }, 3000);
-</script>
+<?php if (isset($food_ids)) { ?>
+    <script>
+        localStorage.removeItem("cart");
+        setTimeout(() => {
+            window.location.href = "/customer/checkout";
+        }, 3000);
+    </script>
+<?php } ?>

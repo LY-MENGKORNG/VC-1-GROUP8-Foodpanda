@@ -38,6 +38,10 @@ body {
 
 #sidebar {
     width: 70px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
     min-width: 70px;
     z-index: 1000;
     transition: all .25s ease-in-out;

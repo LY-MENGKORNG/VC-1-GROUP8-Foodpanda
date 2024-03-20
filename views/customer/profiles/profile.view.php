@@ -16,7 +16,7 @@
                                 <div class="rounded-circle bg-light position-absolute d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; bottom: 5%; right: 5%; border: 1px solid gray;">
                                     <label for="profile_img" class="m-auto">
                                         <input type="file" name="profile" id="profile_img" style="display: none;">
-                                        <i class="feather-camera fs-5 text-secondary border text-primary"></i>
+                                        <i class="feather-download fs-5 text-secondary border text-primary"></i>
                                     </label>
                                 </div>
                             </div>

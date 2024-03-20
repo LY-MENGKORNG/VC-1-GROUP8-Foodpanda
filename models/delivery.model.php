@@ -26,3 +26,10 @@ function getAllOrder($status, $delivery_id) : array {
     ]);
     return $stmt->fetchAll();
 }
+
+function getAllNoti($delivery_id) : array {
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM notifications");
+    $stmt->execute();
+    return $stmt->fetchAll();   
+}

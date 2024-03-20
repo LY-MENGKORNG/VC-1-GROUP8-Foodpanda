@@ -206,7 +206,7 @@
       <a href="/customer/checkout"><i class="feather-list mr-2"></i> Checkout</a>
     </li>
     <li>
-      <a href="/customer/successful"><i class="feather-check-circle mr-2"></i> Successful</a>
+      <a href="/customer/success"><i class="feather-check-circle mr-2"></i> Successful</a>
     </li>
     <li>
       <a href="/customer/map"><i class="feather-map-pin mr-2"></i> Live Map</a>
@@ -221,15 +221,15 @@
         <li><a href="/customer/privacy">Privacy & Policy</a></li>
       </ul>
     </li>
-    <li>
+    <!-- <li>
       <a href="#"><i class="feather-alert-triangle mr-2"></i> Error</a>
       <ul>
         <li><a href="not-found.html">Not Found</a></li>
         <li><a href="maintence.html"> Maintence</a></li>
         <li><a href="coming-soon.html">Coming Soon</a></li>
       </ul>
-    </li>
-    <li>
+    </li> -->
+    <!-- <li>
       <a href="#"><i class="feather-link mr-2"></i> Navigation Link Example</a>
       <ul>
         <li>
@@ -266,23 +266,23 @@
           </div>
         </li>
       </ul>
-    </li>
+    </li> -->
   </ul>
   <ul class="bottom-nav">
     <li class="email">
-      <a class="text-danger" href="home.html">
+      <a class="text-danger" href="/customer">
         <p class="h5 m-0"><i class="feather-home text-danger"></i></p>
         Home
       </a>
     </li>
     <li class="github">
-      <a href="faq.html">
+      <a href="/customer/faq">
         <p class="h5 m-0"><i class="feather-message-circle"></i></p>
         FAQ
       </a>
     </li>
     <li class="ko-fi">
-      <a href="contact-us.html">
+      <a href="/customer/contact">
         <p class="h5 m-0"><i class="feather-phone"></i></p>
         Help
       </a>

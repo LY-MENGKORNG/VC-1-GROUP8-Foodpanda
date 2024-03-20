@@ -8,6 +8,8 @@ if (isset ($_SESSION["delivery"])) {
     $orders_completed = getAllOrder("Completed", intval($delivery["user_id"]));
     $orders_pending = getAllOrder("Pending", intval($delivery["user_id"]));
 
+    $notifications = getAllNoti($delivery["user_id"]);
+
     if ($uri == "/delivery") {
         header("Location: /delivery/shipping");
     }

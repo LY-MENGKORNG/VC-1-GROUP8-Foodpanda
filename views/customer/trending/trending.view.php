@@ -13,60 +13,6 @@
             </div>
 
             <div class="row py-4">
-                <!-- <?php foreach ($foods as $food) { ?>
-                    <form action="/customer/restaurant" method="post" class="col-md-3 pb-3">
-                        <label for="toRestaurant" id="food" ​​​​​ style="cursor: pointer;">
-                            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm"
-                                style="height: 250px;">
-                                <div class="list-card-image overflow-hidden h-55" style="height: 130px;">
-                                    <div class="star position-absolute">
-                                        <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
-                                    </div>
-                                    <div class="favourite-heart text-danger position-absolute">
-                                        <a href="#"><i class="feather-heart"></i></a>
-                                    </div>
-                                    <div class="member-plan position-absolute">
-                                        <span class="badge badge-dark">Promoted</span>
-                                    </div>
-                                    <img alt="#" src="../../../assets/images/uploads/restaurants/foods/<?= $food["image"] ?>"
-                                        class="img-fluid item-img w-100" />
-
-                                </div>
-                                <div class="p-3 position-relative">
-                                    <div class="list-card-body">
-                                        <h6 class="mb-1">
-                                            <a href="customer/restaurant" class="text-black">
-                                                <?= $food["restaurant_name"] ?>
-                                            </a>
-                                        </h6>
-                                        <p class="text-gray mb-1 small">• North •
-                                            <?= $food["food_name"] ?>
-                                        </p>
-                                        <p class="text-gray mb-1 rating"></p>
-                                        <ul class="rating-stars list-unstyled">
-                                            <li>
-                                                <?php
-                                                for ($i = 0; $i < intval($food["food_rate"]); $i++) { ?>
-                                                    <i class="feather-star star_active"></i>
-                                                <?php }
-                                                for ($i = 0; $i < 5 - intval($food["food_rate"]); $i++) { ?>
-                                                    <i class="feather-star"></i>
-                                                <?php } ?>
-                                            </li>
-                                        </ul>
-                                        <p></p>
-                                    </div>
-                                    <div class="list-card-badge">
-                                        <span class="badge badge-danger">OFFER</span>
-                                        <small>65% </small>
-                                    </div>
-                                </div>
-                            </div>
-                        </label>
-                        <input type="hidden" name="" id="food_id">
-                        <button id="toRestaurant" type="submit" value="<?= $food["food_id"] ?>" style="display: none;"></button>
-                    </form>
-                <?php } ?> -->
                 <?php foreach ($foods as $food) { ?>
                     <form action="/customer/restaurant" method="post" class="col-md-3 pb-3">
                         <label for="toRestaurant" id="food" ​​​​​ style="cursor: pointer;">

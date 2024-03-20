@@ -1,4 +1,4 @@
-<aside id="sidebar" class="sticky_sidebar top-0" style="height: 100vh;">
+<aside id="sidebar" class="sticky_sidebar top-0" style="height: 100vh; left: 0px; top: 0px;">
     <div class="d-flex">
         <button class="toggle-btn" type="button">
             <img src="../../assets/images/logo/delivery-bike.png" alt="" width="30px">
