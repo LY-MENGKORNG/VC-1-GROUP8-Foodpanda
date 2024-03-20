@@ -73,12 +73,12 @@
         <table class="posts-table rounded-3">
             <thead>
                 <tr class="users-table-info  bg-transparent">
-                    <th>
+                    <td>
                         <label class="users-table__checkbox ms-20">
                             <input type="checkbox" class="check-all">
                             Image
                         </label>
-                        </td>
+                    </td>
                     <td><?= $item["food_name"] ?></td>
                     <td><?= $item["price"] ?>$</td>
                     <td><?= $item["quantity"] ?></td>

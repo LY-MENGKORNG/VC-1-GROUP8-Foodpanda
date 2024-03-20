@@ -15,37 +15,17 @@
             <table class="posts-table table table-striped">
                 <thead class="" style="border-bottom: 2px solid gray;">
                     <tr class="" style="background: #FF2B85">
-                        <th style="color:white">No</th>
-                        <th style="color:white">Product</th>
-                        <th style="color:white">Customer</th>
-                        <th style="color:white">Purchase Date</th>
-                        <th style="color:white">Status</th>
-                        <th style="color:white">Prive</th>
+                        <th class="text-white">No</th>
+                        <th class="text-white">Product</th>
+                        <th class="text-white">Customer</th>
+                        <th class="text-white">Purchase Date</th>
+                        <th class="text-white">Status</th>
+                        <th class="text-white">Prive</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="border-bottom: 2px solid pink;">
-                        <td>
-                            <input type="checkbox" class="check-all">
-                        </td>
-                        <td><?= $delivery["first_name"] ?></td>
-                        <td><?= $delivery["last_name"] ?></td>
-                        <td><?= $delivery["email"] ?></td>
-                        <td><?= $delivery["phone"] ?></td>
-                        <td><?= $delivery["phone"] ?></td>
-                    </tr>
-                    <tr style="border-bottom: 2px solid pink;">
-                        <td>
-                            <input type="checkbox" class="check-all">
-                        </td>
-                        <td><?= $delivery["first_name"] ?></td>
-                        <td><?= $delivery["last_name"] ?></td>
-                        <td><?= $delivery["email"] ?></td>
-                        <td><?= $delivery["phone"] ?></td>
-                        <td><?= $delivery["phone"] ?></td>
-                    </tr>
-                    <!-- <?php foreach ($orders as $order) { ?>
-                        <tr>
+                    <?php foreach ($orders as $order) { ?>
+                        <tr style="border-bottom: 2px solid pink;">
                             <td>
                                 <input type="checkbox" class="check-all">
                             </td>
@@ -55,7 +35,7 @@
                             <td><?= $order["phone"] ?></td>
                             <td><?= $order["phone"] ?></td>
                         </tr>
-                    <?php } ?> -->
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
