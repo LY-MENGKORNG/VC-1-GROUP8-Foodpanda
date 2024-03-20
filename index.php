@@ -30,7 +30,8 @@ else if (urlIs("/restaurant") || urlIs("/restaurant/category") || urlIs("/restau
 
 // Delivery routes
 else if(urlIs("/delivery") || urlIs("/delivery/profile") || urlIs("/delivery/edit_profile") ||
-        urlIs("/delivery/notification") || urlIs("/delivery/shipping") || urlIs("/delivery/order")) 
+        urlIs("/delivery/notification") || urlIs("/delivery/shipping") || urlIs("/delivery/order") || 
+        urlIs("/delivery/tracking")) 
 {
     require "./routers/delivery_router.php";
 }

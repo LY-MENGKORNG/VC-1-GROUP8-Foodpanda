@@ -7,10 +7,10 @@
 
     </div>
     <div class="container mt-4">
-        <div class="users-table table-wrapper rounded-lg overflow-hidden shadow-sm">
+        <div class="users-table table-wrapper rounded-lg overflow-hidden shadow-lg">
             <table class="posts-table">
-                <thead class="bg-whte">
-                    <tr class="users-table-info" style="background: #C9E9E4;">
+                <thead class="">
+                    <tr class="users-table-info">
                         <th class="py-3">
                             <label class="users-table__checkbox ms-20">
                                 <input type="checkbox" class="check-all">Customer
@@ -30,22 +30,33 @@
                                     <div class="categories-table-img">
                                         <picture class="d-flex align-items-center">
                                             <source
-                                                srcset="../../assets/images/uploads/customer_profile/<?= isset($order["profile"]) ? $order["profile"] : 'avatar.png' ?>"
+                                                srcset="../../assets/images/uploads/customer_profile/<?= isset ($order["profile"]) ? $order["profile"] : 'avatar.png' ?>"
                                                 type="image/webp">
-                                                <img src="../../assets/images/uploads/customer_profile/<?= isset($order["profile"]) ? $order["profile"] : 'avatar.png' ?>"
-                                                alt="customer"
-                                                class="rounded-circle border border-gray" style="width: 40px; height: 40px;">
-                                                <div class="d-flex flex-column">
-                                                    <span class="text-dark"><?= $order["first_name"]." ". $order["last_name"] ?></span>
-                                                    <span class="text-gray" style="font-size: 12px;"><?= $order["email"] ?></span>
-                                                </div>
+                                            <img src="../../assets/images/uploads/customer_profile/<?= isset ($order["profile"]) ? $order["profile"] : 'avatar.png' ?>"
+                                                alt="customer" class="rounded-circle border border-gray"
+                                                style="width: 40px; height: 40px;">
+                                            <div class="d-flex flex-column">
+                                                <span class="main_title">
+                                                    <?= $order["first_name"] . " " . $order["last_name"] ?>
+                                                </span>
+                                                <span class="text-gray" style="font-size: 12px;">
+                                                    <?= $order["email"] ?>
+                                                </span>
+                                            </div>
                                         </picture>
                                     </div>
                                 </label>
                             </td>
-                            <td><?= $order["order_date"] ?></td>
-                            <td class="text-info"><?= $order["order_status"] ?></td>
-                            <!-- <td>$<?= $order["payment_amount"] ?>.00</td> -->
+                            <td>
+                                <?= $order["order_date"] ?>
+                            </td>
+                            <td class="text-warning">
+                                <i class="feather-circle bg-warning rounded-circle"></i>
+                                <?= $order["order_status"] ?>
+                            </td>
+                            <td> $
+                                <?= $order["payment_amount"] ?>.00
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>
