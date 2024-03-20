@@ -57,12 +57,12 @@
                     </a>
                 </div>
                 <div class="cat-item px-1 py-3">
-                    <a class="d-block text-center shadow-sm" href="trending.html">
+                    <a class="d-block text-center shadow-sm" href="/customer/trending">
                         <img alt="#" src="assets/images/pro4.jpg" class="img-fluid rounded" />
                     </a>
                 </div>
                 <div class="cat-item px-1 py-3">
-                    <a class="d-block text-center shadow-sm" href="trending.html">
+                    <a class="d-block text-center shadow-sm" href="/customer/trending">
                         <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
                     </a>
                 </div>
@@ -73,7 +73,7 @@
 
         <div class="py-3 title d-flex align-items-center">
             <h2 class="m-0">Most popular</h2>
-            <a class="font-weight-bold ml-auto" href="most_popular.html">26 places <i class="feather-chevrons-right"></i></a>
+            <a class="font-weight-bold ml-auto" href="/customer/most_popular">26 places <i class="feather-chevrons-right"></i></a>
         </div>
 
         <div class="most_popular">

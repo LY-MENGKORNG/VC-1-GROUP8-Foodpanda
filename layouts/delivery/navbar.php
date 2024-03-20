@@ -24,7 +24,7 @@
             </a>
         </li>
         <li class="sidebar-item">
-            <a href="/delivery/map" class="sidebar-link <?= getActivePage('/delivery/map') ?>">
+            <a href="/delivery/tracking" class="sidebar-link <?= getActivePage('/delivery/tracking') ?>">
                 <i class="lni lni-map-marker"></i>
                 <span class="fw-lighter">Tracking</span>
             </a>

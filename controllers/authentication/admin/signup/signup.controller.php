@@ -3,4 +3,4 @@ if (isset($_SESSION["admin"])) {
     header("Location: /admin");
     die();
 }
-require "./views/signup/admin_signup.view.php";
+require "./views/authentication/signup/admin_signup.view.php";
