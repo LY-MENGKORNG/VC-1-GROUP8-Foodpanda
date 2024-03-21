@@ -1,70 +1,105 @@
-<main class="main users chart-page" id="skip-target">
-    <div class="container-fluid">
-        <div class="container col-md-12 p-3 white-block shadow-sm rounded-lg overflow-hidden">
-            <h3 class="main-title mb-4">Order Tracking Map</h3>
-            <iframe width="100%" height="360px"
-                src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Phnom%20Penh%2C%20Cambodia&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
-                frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+<main class="main users chart-page bg-white" id="skip-target">
+    <section class="section bg-white osahan-track-order-page position-relative">
+        <div class="mapouter">
+            <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" height="500px" frameborder="0"
+                    scrolling="no" marginheight="0" marginwidth="0"
+                    src="https://maps.google.com/maps?hl=en&amp;q=11.556374,104.928207&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a
+                    href="https://strandsgame.net/"></a></div>
         </div>
-        <div class="container-fluid w-100 py-4">
-            <div class="pt-3 white-block m-0 p-0">
-                <h4 class="main-title mb-4 px-4">Recent Orders</h4>
-                <div class="users-table table-wrapper rounded-lg overflow-y-hidden">
-                    <table class="posts-table">
-                        <thead class="">
-                            <tr class="users-table-info">
-                                <th class="py-3">
-                                    <label class="users-table__checkbox ms-20"> 
-                                        <input type="checkbox" class="check-all">Customer
-                                    </label>
-                                </th>
-                                <th>Purchase Date</th>
-                                <th>Status</th>
-                                <th>Price</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($orders as $order) { ?>
-                                <tr>
-                                    <td>
-                                        <label class="users-table__checkbox">
-                                            <input type="checkbox" class="check">
-                                            <div class="categories-table-img">
-                                                <picture class="d-flex align-items-center">
-                                                    <source
-                                                        srcset="../../assets/images/uploads/customer_profile/<?= isset ($order["profile"]) ? $order["profile"] : 'avatar.png' ?>"
-                                                        type="image/webp">
-                                                    <img src="../../assets/images/uploads/customer_profile/<?= isset ($order["profile"]) ? $order["profile"] : 'avatar.png' ?>"
-                                                        alt="customer" class="rounded-circle border border-gray"
-                                                        style="width: 40px; height: 40px;">
-                                                    <div class="d-flex flex-column">
-                                                        <span class="main_title">
-                                                            <?= $order["first_name"] . " " . $order["last_name"] ?>
-                                                        </span>
-                                                        <span class="text-gray" style="font-size: 12px;">
-                                                            <?= $order["email"] ?>
-                                                        </span>
-                                                    </div>
-                                                </picture>
-                                            </div>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <?= $order["order_date"] ?>
-                                    </td>
-                                    <td class="text-warning">
-                                        <i class="feather-circle bg-warning rounded-circle"></i>
-                                        <?= $order["order_status"] ?>
-                                    </td>
-                                    <td> $
-                                        <?= $order["payment_amount"] ?>.00
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+        <script>
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(function (position) {
+                        const latitude = position.coords.latitude;
+                        const longitude = position.coords.longitude;
+                        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+                    });
+                } else {
+                    console.log("Geolocation is not supported by this browser.");
+                }
+            }
+            getLocation();
+            
+        </script>
+
+        <div class="container pt-5 pb-5">
+            <div class="row d-flex align-items-center">
+                <div class="col-md-6 text-center pb-4">
+                    <div class="osahan-point mx-auto"></div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-white p-4 shadow-lg rounded mb-2">
+                        <div class="mb-2"><small>Order #25102589748<a class="float-right font-weight-bold" href="#"><i
+                                        class="feather-help-circle"></i> HELP</a></small></div>
+                        <h6 class="mb-1 mt-1"><a href="restaurant.html" class="text-black">Spice Hut Restaurant
+                            </a>
+                        </h6>
+                        <p class="text-gray mb-0"><i class="feather-clock"></i> 04:19 PM | 8 Items | $314</p>
+                    </div>
+                    <div class="bg-white p-4 shadow-lg rounded">
+                        <div class="osahan-track-order-detail po">
+                            <h5 class="mt-0 mb-3">Order Details</h5>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <small>FROM</small>
+                                    <h6 class="mb-1 mt-1"><a href="restaurant.html" class="text-black"><i
+                                                class="feather-shopping-cart"></i> Spice Hut Restaurant
+                                        </a>
+                                    </h6>
+                                    <p class="text-gray mb-5">2036, NEW YORK</p>
+                                    <small>DELIVER TO</small>
+                                    <h6 class="mb-1 mt-1"><span class="text-black"><i class="feather-map-pin"></i>
+                                            Other
+                                        </span>
+                                    </h6>
+                                    <p class="text-gray mb-0">291, Jawaddi Kalan, Ludhiana, Punjab 141002, India
+                                    </p>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="mb-2"><small><i class="feather-list"></i> 5 ITEMS</small></div>
+                                    <p class="mb-2"><i class="feather-ui-press text-danger food-item">·</i> Chicken
+                                        Tikka Sub 12" (30 cm) x 1 <span class="float-right text-secondary">$314</span>
+                                    </p>
+                                    <p class="mb-2"><i class="feather-ui-press text-success food-item">·</i> Corn
+                                        &amp; Peas Salad x 1 <span class="float-right text-secondary">$209</span>
+                                    </p>
+                                    <p class="mb-2"><i class="feather-ui-press text-success food-item">·</i> Veg
+                                        Seekh Sub 6" (15 cm) x 1 <span class="float-right text-secondary">$133</span>
+                                    </p>
+                                    <p class="mb-2"><i class="feather-ui-press text-danger food-item">·</i> Chicken
+                                        Tikka Sub 12" (30 cm) x 1 <span class="float-right text-secondary">$314</span>
+                                    </p>
+                                    <hr>
+                                    <p class="mb-0 font-weight-bold text-black">TOTAL BILL <span
+                                            class="float-right text-secondary">$209</span></p>
+                                    <p class="mb-0 text-info"><small>Paid via Credit/Debit card
+                                            <span class="float-right text-danger">$620 OFF</span></small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 shadow-lg rounded mt-2">
+                        <div class="row text-center">
+                            <div class="col">
+                                <i class="feather-list h4 icofont-3x text-info"></i>
+                                <p class="mt-1 font-weight-bold text-dark mb-0">Order Received</p>
+                                <small class="text-info mb-0">NOW</small>
+                            </div>
+                            <div class="col">
+                                <i class="feather-check-circle h4 icofont-3x text-success"></i>
+                                <p class="mt-1 font-weight-bold text-dark mb-0">Order Confirmed</p>
+                                <small class="text-success mb-0">NEXT</small>
+                            </div>
+                            <div class="col">
+                                <i class="feather-truck h4 icofont-3x text-primary"></i>
+                                <p class="mt-1 font-weight-bold text-dark mb-0">Order Picked Up</p>
+                                <small class="text-primary mb-0">LATER (ET : 30min)</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </main>

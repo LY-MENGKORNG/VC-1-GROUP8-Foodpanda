@@ -8,9 +8,9 @@
     </div>
     <div class="container mt-4">
         <div class="users-table table-wrapper rounded-lg overflow-hidden shadow-lg">
-            <table class="posts-table">
+            <table class="">
                 <thead class="">
-                    <tr class="users-table-info">
+                    <tr class="users-table-info ">
                         <th class="py-3">
                             <label class="users-table__checkbox ms-20">
                                 <input type="checkbox" class="check-all">Customer
@@ -23,7 +23,7 @@
                 </thead>
                 <tbody>
                     <?php foreach ($orders as $order) { ?>
-                        <tr>
+                        <tr style="background: white;">
                             <td>
                                 <label class="users-table__checkbox">
                                     <input type="checkbox" class="check">
