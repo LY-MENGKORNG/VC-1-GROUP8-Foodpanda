@@ -162,7 +162,7 @@
                         <div class="modal fade show" id="addAddress" tabindex="-1" role="dialog"
                             aria-labelledby="addAddressLabel" aria-hidden="true">
                             <div class="modal-dialog d-flex flex-column bg-white">
-                                <form action="/customer/address" id="form2" method="post">
+                                <form action="/customer/address" id="www" method="post">
                                     <div  class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Add Delivery Address</h5>
@@ -222,13 +222,13 @@
                                             </div>
                                         </div>
                                         <div class="modal-footer row p-0 border-0">
-                                            <div class="col-6 m-0 p-0">
-                                                <button type="button" class="btn border-top"
+                                            <div class="col-6 m-0 p-0 row">
+                                                <button type="button" class="btn border-top col-12"
                                                     data-dismiss="modal">Close</button>
                                             </div>
-                                            <div class="col-6 m-0 p-0">
+                                            <div class="col-6 m-0 p-0 row">
                                                 <button type="submit" id="addAddress"
-                                                    class="btn btn-primary">Save
+                                                    class="btn btn-primary col-12">Save
                                                     changes</button>
                                             </div>
                                         </div>
@@ -261,7 +261,7 @@
                                                     <input type="text" name="card_number" id="cardNumber" maxlength="19"
                                                         pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"
                                                         class="form-control" placeholder="e.g. 1234 5678 9101 1121" ​
-                                                        required>
+                                                        >
                                                     <div class="input-group-append">
                                                         <button type="button" class="btn btn-outline-secondary">
                                                             <i class="feather-credit-card"></i>
@@ -400,7 +400,7 @@
                                     <div class="input-group-prepend"><span class="input-group-text"><i
                                                 class="feather-message-square"></i></span></div>
                                     <textarea placeholder="Any suggestions? We will pass it on..."
-                                        aria-label="With textarea" class="form-control"></textarea>
+                                        aria-label="With textarea" class="form-control" id="textarea"></textarea>
                                 </div>
                             </div>
                             <div class="bg-white p-3 clearfix border-bottom">
