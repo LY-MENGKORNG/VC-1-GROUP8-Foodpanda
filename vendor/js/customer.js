@@ -219,23 +219,6 @@ if (document.getElementById('cvv')) {
     });
 }
 
-// address
-if (document.getElementById("address")) {
-    document.getElementById("address").oninput = (e) => {
-        const addressInput = e.target.value.trim();
-
-        // Regular expression to match the desired format
-        const regex = /^[a-zA-Z\s,]+\s*[a-zA-Z\s]+\s*[a-zA-Z\s,]+$/;
-
-        if (regex.test(addressInput)) {
-            document.getElementById("errorMessage").textContent = "";
-            document.getElementById("addAddress").type = "submit";
-        } else {
-            document.getElementById("errorMessage").textContent = "Please enter the address in the format: Khan Sen Sok Phnom Penh Cambodia";
-        }
-    }
-}
-
 // promo code 
 if (document.getElementById("promoInput")) {
     function checkPromoCode() {
@@ -255,16 +238,73 @@ if (document.getElementById("promoInput")) {
     }
 }
 
+// add new address
+if (document.getElementById("addressInput")) {
+    document.getElementById("addressInput").oninput = (e) => {
+        const locationName = e.target.value.trim();
+        const latitude = document.getElementById("latitude");
+        const longitude = document.getElementById("longitude");
+        const addAdressBtn = document.getElementById("addAddress");
+        const errorMessage = document.getElementById("errorMessage");
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            const latitude = position.coords.latitude;
-            const longitude = position.coords.longitude;
-            console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        getLocationCoordinates(locationName, (error, coordinates) => {
+            if (error || locationName.length < 8) {
+                errorMessage.textContent = "Location not found!"
+                addAdressBtn.type = "button";
+            } else {
+                errorMessage.textContent = ""
+                latitude.value = `${coordinates.lat}`;
+                longitude.value = `${coordinates.lng}`;
+                addAdressBtn.type = "submit";
+            }
         });
-    } else {
-        console.log("Geolocation is not supported by this browser.");
     }
 }
-// getLocation();
+
+// edit address
+if (document.getElementById("editAddressInput")) {
+    document.getElementById("editAddressInput").oninput = (e) => {
+        const locationName = e.target.value.trim();
+        console.log(locationName);
+        const latitude = document.getElementById("latitude");
+        const longitude = document.getElementById("longitude");
+        const editAddressBtn = document.getElementById("editAddress");
+        const EditerrorMessage = document.getElementById("EditerrorMessage");
+
+        getLocationCoordinates(locationName, (error, coordinates) => {
+            if (error || locationName.length < 8) {
+                EditerrorMessage.textContent = "Location not found!"
+                editAddressBtn.type = "button";
+            } else {
+                EditerrorMessage.textContent = ""
+                latitude.value = `${coordinates.lat}`;
+                longitude.value = `${coordinates.lng}`;
+                editAddressBtn.type = "submit";
+            }
+        });
+    }
+}
+
+function getLocationCoordinates(locationName, callback) {
+    // Construct the API request URL
+    const apiUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(locationName)}`;
+
+    // Make a GET request to the API
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.length > 0) {
+                const result = data[0];
+                const coordinates = {
+                    lat: parseFloat(result.lat),
+                    lng: parseFloat(result.lon)
+                };
+                callback(null, coordinates);
+            } else {
+                callback(new Error('Location not found'));
+            }
+        })
+        .catch(error => {
+            callback(error);
+        });
+}

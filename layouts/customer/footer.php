@@ -391,6 +391,7 @@
   integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
   data-cf-beacon='{"rayId":"84de77816d468817","r":1,"version":"2024.1.0","token":"dd471ab1978346bbb991feaa79e6ce5c"}'
   crossorigin="anonymous"></script>
+  
   <script src="../../vendor/js/customer.js"></script>
 
 </body>

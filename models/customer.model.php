@@ -76,16 +76,45 @@ function getFoodsByCateId($cate_id = null)
     return $stmt->fetchAll();
 }
 
-function addAddress(string $address_name, string $address_type, int $delivery_id, int $customer_id): bool
+function addAddress(string $address_name, string $address_type, int $delivery_id, int $customer_id, string $latitude, string $longitude): bool
 {
     global $connection;
-    $stmt = $connection->prepare("INSERT INTO address (address_name, address_type, delivery_id, customer_id) 
-                    VALUES (:address_name, :address_type, :delivery_id, :customer_id)");
+    $stmt = $connection->prepare("INSERT INTO address (address_name, address_type, delivery_id, customer_id, latitude, longitude) 
+                    VALUES (:address_name, :address_type, :delivery_id, :customer_id, :latitude, :longitude)");
     $stmt->execute([
         ":address_name" => $address_name,
         ":address_type" => $address_type,
         ":delivery_id" => $delivery_id,
-        ":customer_id" => $customer_id
+        ":customer_id" => $customer_id,
+        ":latitude" => $latitude,
+        ":longitude" => $longitude,
+    ]);
+    return $stmt->rowCount() > 0;
+}
+
+function editAddress(
+    int $address_id,
+    string $address_name,
+    string $address_type,
+    int $delivery_id,
+    int $customer_id,
+    string $latitude,
+    string $longitude
+): bool {
+    global $connection;
+    $stmt = $connection->prepare(
+        "UPDATE address SET address_name = :address_name, address_type = :address_type, delivery_id = :delivery_id, 
+        latitude = :latitude, longitude = :longitude
+        WHERE address_id = :address_id AND customer_id = :customer_id"
+    );
+    $stmt->execute([
+        ":address_id" => $address_id,
+        ":address_name" => $address_name,
+        ":address_type" => $address_type,
+        ":delivery_id" => $delivery_id,
+        ":customer_id" => $customer_id,
+        ":latitude" => $latitude,
+        ":longitude" => $longitude
     ]);
     return $stmt->rowCount() > 0;
 }
@@ -98,7 +127,7 @@ function getAddress()
     return $stmt->fetchAll();
 }
 
-function addCheckout(int $food_id, int $quantity, int $price_amount, int $user_id,  string $food_name, int $order_id)
+function addCheckout(int $food_id, int $quantity, int $price_amount, int $user_id, string $food_name, int $order_id)
 {
     global $connection;
     $stmt = $connection->prepare("INSERT INTO checkout (food_id, quantity, price_amount, user_id, food_name, order_id) 
@@ -164,7 +193,8 @@ function addOrder(
     return $stmt->rowCount() > 0;
 }
 
-function getAllOrders() : array {
+function getAllOrders(): array
+{
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM orders");
     $stmt->execute();
@@ -179,14 +209,16 @@ function getOrders($status, $customer_id): array
     return $stmt->fetchAll();
 }
 
-function getCheckoutById($customer_id) {
+function getCheckoutById($customer_id)
+{
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM checkout WHERE user_id = :user_id");
     $stmt->execute([":user_id" => $customer_id]);
     return $stmt->fetchAll();
 }
 
-function getAllFavorite() : array {
+function getAllFavorite(): array
+{
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM favorites");
     $stmt->execute();
