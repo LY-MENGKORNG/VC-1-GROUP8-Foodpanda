@@ -159,10 +159,10 @@
                             </div>
                         </div>
                         <!-- add delivery address -->
-                        <div class="modal fade show" id="addAddress" tabindex="-1" role="dialog"
+                        <div class="modal fade" id="addAddress" tabindex="-1" role="dialog"
                             aria-labelledby="addAddressLabel" aria-hidden="true">
                             <div class="modal-dialog d-flex flex-column bg-white">
-                                <form action="/customer/address" id="www" method="post">
+                                <form action="/customer/address" method="post">
                                     <div  class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title">Add Delivery Address</h5>
