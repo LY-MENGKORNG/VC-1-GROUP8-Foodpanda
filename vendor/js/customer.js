@@ -225,13 +225,13 @@ if (document.getElementById("address")) {
         const addressInput = e.target.value.trim();
 
         // Regular expression to match the desired format
-        const regex = /^[a-zA-Z\s,]+,\s*[a-zA-Z\s,]+,\s*[a-zA-Z\s,]+$/;
+        const regex = /^[a-zA-Z\s,]+\s*[a-zA-Z\s]+\s*[a-zA-Z\s,]+$/;
 
         if (regex.test(addressInput)) {
             document.getElementById("errorMessage").textContent = "";
             document.getElementById("addAddress").type = "submit";
         } else {
-            document.getElementById("errorMessage").textContent = "Please enter the address in the format: Khan Sen Sok, Phnom Penh, Cambodia";
+            document.getElementById("errorMessage").textContent = "Please enter the address in the format: Khan Sen Sok Phnom Penh Cambodia";
         }
     }
 }
@@ -254,3 +254,17 @@ if (document.getElementById("promoInput")) {
         }
     }
 }
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+        });
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
+}
+// getLocation();

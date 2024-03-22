@@ -116,7 +116,6 @@ $js_food_info = json_encode($food_info);
         });
     }
 </script>
-
 <!-- // search for foods -->
 <script>
     function displayListFoods(foods) {

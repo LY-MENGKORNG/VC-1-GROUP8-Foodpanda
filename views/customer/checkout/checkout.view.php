@@ -16,208 +16,221 @@
                                 <div class="d-flex flex-column">
                                     <h6 class="mb-3 font-weight-bold">Delivery Address</h6>
                                     <div class="row">
-                                        <?php foreach ($addresses as $address) {
-                                            $address_type = $address["address_type"] ?>
-                                            <div
-                                                class="custom-control col-lg-6 custom-radio mb-3 position-relative border-custom-radio">
-                                                <input type="radio" id="address<?= $address["address_id"] ?>"
-                                                    name="address_id" value="<?= $address["address_id"] ?>" class="custom-control-input address_id" required>
-                                                <label class="custom-control-label w-100"
-                                                    for="address<?= $address["address_id"] ?>">
-                                                    <div>
-                                                        <div class="p-3 bg-white rounded shadow-sm w-100">
-                                                            <div class="d-flex align-items-center mb-2">
-                                                                <h6 class="mb-0">
-                                                                    <?= $address["address_type"] ?>
-                                                                </h6>
-                                                                <p class="mb-0 badge badge-secondary ml-auto">
-                                                                    <i class="icofont-check-circled"></i>
-                                                                    Select
+
+                                        <?php
+                                        if (count($addresses) == 0) { ?>
+                                            <h5 class="mx-auto my-3 text-info">Your didn't choose any address yet!</h5>
+                                        <?php } else {
+                                            foreach ($addresses as $address) {
+                                                $address_type = $address["address_type"] ?>
+                                                <div
+                                                    class="custom-control col-lg-6 custom-radio mb-3 position-relative border-custom-radio">
+                                                    <input type="radio" id="address<?= $address["address_id"] ?>"
+                                                        name="address_id" value="<?= $address["address_id"] ?>"
+                                                        class="custom-control-input address_id" required>
+                                                    <label class="custom-control-label w-100"
+                                                        for="address<?= $address["address_id"] ?>">
+                                                        <div>
+                                                            <div class="p-3 bg-white rounded shadow-sm w-100">
+                                                                <div class="d-flex align-items-center mb-2">
+                                                                    <h6 class="mb-0">
+                                                                        <?= $address["address_type"] ?>
+                                                                    </h6>
+                                                                    <p class="mb-0 badge badge-secondary ml-auto">
+                                                                        <i class="icofont-check-circled"></i>
+                                                                        Select
+                                                                    </p>
+                                                                </div>
+                                                                <p class="small text-muted m-0">
+                                                                    <?= $address["address_name"] ?>
                                                                 </p>
                                                             </div>
-                                                            <p class="small text-muted m-0">
-                                                                <?= $address["address_name"] ?>
-                                                            </p>
+                                                            <a href="#" data-toggle="modal"
+                                                                data-target="#editAddress<?= $address["address_id"] ?>"
+                                                                class="btn btn-block btn-light border-top">Edit</a>
                                                         </div>
-                                                        <a href="#" data-toggle="modal"
-                                                            data-target="#editAddress<?= $address["address_id"] ?>"
-                                                            class="btn btn-block btn-light border-top">Edit</a>
-                                                    </div>
-                                                </label>
-                                            </div>
-                                            <!-- edit address -->
-                                            <div class="modal fade" id="editAddress<?= $address["address_id"] ?>"
-                                                tabindex="-1" role="dialog"
-                                                aria-labelledby="editAddress<?= $address["address_id"] ?>Label"
-                                                aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered">
-                                                    <form action="/customer/editAddress"
-                                                        id="formEdit<?= $address["address_id"] ?>" method="post">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title">Edit Delivery Address</h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="form-row">
-                                                                    <div class="col-md-12 form-group">
-                                                                        <label class="form-label">Delivery Address</label>
-                                                                        <div class="input-group">
-                                                                            <select name="delivery_id" class="form-control"
-                                                                                id="delivery">
-                                                                                <?php foreach ($deliveries as $delivery) { ?>
-                                                                                    <?php if ($address["delivery_id"] == $delivery["user_id"]) { ?>
-                                                                                        <option value="<?= $delivery["user_id"] ?>"
-                                                                                            selected>
-                                                                                            <?= $delivery["first_name"] ?>
-                                                                                        </option>
-                                                                                    <?php } else { ?>
-                                                                                        <option value="<?= $delivery["user_id"] ?>">
-                                                                                            <?= $delivery["first_name"] ?>
-                                                                                        </option>
-                                                                                    <?php }
-                                                                                } ?>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="col-md-12 form-group">
-                                                                        <label class="form-label">Complete Address</label>
-                                                                        <div class="input-group">
-                                                                            <input name="address_name"
-                                                                                placeholder="e.g. Khan Sen Sok, Phnom Penh, Cambodia"
-                                                                                type="text" class="form-control"
-                                                                                id="editAddress"
-                                                                                value="<?= $address["address_name"] ?>">
-                                                                            <div class="input-group-append"><button
-                                                                                    type="button"
-                                                                                    class="btn btn-outline-secondary"><i
-                                                                                        class="feather-map-pin"></i></button>
-                                                                            </div>
-                                                                            <p class="text-danger" id="EditerrorMessage">
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="mb-0 col-md-12 form-group">
-                                                                        <label class="form-label">Nickname</label>
-                                                                        <div class="btn-group btn-group-toggle w-100"
-                                                                            data-toggle="buttons">
-                                                                            <label
-                                                                                class="btn btn-outline-secondary <?= $address_type == "Home" ? "active" : "" ?> ">
-                                                                                <input type="radio" name="address_type"
-                                                                                    value="Home" id="option1"
-                                                                                    <?= $address_type == "Home" ? "checked" : "" ?>> Home
-                                                                            </label>
-                                                                            <label
-                                                                                class="btn btn-outline-secondary <?= $address_type == "Work" ? "active" : "" ?>">
-                                                                                <input type="radio" name="address_type"
-                                                                                    value="Work" id="option2"
-                                                                                    <?= $address_type == "Work" ? "checked" : "" ?>> Work
-                                                                            </label>
-                                                                            <label
-                                                                                class="btn btn-outline-secondary <?= $address_type == "Other" ? "active" : "" ?>">
-                                                                                <input type="radio" name="address_type"
-                                                                                    value="Other" id="option3"
-                                                                                    <?= $address_type == "Other" ? "checked" : "" ?>>
-                                                                                <span>Other</span>
-                                                                            </label>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer p-0 border-0">
-                                                                <div class="col-6 m-0 p-0">
-                                                                    <button type="button"
-                                                                        class="btn border-top btn-lg btn-block"
-                                                                        data-dismiss="modal">Close</button>
-                                                                </div>
-                                                                <div class="col-6 m-0 p-0">
-                                                                    <button type="button" id="editAddress"
-                                                                        class="btn btn-primary btn-lg btn-block">Save
-                                                                        changes</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </form>
+                                                    </label>
                                                 </div>
-                                            </div>
-                                        <?php } ?>
+                                                <!-- edit address -->
+                                                <div class="modal fade" id="editAddress<?= $address["address_id"] ?>"
+                                                    tabindex="-1" role="dialog"
+                                                    aria-labelledby="editAddress<?= $address["address_id"] ?>Label"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <form action="/customer/editAddress"
+                                                            id="formEdit<?= $address["address_id"] ?>" method="post">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title">Edit Delivery Address</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-row">
+                                                                        <div class="col-md-12 form-group">
+                                                                            <label class="form-label">Delivery Address</label>
+                                                                            <div class="input-group">
+                                                                                <select name="delivery_id" class="form-control"
+                                                                                    id="delivery">
+                                                                                    <?php foreach ($deliveries as $delivery) { ?>
+                                                                                        <?php if ($address["delivery_id"] == $delivery["user_id"]) { ?>
+                                                                                            <option value="<?= $delivery["user_id"] ?>"
+                                                                                                selected>
+                                                                                                <?= $delivery["first_name"] ?>
+                                                                                            </option>
+                                                                                        <?php } else { ?>
+                                                                                            <option value="<?= $delivery["user_id"] ?>">
+                                                                                                <?= $delivery["first_name"] ?>
+                                                                                            </option>
+                                                                                        <?php }
+                                                                                    } ?>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col-md-12 form-group">
+                                                                            <label class="form-label">Complete Address</label>
+                                                                            <div class="input-group">
+                                                                                <input name="address_name"
+                                                                                    placeholder="e.g. Khan Sen Sok, Phnom Penh, Cambodia"
+                                                                                    type="text" class="form-control"
+                                                                                    id="editAddress"
+                                                                                    value="<?= $address["address_name"] ?>">
+                                                                                <div class="input-group-append"><button
+                                                                                        type="button"
+                                                                                        class="btn btn-outline-secondary"><i
+                                                                                            class="feather-map-pin"></i></button>
+                                                                                </div>
+                                                                                <p class="text-danger" id="EditerrorMessage">
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="mb-0 col-md-12 form-group">
+                                                                            <label class="form-label">Nickname</label>
+                                                                            <div class="btn-group btn-group-toggle w-100"
+                                                                                data-toggle="buttons">
+                                                                                <label
+                                                                                    class="btn btn-outline-secondary <?= $address_type == "Home" ? "active" : "" ?> ">
+                                                                                    <input type="radio" name="address_type"
+                                                                                        value="Home" id="option1"
+                                                                                        <?= $address_type == "Home" ? "checked" : "" ?>> Home
+                                                                                </label>
+                                                                                <label
+                                                                                    class="btn btn-outline-secondary <?= $address_type == "Work" ? "active" : "" ?>">
+                                                                                    <input type="radio" name="address_type"
+                                                                                        value="Work" id="option2"
+                                                                                        <?= $address_type == "Work" ? "checked" : "" ?>> Work
+                                                                                </label>
+                                                                                <label
+                                                                                    class="btn btn-outline-secondary <?= $address_type == "Other" ? "active" : "" ?>">
+                                                                                    <input type="radio" name="address_type"
+                                                                                        value="Other" id="option3"
+                                                                                        <?= $address_type == "Other" ? "checked" : "" ?>>
+                                                                                    <span>Other</span>
+                                                                                </label>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer p-0 border-0">
+                                                                    <div class="col-6 m-0 p-0">
+                                                                        <button type="button"
+                                                                            class="btn border-top btn-lg btn-block"
+                                                                            data-dismiss="modal">Close</button>
+                                                                    </div>
+                                                                    <div class="col-6 m-0 p-0">
+                                                                        <button type="button" id="editAddress"
+                                                                            class="btn btn-primary btn-lg btn-block">Save
+                                                                            changes</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            <?php }
+                                        } ?>
                                     </div>
-                                    <a class="btn btn-primary" href="#" data-toggle="modal" data-target="#exampleModal">
+                                    <a class="btn btn-primary" href="#"  data-toggle="modal" data-target="#addAddress">
                                         ADD NEW ADDRESS
                                     </a>
                                 </div>
                             </div>
                         </div>
                         <!-- add delivery address -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <form action="/customer/address" method="post" class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Add Delivery Address</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="form-row">
-                                            <div class="col-md-12 form-group">
-                                                <label class="form-label">Delivery Address</label>
-                                                <div class="input-group">
-                                                    <select name="delivery_id" class="form-control" id="delivery">
-                                                        <?php foreach ($deliveries as $delivery) { ?>
-                                                            <option value="<?= $delivery["user_id"] ?>">
-                                                                <?= $delivery["first_name"] ?>
-                                                            </option>
-                                                        <?php } ?>
-                                                    </select>
+                        <div class="modal fade show" id="addAddress" tabindex="-1" role="dialog"
+                            aria-labelledby="addAddressLabel" aria-hidden="true">
+                            <div class="modal-dialog d-flex flex-column bg-white">
+                                <form action="/customer/address" id="form2" method="post">
+                                    <div  class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Add Delivery Address</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-row">
+                                                <div class="col-md-12 form-group">
+                                                    <label class="form-label" for="delivery">Delivery Address</label>
+                                                    <div class="input-group">
+                                                        <select name="delivery_id" class="form-control" id="delivery">
+                                                            <?php foreach ($deliveries as $delivery) { ?>
+                                                                <option value="<?= $delivery["user_id"] ?>">
+                                                                    <?= $delivery["first_name"] ?>
+                                                                </option>
+                                                            <?php } ?>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-12 form-group">
-                                                <label class="form-label">Complete Address</label>
-                                                <div class="input-group">
-                                                    <input name="address_name"
-                                                        placeholder="e.g. Khan Sen Sok, Phnom Penh, Cambodia"
-                                                        type="text" class="form-control" id="address">
-                                                    <div class="input-group-append"><button type="button"
-                                                            class="btn btn-outline-secondary"><i
-                                                                class="feather-map-pin"></i></button></div>
-                                                    <p class="text-danger" id="errorMessage"></p>
+                                                <div class="col-md-12 form-group">
+                                                    <label class="form-label" id="address">Complete Address</label>
+                                                    <div class="input-group">
+                                                        <input name="address_name"
+                                                            placeholder="e.g. Khan Sen Sok, Phnom Penh, Cambodia"
+                                                            type="text" class="form-control" id="address">
+                                                        <div class="input-group-append">
+                                                            <a type="button"
+                                                                href="https://www.google.com/maps/place/Phnom+Penh/@11.579654,104.7253668,11z/data=!3m1!4b1!4m6!3m5!1s0x3109513dc76a6be3:0x9c010ee85ab525bb!8m2!3d11.5563738!4d104.9282099!16zL20vMGRsd2o?entry=ttu"
+                                                                target="_blank" class="btn btn-outline-secondary">
+                                                                <i class="feather-map-pin"></i>
+                                                            </a>
+                                                        </div>
+                                                        <p class="text-danger" id="errorMessage"></p>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="mb-0 col-md-12 form-group">
-                                                <label class="form-label">Nickname</label>
-                                                <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
-                                                    <label class="btn btn-outline-secondary active">
-                                                        <input type="radio" name="address_type" value="Home"
-                                                            id="option12" checked> Home
-                                                    </label>
-                                                    <label class="btn btn-outline-secondary">
-                                                        <input type="radio" name="address_type" value="Work"
-                                                            id="option22">
-                                                        Work
-                                                    </label>
-                                                    <label class="btn btn-outline-secondary">
-                                                        <input type="radio" name="address_type" value="Other"
-                                                            id="option32">
-                                                        Other
-                                                    </label>
+                                                <div class="mb-0 col-md-12 form-group">
+                                                    <label class="form-label">Nickname</label>
+                                                    <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
+                                                        <label class="btn btn-outline-secondary active">
+                                                            <input type="radio" name="address_type" value="Home"
+                                                                id="option12" checked> Home
+                                                        </label>
+                                                        <label class="btn btn-outline-secondary">
+                                                            <input type="radio" name="address_type" value="Work"
+                                                                id="option22">
+                                                            Work
+                                                        </label>
+                                                        <label class="btn btn-outline-secondary">
+                                                            <input type="radio" name="address_type" value="Other"
+                                                                id="option32">
+                                                            Other
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="modal-footer p-0 border-0">
-                                        <div class="col-6 m-0 p-0">
-                                            <button type="button" class="btn border-top btn-lg btn-block"
-                                                data-dismiss="modal">Close</button>
-                                        </div>
-                                        <div class="col-6 m-0 p-0">
-                                            <button type="button" id="addAddress"
-                                                class="btn btn-primary btn-lg btn-block">Save
-                                                changes</button>
+                                        <div class="modal-footer row p-0 border-0">
+                                            <div class="col-6 m-0 p-0">
+                                                <button type="button" class="btn border-top"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                            <div class="col-6 m-0 p-0">
+                                                <button type="submit" id="addAddress"
+                                                    class="btn btn-primary">Save
+                                                    changes</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -247,7 +260,8 @@
                                                 <div class="input-group">
                                                     <input type="text" name="card_number" id="cardNumber" maxlength="19"
                                                         pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"
-                                                        class="form-control" placeholder="e.g. 1234 5678 9101 1121"​ required>
+                                                        class="form-control" placeholder="e.g. 1234 5678 9101 1121" ​
+                                                        required>
                                                     <div class="input-group-append">
                                                         <button type="button" class="btn btn-outline-secondary">
                                                             <i class="feather-credit-card"></i>
@@ -264,12 +278,14 @@
                                             </div>
                                             <div class="col-md-4 form-group">
                                                 <label class="form-label font-weight-bold small">CVV</label>
-                                                <input type="text" name="cvv_number" placeholder="Enter CVV Number" id="cvv" maxlength="4"
-                                                    pattern="\d{3,4}" class="form-control" required>
+                                                <input type="text" name="cvv_number" placeholder="Enter CVV Number"
+                                                    id="cvv" maxlength="4" pattern="\d{3,4}" class="form-control"
+                                                    required>
                                             </div>
                                             <div class="col-md-12 form-group">
                                                 <label class="form-label font-weight-bold small">Name on card</label>
-                                                <input placeholder="Enter Card name" name="card_name" type="text" class="form-control" required>
+                                                <input placeholder="Enter Card name" name="card_name" type="text"
+                                                    class="form-control" required>
                                             </div>
                                             <div class="col-md-12 form-group mb-0">
                                                 <div class="custom-control custom-checkbox">
@@ -356,12 +372,13 @@
                                 <img alt="osahan"
                                     src="../../../assets/images/uploads/restaurants/<?= $foods_info["restaurant_img"]; ?>"
                                     class="mr-3 rounded-circle img-fluid" style="width: 60px; height: 60px;">
-                                    <input type="hidden" name="restaurant_img" value="<?= $foods_info["restaurant_img"] ?>">
+                                <input type="hidden" name="restaurant_img" value="<?= $foods_info["restaurant_img"] ?>">
                                 <div class="d-flex flex-column">
                                     <h6 class="mb-1 font-weight-bold">
                                         <?= $foods_info["restaurant_name"] ?>
                                     </h6>
-                                    <p class="mb-0 small text-muted"><i class="feather-map-pin"></i>
+                                    <p class="mb-0 small text-muted">
+                                        <i class="feather-map-pin"></i>
                                         <?= $foods_info["location"] ?>
                                     </p>
                                 </div>
@@ -370,7 +387,8 @@
                             </div>
                             <div class="bg-white p-3 py-3 border-bottom clearfix">
                                 <div class="input-group-sm input-group">
-                                    <input placeholder="Enter promo code" name="promo_code" type="text" class="form-control" id="promoInput" required>
+                                    <input placeholder="Enter promo code" name="promo_code" type="text"
+                                        class="form-control" id="promoInput" required>
                                     <div class="input-group-append">
                                         <button type="button" class="btn btn-primary" onclick="checkPromoCode()">
                                             <i class="feather-percent"></i> APPLY

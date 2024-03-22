@@ -3,26 +3,10 @@
         <div class="mapouter">
             <div class="gmap_canvas"><iframe class="gmap_iframe" width="100%" height="500px" frameborder="0"
                     scrolling="no" marginheight="0" marginwidth="0"
-                    src="https://maps.google.com/maps?hl=en&amp;q=11.556374,104.928207&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a
-                    href="https://strandsgame.net/"></a></div>
+                    src="https://maps.google.com/maps?hl=en&amp;q=11.556374,104.928207&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                </div>
         </div>
-        <script>
-            function getLocation() {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(function (position) {
-                        const latitude = position.coords.latitude;
-                        const longitude = position.coords.longitude;
-                        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-                    });
-                } else {
-                    console.log("Geolocation is not supported by this browser.");
-                }
-            }
-            getLocation();
-            
-        </script>
-
-        <div class="container pt-5 pb-5">
+        <div class="container position-absolute pt-5 pb-5 ">
             <div class="row d-flex align-items-center">
                 <div class="col-md-6 text-center pb-4">
                     <div class="osahan-point mx-auto"></div>
@@ -101,5 +85,6 @@
                 </div>
             </div>
         </div>
+
     </section>
 </main>
