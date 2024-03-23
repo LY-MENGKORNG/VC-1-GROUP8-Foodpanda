@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-5">
+    <!-- <div class="container mt-5">
         <h4 class="title">Shipping Report</h4>
         <div class="users-table table-wrapper rounded-lg  mt-3">
             <table class="posts-table table table-striped">
@@ -114,6 +114,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> -->
     </div>
 </main>

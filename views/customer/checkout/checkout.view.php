@@ -25,6 +25,7 @@
                       <div class="custom-control col-lg-6 custom-radio mb-3 position-relative border-custom-radio">
                         <input type="radio" id="address<?= $address["address_id"] ?>" name="address_id"
                           value="<?= $address["address_id"] ?>" class="custom-control-input address_id" required>
+                        <input type="hidden" name="delivery_id" value="<?= $address["delivery_id"] ?>">
                         <label class="custom-control-label w-100" for="address<?= $address["address_id"] ?>">
                           <div>
                             <div class="p-3 bg-white rounded shadow-sm w-100">
@@ -306,11 +307,12 @@
                 </div>
                 <div class="col-md-12 form-group">
                   <label class="form-label" for="editAddressInput">Complete Address</label>
-                  <input type="hidden" id="latitude" name="edit_latitude" value="">
-                  <input type="hidden" id="longitude" name="edit_longitude" value="">
+                  <input type="hidden" id="edit_latitude" name="edit_latitude" value="">
+                  <input type="hidden" id="edit_longitude" name="edit_longitude" value="">
+                  <input type="hidden" name="address_id" value="<?= $address["address_id"] ?>">
                   <div class="input-group">
                     <input name="address_name" placeholder="e.g. Phnom Penh Cambodia" type="text" class="form-control"
-                      id="editAddressInput" value="<?= $address["address_name"] ?>">
+                      id="editAddressInput" oninput="editAddress(event, <?= $address['address_id'] ?>)" value="<?= $address["address_name"] ?>">
                     <div class="input-group-append">
                       <a
                       href="https://www.google.com/maps/place/Phnom+Penh/@11.579654,104.7253668,11z/data=!3m1!4b1!4m6!3m5!1s0x3109513dc76a6be3:0x9c010ee85ab525bb!8m2!3d11.5563738!4d104.9282099!16zL20vMGRsd2o?entry=ttu"
@@ -320,7 +322,7 @@
                       </a>
                     </div>
                   </div>
-                  <p class="text-danger" id="EditerrorMessage">
+                  <p class="text-danger" id="EditerrorMessage<?= $address["address_id"] ?>">
                   </p>
                 </div>
                 <div class="mb-0 col-md-12 form-group">
@@ -345,7 +347,7 @@
                 <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
               </div>
               <div class="col-6 m-0 p-0">
-                <button type="button" id="editAddressBtn" class="btn btn-primary btn-lg btn-block">Save
+                <button type="button" id="editAddressBtn<?= $address["address_id"] ?>" class="btn btn-primary btn-lg btn-block">Save
                   changes</button>
               </div>
             </div>

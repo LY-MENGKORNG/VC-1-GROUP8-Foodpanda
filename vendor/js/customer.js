@@ -265,34 +265,33 @@ if (document.getElementById("addressInput")) {
 if (document.getElementById("editAddressInput")) {
     const latitude = document.getElementById("edit_latitude");
     const longitude = document.getElementById("edit_longitude");
-    const editAddressBtn = document.querySelectorAll("#editAddressBtn");
-    const EditerrorMessage = document.querySelectorAll("#EditerrorMessage");
-    const editAddressInputs = document.querySelectorAll("#editAddressInput");
 
-    for (let i = 0; i < editAddressInputs.length; i++) {
-        editAddressInputs[i].oninput = (e) => {
-            const locationName = e.target.value.trim();
-            getLocationCoordinates(locationName, (error, coordinates) => {
-                console.log(coordinates);
-                if (error || locationName.length < 8) {
-                    EditerrorMessage[i].textContent = "Location not found!"
-                    editAddressBtn[i].type = "button";
-                } else {                    
-                    EditerrorMessage[i].textContent = ""
-                    latitude.value = `${coordinates.lat}`;
-                    longitude.value = `${coordinates.lng}`;
-                    editAddressBtn[i].type = "submit";
-                }
-            });
-        }
+    function editAddress(e, id) {
+        const editAddressBtn = document.getElementById(`editAddressBtn${id}`);
+        const EditerrorMessage = document.getElementById(`EditerrorMessage${id}`);
+        let locationName = e.target.value;
+        
+        getLocationCoordinates(locationName, (error, coordinates) => {
+
+            if (error == null && locationName.length > 8) {
+                editAddressBtn.type = "submit";
+                console.log(editAddressBtn);
+                EditerrorMessage.textContent = "";
+                latitude.value = `${coordinates.lat}`;
+                longitude.value = `${coordinates.lng}`;
+            }else {
+                EditerrorMessage.textContent = "Location not found!"
+                editAddressBtn.type = "button";
+                console.log(editAddressBtn);
+            }
+        });
     }
-
 }
 
 function getLocationCoordinates(locationName, callback) {
     // Construct the API request URL
     const apiUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(locationName)}`;
-
+    let iswork = false;
     // Make a GET request to the API
     fetch(apiUrl)
         .then(response => response.json())
@@ -303,13 +302,15 @@ function getLocationCoordinates(locationName, callback) {
                     lat: parseFloat(result.lat),
                     lng: parseFloat(result.lon)
                 };
-                console.log(coordinates);
-                callback(undefined, coordinates);
+                iswork = true;
+                callback(null, coordinates);
             } else {
                 callback(new Error('Location not found'));
             }
         })
         .catch(error => {
-            callback(error);
+            if (!iswork) {
+                callback(error);
+            }
         });
 }

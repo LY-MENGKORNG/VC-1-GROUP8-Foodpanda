@@ -26,7 +26,7 @@
             <source src="../../assets/videos/bg.mp4" type="video/ogg" />
             Your browser does not support the video tag.
         </video>
-        <?php if ($_SESSION["email_sent"]) { ?>
+        <?php if (isset($_SESSION["email_sent"])) { ?>
             <script>alert("hello world")</script>
         <?php }
             unset($_SESSION["email_sent"]);

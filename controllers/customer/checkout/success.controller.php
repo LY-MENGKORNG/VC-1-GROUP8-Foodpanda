@@ -1,6 +1,7 @@
 <?php
 // header('Cache-Control: no cache');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    var_dump($_POST);
     if (
         !empty ($_POST["food_id"]) && !empty ($_POST["quantity"]) && !empty ($_POST["price"]) &&
         !empty ($_POST["card_name"]) && !empty ($_POST["valid_through"]) && !empty ($_POST["cvv_number"]) &&
