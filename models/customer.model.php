@@ -119,7 +119,7 @@ function editAddress(
     return $stmt->rowCount() > 0;
 }
 
-function getAddress()
+function getAddress(int $customer_id)
 {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM address");

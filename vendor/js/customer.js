@@ -263,26 +263,32 @@ if (document.getElementById("addressInput")) {
 
 // edit address
 if (document.getElementById("editAddressInput")) {
-    document.getElementById("editAddressInput").oninput = (e) => {
-        const locationName = e.target.value.trim();
-        console.log(locationName);
-        const latitude = document.getElementById("latitude");
-        const longitude = document.getElementById("longitude");
-        const editAddressBtn = document.getElementById("editAddress");
-        const EditerrorMessage = document.getElementById("EditerrorMessage");
+    const latitude = document.getElementById("edit_latitude");
+    const longitude = document.getElementById("edit_longitude");
+    const editAddressBtn = document.querySelectorAll("#editAddressBtn");
+    const EditerrorMessage = document.querySelectorAll("#EditerrorMessage");
+    const editAddressInputs = document.querySelectorAll("#editAddressInput");
 
-        getLocationCoordinates(locationName, (error, coordinates) => {
-            if (error || locationName.length < 8) {
-                EditerrorMessage.textContent = "Location not found!"
-                editAddressBtn.type = "button";
-            } else {
-                EditerrorMessage.textContent = ""
-                latitude.value = `${coordinates.lat}`;
-                longitude.value = `${coordinates.lng}`;
-                editAddressBtn.type = "submit";
-            }
-        });
+    for (let i = 0; i < editAddressInputs.length; i++) {
+        editAddressInputs[i].oninput = (e) => {
+            const locationName = e.target.value.trim();
+            getLocationCoordinates(locationName, (error, coordinates) => {
+                console.log(coordinates);
+                if (error || locationName.length < 8) {
+                    EditerrorMessage[i].textContent = "Location not found!"
+                    editAddressBtn[i].type = "button";
+                    return;
+                } else {                    
+                    EditerrorMessage[i].textContent = ""
+                    latitude.value = `${coordinates.lat}`;
+                    longitude.value = `${coordinates.lng}`;
+                    editAddressBtn[i].type = "submit";
+                    return;
+                }
+            });
+        }
     }
+
 }
 
 function getLocationCoordinates(locationName, callback) {
@@ -299,7 +305,7 @@ function getLocationCoordinates(locationName, callback) {
                     lat: parseFloat(result.lat),
                     lng: parseFloat(result.lon)
                 };
-                callback(null, coordinates);
+                callback(undefined, coordinates);
             } else {
                 callback(new Error('Location not found'));
             }
