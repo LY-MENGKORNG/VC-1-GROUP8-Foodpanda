@@ -20,13 +20,17 @@
 
     <link href="../../vendor/sidebar/demo.css" rel="stylesheet" />
 </head>
-
 <body>
     <div class="login-page vh-100">
         <video loop autoplay muted id="vid">
             <source src="../../assets/videos/bg.mp4" type="video/ogg" />
             Your browser does not support the video tag.
         </video>
+        <?php if ($_SESSION["email_sent"]) { ?>
+            <script>alert("hello world")</script>
+        <?php }
+            unset($_SESSION["email_sent"]);
+        ?>
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-3 col-10 mx-auto">
@@ -45,7 +49,7 @@
                         </div>
                         <button class="btn text-white btn-lg btn-block" style="background: #FF2B85;">SIGN IN</button>
                     </form>
-                    <a href="forgot_password.html" class="text-decoration-none">
+                    <a href="/customer/forgot_password" class="text-decoration-none">
                         <p class="text-center">Forgot your password?</p>
                     </a>
                     <div class="d-flex align-items-center justify-content-center">

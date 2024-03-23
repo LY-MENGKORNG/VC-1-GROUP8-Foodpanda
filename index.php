@@ -60,7 +60,8 @@ else if (
     urlIs("/restaurant/signout") || urlIs("/restaurant/check_signout") || 
 
     urlIs("/delivery/signin") || urlIs("/delivery/check_signin") || 
-    urlIs("/delivery/signout") || urlIs("/delivery/check_signout")) 
+    urlIs("/delivery/signout") || urlIs("/delivery/check_signout") || urlIs("/customer/forgot_password") ||
+    urlIs("/customer/send_email") || urlIs("/customer/change_password") || urlIs("/customer/confirm_password")) 
 {
     require "./routers/authentication_router.php";
 }   

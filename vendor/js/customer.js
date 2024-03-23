@@ -277,13 +277,11 @@ if (document.getElementById("editAddressInput")) {
                 if (error || locationName.length < 8) {
                     EditerrorMessage[i].textContent = "Location not found!"
                     editAddressBtn[i].type = "button";
-                    return;
                 } else {                    
                     EditerrorMessage[i].textContent = ""
                     latitude.value = `${coordinates.lat}`;
                     longitude.value = `${coordinates.lng}`;
                     editAddressBtn[i].type = "submit";
-                    return;
                 }
             });
         }
@@ -305,6 +303,7 @@ function getLocationCoordinates(locationName, callback) {
                     lat: parseFloat(result.lat),
                     lng: parseFloat(result.lon)
                 };
+                console.log(coordinates);
                 callback(undefined, coordinates);
             } else {
                 callback(new Error('Location not found'));

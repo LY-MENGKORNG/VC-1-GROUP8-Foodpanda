@@ -31,11 +31,14 @@
                     <h2>Forgot password</h2>
                     <p>Enter your email address below and we'll send you an email with instructions on how to change
                         your password</p>
-                    <form action="/customer/send_email" class="mt-5 mb-4" method="post">
+                    <form action="/customer/confirm_password" class="mt-5 mb-4" method="post">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control" name="email" id="exampleInputEmail1" >
-                            <p class="text-danger"><?= isset($_SESSION["is_customer_email"]) ? $_SESSION["is_customer_email"] : "" ?></p>
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" >
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordConfirm">Confirm Password</label>
+                            <input type="password" class="form-control" id="passwordConfirm" >
                         </div>
                         <button class="btn btn-primary btn-lg btn-block">Send</button>
                     </form>
