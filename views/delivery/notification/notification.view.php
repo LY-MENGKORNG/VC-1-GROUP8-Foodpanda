@@ -1,7 +1,9 @@
 <div class="container w-100">
-    <div class="container-fluid d-flex juctify-content-between py-3">
+    <div class="container-fluid d-flex juctify-content-between py-3 px-0">
         <div></div>
-        <button class="btn btn-primary ml-auto">Go tracking</button>
+        <form action="/delivery/tracking" method="post" class="ml-auto">
+            <button id="tracking" type="button" name="order_tracking" value="" class="btn btn-primary" >Go tracking</button>
+        </form>
     </div>
     <section class="py-3 row bg-white rounded-sm">
         <div class="container col-md-5 p-4 rounded-lg d-flex flex-column" style="height: 80vh;">
@@ -53,11 +55,11 @@
                             <?php
                             $is_active = false;
                             foreach ($notifications as $notification) { ?>
-                                <input id="just_test<?= $notification["order_id"] ?>" name="order" type="radio" value="<?= $notification["order_id"] ?>">
-                                <label for="just_test<?= $notification["order_id"] ?>" class="list-group-item list-group-item-action <?= !$is_active ? 'active' : '' ?> bg-light"
+                                <a class="list-group-item list-group-item-action <?= !$is_active ? 'active' : '' ?> bg-light order-track"
                                     id="list-order<?= $notification["order_id"] ?>-list" data-bs-toggle="list"
                                     href="#list-order<?= $notification["order_id"] ?>" role="tab" aria-controls="list-home"
-                                    style="border-top: none; border-right: none;">
+                                    style="border-top: none; border-right: none;"
+                                    data-index="<?= $notification["order_id"] ?>">
                                     <div class="d-flex flex-row gap-2">
                                         <picture class="d-flex align-items-center rounded-sm"
                                             style="background: lightblue;">
@@ -68,14 +70,15 @@
                                                 alt="customer" class="rounded-sm border border-gray"
                                                 style="width: 40px; height: 40px;">
                                         </picture>
-                                        <div class="d-flex flex-column gap-2">
+                                        <div class="d-flex flex-column gap-1">
                                             <span class="fw-bold text-dark">
                                                 <?= $notification["first_name"] ?>
+                                                <span class="text-secondary fw-lighter">need you to deliver</span>
                                             </span>
                                             <span class="fw-lighter text-secondary">16m ago</span>
                                         </div>
                                     </div>
-                                </label>
+                                </a>
                                 <?php
                                 $is_active = true;
                             } ?>
