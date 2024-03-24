@@ -34,11 +34,13 @@
                     <form action="/customer/confirm_password" class="mt-5 mb-4" method="post">
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" >
+                            <input type="password" class="form-control" id="password" name="password">
+                            <input type="hidden" class="form-control" id="" name="verify_codes" value="<?=$_POST['verify_codes']?>">
+                            <input type="hidden" class="form-control" id="" name="email" value="<?=$_POST['email']?>">
                         </div>
                         <div class="form-group">
                             <label for="passwordConfirm">Confirm Password</label>
-                            <input type="password" class="form-control" id="passwordConfirm" >
+                            <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm">
                         </div>
                         <button class="btn btn-primary btn-lg btn-block">Send</button>
                     </form>

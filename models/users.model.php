@@ -144,3 +144,45 @@ function changeImage(string $target_dir, array $image, $profile) {
 function getActivePage($page) : string {
     return $page == parse_url($_SERVER['REQUEST_URI'])['path'] ? "active" : "";
 }
+
+
+function update_reset_token($email, $code)
+{
+    global $connection;
+    $statement = $connection->prepare("UPDATE users SET verify_codes = :code WHERE email = :email");
+    $statement->execute([
+        ':email' => $email,
+        ':code' => $code,
+    ]);
+    return $statement->rowCount() > 0;
+}
+
+function random_verify_codes()
+{
+    $token = rand(100000, 900000);
+    return $token;
+}
+function reset_password(string $email, string $password): bool
+{
+    global $connection;
+    $statement = $connection->prepare("UPDATE users SET password = :password WHERE email = :email;");
+    $statement->execute([
+        ':password' => $password,
+        ':email' => $email
+    ]);
+    return $statement->rowCount() > 0;
+}
+
+function check_verify_code($code): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM users WHERE verify_codes = :code");
+    $statement->execute([
+        ':code' => $code
+    ]);
+    if ($statement->rowCount() > 0) {
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    } else {
+        return [];
+    }
+}
