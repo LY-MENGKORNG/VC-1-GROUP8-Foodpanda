@@ -32,7 +32,7 @@
                                             </button>
                                         </div>
                                         <input type="text" class="shadow-none border-0 form-control"
-                                            placeholder="Enter Your Location" />
+                                            placeholder="Enter Your Location" id="yourlocation" />
                                     </div>
                                 </div>
                                 <div class="p-3 border-bottom">

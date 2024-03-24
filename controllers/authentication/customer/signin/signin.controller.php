@@ -1,3 +1,3 @@
 <?php 
 
-require "./views/signin/customer_signin.view.php";
+require "./views/authentication/signin/customer_signin.view.php";

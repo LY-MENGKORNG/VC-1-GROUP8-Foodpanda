@@ -14,15 +14,15 @@
                         <input type="file" name="profile" id="profile" style="display: none;">
                         <div class="left rounded-circle border border-primary d-flex align-items-center position-relative" style="width: 150px; height: 150px;">
                             <img alt="#" src="../../assets/images/uploads/delivery_profile/<?= isset($delivery["profile"]) ? $delivery["profile"] : 'avatar.png' ?>" class="rounded-circle" style="width: 100%; height: 100%;">
-                            <div class="rounded-circle bg-secondary border position-absolute d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; bottom: 5%; right: 5%">
+                            <div class="rounded-circle bg-light border position-absolute d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; bottom: 5%; right: 5%">
                                 <label for="profile" class="m-auto ">
-                                    <i class="feather-camera fs-5 text-light"></i>
+                                    <i class="feather-download fs-5 text-primary"></i>
                                 </label>
                             </div>
                         </div>
                         <div class="d-flex  d-flex flex-column gap-5 p-3">
                             <div class="left text-center">
-                                <h6 class="mb-1 font-weight-bold"><?= $delivery["first_name"] . " " . $delivery["last_name"] ?><i class="feather-check-circle text-success"></i></h6>
+                                <h6 class="mb-1 font-weight-bold"><?= $delivery["first_name"] . " " . $delivery["last_name"] ?><i class="feather-check-circle text-success mx-2"></i></h6>
                                 <p class="text-muted m-0 small">
                                     <span class="__cf_email__" data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[&#160;<?= $delivery["email"] ?>]</span>
                                 </p>

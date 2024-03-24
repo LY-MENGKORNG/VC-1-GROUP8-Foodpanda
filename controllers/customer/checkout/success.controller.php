@@ -34,7 +34,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         addPayment(intval($customer_id), $card_name, $valid_through, $card_name, $cvv, intval($payment_amount), $promo_code);
     }
-    require "./views/customer/checkout/success.view.php";
-}else {
-    header("Location: /customer/restaurant");
 }
+require "./views/customer/checkout/success.view.php";

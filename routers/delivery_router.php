@@ -2,15 +2,17 @@
 require "./models/delivery.model.php";
 
 if (isset ($_SESSION["delivery"])) {
+    $delivery = $_SESSION["delivery"];
+    $orders = getAllOrders(intval($delivery["user_id"]));
+    $orders_progress = getAllOrder("On progress", intval($delivery["user_id"]));
+    $orders_completed = getAllOrder("Completed", intval($delivery["user_id"]));
+    $orders_pending = getAllOrder("Pending", intval($delivery["user_id"]));
+
+    $notifications = getAllNoti($delivery["user_id"]);
+
     if ($uri == "/delivery") {
         header("Location: /delivery/shipping");
     }
-    $delivery = $_SESSION["delivery"];
-    $delivery_id = $delivery["user_id"];
-    $orders = getAllOrders($delivery_id);
-    $order_progress = getOrderByStatus("On progress", $delivery_id);
-    $order_completed = getOrderByStatus("Completed", $delivery_id);
-    // $order_progress = getOrderByStatus("On progress");
 
     $page = "";
     $routes = [
@@ -20,6 +22,7 @@ if (isset ($_SESSION["delivery"])) {
         '/delivery/notification' => 'controllers/delivery/notification/notification.controller.php',
         '/delivery/shipping' => 'controllers/delivery/shipping/shipping.controller.php',
         '/delivery/order' => 'controllers/delivery/order/order.controller.php',
+        '/delivery/tracking' => 'controllers/delivery/tracking/tracking.controller.php',
     ];
 
     if (array_key_exists($uri, $routes)) {

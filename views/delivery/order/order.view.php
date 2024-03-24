@@ -1,40 +1,61 @@
 <!-- ! Main -->
 <main class="main users chart-page" id="skip-target">
-    <div class="container d-flex justify-content-between">
-        <h3 class="main_title">Orders </h2>
-            <div class="calendar">
+    <div class="container">
+        <h3 class="title">Orders 🥗 <span class="text-secondary">
+                <?= count($orders) ?>
+            </span></h2>
 
-            </div>
     </div>
-    <div class="container mt-3">
-        <div class="users-table table-wrapper border border-gray rounded-lg overflow-hidden shadow-sm">
-            <div class="px-4 py-1 bg-white position-relative">
-                <i class="fa-solid fa-magnifying-glass text-light" style="position: absolute; top: 38%; left: 30px;"></i>
-                <input type="text" class="pl-4 shadow-none rounded-sm" placeholder="Search..." style="background: transparent; outline: none;">
-            </div>
-            <table class="posts-table">
-                <thead>
-                    <tr class="users-table-info">
-                        <th>
+    <div class="container mt-4">
+        <div class="users-table table-wrapper rounded-lg overflow-hidden shadow-lg">
+            <table class="">
+                <thead class="">
+                    <tr class="users-table-info ">
+                        <th class="py-3">
                             <label class="users-table__checkbox ms-20">
-                                <input type="checkbox" class="check-all">Restaurant
+                                <input type="checkbox" class="check-all">Customer
                             </label>
                         </th>
+                        <th>Purchase Date</th>
+                        <th>Status</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($orders as $orders) { ?>
-                        <tr>
+                    <?php foreach ($orders as $order) { ?>
+                        <tr style="background: white;">
                             <td>
                                 <label class="users-table__checkbox">
                                     <input type="checkbox" class="check">
                                     <div class="categories-table-img">
-                                        <picture>
-                                            <source srcset="../../assets/images/uploads/restaurants/" type="image/webp">
-                                            <img src="../../assets/images/uploads/restaurants/" alt="restaurant">
+                                        <picture class="d-flex align-items-center">
+                                            <source
+                                                srcset="../../assets/images/uploads/customer_profile/<?= isset ($order["profile"]) ? $order["profile"] : 'avatar.png' ?>"
+                                                type="image/webp">
+                                            <img src="../../assets/images/uploads/customer_profile/<?= isset ($order["profile"]) ? $order["profile"] : 'avatar.png' ?>"
+                                                alt="customer" class="rounded-circle border border-gray"
+                                                style="width: 40px; height: 40px;">
+                                            <div class="d-flex flex-column">
+                                                <span class="main_title">
+                                                    <?= $order["first_name"] . " " . $order["last_name"] ?>
+                                                </span>
+                                                <span class="text-gray" style="font-size: 12px;">
+                                                    <?= $order["email"] ?>
+                                                </span>
+                                            </div>
                                         </picture>
                                     </div>
                                 </label>
+                            </td>
+                            <td>
+                                <?= $order["order_date"] ?>
+                            </td>
+                            <td class="text-warning">
+                                <i class="feather-circle bg-warning rounded-circle"></i>
+                                <?= $order["order_status"] ?>
+                            </td>
+                            <td> $
+                                <?= $order["payment_amount"] ?>.00
                             </td>
                         </tr>
                     <?php } ?>

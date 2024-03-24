@@ -1,50 +1,49 @@
 <?php
 
-$email = $_POST["email"];
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-$token = bin2hex(random_bytes(16));
+require './vendor/autoload.php';
 
-$token_hash = hash("sha256", $token);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$expiry = date("Y-m-d H:i:s", time() + 60 * 30);
+    $email = $_POST['email'];
+    if (!empty ($email)) {
+        $customer_verify = accountExist($email, 4);
+        $user_name = $customer_verify["first_name"];
 
-$mysqli = require __DIR__ . "/database.php";
+        $verify_codes = random_verify_codes();
+        update_reset_token($email, $verify_codes);
+        $currentURL = "http://$_SERVER[HTTP_HOST]";
+        $reset_link = $currentURL . "/customer/change_password";
 
-$sql = "UPDATE user
-        SET reset_token_hash = ?,
-            reset_token_expires_at = ?
-        WHERE email = ?";
+        $mail = new PHPMailer(true);
+        try {
+            // Server settings
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'lymengkorng54@gmail.com'; // server main
+            $mail->Password = 'loikfrjgqxobxyhm'; // SMTP password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Enable implicit TLS encryption
+            $mail->Port = 465; // TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
-$stmt = $mysqli->prepare($sql);
+            $mail->setFrom('lymengkorng54@gmail.com', 'Food Panda');
+            $mail->addAddress($email);
 
-$stmt->bind_param("sss", $token_hash, $expiry, $email);
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = 'Reset Password';
 
-$stmt->execute();
-
-if ($mysqli->affected_rows) {
-
-    $mail = require __DIR__ . "/mailer.php";
-
-    $mail->setFrom("noreply@example.com");
-    $mail->addAddress($email);
-    $mail->Subject = "Password Reset";
-    $mail->Body = <<<END
-
-    Click <a href="http://example.com/reset-password.php?token=$token">here</a> 
-    to reset your password.
-
-    END;
-
-    try {
-
-        $mail->send();
-
-    } catch (Exception $e) {
-
-        echo "Message could not be sent. Mailer error: {$mail->ErrorInfo}";
-
+            require "./views/authentication/forgot_password/send_email_form.view.php";
+            $body_content = ob_get_clean();
+            $mail->Body = $body_content;
+            $mail->send();
+            $_SESSION["email_sent"] = true;
+            header("Location: /customer/signin");
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
     }
-
 }
-
-echo "Message sent, please check your inbox.";

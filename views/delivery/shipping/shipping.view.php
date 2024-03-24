@@ -11,11 +11,11 @@
                         </div>
                         <div class="stat-cards-info">
                             <p class="stat-cards-info__num text-dark">On going</p>
-                            <p class="stat-cards-info__title text-dark"><?= count($order_progress) ?></p>
+                            <p class="stat-cards-info__title text-danger fw-bold"><?= count($orders_progress) ?></p>
                             <p class="stat-cards-info__progress text-secondary">
                                 <span class="stat-cards-info__profit info">
                                     <i data-feather="trending-up" aria-hidden="true"></i>4.07%
-                                </span>
+                                </span> 
                                 Last month
                             </p>
                         </div>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="stat-cards-info">
                             <p class="stat-cards-info__num text-dark">Shipping</p>
-                            <p class="stat-cards-info__title text-dark">1478 286</p>
+                            <p class="stat-cards-info__title text-danger fw-bold"><?= count($orders_pending) ?></p>
                             <p class="stat-cards-info__progress text-secondary">
                                 <span class="stat-cards-info__profit info">
                                     <i data-feather="trending-up" aria-hidden="true"></i>4.07%
@@ -45,7 +45,7 @@
                         </div>
                         <div class="stat-cards-info">
                             <p class="stat-cards-info__num text-dark">Completed</p>
-                            <p class="stat-cards-info__title text-dark fw-bold"><?= count($order_completed) ?></p>
+                            <p class="stat-cards-info__title text-danger fw-bold"><?= count($orders_completed) ?></p>
                             <p class="stat-cards-info__progress text-secondary">
                                 <span class="stat-cards-info__profit info">
                                     <i data-feather="trending-up" aria-hidden="true"></i>4.07%
@@ -89,7 +89,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-5">
+    <!-- <div class="container mt-5">
         <h4 class="title">Shipping Report</h4>
         <div class="users-table table-wrapper rounded-lg  mt-3">
             <table class="posts-table table table-striped">
@@ -114,6 +114,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> -->
     </div>
 </main>
