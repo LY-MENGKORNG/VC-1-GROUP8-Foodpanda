@@ -22,32 +22,6 @@
   <link href="../../vendor/css/style.css" rel="stylesheet" />
 
   <link href="../../vendor/sidebar/demo.css" rel="stylesheet" />
-  <style>
-    .main_color {
-      color: #FF2B85;
-    }
-
-    .main_bg {
-      background-color: #FF2B85;
-    }
-
-    #form {
-      animation: slideInDown 0.5s ease;
-    }
-
-    @keyframes slideInDown {
-      from {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-  </style>
 </head>
 
 <body class="position-relative">

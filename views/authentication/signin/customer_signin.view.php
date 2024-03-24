@@ -53,7 +53,7 @@
                         <p class="text-center">Forgot your password?</p>
                     </a>
                     <div class="d-flex align-items-center justify-content-center">
-                        <p class="text-center m-0">Don't have an account yet? <a href="/foodpanda">Sign up</a></p>
+                        <p class="text-center m-0">Don't have an account yet? <a href="/customer/signup">Sign up</a></p>
                     </div>
                 </div>
             </div>

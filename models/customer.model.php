@@ -122,8 +122,8 @@ function editAddress(
 function getAddress(int $customer_id)
 {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM address");
-    $stmt->execute();
+    $stmt = $connection->prepare("SELECT * FROM address WHERE customer_id = :customer_id");
+    $stmt->execute([":customer_id" => $customer_id]);
     return $stmt->fetchAll();
 }
 

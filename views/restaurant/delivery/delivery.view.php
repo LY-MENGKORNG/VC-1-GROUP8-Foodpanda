@@ -1,9 +1,16 @@
 <!-- Main -->
+<form action="/restaurant/delete_delivery" style="display: none;">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</form>
 <main class="main users chart-page" id="skip-target">
     <div class="container-fluid">
         <div class="d-flex flex-row justify-content-sm-between px-2">
             <h1 class="main-title col-10">Delivery</h1>
-            <button class="btn btn-primary font-weight-bold text-gray rounded" data-bs-toggle="modal" data-bs-target="#deliveryModal">
+            <button class="btn btn-primary btn-sm font-weight-bold text-gray rounded" data-bs-toggle="modal"
+                data-bs-target="#deliveryModal"  style="width: 130px; height: 40px;">
                 Add Delivery
             </button>
         </div>
@@ -23,11 +30,13 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="restaurant_name">First_Name</label>
-                                    <input type="text" name="first_name" id="first_name" class="form-control border" required>
+                                    <input type="text" name="first_name" id="first_name" class="form-control border"
+                                        required>
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="location">Last_name</label>
-                                    <input type="text" name="last_name" id="last_name" class="form-control border" required>
+                                    <input type="text" name="last_name" id="last_name" class="form-control border"
+                                        required>
                                 </div>
                             </div>
                             <div class="row">
@@ -37,13 +46,15 @@
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" class="form-control border" required>
+                                    <input type="password" name="password" id="password" class="form-control border"
+                                        required>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-12">
                                     <label for="phone">Contact Info</label>
-                                    <input type="tel" name="contact_info" id="phone" class="form-control border" required>
+                                    <input type="tel" name="contact_info" id="phone" class="form-control border"
+                                        required>
                                 </div>
                             </div>
                             <div class="row mt-2">
@@ -55,57 +66,64 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="users-table table-wrapper rounded-lg add-border mt-5">
-        <div class="main-nav-start row p-4 d-flex justify-content-between">
-            <div class="search-wrapper">
-                <i data-feather="search" aria-hidden="true"></i>
-                <input type="text" placeholder="Search Here" class="form-control border" required>
-            </div>
-            <div class="filter">
-                <button type="button" class="btn btn-primary">
-                    <i data-feather="filter" class="" aria-hidden="true"></i>
-                    Filter
-                </button>
-            </div>
-        </div>
-        <table class="posts-table table table-striped">
-            <thead>
-                <tr class="users-table-info">
-                    <th>
-                        <label class="users-table__checkbox ms-20">
-                            <input type="checkbox" class="check-all">
-                            First Name
-                        </label>
-                    </th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                    <th>Contact info</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($delivery as $item) { ?>
+        <div class="users-table table-wrapper rounded-lg overflow-hidden shadow-lg mt-4">
+            <table class="">
+                <thead>
                     <tr class="users-table-info">
-                        <td>
-                            <label class="users-table__checkbox">
-                                <input type="checkbox" class="check">
-                                <?= $item["first_name"] ?>
+                        <th class="py-3">
+                            <label class="users-table__checkbox ms-20">
+                                <input type="checkbox" class="check-all">
+                                Delivery
                             </label>
-                        </td>
-                        <td><?= $item["last_name"] ?></td>
-                        <td><?= $item["email"] ?></td>
-                        <td><?= $item["phone"] ?></td>
-                        <td>Action</td>
+                        </th>
+                        <th>Email</th>
+                        <th>Contact info</th>
+                        <th>Action</th>
                     </tr>
-                <?php } ?>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                    <?php foreach ($delivery as $item) { ?>
+                        <tr  style="background: white;">
+                            <td>
+                                <label class="users-table__checkbox">
+                                    <input type="checkbox" class="check">
+                                    <div class="categories-table-img">
+                                        <picture class="d-flex align-items-center">
+                                            <source
+                                                srcset="../../assets/images/uploads/delivery_profile/<?= isset ($item["profile"]) ? $item["profile"] : 'avatar.png' ?>"
+                                                type="image/webp">
+                                            <img src="../../assets/images/uploads/delivery_profile/<?= isset ($item["profile"]) ? $item["profile"] : 'avatar.png' ?>"
+                                                alt="customer" class="rounded-circle border border-gray"
+                                                style="width: 40px; height: 40px;">
+                                            <div class="d-flex flex-column">
+                                                <span class="main_title">
+                                                    <?= $item["first_name"] . " " . $item["last_name"] ?>
+                                                </span>
+                                            </div>
+                                        </picture>
+                                    </div>
+                                </label>
+                            </td>
+                            <td>
+                                <?= $item["email"] ?>
+                            </td>
+                            <td>
+                                <?= $item["phone"] ?>
+                            </td>
+                            <td>
+                                <a href="#" class="delDelivery" id="<?= $item["user_id"] ?>">
+                                    <i class="feather-trash text-danger"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+
+            </table>
+        </div>
     </div>
 
 </main>
-
 
 </div>
 </div>

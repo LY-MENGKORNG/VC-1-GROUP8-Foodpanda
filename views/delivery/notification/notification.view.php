@@ -1,49 +1,50 @@
 <div class="container w-100">
-    <section class="py-1 row">
-        <div class="container col-md-5 shadow-sm p-4 rounded-lg d-flex flex-column"
-            style="height: 80vh; background: #343a40;">
-            <h4 class="text-light mb-2">Notifications</h4>
-            <div class="px-0">
-                <ul class="nav nav-tabsa custom-tabsa d-flex flex-row p-0 border-bottom-1 c-t-order overflow-hidden"
-                    id="myTab" role="tablist" style="border-bottom: 1px solid lightgray;">
-                    <li class="rounded-0 flex-grow-1" role="presentation">
-                        <a class=" show active" id="all-tab" data-toggle="tab" href="#all" role="tab"
-                            aria-controls="all" aria-selected="true">
-                            <span class="px-2 text-dark">All</span>
-                            <i class="rounded-circle d-flex align-items-center juctify-content-center"
-                                style="width: 25px; height: 25px;">
-                                <span>
-                                    <?= count($notifications) ?>
-                                </span>
-                            </i>
-                        </a>
-                    </li>
-                    <li class="rounded-0 flex-grow-1" role="presentation">
-                        <a class="bg-tranparent" id="recently-tab" data-toggle="tab" href="#recently" role="tab"
-                            aria-controls="recently" aria-selected="false">
-                            <span class="px-2 text-dark">Recently</span>
-                            <i class="rounded-circle d-flex align-items-center juctify-content-center"
-                                style="width: 25px; height: 25px;">
-                                <span>
-                                    <?= count($orders_progress) ?>
-                                </span>
-                            </i>
-                        </a>
-                    </li>
-                    <li class="rounded-0 flex-grow-1" role="presentation">
-                        <a class="" id="completed-tab" data-toggle="tab" href="#completed" role="tab"
-                            aria-controls="completed" aria-selected="false">
-                            <span class="px-2 text-dark">Completed</span>
-                            <i class="rounded-circle d-flex align-items-center juctify-content-center"
-                                style="width: 25px; height: 25px;">
-                                <span>
-                                    <?= count($orders_completed) ?>
-                                </span>
-                            </i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <div class="container-fluid d-flex juctify-content-between py-3">
+        <div></div>
+        <button class="btn btn-primary ml-auto">Go tracking</button>
+    </div>
+    <section class="py-3 row bg-white rounded-sm">
+        <div class="container col-md-5 p-4 rounded-lg d-flex flex-column" style="height: 80vh;">
+            <h4 class="main_title mb-2">Notifications</h4>
+            <ul class="nav nav-tabsa custom-tabsa d-flex flex-row p-0 border-bottom-1 c-t-order overflow-hidden"
+                id="myTab" role="tablist" style="border-bottom: 1px solid lightgray;">
+                <li class="rounded-0 flex-grow-1" role="presentation">
+                    <a class=" show active" id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all"
+                        aria-selected="true">
+                        <span class="px-2 text-dark">All</span>
+                        <i class="rounded-circle d-flex align-items-center juctify-content-center"
+                            style="width: 25px; height: 25px;">
+                            <span>
+                                <?= count($notifications) ?>
+                            </span>
+                        </i>
+                    </a>
+                </li>
+                <li class="rounded-0 flex-grow-1" role="presentation">
+                    <a class="bg-tranparent" id="recently-tab" data-toggle="tab" href="#recently" role="tab"
+                        aria-controls="recently" aria-selected="false">
+                        <span class="px-2 text-dark">Recently</span>
+                        <i class="rounded-circle d-flex align-items-center juctify-content-center"
+                            style="width: 25px; height: 25px;">
+                            <span>
+                                <?= count($orders_progress) ?>
+                            </span>
+                        </i>
+                    </a>
+                </li>
+                <li class="rounded-0 flex-grow-1" role="presentation">
+                    <a class="" id="completed-tab" data-toggle="tab" href="#completed" role="tab"
+                        aria-controls="completed" aria-selected="false">
+                        <span class="px-2 text-dark">Completed</span>
+                        <i class="rounded-circle d-flex align-items-center juctify-content-center"
+                            style="width: 25px; height: 25px;">
+                            <span>
+                                <?= count($orders_completed) ?>
+                            </span>
+                        </i>
+                    </a>
+                </li>
+            </ul>
             <div class="tab-content mt-2" id="myTabContent">
                 <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
                     <div class="order-body bg-white col-12 p-0">
@@ -52,7 +53,8 @@
                             <?php
                             $is_active = false;
                             foreach ($notifications as $notification) { ?>
-                                <a class="list-group-item list-group-item-action <?= !$is_active ? 'active' : '' ?> bg-light"
+                                <input id="just_test<?= $notification["order_id"] ?>" name="order" type="radio" value="<?= $notification["order_id"] ?>">
+                                <label for="just_test<?= $notification["order_id"] ?>" class="list-group-item list-group-item-action <?= !$is_active ? 'active' : '' ?> bg-light"
                                     id="list-order<?= $notification["order_id"] ?>-list" data-bs-toggle="list"
                                     href="#list-order<?= $notification["order_id"] ?>" role="tab" aria-controls="list-home"
                                     style="border-top: none; border-right: none;">
@@ -73,7 +75,7 @@
                                             <span class="fw-lighter text-secondary">16m ago</span>
                                         </div>
                                     </div>
-                                </a>
+                                </label>
                                 <?php
                                 $is_active = true;
                             } ?>
@@ -153,25 +155,16 @@
             </div>
         </div>
         <div class="col-md-7">
-            <div class="container white-block shadow-sm rounded-lg overflow-hidden"
-                style="height: 80vh; background: #343a40;">
-                <div class="tab-content" id="nav-tabContent">
+            <div class="container overflow-hidden" style="height: 80vh; ">
+                <div class="tab-content">
                     <?php $is_active = false; ?>
-                    <?php foreach ($notifications as $notification) {
-                        $array = explode(",", $notification["address_name"]);
-                        foreach ($array as &$element) {
-                            $element = str_replace(' ', '%20', $element);
-                        }
-                        ?>
+                    <?php foreach ($notifications as $notification) { ?>
                         <div class="tab-pane fade <?= !$is_active ? 'show active' : '' ?>"
                             id="list-order<?= $notification["order_id"] ?>" role="tabpanel"
-                            aria-labelledby="list-order<?= $notification["order_id"] ?>-list" style=" background: #343a40;">
-                            <div class="container col-md-12">
-                                <h4 class="main-title mb-4">
-                                    <?= $notification["address_name"] ?>
-                                </h4>
-                                <iframe width="100%" height="350px"
-                                    src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=<?= $array[0] ?>%2C%20Cambodia&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed"
+                            aria-labelledby="list-order<?= $notification["order_id"] ?>-list">
+                            <div class="container col-md-12 overflow-hidden ">
+                                <iframe width="100%" height="430px" class="rounded-sm"
+                                    src="https://maps.google.com/maps?hl=en&amp;q=<?= $notification["latitude"] ?>,<?= $notification["longitude"] ?>&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                             </div>
                         </div>

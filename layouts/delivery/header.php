@@ -10,6 +10,8 @@
     <?= $delivery["first_name"] ?>
   </title>
   <link rel="icon" type="image/png" href="../../assets/images/logo/panda-logo.png" />
+  <link rel="stylesheet" type="text/css" href="../../vendor/slick/slick.min.css" />
+
   <!-- leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 
@@ -33,4 +35,4 @@
 </head>
 
 <body>
-  <div class="wrapper position-relative bg-white">
+  <div class="wrapper position-relative bg-light">

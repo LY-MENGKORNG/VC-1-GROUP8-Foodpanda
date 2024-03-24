@@ -778,6 +778,32 @@ p {
     max-width: 100px
 }
 
+.delivery-notification {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.delivery-notification i {
+    color: #0091bc;
+    position: absolute;
+    left: 5px;
+}
+
+.delivery-notification span {
+    position: absolute;
+    top: 20%;
+    right: 20%;
+    height: 7px;
+    width: 7px;
+    background: #FF2B85;
+    border-radius: 50%;
+}
+
 .osahan-map .member-plan {
     text-align: center;
     background: rgb(255 255 255/18%);

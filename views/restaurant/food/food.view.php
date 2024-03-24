@@ -70,7 +70,7 @@
         </div>
     </div>
 
-    <div class="users-table table-wrapper mt-4 border border-gray shadow-sm">
+    <div class="users-table table-wrapper mt-4 shadow-sm">
         <table class="posts-table rounded-3">
             <thead>
                 <tr>

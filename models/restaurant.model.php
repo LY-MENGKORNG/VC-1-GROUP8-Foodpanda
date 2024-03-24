@@ -1,4 +1,3 @@
-
 <?php
 // get Restaurant by ID 
 function getRestaurant($id)
@@ -84,7 +83,7 @@ function createCategory(int $restaurant_id, string $cate_name, string $descripti
     return $stmt->rowCount() > 0;
 }
 
-function editCategory(int $cate_id, string $cate_name, string $description, string | array $cate_img): bool
+function editCategory(int $cate_id, string $cate_name, string $description, string|array $cate_img): bool
 {
     global $connection;
     $stmt = $connection->prepare("UPDATE categories SET cate_name = :cate_name, description = :description, 
@@ -147,22 +146,19 @@ function deleteFood($id)
     return $stmt->rowCount() > 0;
 }
 
-// owner edit profile
-function ownerEditProfile(string $first_name, string $last_name, string $email, string $phone, string $user_id)
+function getAllOrderInRestaurant(string $restaurant_name)
 {
     global $connection;
-    $role_id = 2;
-    $stmt = $connection->prepare("UPDATE users SET 
-                    first_name = :first_name, last_name = :last_name, email = :email, phone = :phone 
-                    WHERE user_id = :user_id AND role_id = :role_id");
-
+    $stmt = $connection->prepare(
+        "SELECT orders.order_id, orders.delivery_id, orders.order_status, orders.order_date, orders.restaurant_name, orders.deliver_date, 
+        orders.restaurant_img, orders.address_id, users.first_name, users.last_name, users.email, users.profile, payments.payment_amount
+        FROM users 
+        INNER JOIN orders ON orders.customer_id = users.user_id 
+        INNER JOIN payments ON users.user_id = payments.user_id
+        WHERE orders.restaurant_name = :restaurant_name GROUP BY orders.order_id;"
+    );
     $stmt->execute([
-        ":first_name" => $first_name,
-        ":last_name" => $last_name,
-        ":email" => $email,
-        ":phone" => $phone,
-        ":user_id" => $user_id,
-        ":role_id" => $role_id
+        ":restaurant_name" => $restaurant_name
     ]);
-    return $stmt->rowCount() > 0;
+    return $stmt->fetchAll();
 }
