@@ -27,7 +27,7 @@
             Your browser does not support the video tag.
         </video>
         <?php if (isset($_SESSION["email_sent"])) { ?>
-            <script>alert("hello world")</script>
+            <script>alert("We already sent to your email address")</script>
         <?php }
             unset($_SESSION["email_sent"]);
         ?>

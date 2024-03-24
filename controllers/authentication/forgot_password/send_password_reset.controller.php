@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $body_content = ob_get_clean();
             $mail->Body = $body_content;
             $mail->send();
+            $_SESSION["email_sent"] = true;
             header("Location: /customer/signin");
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
