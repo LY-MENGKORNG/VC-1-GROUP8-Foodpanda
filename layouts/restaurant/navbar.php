@@ -25,7 +25,7 @@
                         <a class="<?= getActivePage('/restaurant/delivery') ?>" href="/restaurant/delivery"><span class="icon home" aria-hidden="true"></span>Delivery</a>
                     </li>
                     <li>
-                        <a class="<?= getActivePage('/restaurant/customer') ?>" href="/restaurant/customer"><span class="icon home" aria-hidden="true"></span>Customer</a>
+                        <a class="<?= getActivePage('/restaurant/customer') ?>" href="/restaurant/order"><span class="icon home" aria-hidden="true"></span>Order</a>
                     </li>
                 </ul>
             </div>

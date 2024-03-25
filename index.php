@@ -19,7 +19,7 @@ if (urlIs("/admin") || urlIs("/admin/manage_restaurant") ||
 
 // Restaurant routes
 else if (urlIs("/restaurant") || urlIs("/restaurant/category") || urlIs("/restaurant/delivery") || 
-        urlIs("/restaurant/customer") || urlIs("/restaurant/food") || urlIs("/restaurant/add_food") || 
+        urlIs("/restaurant/order") || urlIs("/restaurant/food") || urlIs("/restaurant/add_food") || 
         urlIs("/restaurant/edit_food")|| urlIs("/restaurant/delete_food") ||
         urlIs("/restaurant/category") || urlIs("/restaurant/add_category") || urlIs("/restaurant/edit_category") ||
         urlIs("/restaurant/delete_category") || urlIs("/restaurant/profile") || urlIs("/restaurant/edit_profile") || 
@@ -55,7 +55,7 @@ else if (
     urlIs("/customer/signout") || urlIs("/customer/check_signout") || 
     urlIs("/foodpanda")  ||
 
-    urlIs("/restaurant/signin") || urlIs("/restaurant/check_signin") ||
+    urlIs("   ") || urlIs("/restaurant/check_signin") ||
     urlIs("/restaurant/signout") || urlIs("/restaurant/check_signout") || 
 
     urlIs("/delivery/signin") || urlIs("/delivery/check_signin") || 
