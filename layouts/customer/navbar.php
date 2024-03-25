@@ -32,7 +32,7 @@
                                             </button>
                                         </div>
                                         <input type="text" class="shadow-none border-0 form-control"
-                                            placeholder="Enter Your Location" />
+                                            placeholder="Enter Your Location" id="yourlocation" />
                                     </div>
                                 </div>
                                 <div class="p-3 border-bottom">
@@ -116,7 +116,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img alt="#"
                                     src="../../assets/images/uploads/customer_profile/<?= isset($customer["profile"]) ? $customer["profile"] : 'avatar.png' ?>"
-                                    class="img-fluid rounded-circle header-user mr-2 header-user"
+                                    class="img-fluid rounded-circle header-user mr-2 header-user border border-primary"
                                     style="height: 35px; width: 35px;" />
                                 <span class="main_color font-weight-bolder">
                                     <?= isset($customer) ? $customer['first_name'] : "" ?>

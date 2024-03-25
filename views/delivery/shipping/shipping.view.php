@@ -1,8 +1,7 @@
 <!-- ! Main -->
 <main class="main users chart-page" id="skip-target">
     <div class="container">
-        <h3 class="title">Hi, <?= ($delivery["first_name"]) ?> 👋🏻</h2>
-            <p class="my-2 fw-lighter">Welcome to Dashboard</p>
+        <h3 class="title mb-5">Hi, <?= ($delivery["first_name"]) ?> 👋🏻</h2>
             <div class="row stat-cards d-flex mt-4">
                 <div class="col-md-3 col-xl-4">
                     <article class="stat-cards-item rounded-0" style="background: #FBE2DE;">
@@ -89,7 +88,7 @@
             </div>
         </div>
     </div>
-    <div class="container mt-5">
+    <!-- <div class="container mt-5">
         <h4 class="title">Shipping Report</h4>
         <div class="users-table table-wrapper rounded-lg  mt-3">
             <table class="posts-table table table-striped">
@@ -114,6 +113,6 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> -->
     </div>
 </main>

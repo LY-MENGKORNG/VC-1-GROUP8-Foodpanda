@@ -30,7 +30,8 @@ else if (urlIs("/restaurant") || urlIs("/restaurant/category") || urlIs("/restau
 
 // Delivery routes
 else if(urlIs("/delivery") || urlIs("/delivery/profile") || urlIs("/delivery/edit_profile") ||
-        urlIs("/delivery/notification") || urlIs("/delivery/shipping") || urlIs("/delivery/order")) 
+        urlIs("/delivery/notification") || urlIs("/delivery/shipping") || urlIs("/delivery/order") || 
+        urlIs("/delivery/tracking")) 
 {
     require "./routers/delivery_router.php";
 }
@@ -39,7 +40,7 @@ else if(urlIs("/delivery") || urlIs("/delivery/profile") || urlIs("/delivery/edi
 else if(urlIs("/customer") || urlIs("/customer/checkout") || urlIs("/customer/search") || urlIs("/customer/offers") ||
         urlIs("/customer/profile") || urlIs("/customer/order") || urlIs("/customer/edit_profile") || 
         urlIs("/customer/trending") || urlIs("/customer/restaurant") || urlIs("/customer/success") ||
-        urlIs("/customer/address") || urlIs("/customer/editAddress"))
+        urlIs("/customer/address") || urlIs("/customer/editAddress") || urlIs("/customer/favorite"))
 {  
     require './routers/customer_router.php';
 }
@@ -59,7 +60,8 @@ else if (
     urlIs("/restaurant/signout") || urlIs("/restaurant/check_signout") || 
 
     urlIs("/delivery/signin") || urlIs("/delivery/check_signin") || 
-    urlIs("/delivery/signout") || urlIs("/delivery/check_signout")) 
+    urlIs("/delivery/signout") || urlIs("/delivery/check_signout") || urlIs("/customer/forgot_password") ||
+    urlIs("/customer/send_email") || urlIs("/customer/change_password") || urlIs("/customer/confirm_password")) 
 {
     require "./routers/authentication_router.php";
 }   

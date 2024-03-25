@@ -23,6 +23,10 @@ $routes = [
     '/customer/check_signin' => 'controllers/authentication/customer/signin/check_signin.controller.php',
     '/customer/signout' => 'controllers/authentication/customer/signout/signout.controller.php',
     '/customer/check_signout' => 'controllers/authentication/customer/signout/check_signout.controller.php',
+    '/customer/forgot_password' => 'controllers/authentication/forgot_password/forgot_password.controller.php',
+    '/customer/send_email' => 'controllers/authentication/forgot_password/send_password_reset.controller.php',
+    '/customer/change_password' => 'controllers/authentication/forgot_password/change_password.controller.php',
+    '/customer/confirm_password' => 'controllers/authentication/forgot_password/confirm_password.controller.php',
 
     '/delivery/signin' => 'controllers/authentication/delivery/signin/signin.controller.php',
     '/delivery/check_signin' => 'controllers/authentication/delivery/signin/check_signin.controller.php',

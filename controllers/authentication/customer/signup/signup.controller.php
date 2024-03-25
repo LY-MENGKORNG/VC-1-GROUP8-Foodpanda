@@ -1,2 +1,2 @@
 <?php 
-require "./views/signup/customer_signup.view.php";
+require "./views/authentication/signup/customer_signup.view.php";

@@ -14,9 +14,9 @@ if (isset($_SESSION["customer"])) {
         '/customer/favorite' => 'controllers/customer/favorites/favorite.controller.php',
         '/customer/order' => 'controllers/customer/orders/order.controller.php',
         '/customer/profile' => 'controllers/customer/profiles/profile.controller.php',
+        '/customer/edit_profile' => 'controllers/customer/profiles/edit_profile.controller.php',
         '/customer/search' => 'controllers/customer/search/search.controller.php',
         '/customer/offers' => 'controllers/customer/offer/customer_offer.controller.php',
-        '/customer/edit_profile' => 'controllers/customer/profiles/edit_profile.controller.php',
         '/customer/trending' => 'controllers/customer/trending/trending.controller.php',
         '/customer/restaurant' => 'controllers/customer/restaurant/restaurant.controller.php',
         '/customer/address' => 'controllers/customer/checkout/address.controller.php',
@@ -32,6 +32,7 @@ if (isset($_SESSION["customer"])) {
     require "./layouts/customer/header.php";
     require "./layouts/customer/navbar.php";
     require $page;
+    require "./layouts/customer/navbar2.php";
     require "./layouts/customer/footer.php";
 }else {
     header("Location: /customer/signin");

@@ -32,9 +32,9 @@
                 <div class="notification-wrapper">
                     <button class="gray-circle-btn dropdown-btn" title="To messages" type="button">
                         <span class="sr-only">To messages</span>
-                        <span class="icon notification active" aria-hidden="true"></span>
+                        <span class="icon notification  active" aria-hidden="true"></span>
                     </button>
-                    <ul class="users-item-dropdown notification-dropdown dropdown">
+                    <ul class="users-item-dropdown notification-dropdown dropdown shadow-lg">
                         <li>
                             <a href="##">
                                 <div class="notification-dropdown-icon info">

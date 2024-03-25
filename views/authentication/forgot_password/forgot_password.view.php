@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Gurdeep Osahan" />
     <meta name="author" content="Gurdeep Osahan" />
@@ -17,40 +17,33 @@
     <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <link href="../../vendor/css/style.css" rel="stylesheet" />
-
-    <link href="../../vendor/sidebar/demo.css" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="login-page vh-100">
+    <div class="osahan-signup login-page">
         <video loop autoplay muted id="vid">
-            <source src="../../assets/videos/bg.mp4" type="video/ogg" />
+            <source src="../assets/videos/bg.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-        <div class="d-flex align-items-center justify-content-center vh-100">
+        <div class="d-flex align-items-center justify-content-center flex-column vh-100">
             <div class="px-5 col-md-6 ml-auto">
-                <div class="px-3 col-10 mx-auto">
-                    <h2 class="my-0" style="color: #FF2B85;">Sign in to your account</h2>
-                    <p class="text-50">Sign in to continue</p>
-                    <form class="mt-5 mb-4" action="/customer/check_signin" method="post">
+                <div class="px-5 col-10 mx-auto">
+                    <h2>Forgot password</h2>
+                    <p>Enter your email address below and we'll send you an email with instructions on how to change
+                        your password</p>
+                    <form action="/customer/send_email" class="mt-5 mb-4" method="post">
                         <div class="form-group">
-                            <label for="email" class="text-dark form-label">Email</label>
-                            <input type="email" name="email" placeholder="Enter Email" class="form-control" id="email" required/>
-                            <p class="text-danger"><?= isset($_SESSION["is_customer_email"]) ? $_SESSION["is_customer_email"] : ""  ?></p>
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control" name="email" id="exampleInputEmail1" >
+                            <p class="text-danger"><?= isset($_SESSION["is_customer_email"]) ? $_SESSION["is_customer_email"] : "" ?></p>
                         </div>
-                        <div class="form-group">
-                            <label for="password" class="text-dark">Password</label>
-                            <input type="password" name="password" placeholder="Enter Password" class="form-control" id="password" required />
-                            <p class="text-danger"><?= isset($_SESSION["is_customer_password"]) ? $_SESSION["is_customer_password"] : ""  ?></p>
-                        </div>
-                        <button class="btn text-white btn-lg btn-block" style="background: #FF2B85;">SIGN IN</button>
+                        <button class="btn btn-primary btn-lg btn-block">Send</button>
                     </form>
-                    <a href="forgot_password.html" class="text-decoration-none">
-                        <p class="text-center">Forgot your password?</p>
+                </div>
+                <div class="new-acc d-flex align-items-center justify-content-center">
+                    <a href="/customer/signin">
+                        <p class="text-center m-0">Already an account? Sign in</p>
                     </a>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <p class="text-center m-0">Don't have an account yet? <a href="/foodpanda">Sign up</a></p>
-                    </div>
                 </div>
             </div>
         </div>

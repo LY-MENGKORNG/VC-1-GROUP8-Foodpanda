@@ -9,7 +9,7 @@
                     <span class="sr-only">Home</span>
                     <span class="icon logo" aria-hidden="true"></span>
                     <div class="logo-text">
-                        <span class="logo-title">Elegant</span>
+                        <span class="logo-title">Admin</span>
                         <span class="logo-subtitle">Dashboard</span>
                     </div>
                 </a>
