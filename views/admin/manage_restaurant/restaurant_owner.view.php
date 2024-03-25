@@ -1,8 +1,8 @@
 <!-- Main -->
 <main class="main users chart-page" id="skip-target">
-    <div class="d-flex justify-content-between px-5">
+    <div class="d-flex justify-content-between px-4">
         <h3 class="main-title">Restaurant Owner</h3>
-        <button class="btn btn-primary col-2" data-bs-toggle="modal" data-bs-target="#reg-modal">
+        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#reg-modal" style="padding: 5px 25px; height: 40px;">
             Add Owner
         </button>
     </div>
@@ -54,10 +54,10 @@
             </div>
         </div>
     </div>
-    <div class="users-table table-wrapper mt-4 p-4">
-        <table class="posts-table rounded-3">
+    <div class="users-table table-wrapper shadow-sm rounded orverflow-hidden mt-4 p-4">
+        <table class="posts-table">
             <thead>
-                <tr class="users-table-info  bg-transparent">
+                <tr class="users-table-info">
                     <th>
                         <label class="users-table__checkbox ms-20">
                             <input type="checkbox" class="check-all">Image

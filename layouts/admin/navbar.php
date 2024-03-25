@@ -29,7 +29,7 @@
                     <li>
                         <a class="<?= getActivePage('/admin/restaurant_owner') ?>" href="/admin/restaurant_owner"><span class="icon home" aria-hidden="true"></span>Owners</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a class="show-cat-btn" href="##">
                             <span class="icon paper" aria-hidden="true"></span>Pages
                             <span class="category__btn transparent-btn" title="Open list">
@@ -45,21 +45,21 @@
                                 <a href="new-page.html">Add new page</a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                         <a href="comments.html">
                             <span class="icon message" aria-hidden="true"></span>
                             Comments
                         </a>
                         <span class="msg-counter">7</span>
-                    </li>
+                    </li> -->
                 </ul>
                 <span class="system-menu__title">system</span>
                 <ul class="sidebar-body-menu">
-                    <li>
+                    <!-- <li>
                         <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                         <a class="show-cat-btn" href="##">
                             <span class="icon category" aria-hidden="true"></span>Extentions
                             <span class="category__btn transparent-btn" title="Open list">
@@ -75,8 +75,8 @@
                                 <a href="extention-02.html">Extentions-02</a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                         <a class="show-cat-btn" href="controllers/users/new_user.registration.user.php">
                             <span class="icon user-3" aria-hidden="true"></span>Users
                             <span class="category__btn transparent-btn" title="Open list">
@@ -87,15 +87,30 @@
                         <ul class="cat-sub-menu">
                             <li>
                                 <a href="views/users/new_user_registration.users.php">Users-01</a> 
-                                <!-- users-01.html -->
+                                users-01.html
                             </li>
                             <li>
                                 <a href="users-02.html">Users-02</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li>
-                        <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
+                        <!-- <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a> -->
+                        <a class="show-cat-btn" href="controllers/users/new_user.registration.user.php">
+                            <i class="feather-settings mx-2" aria-hidden="true"></i>Autentication
+                            <span class="category__btn transparent-btn" title="Open list">
+                                <span class="sr-only">Open list</span>
+                                <span class="icons arrow-down" aria-hidden="true"></span>
+                            </span>
+                        </a>
+                        <ul class="cat-sub-menu rounded-lg">
+                            <li class="cat-item">
+                                <a href="/admin/signin">Sign In</a> 
+                            </li>
+                            <li>
+                                <a href="/admin/signout">Log out</a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

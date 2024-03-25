@@ -9,8 +9,10 @@
             <i data-feather="bar-chart-2" aria-hidden="true"></i>
           </div>
           <div class="stat-cards-info">
-            <p class="stat-cards-info__num">1478 286</p>
-            <p class="stat-cards-info__title">Total visits</p>
+            <p class="stat-cards-info__num">
+              <?= count($list_orders) ?>
+            </p>
+            <p class="stat-cards-info__title">Total Orders</p>
             <p class="stat-cards-info__progress">
               <span class="stat-cards-info__profit success">
                 <i data-feather="trending-up" aria-hidden="true"></i>4.07%
@@ -26,8 +28,10 @@
             <i data-feather="file" aria-hidden="true"></i>
           </div>
           <div class="stat-cards-info">
-            <p class="stat-cards-info__num">1478 286</p>
-            <p class="stat-cards-info__title">Total visits</p>
+            <p class="stat-cards-info__num">$
+              <?= $income ?>
+            </p>
+            <p class="stat-cards-info__title">Total Income</p>
             <p class="stat-cards-info__progress">
               <span class="stat-cards-info__profit success">
                 <i data-feather="trending-up" aria-hidden="true"></i>0.24%
@@ -43,8 +47,10 @@
             <i data-feather="file" aria-hidden="true"></i>
           </div>
           <div class="stat-cards-info">
-            <p class="stat-cards-info__num">1478 286</p>
-            <p class="stat-cards-info__title">Total visits</p>
+            <p class="stat-cards-info__num">
+              <?= count($customers) ?>
+            </p>
+            <p class="stat-cards-info__title">Total Users</p>
             <p class="stat-cards-info__progress">
               <span class="stat-cards-info__profit danger">
                 <i data-feather="trending-down" aria-hidden="true"></i>1.64%
@@ -60,8 +66,10 @@
             <i data-feather="feather" aria-hidden="true"></i>
           </div>
           <div class="stat-cards-info">
-            <p class="stat-cards-info__num">1478 286</p>
-            <p class="stat-cards-info__title">Total visits</p>
+            <p class="stat-cards-info__num">
+              <?= count($drivers) ?>
+            </p>
+            <p class="stat-cards-info__title">Total Drivers</p>
             <p class="stat-cards-info__progress">
               <span class="stat-cards-info__profit warning">
                 <i data-feather="trending-up" aria-hidden="true"></i>0.00%
@@ -77,7 +85,7 @@
         <div class="chart">
           <canvas id="myChart" aria-label="Site statistics" role="img"></canvas>
         </div>
-        <div class="users-table table-wrapper">
+        <div class="users-table table-wrapper shadow-sm">
           <table class="posts-table">
             <thead>
               <tr class="users-table-info">
@@ -100,23 +108,34 @@
                       <input type="checkbox" class="check">
                       <div class="categories-table-img">
                         <picture>
-                          <source srcset="../../assets/images/uploads/restaurants/<?= $restaurant["restaurant_img"] ?>" type="image/webp"><img src="../../assets/images/uploads/restaurants/<?= $restaurant["restaurant_img"] ?>" alt="restaurant">
+                          <source srcset="../../assets/images/uploads/restaurants/<?= $restaurant["restaurant_img"] ?>"
+                            type="image/webp"><img
+                            src="../../assets/images/uploads/restaurants/<?= $restaurant["restaurant_img"] ?>"
+                            alt="restaurant">
                         </picture>
                       </div>
                     </label>
                   </td>
-                  <td><?= $restaurant["restaurant_name"] ?></td>
+                  <td>
+                    <?= $restaurant["restaurant_name"] ?>
+                  </td>
                   <td>
                     <div class="pages-table-img">
                       <picture class="d-flex flex-row align-items-end">
-                        <source srcset="../../assets/images/uploads/owner_profile/<?= isset($restaurant["profile"]) ? $restaurant["profile"] : 'avatar.png' ?>" type="image/webp"><img src="../../assets/images/uploads/owner_profile/<?= isset($restaurant["profile"]) ? $restaurant["profile"] : 'avatar.png' ?>" alt="profile">
-                        <?= $restaurant["first_name"]." ". $restaurant["last_name"] ?>
+                        <source
+                          srcset="../../assets/images/uploads/owner_profile/<?= isset ($restaurant["profile"]) ? $restaurant["profile"] : 'avatar.png' ?>"
+                          type="image/webp"><img
+                          src="../../assets/images/uploads/owner_profile/<?= isset ($restaurant["profile"]) ? $restaurant["profile"] : 'avatar.png' ?>"
+                          alt="profile">
+                        <?= $restaurant["first_name"] . " " . $restaurant["last_name"] ?>
                       </picture>
                     </div>
                   </td>
                   <td>
                     <?php $status = $restaurant["opening_hour"] ? "active" : "pending" ?>
-                    <span class="badge-<?= $status ?>"><?= ucfirst($status) ?></span>
+                    <span class="badge-<?= $status ?>">
+                      <?= ucfirst($status) ?>
+                    </span>
                   </td>
                   <td>
                     <span class="p-relative">
@@ -137,98 +156,37 @@
         </div>
       </div>
       <div class="col-lg-3">
-        <article class="customers-wrapper">
+        <article class="customers-wrapper p-2">
           <canvas id="customersChart" aria-label="Customers statistics" role="img"></canvas>
-                       <!-- <p class="customers__title">New Customers <span>+958</span></p>
-              <p class="customers__date">28 Daily Avg.</p>
-              <picture><source srcset="assets/images/svg/customers.svg" type="image/webp"><img src="assets/images/svg/customers.svg" alt=""></picture> -->
+          <p class="customers__title">New Customers <span>+958</span></p>
+          <p class="customers__date">28 Daily Avg.</p>
+          <picture>
+            <source srcset="assets/images/svg/customers.svg" type="image/webp"><img
+              src="assets/images/svg/customers.svg" alt="">
+          </picture>
         </article>
         <article class="white-block">
           <div class="top-cat-title">
             <h3>Top categories</h3>
-            <p>28 Categories, 1400 Posts</p>
+            <p>
+              <?= count($top_category) ?> Categories, 20 Posts
+            </p>
           </div>
           <ul class="top-cat-list">
-            <li>
-              <a href="##">
-                <div class="top-cat-list__title">
-                  Lifestyle <span>8.2k</span>
-                </div>
-                <div class="top-cat-list__subtitle">
-                  Dailiy lifestyle articles <span class="purple">+472</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="##">
-                <div class="top-cat-list__title">
-                  Tutorials <span>8.2k</span>
-                </div>
-                <div class="top-cat-list__subtitle">
-                  Coding tutorials <span class="blue">+472</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="##">
-                <div class="top-cat-list__title">
-                  Technology <span>8.2k</span>
-                </div>
-                <div class="top-cat-list__subtitle">
-                  Dailiy technology articles <span class="danger">+472</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="##">
-                <div class="top-cat-list__title">
-                  UX design <span>8.2k</span>
-                </div>
-                <div class="top-cat-list__subtitle">
-                  UX design tips <span class="success">+472</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="##">
-                <div class="top-cat-list__title">
-                  Interaction tips <span>8.2k</span>
-                </div>
-                <div class="top-cat-list__subtitle">
-                  Interaction articles <span class="warning">+472</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="##">
-                <div class="top-cat-list__title">
-                  App development <span>8.2k</span>
-                </div>
-                <div class="top-cat-list__subtitle">
-                  Mobile development articles <span class="warning">+472</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="##">
-                <div class="top-cat-list__title">
-                  Nature <span>8.2k</span>
-                </div>
-                <div class="top-cat-list__subtitle">
-                  Wildlife animal articles <span class="warning">+472</span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a href="##">
-                <div class="top-cat-list__title">
-                  Geography <span>8.2k</span>
-                </div>
-                <div class="top-cat-list__subtitle">
-                  Geography articles <span class="primary">+472</span>
-                </div>
-              </a>
-            </li>
+            <?php foreach ($top_category as $category) { ?>
+              <li>
+                <a href="##">
+                  <div class="top-cat-list__title">
+                    <?= $category["cate_name"] ?> <span>
+                      <?= $category["cate_id"] ?>.2k
+                    </span>
+                  </div>
+                  <div class="top-cat-list__subtitle">
+                    <?= $category["description"] ?> <span class="purple">+472</span>
+                  </div>
+                </a>
+              </li>
+            <?php } ?>
           </ul>
         </article>
       </div>

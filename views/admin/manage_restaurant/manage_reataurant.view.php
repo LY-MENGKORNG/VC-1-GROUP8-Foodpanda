@@ -4,7 +4,7 @@
         <div class="d-flex flex-row justify-content-sm-between px-2">
             <h1 class="main-title col-10">Restaurants</h1>
             <button class="btn btn-primary font-weight-bold text-gray rounded" data-bs-toggle="modal"
-                data-bs-target="#reg-modal">
+                data-bs-target="#reg-modal" style="height: 40px;">
                 Add Restaurant
             </button>
         </div>

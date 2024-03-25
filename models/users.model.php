@@ -186,3 +186,4 @@ function check_verify_code($code): array
         return [];
     }
 }
+

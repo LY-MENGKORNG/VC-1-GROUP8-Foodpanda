@@ -331,12 +331,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (ctx) {
       var myCanvas = ctx.getContext('2d');
       var myChart = new Chart(myCanvas, {
-        type: 'line',
+        type: 'bar',
         data: {
-          labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov'],
           datasets: [{
             label: 'Last 6 months',
-            data: [35, 27, 40, 15, 30, 25, 45],
+            data: [35, 27, 40, 15, 30, 25, 45, 88, 99, 66, 79, 70],
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
             backgroundColor: ['rgba(95, 46, 234, 1)'],
@@ -344,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function () {
             borderWidth: 2
           }, {
             label: 'Previous',
-            data: [20, 36, 16, 45, 29, 32, 10],
+            data: [20, 36, 16, 45, 29, 32, 10, 59, 67, 45, 34, 90],
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
             backgroundColor: ['rgba(75, 222, 151, 1)'],
