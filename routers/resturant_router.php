@@ -4,6 +4,10 @@ require "./models/restaurant.model.php";
 if (isset($_SESSION["restaurant_owner"])) {
     $restaurant_owner = $_SESSION["restaurant_owner"];
 
+    // if ($uri = "/restaurant") {
+    //     header("Location: /restaurant/category");
+    // }
+
     $page = "";
     $routes = [
         '/restaurant' => 'controllers/restaurant/home/home.controller.php',

@@ -150,12 +150,13 @@ function addPayment(
     string $card_name,
     string $cvv,
     int $payment_amount,
-    string $promo_code
+    string $promo_code,
+    string $method
 ): bool {
     global $connection;
     $stmt = $connection->prepare(
-        "INSERT INTO payments (user_id, card_number, valid_through, card_name, cvv, payment_amount, promo_code) 
-        VALUES (:user_id, :card_number, :valid_through, :card_name, :cvv, :payment_amount, :promo_code)"
+        "INSERT INTO payments (user_id, card_number, valid_through, card_name, cvv, payment_amount, promo_code, method) 
+        VALUES (:user_id, :card_number, :valid_through, :card_name, :cvv, :payment_amount, :promo_code, :method)"
     );
     $stmt->execute([
         ":user_id" => $user_id,
@@ -164,7 +165,8 @@ function addPayment(
         ":card_name" => $card_name,
         ":cvv" => $cvv,
         ":payment_amount" => $payment_amount,
-        "promo_code" => $promo_code
+        ":promo_code" => $promo_code,
+        ":method" => $method
     ]);
     return $stmt->rowCount() > 0;
 }

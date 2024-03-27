@@ -69,17 +69,45 @@
                 </h2>
               </div>
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="osahan-card-body border-top p-3">
-                  <h6 class="m-0">Add new card</h6>
-                  <p class="small">WE ACCEPT <span class="osahan-card ml-2 font-weight-bold">(
-                      Master Card / Visa Card / Rupay )</span></p>
-                  <div class="form-row">
-                    <div class="col-md-12 form-group">
+                <div class="osahan-card-body border-top">
+                  <h5 class="m-0 pt-3 px-3">Payment methods</h5>
+                  <p class="small px-3">WE ACCEPT <span class="osahan-card ml-2 font-weight-bold">( Master Card / Visa Card / Paypal )</span></p>
+                  <div class="row px-3">
+                    <article class="col-md-4 visa">
+                      <input type="radio" id="VISA" name="method" value="VISA" class="custom-control-input">
+                      <label for="VISA" class="custom-control-label w-100 p-3">
+                        <h6 class="">VISA</h6>
+                      </label>
+                    </article>
+                    <article class="col-md-4 master">
+                      <input type="radio" id="MASTER" name="method" checked value="MASTER CARD" class="custom-control-input">
+                      <label for="MASTER" class="custom-control-label w-100 p-3">
+                        <h6 class="">MASTER CARD</h6>
+                      </label>
+                    </article>
+                    <article class="col-md-4 paypal">
+                      <input type="radio" id="PAYPAL" name="method" value="PAYPAL" class="custom-control-input">
+                      <label for="PAYPAL" class="custom-control-label w-100 p-3">
+                        <h6 class="">PAYPAL</h6>
+                      </label>
+                    </article>
+                  </div>
+                  <div class="form-row mt-3 border-top p-3">
+                    <div class="col-md-8 form-group">
+                      <label class="form-label font-weight-bold small">Name on card</label>
+                      <input placeholder="Enter Card name" name="card_name" type="text" class="form-control" required>
+                    </div>
+                    <div class="col-md-4 form-group">
+                      <label class="form-label font-weight-bold small">Expiration Date</label>
+                      <input type="text" name="valid_through" id="validThrough" placeholder="MM/YY" maxlength="5"
+                        pattern="(0[1-9]|1[0-2])\/\d{2}" class="form-control" required>
+                    </div>
+                    <div class="col-md-8 form-group">
                       <label class="form-label font-weight-bold small">Card number</label>
                       <div class="input-group">
                         <input type="text" name="card_number" id="cardNumber" maxlength="19"
                           pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" class="form-control"
-                          placeholder="e.g. 1234 5678 9101 1121" ​>
+                          placeholder="1234 5678 9101 1121" ​>
                         <div class="input-group-append">
                           <button type="button" class="btn btn-outline-secondary">
                             <i class="feather-credit-card"></i>
@@ -87,20 +115,10 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-8 form-group">
-                      <label class="form-label font-weight-bold small">Valid
-                        through(MM/YY)</label>
-                      <input type="text" name="valid_through" id="validThrough" placeholder="Enter Valid through(MM/YY)"
-                        maxlength="5" pattern="(0[1-9]|1[0-2])\/\d{2}" class="form-control" required>
-                    </div>
                     <div class="col-md-4 form-group">
                       <label class="form-label font-weight-bold small">CVV</label>
-                      <input type="text" name="cvv_number" placeholder="Enter CVV Number" id="cvv" maxlength="4"
-                        pattern="\d{3,4}" class="form-control" required>
-                    </div>
-                    <div class="col-md-12 form-group">
-                      <label class="form-label font-weight-bold small">Name on card</label>
-                      <input placeholder="Enter Card name" name="card_name" type="text" class="form-control" required>
+                      <input type="text" name="cvv_number" placeholder="123" id="cvv" maxlength="4" pattern="\d{3,4}"
+                        class="form-control" required>
                     </div>
                     <div class="col-md-12 form-group mb-0">
                       <div class="custom-control custom-checkbox">
@@ -200,7 +218,8 @@
   </div>
 
   <!-- add delivery address -->
-  <div class="modal fade" id="yourAddress" tabindex="-1" role="dialog" aria-labelledby="yourAddressLabel" aria-hidden="true">
+  <div class="modal fade" id="yourAddress" tabindex="-1" role="dialog" aria-labelledby="yourAddressLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <form action="/customer/address" method="post">
         <div class="modal-content overflow-hidden">
@@ -312,12 +331,11 @@
                   <input type="hidden" name="address_id" value="<?= $address["address_id"] ?>">
                   <div class="input-group">
                     <input name="address_name" placeholder="e.g. Phnom Penh Cambodia" type="text" class="form-control"
-                      id="editAddressInput" oninput="editAddress(event, <?= $address['address_id'] ?>)" value="<?= $address["address_name"] ?>">
+                      id="editAddressInput" oninput="editAddress(event, <?= $address['address_id'] ?>)"
+                      value="<?= $address["address_name"] ?>">
                     <div class="input-group-append">
-                      <a
-                      href="https://www.google.com/maps/place/Phnom+Penh/@11.579654,104.7253668,11z/data=!3m1!4b1!4m6!3m5!1s0x3109513dc76a6be3:0x9c010ee85ab525bb!8m2!3d11.5563738!4d104.9282099!16zL20vMGRsd2o?entry=ttu"
-                      target="_blank"
-                      type="button" class="btn btn-outline-secondary">
+                      <a href="https://www.google.com/maps/place/Phnom+Penh/@11.579654,104.7253668,11z/data=!3m1!4b1!4m6!3m5!1s0x3109513dc76a6be3:0x9c010ee85ab525bb!8m2!3d11.5563738!4d104.9282099!16zL20vMGRsd2o?entry=ttu"
+                        target="_blank" type="button" class="btn btn-outline-secondary">
                         <i class="feather-map-pin"></i>
                       </a>
                     </div>
@@ -347,7 +365,8 @@
                 <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
               </div>
               <div class="col-6 m-0 p-0">
-                <button type="button" id="editAddressBtn<?= $address["address_id"] ?>" class="btn btn-primary btn-lg btn-block">Save
+                <button type="button" id="editAddressBtn<?= $address["address_id"] ?>"
+                  class="btn btn-primary btn-lg btn-block">Save
                   changes</button>
               </div>
             </div>

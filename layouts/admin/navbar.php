@@ -95,17 +95,16 @@
                         </ul>
                     </li> -->
                     <li>
-                        <!-- <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a> -->
-                        <a class="show-cat-btn" href="controllers/users/new_user.registration.user.php">
+                        <a class="show-cat-btn" href="#">
                             <i class="feather-settings mx-2" aria-hidden="true"></i>Autentication
                             <span class="category__btn transparent-btn" title="Open list">
                                 <span class="sr-only">Open list</span>
                                 <span class="icons arrow-down" aria-hidden="true"></span>
                             </span>
                         </a>
-                        <ul class="cat-sub-menu rounded-lg">
-                            <li class="cat-item">
-                                <a href="/admin/signin">Sign In</a> 
+                        <ul class="cat-sub-menu">
+                            <li>
+                                <a href="/admin/signin">Forgot password</a> 
                             </li>
                             <li>
                                 <a href="/admin/signout">Log out</a>

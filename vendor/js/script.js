@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function () {
         data: {
           labels: ['Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov'],
           datasets: [{
-            label: 'Last 6 months',
+            label: 'Last 12 months',
             data: [35, 27, 40, 15, 30, 25, 45, 88, 99, 66, 79, 70],
             cubicInterpolationMode: 'monotone',
             tension: 0.4,
@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
             },
             title: {
               display: true,
-              text: ['Visitor statistics', 'Nov - July'],
+              text: ['Visitor statistics', 'Dec - Nov'],
               align: 'start',
               color: '#171717',
               font: {
