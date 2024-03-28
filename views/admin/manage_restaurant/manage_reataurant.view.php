@@ -72,16 +72,16 @@
         </div>
         <div class="container-fluid mt-3 main-card w-100">
             <?php foreach ($restaurants as $restaurant) { ?>
-                <div class="card shadow overflow-hidden">
+                <div class="stat-card border overflow-hidden rounded-sm">
                     <div class="d-flex align-items-center justify-content-center overflow-hidden" style="height: 130px;">
                         <img src="../../../assets/images/uploads/restaurants/<?= $restaurant["restaurant_img"] ?>"
                             class="img-fluid" alt="..." style="width: 100%;">
                     </div>
                     <div class="card-body child-card">
-                        <h5 class="card-title">
+                        <h5 class="main-title fs-6 m-0">
                             <?= $restaurant["restaurant_name"] ?>
                         </h5>
-                        <p class="card-text text-bolder">Location: <span class="text-thin">
+                        <p class="card-text main-title" style="font-size: 11px; font-weight: thin;">Location: <span class="text-thin mt-1">
                                 <?= $restaurant["location"] ?>
                             </span></p>
                         <form action="/admin/restaurant_detail" method="post">

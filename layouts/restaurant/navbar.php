@@ -26,7 +26,7 @@
                     </li>
                     <li>
                         <a class="<?= getActivePage('/restaurant/food') ?>" href="/restaurant/food"><span
-                                class="icon home" aria-hidden="true"></span>Food</a>
+                                class="icon home" aria-hidden="true"></span>Product</a>
                     </li>
                     <li>
                         <a class="<?= getActivePage('/restaurant/delivery') ?>" href="/restaurant/delivery"><span

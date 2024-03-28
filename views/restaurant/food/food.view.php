@@ -19,14 +19,13 @@
                     </div>
                     <div class="modal-body">
                         <form action="/restaurant/add_food" method="post" enctype="multipart/form-data">
-                            <div class="form-group m-auto border border-info rounded-circle d-flex justify-content-center align-items-center"
-                                style="width: 100px; height: 100px;">
+                            <div class="form-group m-auto overflow-hidden rounded-circle d-flex justify-content-center align-items-center" >
                                 <input type="file" name="image" id="image" style="display: none;" required>
-                                <label for="image">
-                                    <i class="feather-image text-primary" style="font-size: 50px;"></i>
+                                <label for="image" class="stat-cards-icon purple fs-1 rounded-circle" style="width: 100px; height: 100px;">
+                                    <i data-feather="upload" aria-hidden="true"></i>
                                 </label>
                             </div>
-                            <div class="row d-flex gap-3 mt-4">
+                            <div class="row d-flex mt-4">
                                 <div class="form-group col-6">
                                     <label for="food_name">Food Name:</label>
                                     <input type="text" name="food_name" id="food_name"
@@ -38,7 +37,7 @@
                                         class="form-control border border-info" required>
                                 </div>
                             </div>
-                            <div class="row d-flex gap-3">
+                            <div class="row d-flex">
                                 <div class="form-group col-6">
                                     <label for="quantity">Quantity:</label>
                                     <input type="number" name="quantity" id="quantity" min="0"

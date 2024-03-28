@@ -64,7 +64,11 @@ function getFoodsByCateId($cate_id = null)
     global $connection;
     if ($cate_id) {
         $stmt = $connection->prepare(
-            "SELECT * FROM cate_food WHERE cate_id = :cate_id"
+            "SELECT * FROM select `categories`.`cate_id` AS `cate_id`,`categories`.`restaurant_id` AS `restaurant_id`,
+            `categories`.`cate_name` AS `cate_name`,`categories`.
+            `cate_img` AS `cate_img`,`foods`.`food_id` AS `food_id`,`foods`.`food_name` AS `food_name`,`foods`.`image` AS `image`,
+            `foods`.`quantity` AS `quantity`,`foods`.`price` AS `price`,`foods`.`rating` AS `rating` 
+            from (`categories` join `foods` on(`foods`.`cate_id` = `categories`.`cate_id`)) WHERE categories.cate_id = :cate_id"
         );
         $stmt->execute([":cate_id" => $cate_id]);
     } else {
@@ -223,6 +227,22 @@ function getAllFavorite(): array
 {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM favorites");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function topSellingProduct() : array {
+    global $connection;
+    $stmt = $connection->prepare(
+        "SELECT checkout.food_id, SUM(checkout.quantity) AS total_sales, foods.food_name, foods.cate_id, foods.image, 
+        foods.price, foods.rating, foods.discount, categories.cate_name
+        FROM checkout 
+        INNER JOIN foods ON foods.food_id = checkout.food_id
+        INNER JOIN categories ON categories.cate_id = foods.cate_id
+        GROUP BY food_id
+        ORDER BY total_sales DESC
+        LIMIT 3;"
+    );
     $stmt->execute();
     return $stmt->fetchAll();
 }

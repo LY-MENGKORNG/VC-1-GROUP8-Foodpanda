@@ -33,6 +33,10 @@ label {
     cursor: pointer;
 }
 
+input[type="checkbox"] {
+    display: none;
+}
+
 .border-primary {
     border-color: #e23844 !important
 }

@@ -125,7 +125,7 @@ function listOrders() : array {
 
 function getTopCate() : array {
     global $connection;
-    $stmt = $connection->prepare("SELECT * FROM categories LIMIT 6");
+    $stmt = $connection->prepare("SELECT * FROM categories LIMIT 5");
     $stmt->execute();
     return $stmt->fetchAll();
 }

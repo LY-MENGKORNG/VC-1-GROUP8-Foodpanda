@@ -45,7 +45,7 @@
                         </div>
                         <button class="btn text-white btn-lg btn-block" style="background: #FF2B85;">SIGN IN</button>
                     </form>
-                    <a href="forgot_password.html" class="text-decoration-none">
+                    <a href="/restaurant/forgot_password" class="text-decoration-none">
                         <p class="text-center">Forgot your password?</p>
                     </a>    
                 </div>

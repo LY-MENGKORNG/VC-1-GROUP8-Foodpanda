@@ -41,13 +41,16 @@
                       <label for="owner">Restaurant Owner</label>
                       <select class="form-select" name="owner_id" style="height: 40px;" id="owner">
 
-                      <?php foreach ($owners as $owner) { ?>
-                        <?php if ($owner["user_id"] == $restaurant["owner_id"]) { ?>
-                          <option value="<?= $owner["user_id"] ?>" selected><?= $owner["first_name"]." ". $owner["last_name"] ?>(Admin)</option>
+                      <?php foreach ($owners as $owner) {
+                          if ($owner["role_id"] == 1) { ?>
+                            <option value="<?= $owner["user_id"] ?>"><?= $owner["first_name"]." ". $owner["last_name"] ?>(Admin)</option>                            
+                          <?php } if ($owner["user_id"] == $restaurant["owner_id"]) { ?>
+                          <option value="<?= $owner["user_id"] ?>" selected><?= $owner["first_name"]." ". $owner["last_name"] ?></option>
                           <?php } else {?>
                           <option value="<?= $owner["user_id"] ?>"><?= $owner["first_name"]." ". $owner["last_name"] ?></option>
                         <?php } 
-                      } ?>
+                      }
+                     ?>
                       
                       </select>
                     </div>
