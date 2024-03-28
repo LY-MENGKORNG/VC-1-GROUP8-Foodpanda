@@ -17,7 +17,7 @@
 
         <!-- Modal -->
         <div class="modal fade" id="deliveryModal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-md">
                 <div class="modal-content p-4">
                     <div class="modal-header">
                         <h5 class="modal-title">
@@ -29,12 +29,12 @@
                         <form action="/restaurant/add_delivery" method="post" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="form-group col-6">
-                                    <label for="restaurant_name">First_Name</label>
+                                    <label for="first_name">First_Name</label>
                                     <input type="text" name="first_name" id="first_name" class="form-control border"
                                         required>
                                 </div>
                                 <div class="form-group col-6">
-                                    <label for="location">Last_name</label>
+                                    <label for="last_name">Last_name</label>
                                     <input type="text" name="last_name" id="last_name" class="form-control border"
                                         required>
                                 </div>

@@ -13,7 +13,7 @@
             <div class="modal-content p-4">
                 <div class="modal-header">
                     <h5 class="modal-title">
-                        <h5 class="modal-title" id="modal-title">Create new Owner to manage your Restaurant</h5>
+                        <h5 class="modal-title" id="modal-title">Create new restaurant owner</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </h5>
                 </div>
@@ -76,9 +76,9 @@
                             <label class="users-table__checkbox">
                                 <input type="checkbox" class="check">
                                 <div class="categories-table-img">
-                                    <picture>
+                                    <picture class="rounded-circle d-flex justify-content-center align-items-center orverflow-hidden">
                                         <source srcset="<?= $target_dir_file ?><?= $item["profile"] != null ? $item["profile"] : 'avatar.png' ?>" type="image/webp">
-                                        <img src="<?= $target_dir_file ?><?= $item["profile"] != null ? $item["profile"] : 'avatar.png' ?>" class="rounded-circle border" alt="<?= $item["first_name"] ?>" style="width: 40px; height: 40px;">
+                                        <img src="<?= $target_dir_file ?><?= $item["profile"] != null ? $item["profile"] : 'avatar.png' ?>" class="rounded-circle"  style="width: 45px; height: 45px;" alt="<?= $item["first_name"] ?>">
                                     </picture>
                                 </div>
                                 <?= $item["first_name"] ?>

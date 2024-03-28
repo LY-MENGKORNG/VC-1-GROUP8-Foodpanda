@@ -64,11 +64,11 @@ function getFoodsByCateId($cate_id = null)
     global $connection;
     if ($cate_id) {
         $stmt = $connection->prepare(
-            "SELECT * FROM select `categories`.`cate_id` AS `cate_id`,`categories`.`restaurant_id` AS `restaurant_id`,
+            "SELECT `categories`.`cate_id` AS `cate_id`,`categories`.`restaurant_id` AS `restaurant_id`,
             `categories`.`cate_name` AS `cate_name`,`categories`.
             `cate_img` AS `cate_img`,`foods`.`food_id` AS `food_id`,`foods`.`food_name` AS `food_name`,`foods`.`image` AS `image`,
             `foods`.`quantity` AS `quantity`,`foods`.`price` AS `price`,`foods`.`rating` AS `rating` 
-            from (`categories` join `foods` on(`foods`.`cate_id` = `categories`.`cate_id`)) WHERE categories.cate_id = :cate_id"
+            FROM (`categories` join `foods` on(`foods`.`cate_id` = `categories`.`cate_id`)) WHERE categories.cate_id = :cate_id"
         );
         $stmt->execute([":cate_id" => $cate_id]);
     } else {

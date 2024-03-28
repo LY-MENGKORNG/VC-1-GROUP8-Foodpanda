@@ -67,7 +67,7 @@
                                         <picture>
                                             <source
                                                 srcset="../../assets/images/uploads/restaurants/categories/<?= $category["cate_img"] ?>"
-                                                type="image/webp"><img src="assets/images/categories/01.jpg" alt="category">
+                                                type="image/webp"><img src="../../assets/images/uploads/restaurants/categories/<?= $category["cate_img"] ?>" alt="category">
                                         </picture>
                                     </div>
                                 </label>

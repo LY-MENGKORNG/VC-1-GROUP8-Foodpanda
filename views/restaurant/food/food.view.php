@@ -9,7 +9,7 @@
         </div>
         <!-- Modal --> 
         <div class="modal fade" id="createFood" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-md">
                 <div class="modal-content p-3">
                     <div class="modal-header"> 
                         <h5 class="modal-title">
@@ -25,7 +25,7 @@
                                     <i data-feather="upload" aria-hidden="true"></i>
                                 </label>
                             </div>
-                            <div class="row d-flex mt-4">
+                            <div class="row d-flex mt-2">
                                 <div class="form-group col-6">
                                     <label for="food_name">Food Name:</label>
                                     <input type="text" name="food_name" id="food_name"
@@ -190,7 +190,7 @@
                         </div>
                         <!-- delete category -->
                         <div class="modal fade" id="deletefood<?= $item["food_id"] ?>" tabindex="-1"
-                            aria-labelledby="modal-title" aria-hidden="true">
+                            aria-labelledby="deletefoodLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header row p-2 m-0">

@@ -11,7 +11,7 @@
 
         <!-- Modal -->
         <div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-md">
                 <div class="modal-content p-4">
                     <div class="modal-header">
                         <h5 class="modal-title">
@@ -22,38 +22,31 @@
                     <div class="modal-body">
                         <form action="/admin/check_add_restaurant" method="post" enctype="multipart/form-data">
                             <div class="row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-lg-6">
                                     <label for="restaurant_name">Restaurant Name</label>
                                     <input type="text" name="restaurant_name" id="restaurant_name"
                                         class="form-control border" required>
                                 </div>
-                                <div class="form-group col-6">
+                                <div class="form-group col-lg-6">
                                     <label for="location">Location</label>
                                     <input type="text" name="location" id="location" class="form-control border"
                                         required>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-6">
+                                <div class="form-group col-lg-12">
                                     <label for="email">Email</label>
                                     <input type="email" name="email" id="email" class="form-control border" required>
                                 </div>
-                                <div class="form-group col-6">
-                                    <label for="password">Password</label>
-                                    <input type="password" name="password" id="password" class="form-control border"
-                                        required>
-                                </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-12">
+                                <div class="form-group col-lg-6">
                                     <label for="phone">Contact Info</label>
                                     <input type="tel" name="contact_info" id="phone" class="form-control border"
                                         required>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-group mb-3">
-                                    <label class="form-label" for="profile">Choose image</label>
+                                <div class="form-group col-lg-6 mb-3">
+                                    <label class="" for="profile">Choose image</label>
                                     <input type="file" name="restaurant_img" class="form-control border" id="profile"
                                         aria-describedby="inputGroupFileAddon01" required>
                                 </div>

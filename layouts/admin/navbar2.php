@@ -80,7 +80,7 @@
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <picture>
-                <source srcset="../../assets/images/uploads/admin_profile/<?= $admin['profile'] ?>"><img src="../../assets/images/uploads/admin_profile/<?= $admin['profile'] ?>" alt="User name">
+                <source srcset="../../assets/images/uploads/admin_profile/<?= isset($admin["profile"]) ? $admin["profile"] : 'avatar.png' ?>"><img src="../../assets/images/uploads/admin_profile/<?= isset($admin["profile"]) ? $admin["profile"] : 'avatar.png' ?>" alt="User name">
               </picture>
             </span>
           </button>
