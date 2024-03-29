@@ -168,7 +168,7 @@
                   </div>
                 </td>
                 <td>
-                  <?php $status = $restaurant["opening_hour"] ? "active" : "pending";
+                  <?php $status = $restaurant["opening_hour"] ? "pending" : "active";
                     $status_class = $status == "active" ? "opening" : "closed";
                   ?>
                   <span class="badge-<?= $status ?>">

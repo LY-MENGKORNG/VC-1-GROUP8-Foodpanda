@@ -18,7 +18,7 @@
 
                   <?php
                   if (count($addresses) == 0) { ?>
-                    <h5 class="mx-auto my-3 text-info">Your didn't choose any address yet!</h5>
+                    <h5 class="mx-auto my-3 text-warning">Your didn't choose any address yet!</h5>
                   <?php } else {
                     foreach ($addresses as $address) {
                       $address_type = $address["address_type"] ?>
@@ -174,7 +174,7 @@
               <div class="bg-white p-3 py-3 border-bottom clearfix">
                 <div class="input-group-sm input-group">
                   <input placeholder="Enter promo code" name="promo_code" type="text" class="form-control"
-                    id="promoInput" required>
+                    id="promoInput" >
                   <div class="input-group-append">
                     <button type="button" class="btn btn-primary" onclick="checkPromoCode()">
                       <i class="feather-percent"></i> APPLY

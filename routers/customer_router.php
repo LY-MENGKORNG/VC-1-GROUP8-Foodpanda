@@ -3,8 +3,7 @@ require "./models/customer.model.php";
 
 if (isset($_SESSION["customer"])) {
     $customer = $_SESSION["customer"];
-
-    $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
+    $locations = getLocation();
 
     $page = "";
     $routes = [

@@ -22,7 +22,7 @@
                             </div>
                             <div class="d-flex  d-flex flex-column gap-5 p-3">
                                 <div class="left text-center">
-                                    <h6 class="mb-1 font-weight-bold"><?= $customer["first_name"] . " " . $customer["last_name"] ?><i class="feather-check-circle text-success"></i></h6>
+                                    <h6 class="mb-1 font-weight-bold text-center"><?= $customer["first_name"] . " " . $customer["last_name"] ?><i class="feather-check-circle text-success ml-1"></i></h6>
                                     <p class="text-muted m-0 small">
                                         <span class="__cf_email__" data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[&#160;<?= $customer["email"] ?>]</span>
                                     </p>

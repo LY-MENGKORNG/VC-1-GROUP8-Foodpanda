@@ -6,7 +6,7 @@
                     scrolling="no" marginheight="0" marginwidth="0"
                     src="https://maps.google.com/maps?hl=en&amp;q=<?= isset($order_tracking["latitude"]) ? $order_tracking["latitude"] : '11.556374' ?>,<?= isset($order_tracking["longitude"]) ? $order_tracking["longitude"] : '104.928207' ?>&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
             </div>
-            <div class="osahan-point mx-auto mt-5 position-absolute top-0"></div>
+            <!-- <div class="osahan-point mx-auto mt-5 position-absolute top-0"></div> -->
         </div>
     </section>
 </main>

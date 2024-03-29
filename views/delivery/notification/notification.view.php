@@ -75,7 +75,7 @@
                                                 <?= $notification["first_name"] ?>
                                                 <span class="text-secondary fw-lighter">need you to deliver</span>
                                             </span>
-                                            <span class="fw-lighter text-secondary">16m ago</span>
+                                            <!-- <span class="fw-lighter text-secondary">16m ago</span> -->
                                         </div>
                                     </div>
                                 </a>

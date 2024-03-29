@@ -73,7 +73,7 @@
 
         <div class="py-3 title d-flex align-items-center">
             <h2 class="m-0">Most popular</h2>
-            <a class="font-weight-bold ml-auto" href="/customer/trending">26 places <i class="feather-chevrons-right"></i></a>
+            <!-- <a class="font-weight-bold ml-auto" href="/customer/trending">26 places <i class="feather-chevrons-right"></i></a> -->
         </div>
 
         <div class="most_popular">
@@ -134,7 +134,7 @@
 
             <div class="pt-2 pb-3 title d-flex align-items-center">
                 <h5 class="m-0">Most sales</h5>
-                <a class="font-weight-bold ml-auto" href="#">26 places <i class="feather-chevrons-right"></i></a>
+                <!-- <a class="font-weight-bold ml-auto" href="#">26 places <i class="feather-chevrons-right"></i></a> -->
             </div>
 
             <div class="most_sale">

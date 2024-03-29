@@ -60,7 +60,7 @@
 </div>
 <div class="container">
     <p class="font-weight-bold pt-4 m-0">FEATURED ITEMS</p>
-    <div class="row py-4">
+    <div class="row py-4 d-flex justify-content-center">
         <?php foreach ($restaurants as $foods) { ?>
             <div class="col-md-3 pb-3" style="cursor: pointer;">
                 <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm"

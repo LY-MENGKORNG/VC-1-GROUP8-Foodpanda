@@ -231,7 +231,8 @@ function getAllFavorite(): array
     return $stmt->fetchAll();
 }
 
-function topSellingProduct() : array {
+function topSellingProduct(): array
+{
     global $connection;
     $stmt = $connection->prepare(
         "SELECT checkout.food_id, SUM(checkout.quantity) AS total_sales, foods.food_name, foods.cate_id, foods.image, 
@@ -243,6 +244,14 @@ function topSellingProduct() : array {
         ORDER BY total_sales DESC
         LIMIT 3;"
     );
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getLocation(): array
+{
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM locations");
     $stmt->execute();
     return $stmt->fetchAll();
 }

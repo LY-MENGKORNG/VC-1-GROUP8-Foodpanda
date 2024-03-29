@@ -24,7 +24,7 @@
                         </a>
                         <div class="dropdown-menu p-0 drop-loc" aria-labelledby="navbarDropdown">
                             <div class="osahan-country">
-                                <div class="search_location main_bg p-3 text-right">
+                                <div class="search_location bg-primary p-3 text-right">
                                     <div class="input-group rounded shadow-sm overflow-hidden">
                                         <div class="input-group-prepend">
                                             <button class="border-0 btn text-dark btn-block">
@@ -38,50 +38,22 @@
                                 <div class="p-3 border-bottom">
                                     <a href="/customer" class="text-decoration-none">
                                         <p class="font-weight-bold main_color m-0">
-                                            <i class="feather-navigation"></i> New York, USA
+                                            <i class="feather-navigation"></i> Phnom penh
                                         </p>
                                     </a>
                                 </div>
                                 <div class="filter">
                                     <h6 class="px-3 py-3 bg-light pb-1 m-0 border-bottom">
-                                        Choose your country
+                                        Choose your location
                                     </h6>
-                                    <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio1" name="location"
-                                            class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3"
-                                            for="customRadio1">Afghanistan</label>
-                                    </div>
-                                    <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio2" name="location"
-                                            class="custom-control-input" checked />
-                                        <label class="custom-control-label py-3 w-100 px-3"
-                                            for="customRadio2">India</label>
-                                    </div>
-                                    <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio3" name="location"
-                                            class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3"
-                                            for="customRadio3">USA</label>
-                                    </div>
-                                    <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio4" name="location"
-                                            class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3"
-                                            for="customRadio4">Australia</label>
-                                    </div>
-                                    <div class="custom-control border-bottom px-0 custom-radio">
-                                        <input type="radio" id="customRadio5" name="location"
-                                            class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3"
-                                            for="customRadio5">Japan</label>
-                                    </div>
-                                    <div class="custom-control px-0 custom-radio">
-                                        <input type="radio" id="customRadio6" name="location"
-                                            class="custom-control-input" />
-                                        <label class="custom-control-label py-3 w-100 px-3"
-                                            for="customRadio6">China</label>
-                                    </div>
+                                    <?php foreach ($locations as $location) { ?>
+                                        <div class="custom-control border-bottom px-0 custom-radio">
+                                            <input type="radio" id="<?= $location["city"] ?>" name="location"
+                                                class="custom-control-input" />
+                                            <label class="custom-control-label py-3 w-100 px-3"
+                                                for="<?= $location["city"] ?>"><?= $location["city"] ?></label>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -97,7 +69,7 @@
                             </div>
                         </a>
 
-                        <a href="/customer/offers" class="btn main_bg text-white widget-header mr-4  m-none">
+                        <a href="/customer/offers" class="btn btn-primary text-white widget-header mr-4  m-none">
                             <div class="icon d-flex align-items-center">
                                 <i class="feather-disc h6 mr-2 mb-0"></i>
                                 <span>Offers</span>

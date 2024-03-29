@@ -8,9 +8,9 @@
 
     <div class="container position-relative">
         <form action="/restaurant/edit_profile" method="post" class="py-5 row" enctype="multipart/form-data">
-            <div class="col-md-4 mb-3">
-                <div class="white-block rounded shadow-sm sticky_sidebar overflow-hidden p-5 d-flex flex-column align-items-center position-relative">
-                    <div class="left rounded-circle d-flex align-items-center position-relative overflow-hidden" style="width: 150px; height: 150px;">
+            <div class="col-md-4 mb-3 white-block">
+                <div class=" rounded shadow-sm sticky_sidebar overflow-hidden p-5 d-flex flex-column align-items-center position-relative">
+                    <div class="left rounded-circle d-flex border align-items-center position-relative overflow-hidden" style="width: 150px; height: 150px;">
                         <img alt="#" id="originImage" src="../../assets/images/uploads/owner_profile/<?= isset($restaurant_owner["profile"]) ? $restaurant_owner["profile"] : 'avatar.png' ?>" style="width: 100%; border: 1px solid gray;">
                     </div>
                     <div class="rounded-circle bg-light position-absolute d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; bottom: 40%; right: 25%; border: 1px solid gray;" >
@@ -58,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="white-block">
+                <!-- <div class="white-block">
                     <div class="additional">
                         <div class="change_password my-3">
                             <a href="/restaurant/change_password" class="p-3 border rounded bg-white btn d-flex align-items-center">Change
@@ -71,7 +71,7 @@
                                 <i class="feather-arrow-right ml-auto"></i></a>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </form>
     </div>
