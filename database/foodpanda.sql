@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2024 at 01:54 AM
+-- Generation Time: Mar 30, 2024 at 06:52 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -42,10 +42,11 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`address_id`, `address_name`, `address_type`, `delivery_id`, `customer_id`, `latitude`, `longitude`) VALUES
-(9, 'kang meas kampong cham', 'Home', 26, 7, '11.9504688', '105.2707989'),
-(11, 'khan sen sok', 'Work', 26, 7, '11.5785557', '104.8692475'),
-(12, 'Khan mean chey phnom penh', 'Work', 5, 37, '11.5315089', '104.8984702'),
-(13, 'Ou Baek K\'am', 'Work', 5, 39, '11.5508326', '104.8746526');
+(15, 'khan sen sok, phnom penh, cambodia', 'Work', 48, 43, '11.5785557', '104.8692475'),
+(16, 'Phnom Penh International Airport', 'Other', 46, 43, '11.5470571', '104.84811156075017'),
+(17, 'Phnom Penh International Airport', 'Work', 48, 43, '11.5470571', '104.84811156075017'),
+(18, 'Phnom Penh International Airport', 'Work', 48, 43, '11.5470571', '104.84811156075017'),
+(19, 'International Airport', 'Work', 52, 43, '-33.9349749', '151.1658747');
 
 -- --------------------------------------------------------
 
@@ -66,14 +67,13 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`cate_id`, `restaurant_id`, `cate_name`, `description`, `cate_img`) VALUES
-(2, 13, 'American', 'Hello world', 'Burger.png'),
-(4, 13, 'Khmer', 'Hello world', 'Salad.png'),
-(8, 12, 'Italian', 'Hello world', 'Pizza.png'),
-(9, 12, 'Drink', 'Hello world', 'Coffee.png'),
-(10, 10, 'Thai', 'How do you want to get started', 'Fries.png'),
-(11, 10, 'France', 'Hello, this is france food\r\n', 'france.png'),
-(15, 9, 'Nom Khmer', 'fsdfhajdf', 'k\'tom.png'),
-(16, 9, 'Japanese fried rice', 'hello world', 'Japanese-food-omurice-1024x683-removebg-preview.png');
+(19, 17, 'France', 'Enjoy with our France foods', 'france.png'),
+(20, 16, 'Khmer', 'Enjoy with khmer food', 'Salad.png'),
+(21, 16, 'American', 'Enjoy with our american food', 'Burger.png'),
+(22, 16, 'Japanese', 'Enjoy with japanese food', 'japanese.png'),
+(23, 18, 'Italian', 'Enjoy with Italian food', 'Pizza.png'),
+(29, 16, 'Potatoes', 'Enjoy with our product', 'Fries.png'),
+(30, 20, 'Desert', 'Enjoy with new desert', 'k\'tom.png');
 
 -- --------------------------------------------------------
 
@@ -116,11 +116,9 @@ CREATE TABLE `checkout` (
 --
 
 INSERT INTO `checkout` (`checkout_id`, `food_id`, `quantity`, `price_amount`, `user_id`, `checkout_date`, `food_name`, `order_id`) VALUES
-(38, 12, 1, 5, 37, '2024-03-24 13:10:48', 'Nok ah kour', 18),
-(39, 14, 2, 5, 7, '2024-03-24 15:18:30', 'plea sach kor', 19),
-(40, 5, 1, 3, 37, '2024-03-24 15:24:41', 'Unknown food', 20),
-(41, 11, 1, 5, 37, '2024-03-24 15:24:41', 'Nom banh jok', 20),
-(42, 14, 2, 5, 39, '2024-03-24 22:44:31', 'plea sach kor', 21);
+(54, 17, 2, 20, 43, '2024-03-28 19:36:48', 'Châteaubriand', 29),
+(55, 21, 2, 5, 43, '2024-03-28 20:44:21', 'Spahetti', 30),
+(56, 23, 2, 5, 43, '2024-03-29 12:44:39', 'pumpkins desert', 31);
 
 -- --------------------------------------------------------
 
@@ -168,16 +166,13 @@ CREATE TABLE `foods` (
 --
 
 INSERT INTO `foods` (`food_id`, `cate_id`, `food_name`, `image`, `quantity`, `price`, `rating`, `discount`) VALUES
-(2, 8, 'Unknown', 'popular1.png', 50, 5, 5, 0),
-(3, 8, 'Italian desert', 'popular8.png', 100, 5, 5, 0),
-(5, 2, 'Unknown food', 'popular2.png', 45, 3, 4, 0),
-(8, 10, 'Tong yam', 'thai food.jpg', 50, 5, 3, 0),
-(9, 11, 'Omelet', 'france food.jpg', 20, 10, 4, 0),
-(10, 9, 'Pokis', 'pokis.jpg', 100, 2, 4, 0),
-(11, 2, 'Nom banh jok', 'Nom banh jok.jpg', 100, 5, 4, 0),
-(12, 15, 'Nok ah kour', 'khmer desert1.jpg', 50, 5, 4, 0),
-(13, 15, 'pumpkin desert ', 'khmer desert2.jpg', 25, 5, 5, 0),
-(14, 4, 'plea sach kor', 'plea sach jrok.jpg', 50, 5, 5, 0);
+(17, 19, 'Châteaubriand', 'Châteaubriand.jpg', 43, 20, 4, 0),
+(18, 20, 'Ah mok', 'ah mok.jpg', 50, 5, 5, 0),
+(19, 21, 'Steak', 'img8.jpg', 50, 50, 5, 0),
+(20, 22, 'Sushi', 'japanese food.jpg', 100, 50, 5, 0),
+(21, 23, 'Spahetti', 'spahetti.jpg', 100, 5, 5, 0),
+(22, 29, 'potatoes', 'thai food.jpg', 50, 5, 3, 0),
+(23, 30, 'pumpkins desert ', 'khmer desert2.jpg', 50, 5, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -276,23 +271,9 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `customer_id`, `delivery_id`, `order_status`, `order_date`, `restaurant_name`, `deliver_date`, `restaurant_img`, `address_id`) VALUES
-(18, 37, 26, 'On progress', '2024-03-24 13:10:48', 'KPC 168', NULL, 'pexels-lawrence-suzara-1581554.jpg', 9),
-(19, 7, 26, 'On progress', '2024-03-24 15:18:30', 'Kon nak Siemeap', NULL, 'pexels-igor-starkov-1055058.jpg', 11),
-(20, 37, 5, 'On progress', '2024-03-24 15:24:41', 'Kon nak Siemeap', NULL, 'pexels-igor-starkov-1055058.jpg', 12),
-(21, 39, 5, 'On progress', '2024-03-24 22:44:31', 'Kon nak Siemeap', NULL, 'pexels-igor-starkov-1055058.jpg', 13);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `order_details`
---
-
-CREATE TABLE `order_details` (
-  `order_details_id` int(11) NOT NULL,
-  `checkout_id` int(11) DEFAULT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `payment_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+(29, 43, 48, 'On progress', '2024-03-28 19:36:48', 'Battombong Restaurant', NULL, 'battombong.jpg', 15),
+(30, 43, 48, 'On progress', '2024-03-28 20:44:21', 'Phnom penh Restaurant', NULL, 'pexels-igor-starkov-1055058.jpg', 17),
+(31, 43, 52, 'On progress', '2024-03-29 12:44:39', 'Siem reap Restaurant', NULL, 'pexels-zak-chapman-2290753.jpg', 18);
 
 -- --------------------------------------------------------
 
@@ -309,18 +290,18 @@ CREATE TABLE `payments` (
   `card_name` varchar(255) DEFAULT NULL,
   `payment_date` datetime DEFAULT current_timestamp(),
   `payment_amount` int(11) DEFAULT NULL,
-  `promo_code` varchar(255) DEFAULT NULL
+  `promo_code` varchar(255) DEFAULT NULL,
+  `method` varchar(255) DEFAULT 'VISA'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `payments`
 --
 
-INSERT INTO `payments` (`payment_id`, `user_id`, `card_number`, `valid_through`, `cvv`, `card_name`, `payment_date`, `payment_amount`, `promo_code`) VALUES
-(21, 37, 'Kon khmer', '12/24', 1231, 'Kon khmer', '2024-03-24 13:10:48', 5, 'hi123'),
-(22, 7, 'master card', '12/24', 1234, 'master card', '2024-03-24 15:18:30', 5, 'korng369'),
-(23, 37, 'master card', '12/24', 1234, 'master card', '2024-03-24 15:24:41', 8, 'mengkorng123'),
-(24, 39, 'visa card', '12/24', 1232, 'visa card', '2024-03-24 22:44:31', 5, 'chhuneii123');
+INSERT INTO `payments` (`payment_id`, `user_id`, `card_number`, `valid_through`, `cvv`, `card_name`, `payment_date`, `payment_amount`, `promo_code`, `method`) VALUES
+(31, 43, 'Cassady Saunders', '12/24', 232, 'Cassady Saunders', '2024-03-28 19:36:48', 20, 'hi322', 'VISA'),
+(32, 43, 'mengkorng visa', '12/24', 123, 'mengkorng visa', '2024-03-28 20:44:21', 5, 'hi23', 'VISA'),
+(33, 43, 'mengkorng visa', '12/24', 1231, 'mengkorng visa', '2024-03-29 12:44:39', 5, ' ', 'MASTER CARD');
 
 -- --------------------------------------------------------
 
@@ -334,7 +315,6 @@ CREATE TABLE `restaurants` (
   `restaurant_name` varchar(255) DEFAULT NULL,
   `location` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
   `opening_hour` int(11) DEFAULT NULL,
   `contact_info` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -346,11 +326,12 @@ CREATE TABLE `restaurants` (
 -- Dumping data for table `restaurants`
 --
 
-INSERT INTO `restaurants` (`restaurant_id`, `owner_id`, `restaurant_name`, `location`, `email`, `password`, `opening_hour`, `contact_info`, `description`, `restaurant_img`, `rating`) VALUES
-(9, 11, 'KPC 168', 'Kampong Cham', 'kampong.cham@restaurant.com', '$2y$10$vZORMEt2r3XjKxFMDWKsnOug0BZvgb5OvtmKFJI9ZYK740YVkclES', 8, '+1 (124) 985-1702', 'gfsglk', 'pexels-lawrence-suzara-1581554.jpg', '1'),
-(10, 9, 'Khmerhouse', 'Battombong', 'battombong.restaurant@email.com', '$2y$10$xM5JSvFkL6T2ikbfweZ7FeD.ENYKPqfCc9.KMyFiZCoRIy8T5HERa', 8, '+1 (146) 552-6397', 'herasdkfa;s', 'pexels-huy-phan-1383776.jpg', '1'),
-(12, 8, 'KFC Cambodia', 'Phnom Penh', 'kfc.cambodia@restaurant.com', '$2y$10$bhuYDhooln9VNJ5Mig2TCObc7Nm8XuJNDVceYSnaUfmB7210CXQk6', 8, '+1 (413) 887-4212', 'hdasdfha', 'pexels-zak-chapman-2290753.jpg', '1'),
-(13, 4, 'Kon nak Siemeap', 'Siem Reap', 'siemreap.restaurant@emai.com', '$2y$10$xlqURWvw0joW72TiiRRPKucM/x59vnE7btkH10La6IwqJojLFlwQ.', 8, '+1 (159) 787-4677', 'fasdfhadf', 'pexels-igor-starkov-1055058.jpg', '1');
+INSERT INTO `restaurants` (`restaurant_id`, `owner_id`, `restaurant_name`, `location`, `email`, `opening_hour`, `contact_info`, `description`, `restaurant_img`, `rating`) VALUES
+(16, 47, 'KPC Restaurant', 'Kampong Cham', 'kpc.restaurant@email.com', NULL, '+1 (124) 985-1702', 'Welcome to KPC restaurant', 'kpc restaurant.jpg', '1'),
+(17, 44, 'Battombong Restaurant', 'Battombong', 'battombong.restaurant@email.com', NULL, '+1 (124) 985-1702', 'Welcome to battombong restaurant', 'battombong.jpg', '1'),
+(18, 49, 'Phnom penh Restaurant', 'Phnom penh', 'phnompenh.restaurant@gmail.com', NULL, '012332232', 'Welcome to Phnom penh restaurant', 'pexels-igor-starkov-1055058.jpg', '1'),
+(19, 50, 'KFC Restaurant', 'Phnom penh', 'kfc.restaurant@gmail.com', NULL, '012 34 12123', 'welcome to kfc restaurant', '3609b0f6a2ee7874a04689027a311537.jpg', '1'),
+(20, 51, 'Siem reap Restaurant', 'Siem reap', 'siemreap.restaurant@gmail.com', NULL, '015 23 32 23', 'Welcome to Siem reap restaurant', 'pexels-zak-chapman-2290753.jpg', '1');
 
 -- --------------------------------------------------------
 
@@ -418,22 +399,16 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, `phone`, `profile`, `registration_date`, `role_id`, `verify_codes`) VALUES
-(3, 'mengkorng', 'ly', 'mengkorng.ly@admin.passerellesnumeriques.org', '$2y$10$JVRwfiaALFs4J4jCtUG6DejTxcRlQoLj2shkQ5G/MvhsyteYAP8Sa', '+1 (403) 454-5718', 'photo_2023-11-03_22-01-29.jpg', '2024-03-09 14:32:46', 1, NULL),
-(4, 'LIEP', 'TOEUR', 'liep.toeur@owner.passerellesnumeriques.org', '$2y$10$6lHsg0tF4P8Zd.he7ME9Be1XrOJDhUuHXW7w5gE/81xlDacnpHe5a', '+1 (413) 887-4212', 'photo_2024-02-05_08-38-15.jpg', '2024-03-09 16:41:22', 2, NULL),
-(5, 'chhun eii', 'kokko', 'chhuneii.koko@delivery.passerellesnumeriques.org', '$2y$10$020QnfS7kmGQEnsg7pYJmOLQhTncWeMUD7hglBX2L1Xfmd6LBxJ.u', '+1 (413) 887-4212', 'photo_2024-03-07_13-26-04.jpg', '2024-03-09 16:51:56', 3, NULL),
-(6, 'mengkorng', 'smossne', 'mengkorng.ly@deliverysmos.passerellesnumeriques.org', '$2y$10$XMQzpohUKbCwi2g5gyJ6wO4Df6Ae/myD27wvy/pI6ONLPyOJ98o0e', '+1 (146) 552-6397', 'photo_2023-11-03_22-01-29.jpg', '2024-03-10 00:05:08', 3, NULL),
-(7, 'mengkorng', 'ly', 'mengkorng.ly@customer.passerellesnumeriques.org', '$2y$10$1YVvyNlo1iz6jfK6k/ObZu07vI0gTA6Yucw5G1O5n5zkPLtWm.Fze', '+1 (403) 454-5718', 'photo_2023-11-03_22-01-29.jpg', '2024-03-10 01:28:13', 4, NULL),
-(8, 'DAVIT', 'CHOEUN', 'davit.choeun@owner.passerellesnumeriques.org', '$2y$10$yyHkGXdQ8RWpwj8VOTfT/.xySIlM45/R5Vswn3AmCxsQmc7/IZN0S', '+1 (256) 547-6668', 'photo_2024-03-06_10-57-53.jpg', '2024-03-10 02:55:49', 2, NULL),
-(9, 'CHHUN EII', 'OEUY', 'chhuneii.oeuy@owner.passerellesnumeriques.org', '$2y$10$OoGla5omDCaojLM6nTowjuLoaHavWGv0pBTh68Ow4pxBfDqOlOR1q', '+1 (413) 887-4212', 'photo_2024-02-25_16-18-50.jpg', '2024-03-10 12:03:40', 2, NULL),
-(10, 'thary', 'oeun', 'thary.oeun@customer.passerellesnumeriques.org', '$2y$10$aDZhDbmRYJGE5hnUFtkKP.hcgckcsu.FaWA5cM930l3dK582aSplW', '0979899310', 'thary-customer.jpg', '2024-03-10 14:55:22', 4, NULL),
-(11, 'THARY', 'OEUN', 'thary.oeun@owner.passerellesnumeriques.org', '$2y$10$lE6.si3kgM0csIBwig1umelvNZq6Y3wNXZwV6i8C14cPqXXVLHt7W', '+1 (124) 985-1702', 'photo_2023-12-04_20-05-22.jpg', '2024-03-11 14:05:34', 2, NULL),
-(24, 'mengkorng123', 'ly', 'mengkorng.ly@newcustomer.passerellesnumeriques.org', '$2y$10$3PeKc36DOh7FQO2Mi4GLCu4rufhXaSk3QM6ClQpwgCNnDmgW18ZLG', '+1 (526) 259-6055', NULL, '2024-03-12 11:58:47', 4, NULL),
-(25, 'DAVIT', 'CHOEUN', 'davit.choeun@customer1.passerellesnumeriques.org', '$2y$10$HYdBPtQ.qiXMil0o1EJOF.bVx0a/p0xjX2wPsY1JFKBHSHfK.K43q', '+1 (464) 441-4173', NULL, '2024-03-12 20:55:18', 4, NULL),
-(26, 'Thary', 'oeun', 'thary.oeun@delivery.passerellesnumeriques.org', '$2y$10$3Jft1FiLSlo1jITaXh5XKuBLLCAqEBaKftidILAWiklROJZlGj.Zq', '+1 (335) 247-6512', 'photo_2023-12-04_20-05-22.jpg', '2024-03-21 07:58:27', 3, NULL),
-(27, 'Chin', 'Zencara', 'czencara@gmail.com', '$2y$10$ofmTNnT7pJov81Q32vPSOu0W0weDdxzINGfogshM5zRWfS9q/AEIC', '016659556', NULL, '2024-03-23 11:39:29', 4, 0),
-(37, 'korng', 'customer', 'mengkorng.ly@student.passerellesnumeriques.org', '$2y$10$XuuI/WPxnHheSCWa526bGuBKk0ANkat2Zd6VaqlsOp7ySaX2tAwhi', '087861976', 'yi sun shin.jpg', '2024-03-24 02:20:01', 4, 0),
-(38, 'DAVIT ', 'CHOEUN(delivery)', 'davit.choeun@student.passerellesnumeriques.org', '$2y$10$57hp7AJSlK2dbEDgIt4FYOGB3czi0JUoInjLAnxurGfKmojvphs/m', '+1 (413) 887-4212', NULL, '2024-03-24 18:07:54', 3, NULL),
-(39, 'CHHUN EII', 'OEUY(customer)', 'chhuneii.oeuy@student.passerellesnumeriques.org', '$2y$10$3YMPsoxOyjuicmQVqD2vp.M5Eq8iF6KYOLF/wJ6NVzPFz/UQViFDq', '+1 (526) 259-6055', 'photo_2024-03-07_13-26-04.jpg', '2024-03-24 22:38:16', 4, NULL);
+(42, 'mengkorng', 'Admin', 'mengkorng.ly@student.passerellesnumeriques.org', '$2y$10$1DRpkBVuHOn4lMEverOWbOgjFd5CnCO5TIhgsoFfzdWrQwP35AtTS', '+1 (373) 603-4309', 'mengkorng_owner.jpg', '2024-03-28 01:55:22', 1, NULL),
+(43, 'mengkorng', 'ly(customer1)', 'lymengkorng54@gmail.com', '$2y$10$kNGURxDSf/cpVuMbv7hcz.aHjUDXYvcvB4gF7gegHfpdS5Yy8za3G', '+1 (464) 441-4173', 'photo_2023-11-03_22-01-29.jpg', '2024-03-28 15:02:39', 4, 0),
+(44, 'CHHUN EII', 'OEUY(owner)', 'chhuneii.oeuy@student.passerellesnumeriques.org', '$2y$10$Xe8Gq.O6eo6ZEZg8cWITtO2nAtKKkytL5wNgRMO8e9Or9s5jxV/Bi', '+1 (124) 985-1702', 'photo_2024-02-25_16-18-50.jpg', '2024-03-28 16:09:09', 2, NULL),
+(46, 'CHHUN EII', 'OEUY(delivery)', 'chhuneii.koko@delivery.passerellesnumeriques.org', '$2y$10$4WrRZC3f.2AAq2KSdyeWduQ7/HIUi/Z3xJWgyn8KwvKdO4B3oKXA2', '+1 (159) 787-4677', 'photo_2024-03-07_13-26-04.jpg', '2024-03-28 19:06:58', 3, NULL),
+(47, 'LIEP', 'TOEUR(owner)', 'liep.toeur@student.passerellesnumeriques.org', '$2y$10$RCGEO0gVakuzdZnIXG7iresU1uImUSFWhRCJT0zwfo4Hwy0NFhEAm', '+1 (146) 552-6397', 'photo_2024-02-05_08-38-15.jpg', '2024-03-28 19:09:18', 2, NULL),
+(48, 'mengkorng', 'ly(delivery2)', 'mengkorng.ly@delivery.passerellesnumeriques.org', '$2y$10$Ej0NKJIjjnTU612.quAl9OqhMiFgJofh5oAqRvnFFHJo.szQeVB9y', '+1 (159) 787-4677', 'yi sun shin.jpg', '2024-03-28 19:23:11', 3, NULL),
+(49, 'davit', 'owner', 'davit.chhoen@owner.passerellesnumeriques.org', '$2y$10$qcVEquEl9LHhnQCW1WIyGuPQjRo7VqDPwVPQX8Hu5oDjZkltvRc6y', '012 34 12123', 'photo_2024-03-06_10-57-53.jpg', '2024-03-28 20:33:02', 2, NULL),
+(50, 'mengkorng', 'owner', 'mengkorng.ly@owner.passerellesnumeriques.org', '$2y$10$xTgkASuZl/YDFh5siJE/8upsC8S2ULfp0jLyAwqPEUIVLzh0JjG5O', '097 34 23 43', 'baki.png', '2024-03-29 00:14:20', 2, NULL),
+(51, 'Thary ', 'owner', 'thary.ouen@owner.passerellesnumeriques.org', '$2y$10$Nm1SZ9thoH.Gp4YDEEEKwueuSvNWUblNURhsayytdP.yJ0Lp3C9Um', '012 34 343', 'photo_2023-12-04_20-05-22.jpg', '2024-03-29 12:33:24', 2, NULL),
+(52, 'davit', 'delivery', 'davit.chhoen@delivery.passerellesnumeriques.org', '$2y$10$BYq7y7JUjzihSPpLv1JQP.63QoqNKbO7y4m2xXd3HooQ9dnI8IcaO', '+1 (898) 436-4963', NULL, '2024-03-29 12:39:46', 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -535,15 +510,6 @@ ALTER TABLE `orders`
   ADD KEY `delivery_id` (`delivery_id`);
 
 --
--- Indexes for table `order_details`
---
-ALTER TABLE `order_details`
-  ADD PRIMARY KEY (`order_details_id`),
-  ADD KEY `payment_id` (`payment_id`),
-  ADD KEY `order_id` (`order_id`),
-  ADD KEY `checkout_id` (`checkout_id`);
-
---
 -- Indexes for table `payments`
 --
 ALTER TABLE `payments`
@@ -580,19 +546,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `cate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `checkout`
 --
 ALTER TABLE `checkout`
-  MODIFY `checkout_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `checkout_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -610,7 +576,7 @@ ALTER TABLE `favorites`
 -- AUTO_INCREMENT for table `foods`
 --
 ALTER TABLE `foods`
-  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `locations`
@@ -622,25 +588,19 @@ ALTER TABLE `locations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `order_details`
---
-ALTER TABLE `order_details`
-  MODIFY `order_details_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -652,7 +612,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- Constraints for dumped tables
@@ -703,14 +663,6 @@ ALTER TABLE `foods`
 ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE,
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`delivery_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
-
---
--- Constraints for table `order_details`
---
-ALTER TABLE `order_details`
-  ADD CONSTRAINT `order_details_ibfk_1` FOREIGN KEY (`payment_id`) REFERENCES `payments` (`payment_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `order_details_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `order_details_ibfk_3` FOREIGN KEY (`checkout_id`) REFERENCES `checkout` (`checkout_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `payments`
